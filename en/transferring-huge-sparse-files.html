@@ -1,0 +1,126 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Transferring huge sparse files</title>
+<meta name="description" content="How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin transferring-huge-sparse-files -->
+		<div class="post">
+			<h2><a href="transferring-huge-sparse-files.html">Transferring huge sparse files</a></h2>
+			<p class="trivia">
+				Created: 2020-01-24 &mdash; modified: 2020-03-01 &mdash; tags: Linux bash python
+			</p>
+			<p class="intro">How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another</p>
+			<p>Imagine that you've just created a huge filesystem image, for example like this:</p>
+
+<pre><code>$ dd if=/dev/zero of=f count=0 bs=1M seek=1M 2&gt;/dev/null
+$ mkfs.ext4 f &gt;/dev/null
+$ ls -lh f
+-rw-rw-r-- 1 lex lex 1,0T jan.  26 18:25 f
+$ du --human-readable f
+139M    f
+</code></pre>
+
+<p>As you see, it actually takes only 139M of disk space, but from outside looks like a 1Tb file.
+As a result, most of file-manipulation programs treat it as such.
+Even those which claim support for such files (<code>cp --sparse=auto</code>, <code>rsync --sparse</code>, <code>dd conv=sparse</code>)
+still check file sparseness by reading all file "holes" (areas of sparse file that are known not to contain any data) and checking that they are all zeroes.
+Is it possible to do it better?</p>
+
+<p>Yes, you just need to check file holes!</p>
+
+<p>For this, you can use <a href="https://pypi.org/project/sparseutils/">sparseutils</a> Python package (found via <a href="https://unix.stackexchange.com/a/395051/328346">this StackOverflow answer</a>), which prints data and hole areas of the file.
+And below you can see a Python script which converts such output into two shell scripts:
+first script converts your input sparse file into an intermediate non-sparse file with the size equal to disk space occupied by the sparse file (by eliminating all holes and squashing all data areas together),
+and second restores original sparse file from the intermediate one.
+This is the script:</p>
+
+<pre><code>#!/usr/bin/python
+import sys
+pos_small=0
+pos_big=0
+
+# https://stackoverflow.com/a/18944210
+def gcd(x, y):
+    while y != 0:
+        (x, y) = (y, x % y)
+    return x
+
+def show(pos_big, pos_small, size):
+    c = gcd(pos_big, gcd(pos_small, size))
+    pos_big /= c
+    pos_small /= c
+    size /= c
+    if sys.argv[1] != '2':
+        print("dd if=$1 of=$2 bs=%d skip=%d seek=%d count=%d conv=nocreat,notrunc" %
+            (c, pos_big, pos_small, size))
+    else:
+        print("dd if=$1 of=$2 bs=%d skip=%d seek=%d count=%d conv=nocreat,notrunc" %
+            (c, pos_small, pos_big, size))
+
+if len(sys.argv) &lt; 2:
+    print("Usage: %s 1-or-2" % sys.argv[0])
+    sys.exit(1)
+
+for line in sys.stdin:
+    what = line[:5]
+    size = int(line[5:])
+    if what == 'DATA ':
+        show(pos_big, pos_small, size)
+        pos_small += size
+    pos_big += size
+</code></pre>
+
+<p>And this is how you use it:</p>
+
+<pre><code>$ python3 sparseutils/sparsemap.py f | ./script.py 1 &gt;f1.sh
+$ touch f.x
+$ sh f1.sh f f.x 2&gt;/dev/null
+$ ls -lh f.x
+-rw-rw-r-- 1 lex lex 139M jan.  26 18:53 f.x
+</code></pre>
+
+<p>As you can see, size of <code>f.x</code> file equals to disk usage of <code>f</code> file!</p>
+
+<p>After that, you create a second script like this:</p>
+
+<pre><code>$ python3 sparseutils/sparsemap.py f | ./script.py 2 &gt;f2.sh
+</code></pre>
+
+<p>Transfer files <code>f2.sh</code> and <code>f.x</code> to the target computer, and create copy of file <code>f</code> like this:</p>
+
+<pre><code>$ dd if=/dev/zero of=g count=0 bs=1M seek=1M 2&gt;/dev/null
+$ sh f2.sh f.x g 2&gt;/dev/null
+$ ls -lh g
+-rw-rw-r-- 1 lex lex 1,0T jan.  26 19:01 g
+$ du --human-readable g
+139M    g
+</code></pre>
+
+<script src="/microlight.js"></script>
+		</div>
+		<!-- end transferring-huge-sparse-files -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

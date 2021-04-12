@@ -1,0 +1,57 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Incremental backup с помощью TAR</title>
+<meta name="description" content="Как настроить автоматическую архивацию так, чтобы она занимала минимум времени">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Фото</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Заметки</a></h1>
+		<p>Записи о разном</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin incremental-backup-с-помощью-tar -->
+		<div class="post">
+			<h2><a href="incremental-backup-с-помощью-tar.html">Incremental backup с помощью TAR</a></h2>
+			<p class="trivia">
+				Создано: 2014-02-12 &mdash; изменено: 2015-10-03 &mdash; метки: ссылки linux
+			</p>
+			<p class="intro">Как настроить автоматическую архивацию так, чтобы она занимала минимум времени</p>
+			<p>На сайте <a href="http://alex-at.ru/linux/tar-linux">alex-at.ru</a> подробно рассказано, как настроить инкрементальную архивацию с помощью TAR.</p>
+
+<p>Краткий конспект:</p>
+
+<p>Запускать <code>tar</code> с таким набором параметров:</p>
+
+<pre><code>/bin/tar --create --ignore-failed-read --one-file-system --preserve-permissions --recursion --preserve-order --sparse --totals --wildcards --verbose --gzip --file=файл_бэкапа --listed-incremental=файл_метаданных --exclude-from=файл_исключений путь_который_бэкапим
+</code></pre>
+
+<p>При этом файл_метаданных обновляется (что, может быть, нежелательно). Поэтому держим файл_метаданных, соответствующий каждому созданному архиву, и при создании нового архива <strong>делаем копию</strong> и указываем путь того файла_метаданных, на основе "чьего" архива хотим создать текущий.</p>
+
+<p>Тогда можно сделать приколы типа:</p>
+
+<blockquote>
+  <p>делать полный бэкап каждый месяц, каждую неделю делать разность от ежемесячного бэкапа, а каждый день - от прошлого дня</p>
+</blockquote>
+
+<p>Более подробно об этом - <a href="/en/incremental-backups.html">в моем англоязычном блоге</a></p>
+		</div>
+		<!-- end incremental-backup-с-помощью-tar -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Алексей Шпаковский</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(щелкните чтобы увидеть адрес)</a>
+	</div>
+</div>
+</body></html>

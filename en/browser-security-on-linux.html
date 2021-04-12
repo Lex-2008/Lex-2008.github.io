@@ -1,0 +1,56 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Browser security on Linux</title>
+<meta name="description" content="A Linux.com article I totally agree with">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin browser-security-on-linux -->
+		<div class="post">
+			<h2><a href="browser-security-on-linux.html">Browser security on Linux</a></h2>
+			<p class="trivia">
+				Created: 2017-05-10 &mdash; modified: 2017-05-11 &mdash; tags: Linux security
+			</p>
+			<p class="intro">A Linux.com article I totally agree with</p>
+			<p>A good article that summarizes my own thoughts on hardening browser on Linux:</p>
+
+<p><a href="https://www.linux.com/news/linux-workstation-security/2017/5/4-best-practices-web-browser-security-your-linux-workstation">4 Best Practices for Web Browser Security on Your Linux Workstation</a> <a href="/cache/browser-security-on-linux.html">(archived copy)</a>.</p>
+
+<p>tl;dr version is like this:</p>
+
+<blockquote>
+  <ol>
+<li><p>Use different browsers for "trusted" websites and "rest of the world"</p></li>
+<li><p>Use <a href="https://firejail.wordpress.com/">firejail</a></p></li>
+<li><p>Isolate "trusted" and "others" graphic environments from each other.</p></li>
+</ol>
+</blockquote>
+
+<p>There is one thing I'd like to highlight, however: it's not your trusted browser you should put into a firejail sandbox, but an "untrusted" one. Because otherwise malicious apps, sitting in an untrusted browser, will be able to access your whole system, incluiding the sandboxed "trusted" browser.</p>
+
+<p>I'd also consider using a separate machine for banking websites :-)</p>
+		</div>
+		<!-- end browser-security-on-linux -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

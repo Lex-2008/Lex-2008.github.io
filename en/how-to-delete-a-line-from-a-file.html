@@ -1,0 +1,70 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>How to delete a line from a file</title>
+<meta name="description" content="If you know what line to delete...">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin how-to-delete-a-line-from-a-file -->
+		<div class="post">
+			<h2><a href="how-to-delete-a-line-from-a-file.html">How to delete a line from a file</a></h2>
+			<p class="trivia">
+				Created: 2014-12-15 &mdash; modified: 2014-12-15 &mdash; tags: bash vim
+			</p>
+			<p class="intro">If you know what line to delete...</p>
+			<p>Say, for example, you got this message from SSH:</p>
+
+<pre><code>Offending key in /home/alexey/.ssh/known_hosts: 6
+</code></pre>
+
+<p>and you know what it means and you know why it's there and you want to remove it.</p>
+
+<h2>Vim</h2>
+
+<p>First, you can open your favourite text editor:</p>
+
+<pre><code>$ vim .ssh/known_hosts
+</code></pre>
+
+<p>and then, type this to <strong>G</strong>o to the <strong>6</strong>th line, <strong>D</strong>elete it, and quit with saving (<strong>ZZ</strong>):</p>
+
+<pre><code>6ggddZZ
+</code></pre>
+
+<h2>Sed</h2>
+
+<p>But there's an easier way!</p>
+
+<p>just use sed:</p>
+
+<pre><code>$ sed -i 6d .ssh/known_hosts
+</code></pre>
+
+<p>to edit file <strong>I</strong>n-place by <strong>D</strong>eleting <strong>6</strong>th line.</p>
+
+<p>Much less typing, don't you think?</p>
+		</div>
+		<!-- end how-to-delete-a-line-from-a-file -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

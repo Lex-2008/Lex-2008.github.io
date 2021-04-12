@@ -1,0 +1,178 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>set -e inconsistency inside blocks</title>
+<meta name="description" content="<code>set -e</code> might work not as you expected inside (parentheses).">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin set--e-inconsistency-inside-blocks -->
+		<div class="post">
+			<h2><a href="set--e-inconsistency-inside-blocks.html">set -e inconsistency inside blocks</a></h2>
+			<p class="trivia">
+				Created: 2019-02-15 &mdash; modified: 2020-03-01 &mdash; tags: Bash
+			</p>
+			<p class="intro"><code>set -e</code> might work not as you expected inside (parentheses).</p>
+			<p>You know what <code>set -e</code> does, right? It aborts execution as soon as one of commands returns non-0 result. For example, the following code:</p>
+
+<pre><code>set -e
+true 1
+false 2
+true 3
+</code></pre>
+
+<p>will be executed like this:</p>
+
+<pre><code>$ bash -x test.sh
++ set -e
++ true 1
++ false 2
+</code></pre>
+
+<p>Note that here I'm using the <code>true</code> debugging trick mentioned in <a href="using-true-instead-of-echo-to-debug-bash-scripts.html">previous blog post</a>.
+Above is true for parenthesised blocks, too:</p>
+
+<pre><code>set -e
+(
+    true 1
+    false 2
+    true 3
+)
+true 4
+</code></pre>
+
+<p>Output of running this script will be exactly the same as before.</p>
+
+<p>But what if you want to continue after failing block? For example, writing this:</p>
+
+<pre><code>set -e
+(
+    true 1
+    false 2
+    true 3
+) || true 4
+true 5
+</code></pre>
+
+<p>One might expect parenthesised block to be aborted after <code>false 2</code> command, then "alternative" command <code>true 4</code> to be executed, and execution continue. But actual execution is like this:</p>
+
+<pre><code>$ bash -x test.sh
++ set -e
++ true 1
++ false 2
++ true 3
++ true 5
+</code></pre>
+
+<p>Before you ask - it will be the same even if you add extra <code>set -e</code> inside the block, too.
+What happens is that, it seems, <code>set -e</code> is totally ignored inside the block, happily continuing to <code>true 3</code> statement,
+and its return code is used as return code of the whole braced statement - hence <code>true 4</code> command is not executed.</p>
+
+<p>Same happens with parentheses inside <code>if</code>:</p>
+
+<pre><code>$ cat test.sh
+set -e
+if (
+    true 1
+    false 2
+    true 3
+); then
+    true pass
+else
+    true fail
+fi
+$ bash -x test.sh
++ set -e
++ true 1
++ false 2
++ true 3
++ true pass
+</code></pre>
+
+<p>&nbsp;</p>
+
+<h2>Workarounds</h2>
+
+<p>First workaround is putting <code>&amp;&amp;</code> at the end of each line, like this:</p>
+
+<pre><code>$ cat test.sh
+set -e
+(
+    true 1 &amp;&amp;
+    false 2 &amp;&amp;
+    true 3
+) || true 4
+true 5
+$ bash -x test.sh
++ set -e
++ true 1
++ false 2
++ true 4
++ true 5
+</code></pre>
+
+<p>But well, in that case you can omit parentheses altogether:</p>
+
+<pre><code>set -e
+    true 1 &amp;&amp;
+    false 2 &amp;&amp;
+    true 3 ||
+    true 4
+true 5
+</code></pre>
+
+<p>Not sure what indentation should look like, though.</p>
+
+<p>Another workaround is making it <code>set +e</code> on the outside, <code>set -e</code> on the inside, and preserving return code, like this:</p>
+
+<pre><code>$ cat test.sh
+set -e
+set +e
+(
+    set -e
+    true 1
+    false 2
+    true 3
+)
+result=$?
+set -e
+test "$result" = "0" || true 4
+true 5
+$ bash -x test.sh
++ set -e
++ set +e
++ set -e
++ true 1
++ false 2
++ result=1
++ set -e
++ test 1 = 0
++ true 4
++ true 5
+</code></pre>
+
+<script src="/microlight.js"></script>
+		</div>
+		<!-- end set--e-inconsistency-inside-blocks -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

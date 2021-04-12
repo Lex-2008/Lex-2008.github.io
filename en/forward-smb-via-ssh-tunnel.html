@@ -1,0 +1,66 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Forward SMB via SSH tunnel</title>
+<meta name="description" content="When SSH is your poor man's VPN">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin forward-smb-via-ssh-tunnel -->
+		<div class="post">
+			<h2><a href="forward-smb-via-ssh-tunnel.html">Forward SMB via SSH tunnel</a></h2>
+			<p class="trivia">
+				Created: 2017-04-30 &mdash; modified: 2017-05-09 &mdash; tags: bash windows linux
+			</p>
+			<p class="intro">When SSH is your poor man's VPN</p>
+			<p>Imagine that you need to access a Windows share from your Windows machine and you have a Linux box to help you.
+Then you just need to forward port 445 from remote. But there are few caveats.</p>
+
+<ul>
+<li><p>First, you need to disable built-in SMB server on the Windows machine you're connecting from:</p>
+
+<blockquote>
+<pre><code>  C:\&gt;sc config "LanmanServer" start= disabled
+</code></pre>
+</blockquote>
+
+<p>and restart the computer. Because otherwise you won't be able to bind to port 445 on the same machine,
+and Windows doesn't allow you to use any other port to connect to remote file shares.</p></li>
+<li><p>You need a working SSH connection from Windows machine to the Linux box which can connect to your Windows share.
+How to set this up is outside of scope of this article, but reverse-port-forwarding via a cheap VPS helped me.</p></li>
+<li><p>Then, you set up a local port forward like shown on this picture.</p>
+
+<p><img src="forward-smb-via-ssh-tunnel.png" alt="Picture showing how to add port forward to PuTTY" title="" /></p></li>
+<li><p>Then, open this connection and open <code>\\192.168.0.1\</code> in file manager (Windows Explorer).</p></li>
+<li><p>As an extra bonus, you might want to strengthen your setup:</p>
+
+<ul>
+<li><p>Use a dedicated user for port forward, who is not allowed to login (has <code>/bin/false</code> as shell in <code>/etc/passwd</code>)</p></li>
+<li><p>Forbid this user to run any commands (use <code>ForceCommand</code> in <code>/etc/ssh/sshd_config</code> file in <code>Match User {username}</code> section)</p></li>
+<li><p>Use a password on the keyfile</p></li>
+</ul></li>
+</ul>
+		</div>
+		<!-- end forward-smb-via-ssh-tunnel -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

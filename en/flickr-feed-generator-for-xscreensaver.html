@@ -1,0 +1,157 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Flickr feed generator for xscreensaver</title>
+<meta name="description" content="Helping you to get many big images from flickr to your xscreensaver">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin flickr-feed-generator-for-xscreensaver -->
+		<div class="post">
+			<h2><a href="flickr-feed-generator-for-xscreensaver.html">Flickr feed generator for xscreensaver</a></h2>
+			<p class="trivia">
+				Created: 2016-11-01 &mdash; modified: 2017-06-14 &mdash; tags: bash net linux
+			</p>
+			<p class="intro">Helping you to get many big images from flickr to your xscreensaver</p>
+			<p>Let's say that you're using Linux but envy Windows 10 users who get nice
+pictures on their lock screens.
+Then, after some googling you will find out that xscreensaver's "hack", as they
+call it, called "glslideshow", allows you to show slideshow of images received
+over RSS feed, for example, from <a href="https://www.flickr.com/services/feeds/">Flickr</a>.
+However, after adding such feed you will notice that it has only 20 images - no
+more (To get a nice preview of RSS feed you can open it in Opera browser).
+Then you may find <a href="http://www.degraeve.com/flickr-rss/">Flickr RSS Feed Generator</a> from degrave - however, at
+least at the moment of writing, it produced feeds with sub-optimal resolution
+(you can read about different image resolutions available at flickr
+<a href="https://www.flickr.com/services/api/misc.urls.html">here</a>).</p>
+
+<p>In that case, one might consider writing a script which would get list of
+photos from <a href="https://www.flickr.com/services/api/">Flickr API</a>. It's quite easy, actually.
+And there are three possible solutions:</p>
+
+<ul>
+<li><p>you can make a CGI script which will produce RSS feed stub
+enough for xscreensaver to understand
+on demand
+(however if you later add a check for existence of images you reference,
+generation of the feed will take time)</p></li>
+<li><p>or run an RSS-generation script every three hours
+(approximate time how often xscreensaver checks for RSS feed update)
+by cron and save output into some file on a server.</p></li>
+<li><p>or use a local version and save files into a folder.</p></li>
+</ul>
+
+<p>In any case you need these two things:</p>
+
+<ul>
+<li><p>Get your free API key <a href="https://www.flickr.com/services/apps/create/apply">here</a>.</p></li>
+<li><p>Install <a href="https://stedolan.github.io/jq/">jq</a> tool
+on a machine (or server) you're going to run the script on.</p></li>
+</ul>
+
+<hr />
+
+<p>First approach - a simple CGI script:</p>
+
+<pre><code>#!/bin/sh
+
+KEY="&lt;PASTE YOUR KEY HERE&gt;"
+echo 'content-type: text/plain'
+echo
+echo "&lt;?xml &gt;"
+wget -O- "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&amp;api_key=$KEY&amp;group_id=23854677%40N00&amp;format=json&amp;nojsoncallback=1" | jq -c .photos.photo[] | sed 's|.*"id":"\([^"]*\)".*"secret":"\([^"]*\)".*"server":"\([^"]*\)".*"farm":\([0-9]*\).*|&lt;item&gt;&lt;link rel="enclosure" href="https://farm\4.staticflickr.com/\3/\1_\2_h.jpg"&gt;|'
+</code></pre>
+
+<p>Note that produced stuff is not valid RSS, but rather minimum enough for
+xscreensaver to understand.</p>
+
+<p>Also note that I've hardcoded the group ID in the script - it's ID of <a href="https://www.flickr.com/groups/landcape/">Flickr
+landscape</a> group.</p>
+
+<p>However, for some images <code>_h</code> version might not exist. So we should filter them
+out.  You can either do some fancy arithmetics with creation date, or just
+check existence of each file. For this, you check headers of each URL with
+<code>curl -I</code> and grep for redirect to "unavailable" image. So the script looks
+like this:</p>
+
+<pre><code>#!/bin/sh
+
+KEY="&lt;PASTE YOUR KEY HERE&gt;"
+echo 'content-type: text/plain'
+echo
+echo "&lt;?xml &gt;"
+wget -O- "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&amp;api_key=$KEY&amp;group_id=23854677%40N00&amp;format=json&amp;nojsoncallback=1" 2&gt;/dev/null | jq -c .photos.photo[] | sed 's|.*"id":"\([^"]*\)".*"secret":"\([^"]*\)".*"server":"\([^"]*\)".*"farm":\([0-9]*\).*|https://farm\4.staticflickr.com/\3/\1_\2_h.jpg|' | sed 's!.*!curl -I "&amp;" 2&gt;/dev/null | grep -l "Location: .*unavailable" &gt;/dev/null || echo "&lt;item&gt;&lt;link rel=\\"enclosure\\" href=\\"&amp;\\"&gt;"!' | sh
+</code></pre>
+
+<hr />
+
+<p>If you want the script to generate the feed once every three hours,
+stick it to cron like this:</p>
+
+<pre><code>7 */3   * * *   ~/flickr.sh
+</code></pre>
+
+<p>(Then it will run at 0:07, 3:07, 6:07, etc - :07 part is important to leverage load on flickr API and you machine)</p>
+
+<p>And edit the script to put output into a file:</p>
+
+<pre><code>#!/bin/sh
+
+KEY="&lt;PASTE YOUR KEY HERE&gt;"
+DST="/var/www/flickr.rss"
+echo "&lt;?xml &gt;" &gt;"$DST"
+wget -O- "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&amp;api_key=$KEY&amp;group_id=23854677%40N00&amp;format=json&amp;nojsoncallback=1" 2&gt;/dev/null | jq -c .photos.photo[] | sed 's|.*"id":"\([^"]*\)".*"secret":"\([^"]*\)".*"server":"\([^"]*\)".*"farm":\([0-9]*\).*|https://farm\4.staticflickr.com/\3/\1_\2_h.jpg|' | sed 's!.*!curl -I "&amp;" 2&gt;/dev/null | grep -l "Location: .*unavailable" &gt;/dev/null || echo "&lt;item&gt;&lt;link rel=\\"enclosure\\" href=\\"&amp;\\"&gt;"!' | sh &gt;&gt;"$DST"
+</code></pre>
+
+<p>Such feed is available by this link:
+<code>http://alexey.shpakovsky.ru/upload/flickr.rss</code>
+(updates every three hours).</p>
+
+<hr />
+
+<p>Local version of the script, which drops files in a folder, looks like this:</p>
+
+<pre><code>#!/bin/sh
+
+KEY="&lt;PASTE YOUR KEY HERE&gt;"
+DST="/tmp/flickr"
+mkdir -p "$DST"
+cd "$DST"
+wget -O- "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&amp;api_key=$KEY&amp;group_id=23854677%40N00&amp;format=json&amp;nojsoncallback=1" 2&gt;/dev/null | jq -c .photos.photo[] | sed 's|.*"id":"\([^"]*\)".*"secret":"\([^"]*\)".*"server":"\([^"]*\)".*"farm":\([0-9]*\).*|https://farm\4.staticflickr.com/\3/\1_\2_h.jpg|' | wget -q --max-redirect 0 -nc -i-
+find * -mtime +1 -exec rm {} \;
+</code></pre>
+
+<p>Note that instead of <code>curl -I</code> to check for file existence and <code>sed | sh</code> trick
+to generate a script from a set of URLs and run it,
+here we just pass the list of URLs to wget.
+<code>-i-</code> means "read list of URLS from stdin",
+<code>--max-redirect 0</code> means "don't follow redirects" --
+this way we avoid downloading "this image is not available" placeholder images,
+since they are implemented as redirects.</p>
+
+<p>Note that last line deletes files older than 2 days.
+You can stick it into cron, the same way as you do in second case.</p>
+		</div>
+		<!-- end flickr-feed-generator-for-xscreensaver -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

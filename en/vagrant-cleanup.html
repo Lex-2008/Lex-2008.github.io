@@ -1,0 +1,56 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Vagrant cleanup</title>
+<meta name="description" content="How to cleanup <tt>vagrant global-status</tt>? TL;DR: <tt>vagrant global-status --prune</tt>">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin vagrant-cleanup -->
+		<div class="post">
+			<h2><a href="vagrant-cleanup.html">Vagrant cleanup</a></h2>
+			<p class="trivia">
+				Created: 2018-11-27 &mdash; modified: 2018-11-27 &mdash; tags: Vagrant
+			</p>
+			<p class="intro">How to cleanup <tt>vagrant global-status</tt>? TL;DR: <tt>vagrant global-status --prune</tt></p>
+			<p>Vagrant is a very useful tool to quickly spin up VM environments, given Vagrantfile.
+It simplifies creating VMs to simple <code>vagrant up</code> command, that does everything for you.
+For example, we in CFEngine <a href="https://docs.cfengine.com/docs/3.12/guide-installation-and-configuration-general-installation-installation-enterprise-vagrant.html#start-the-cfengine-enterprise-3-12-vagrant-environment">provide</a> such environments for testing - they create VMs, install CFengine, bootstrap it to each other - and then you can just <code>vagrant ssh hub</code> to get into VM to explore, or open Mission Portal and enjoy.</p>
+
+<p>So, to use Vagrant, you must be in directory with a Vagrantfile.
+And <code>vagrant global-status</code> is a command that shows you all VMs created by Vagrant, no matter in what directory they were created.</p>
+
+<p>But sometimes, if you played too much, you could delete the directory with Vagrantfile - after that you can delete VM from your usual VM manager interface (usually, VirtualBox) - and it seems to be almost cleaned up, except that <code>vagrant global-status</code> still prints it.</p>
+
+<p>How can you clean it? Easy:</p>
+
+<pre><code>vagrant global-status --prune
+</code></pre>
+
+<p>And all non-existing VMs will be gone!</p>
+
+<p>Source: <a href="https://github.com/hashicorp/vagrant/issues/5843">https://github.com/hashicorp/vagrant/issues/5843</a></p>
+		</div>
+		<!-- end vagrant-cleanup -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

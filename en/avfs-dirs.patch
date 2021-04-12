@@ -1,0 +1,125 @@
+diff --git a/autogen.sh b/autogen.sh
+old mode 100644
+new mode 100755
+diff --git a/fuse/avfsd.c b/fuse/avfsd.c
+index c79cedc..20bd3e6 100644
+--- a/fuse/avfsd.c
++++ b/fuse/avfsd.c
+@@ -24,14 +24,28 @@ struct fuse *fuse;
+ 
+ static pthread_mutex_t avfsd_mutexlock = PTHREAD_MUTEX_INITIALIZER;
+ 
+-static int avfsd_getattr(const char *path, struct stat *stbuf)
++static int avfsd_getattr(/*const*/ char *path, struct stat *stbuf)
+ {
+     int res;
+ 
++    int is_fake = 0;
++    int len = strlen(path);
++    if (path[len-1] == '#') {
++        path[len-1] = '\0';
++        is_fake = 1;
++    }
++
+     res = virt_lstat(path, stbuf);
+     if (res == -1)
+         return -errno;
+ 
++    if (is_fake) {
++        stbuf->st_mode &= ~S_IFREG;
++        stbuf->st_mode |= S_IFDIR;
++    }
++    stbuf->st_uid = 1000;
++    stbuf->st_mode |= S_IRWXU;
++
+     return 0;
+ }
+ 
+@@ -47,6 +61,28 @@ static int avfsd_readlink(const char *path, char *buf, size_t size)
+     return 0;
+ }
+ 
++/* full list of supported file extensions:
++ * ed 's/.*:\s*q?//;/^$/d;s/([^)]*)//g' ~/.avfs/#avfsstat/modules | tr ' ' '\n' | sed 's/\.tar\././' | rev | sort -u | rev | tr '\n' ' '
++ + .bz2
++ * .tbz2
++ * .a .lha .lhz .lzma
++ + .deb
++ * .adf .diff
++ * .patch
++ * .arj
++ * .apk
++ + .rpm
++ * .trpm
++ * .cpio .zoo
++ + .zip
++ * .pp
++ + .dar .ear .jar .rar .tar .war
++ * .dms
++ * .ftplist .zst .tzst
++ * .sfx
++ * .Z
++ + .7z .taz .bz .tbz .gz .tgz .tpz .tz .xz .txz
++ */
+ 
+ static int avfsd_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
+                          off_t offset, struct fuse_file_info *fi)
+@@ -65,8 +101,58 @@ static int avfsd_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
+         memset(&st, 0, sizeof(st));
+         st.st_ino = de->d_ino;
+         st.st_mode = de->d_type << 12;
++        st.st_mode |= S_IRWXU;
++        st.st_uid = 1000;
+         if (filler(buf, de->d_name, &st, 0))
+             break;
++        int len = strlen(de->d_name);
++        if (len >= 255)
++            continue;
++        int add_fake = 0;
++        if (de->d_name[len-1] == 'z') {
++            if (de->d_name[len-3] == '.') { //*.?z
++                if (de->d_name[len-2] == '7' || //*.7z
++                    de->d_name[len-2] == 'b' || //*.bz
++                    de->d_name[len-2] == 'g' || //*.gz
++                    de->d_name[len-2] == 't' || //*.tz
++                    de->d_name[len-2] == 'x')   //*.xz
++                    add_fake = 1;
++            }
++            else if (de->d_name[len-4] == '.') {
++                if (de->d_name[len-3] == 't') { //*.t?z
++                    if (de->d_name[len-2] == 'a' || //*.taz
++                        de->d_name[len-2] == 'b' || //*.tbz
++                        de->d_name[len-2] == 'g' || //*.tgz
++                        de->d_name[len-2] == 'p' || //*.tpz
++                        de->d_name[len-2] == 'x')   //*.txz
++                    add_fake = 1;
++                }
++            }
++        } // *z
++         //* .dar .ear .jar .rar .tar .war
++        else if (de->d_name[len-4] == '.' && de->d_name[len-2] == 'a' && de->d_name[len-1] == 'r') { //*.?ar
++            if (de->d_name[len-3] == 'a' || //*.dar
++                de->d_name[len-3] == 'e' || //*.ear
++                de->d_name[len-3] == 'j' || //*.jar
++                de->d_name[len-3] == 'r' || //*.rar
++                de->d_name[len-3] == 't' || //*.tar
++                de->d_name[len-3] == 'w')   //*.war
++            add_fake = 1;
++        }
++        else if (strcmp(de->d_name + len-4, ".bz2") == 0 ||
++                 strcmp(de->d_name + len-4, ".deb") == 0 ||
++                 strcmp(de->d_name + len-4, ".rpm") == 0 ||
++                 strcmp(de->d_name + len-4, ".zip") == 0)
++            add_fake = 1;
++        if (!add_fake)
++            continue;
++        // add fake dir
++        char str[257];
++        sprintf(str, "%s#", de->d_name);
++        st.st_mode &= ~S_IFREG;
++        st.st_mode |= S_IFDIR;
++        if (filler(buf, str, &st, 0))
++            break;
+     }
+ 
+     virt_closedir(dp);

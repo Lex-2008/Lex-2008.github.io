@@ -1,0 +1,56 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>CFEngine Failed to establish TLS connection bootstrap error</title>
+<meta name="description" content="Maybe agent's IP is not among allowed ones?">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin cfengine-failed-to-establish-tls-connection-bootstrap-error -->
+		<div class="post">
+			<h2><a href="cfengine-failed-to-establish-tls-connection-bootstrap-error.html">CFEngine Failed to establish TLS connection bootstrap error</a></h2>
+			<p class="trivia">
+				Created: 2017-03-22 &mdash; modified: 2017-04-15 &mdash; tags: CFEngine
+			</p>
+			<p class="intro">Maybe agent's IP is not among allowed ones?</p>
+			<p>If bootstrapping of CFEngine agent fails with a cryptic error about TLS connection like this:</p>
+
+<pre><code>cf-agent -B 138.68.252.222
+notice: Bootstrap mode: implicitly trusting server, use --trust-server=no if server trust is already established
+error: Failed to establish TLS connection: socket closed
+error: No suitable server found
+error: Failed to establish TLS connection: socket closed
+error: No suitable server found
+error: Failed to establish TLS connection: underlying network error (Connection reset by peer)
+error: No suitable server found
+error: Method 'failsafe_cfe_internal_update' failed in some repairs
+R: Bootstrapping from host '&lt;IP&gt;' via built-in policy '/var/cfengine/inputs/failsafe.cf'
+R: This autonomous node assumes the role of voluntary client
+error: Bootstrapping failed, no input file at '/var/cfengine/inputs/promises.cf' after bootstrap
+</code></pre>
+
+<p>check if you've added agent's IP to the ACL in def.cf</p>
+		</div>
+		<!-- end cfengine-failed-to-establish-tls-connection-bootstrap-error -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

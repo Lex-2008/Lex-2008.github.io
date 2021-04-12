@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>xkcd Password Generator</title>
+  <meta name="author" content="Jeff Preshing">
+
+  
+  <meta name="description" content="The button below will generate a random phrase consisting of four common words. According to yesterday&rsquo;s xkcd strip, such phrases are hard to &hellip;">
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://preshing.com/20110811/xkcd-password-generator">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/feed" rel="alternate" title="Preshing on Programming" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44017752-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/"><img src="/images/header.png" alt="Preshing on Programming"/>Preshing on Programming</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="https://twitter.com/preshing" rel="follow-twitter" title="Follow on Twitter">Twitter</a></li>
+  <li><a href="/feed" rel="subscribe-rss" title="Subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-11T01:07:46-04:00" pubdate data-updated="true">Aug 11, 2011</time>
+        
+      </p>
+    
+    
+      <h1 class="entry-title">xkcd Password Generator</h1>
+    
+  </header>
+
+
+<div class="entry-content"><p>The button below will generate a random phrase consisting of four common words. According to yesterday&rsquo;s <a href="http://xkcd.com/936/">xkcd strip</a>, such phrases are hard to guess (even by brute force), but easy to remember, making them interesting password choices.</p>
+
+<div class="xkcd_panel">
+<p id="xkcd_pw_gen_result">correct horse battery staple</p>
+<input type="button" value="Generate Another!" onclick="xkcd_pw_gen()" onload="xkcd_pw_gen()" />
+</div>
+
+<script language="JavaScript" src="/javascripts/sha1-min.js"></script>
+
+<script language="JavaScript" src="/javascripts/xkcd_pw.js.php"></script>
+
+<p>It&rsquo;s a novel idea, but xkcd stops short of actually recommending such passwords, and so will I. Use at your own peril! I&rsquo;m not responsible for anything that happens as a result of your password choice. (But if you&rsquo;re just signing up for a kitten video forum, you&rsquo;re probably safe.)</p>
+
+<p>In case you missed the strip, here it is:</p>
+
+<!-- more -->
+<p><a href="http://xkcd.com/936/"><img class="center" src="http://imgs.xkcd.com/comics/password_strength.png" /></a></p>
+
+<p>Other generators have popped up online, but unlike most of those, this generator only uses <em>common</em> English words. That&rsquo;s important, because the more unusual words are used, the harder the password will be to remember. For example, &ldquo;decimalisation contrapuntal assizes diabolism&rdquo; is not particularly easy to remember, I&rsquo;d say.</p>
+
+<p>The xkcd strip suggests 11 &ldquo;bits of entropy&rdquo; per word, which can be achieved using a list of 211 = 2048 words. I scraped a list of 1949 words (close enough) from <a href="http://www.paulnoll.com/Books/Clear-English/English-3000-common-words.html">this site</a>, which is based on the most frequent occurrences in newspapers. This list doesn&rsquo;t include &ldquo;battery&rdquo; or &ldquo;staple&rdquo;, so perhaps a better list is still possible. In any case, you can view the JavaScript source code <a href="http://preshing.com/files/xkcd_pw.js.php">here</a>.</p>
+
+<p>It&rsquo;s hard to be convinced about every detail in the strip, but it really had me thinking. The last panel claims that the reader has already memorized &ldquo;correct horse battery staple&rdquo;. Sure, a lot of readers will probably have that phrase memorized for a while. But the strip itself is interesting, takes a lot of concentration to understand, and incorporates a visual aid. I think we&rsquo;re more likely to remember &ldquo;correct horse battery staple&rdquo; for those reasons. Will it be just as easy to remember other four-word combinations?</p>
+
+<p>What do you think? Is it easy to remember the other passwords generated here? Do you see some way to improve the algorithm? Is there any merit to this password selection strategy?</p>
+
+<p>As far as password management goes, I&rsquo;ve personally found <a href="http://keepass.info/">KeePass</a> to be an excellent solution. And for an amusing look at how most people actually <em>do</em> choose passwords, check out <a href="http://www.tomshardware.com/news/imperva-rockyou-most-common-passwords,9486.html">Your Top 20 Most Common Passwords</a> and <a href="http://www.troyhunt.com/2011/07/science-of-password-selection.html">The science of password selection</a>.</p>
+
+</div>
+
+
+
+  
+
+  <footer>
+    <div class="sharebuttons">
+    <span class="like_this">
+        <iframe src="http://www.facebook.com/plugins/like.php?app_id=119330728166148&amp;href=http://preshing.com/20110811/xkcd-password-generator&amp;send=false&amp;layout=box_count&amp;width=56&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=segoe+ui&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:56px; height:61px;" allowTransparency="true"></iframe>
+    </span>
+
+      <span class="tweet_this">
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://preshing.com/20110811/xkcd-password-generator" data-text="xkcd Password Generator" data-count="vertical">Tweet</a>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    </span>
+
+    <span class="plus_this">
+        <g:plusone size="tall" href="http://preshing.com/20110811/xkcd-password-generator"></g:plusone>
+        <script type="text/javascript">
+          window.___gcfg = {lang: 'http://preshing.com/20110811/xkcd-password-generator'};
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+    </span>
+    </div>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/20110807/the-cost-of-_secure_scl" title="Previous Post: The Cost of _SECURE_SCL">&laquo; The Cost of _SECURE_SCL</a>
+      
+      
+        <a class="basic-alignment right" href="/20110822/penrose-tiling-in-obfuscated-python" title="Next Post: Penrose Tiling in Obfuscated Python">Penrose Tiling in Obfuscated Python &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+<section>
+<div id="comment-section">
+<script>
+var idcomments_acct = 'b741f3bade873745e10e70447d732c8c';
+var idcomments_post_id = '1404';
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+</div>
+</section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section class="centered">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Preshing.com square -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:200px;height:200px"
+     data-ad-client="ca-pub-4405337903919609"
+     data-ad-slot="8868121895"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/20150402/you-can-do-any-kind-of-atomic-read-modify-write-operation">You Can Do Any Kind of Atomic Read-Modify-Write Operation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20150324/safe-bitfields-in-cpp">Safe Bitfields in C++</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20150316/semaphores-are-surprisingly-versatile">Semaphores are Surprisingly Versatile</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20141202/cpp-has-become-more-pythonic">C++ Has Become More Pythonic</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20141124/fixing-gccs-implementation-of-memory_order_consume">Fixing GCC's Implementation of memory_order_consume</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20141119/how-to-build-a-gcc-cross-compiler">How to Build a GCC Cross-Compiler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20141108/how-to-install-the-latest-gcc-on-windows">How to Install the Latest GCC on Windows</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20141024/my-multicore-talk-at-cppcon-2014">My Multicore Talk at CppCon 2014</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20140709/the-purpose-of-memory_order_consume-in-cpp11">The Purpose of memory_order_consume in C++11</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20140127/what-is-a-bitcoin-really">What Is a Bitcoin, Really?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20131219/bitcoin-address-generator-in-obfuscated-python">Bitcoin Address Generator in Obfuscated Python</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20131125/acquire-and-release-fences-dont-work-the-way-youd-expect">Acquire and Release Fences Don't Work the Way You'd Expect</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20130930/double-checked-locking-is-fixed-in-cpp11">Double-Checked Locking is Fixed In C++11</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20130922/acquire-and-release-fences">Acquire and Release Fences</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20130823/the-synchronizes-with-relation">The Synchronizes-With Relation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20130702/the-happens-before-relation">The Happens-Before Relation</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20130618/atomic-vs-non-atomic-operations">Atomic vs. Non-Atomic Operations</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20130605/the-worlds-simplest-lock-free-hash-table">The World's Simplest Lock-Free Hash Table</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20130529/a-lock-free-linear-search">A Lock-Free... Linear Search?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/20130505/introducing-mintomic-a-small-portable-lock-free-api">Introducing Mintomic: A Small, Portable Lock-Free API</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Tip Jar</h1>
+
+  <p class="tip-hint">If you like this blog, <a href="/tip-jar">leave a tip!</a></p>
+  <a href="/tip-jar"><div id="tipjar-div"><img id="tip-hand" src="/images/tip-hand.png" width="76" height="54"/><img src="/images/tip-jar.png" width="83" height="104"/></div></a>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 Jeff Preshing -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

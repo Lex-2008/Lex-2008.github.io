@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="879px" preserveAspectRatio="none" style="width:1200px;height:879px;" version="1.1" viewBox="0 0 1200 879" width="1200px" zoomAndPan="magnify"><defs><filter height="300%" id="f1nvld4udm15xi" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="616" cy="32" fill="#000000" filter="url(#f1nvld4udm15xi)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><g id="new_ship"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="50.2656" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="146" x="661" y="7"/><line style="stroke:#A80036;stroke-width:1.5;" x1="661" x2="807" y1="33.2969" y2="33.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="701" y="24.9951">new_ship</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="126" x="666" y="49.4355">&lt;compare visibility&gt;</text></g><g id="player_sees"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="235" x="359.5" y="234"/><line style="stroke:#A80036;stroke-width:1.5;" x1="359.5" x2="594.5" y1="260.2969" y2="260.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="435" y="251.9951">player_sees</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="215" x="364.5" y="276.4355">"You see a ship. It doesn't see you"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="144" x="364.5" y="290.4043">[Attack] [Trade] [Avoid]</text></g><g id="ai_sees"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="50.2656" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="103" x="768.5" y="117"/><line style="stroke:#A80036;stroke-width:1.5;" x1="768.5" x2="871.5" y1="143.2969" y2="143.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="794.5" y="134.9951">ai_sees</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="773.5" y="159.4355">&lt;ai decides&gt;</text></g><g id="pa"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="103" x="356.5" y="376"/><line style="stroke:#A80036;stroke-width:1.5;" x1="356.5" x2="459.5" y1="402.2969" y2="402.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="383.5" y="393.9951">Attack</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="50" x="361.5" y="418.4355">-1 rating</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="361.5" y="432.4043">&lt;ai decides&gt;</text></g><g id="pt"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="122" x="769" y="376"/><line style="stroke:#A80036;stroke-width:1.5;" x1="769" x2="891" y1="402.2969" y2="402.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="809.5" y="393.9951">Trade</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="102" x="774" y="418.4355">+1 rating up to 0</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="774" y="432.4043">&lt;ai decides&gt;</text></g><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="133" y="388"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="138" y="412.8467">Avoid</text><g id="ptaa"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="78.2031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="142" x="821" y="518"/><line style="stroke:#A80036;stroke-width:1.5;" x1="821" x2="963" y1="544.2969" y2="544.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="867.5" y="535.9951">Treach</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="103" x="826" y="560.4355">+2 rating up to 0</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="826" y="574.4043">"They chose war"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="122" x="826" y="588.373">[Attack] [Surrender]</text></g><g id="ptai"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="116" x="7" y="525"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7" x2="123" y1="551.2969" y2="551.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="42" y="542.9951">Ignore</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="12" y="567.4355">"Not interested"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="12" y="581.4043">[ok]</text></g><ellipse cx="168" cy="557" filter="url(#f1nvld4udm15xi)" rx="10" ry="10" style="stroke:#000000;stroke-width:1.0;fill:none;"/><ellipse cx="168.5" cy="557.5" fill="#000000" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><g id="aa"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="92.1719" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="152" x="634" y="511"/><line style="stroke:#A80036;stroke-width:1.5;" x1="634" x2="786" y1="537.2969" y2="537.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="685.5" y="528.9951">Attack</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="102" x="639" y="553.4355">+1 rating up to 0</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="132" x="639" y="567.4043">"The ship approaches</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="109" x="639" y="581.373">you aggressively"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="122" x="639" y="595.3418">[Attack] [Surrender]</text></g><g id="at"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="172" x="838" y="234"/><line style="stroke:#A80036;stroke-width:1.5;" x1="838" x2="1010" y1="260.2969" y2="260.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="903.5" y="251.9951">Trade</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="152" x="843" y="276.4355">"The ship wants to trade"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="149" x="843" y="290.4043">[Attack] [Trade] [Ignore]</text></g><g id="ai"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="78.2031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="88" x="1089" y="227"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1089" x2="1177" y1="253.2969" y2="253.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="1113" y="244.9951">Avoid</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="64" x="1094" y="269.4355">"You didn't</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1094" y="283.4043">see a ship"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1094" y="297.373">[ok]</text></g><g id="atpa"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="103" x="218.5" y="376"/><line style="stroke:#A80036;stroke-width:1.5;" x1="218.5" x2="321.5" y1="402.2969" y2="402.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="245.5" y="393.9951">Treach</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="51" x="223.5" y="418.4355">-2 rating</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="223.5" y="432.4043">&lt;ai decides&gt;</text></g><g id="atpi"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="135" x="926.5" y="376"/><line style="stroke:#A80036;stroke-width:1.5;" x1="926.5" x2="1061.5" y1="402.2969" y2="402.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="971" y="393.9951">Ignore</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="115" x="931.5" y="418.4355">-1 rating down to 0</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="42" x="931.5" y="432.4043">or skip</text></g><ellipse cx="1178" cy="408" filter="url(#f1nvld4udm15xi)" rx="10" ry="10" style="stroke:#000000;stroke-width:1.0;fill:none;"/><ellipse cx="1178.5" cy="408.5" fill="#000000" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><g id="ai_fight_ok"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="78.2031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="142" x="413" y="518"/><line style="stroke:#A80036;stroke-width:1.5;" x1="413" x2="555" y1="544.2969" y2="544.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="444.5" y="535.9951">ai_fight_ok</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="70" x="418" y="560.4355">"The ship is</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="95" x="418" y="574.4043">going to attack"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="122" x="418" y="588.373">[Attack] [Surrender]</text></g><g id="ai_attacks"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="78.2031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="160" x="374" y="663"/><line style="stroke:#A80036;stroke-width:1.5;" x1="374" x2="534" y1="689.2969" y2="689.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="417.5" y="680.9951">ai_attacks</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="140" x="379" y="705.4355">&lt;damage player ship&gt;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="110" x="379" y="719.4043">"They attack you!"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="122" x="379" y="733.373">[Attack] [Surrender]</text></g><g id="player_attacks"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="132" x="640" y="670"/><line style="stroke:#A80036;stroke-width:1.5;" x1="640" x2="772" y1="696.2969" y2="696.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="653" y="687.9951">player_attacks</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="112" x="645" y="712.4355">&lt;damage ai ship&gt;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="645" y="726.4043">&lt;ai decides&gt;</text></g><g id="player_surrenders"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="148" x="513" y="801"/><line style="stroke:#A80036;stroke-width:1.5;" x1="513" x2="661" y1="827.2969" y2="827.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="523" y="818.9951">player_surrenders</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="102" x="518" y="843.4355">+1 rating up to 0</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="518" y="857.4043">&lt;ai takes cargo&gt;</text></g><g id="ai_surrenders"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="135" x="261.5" y="801"/><line style="stroke:#A80036;stroke-width:1.5;" x1="261.5" x2="396.5" y1="827.2969" y2="827.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="281.5" y="818.9951">ai_surrenders</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="115" x="266.5" y="843.4355">-1 rating down to 0</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="78" x="266.5" y="857.4043">"Take cargo"</text></g><ellipse cx="451" cy="833" filter="url(#f1nvld4udm15xi)" rx="10" ry="10" style="stroke:#000000;stroke-width:1.0;fill:none;"/><ellipse cx="451.5" cy="833.5" fill="#000000" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><g id="trade"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="78.2031" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="140" x="1024" y="518"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1024" x2="1164" y1="544.2969" y2="544.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="1074.5" y="535.9951">trade</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="120" x="1029" y="560.4355">"They want to buy X</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="89" x="1029" y="574.4043">and sell you Y"</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="97" x="1029" y="588.373">[Deal] [No deal]</text></g><g id="trade_ok"><rect fill="#FEFECE" filter="url(#f1nvld4udm15xi)" height="64.2344" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="113" x="991.5" y="670"/><line style="stroke:#A80036;stroke-width:1.5;" x1="991.5" x2="1104.5" y1="696.2969" y2="696.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1016" y="687.9951">trade_ok</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="55" x="996.5" y="712.4355">+1 rating</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="93" x="996.5" y="726.4043">&lt;move cargo&gt;</text></g><ellipse cx="1103" cy="833" filter="url(#f1nvld4udm15xi)" rx="10" ry="10" style="stroke:#000000;stroke-width:1.0;fill:none;"/><ellipse cx="1103.5" cy="833.5" fill="#000000" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><path d="M495,365 L495,450.6641 L663,450.6641 L663,375 L653,365 L495,365 " fill="#FBFB77" filter="url(#f1nvld4udm15xi)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M653,365 L653,375 L663,375 L653,365 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="501" y="382.0669">"Skip" happens when</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="126" x="501" y="397.1997">you click the button</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="115" x="501" y="412.3325">rather fast (within</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="137" x="501" y="427.4653">800ms). Rating is not</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="501" y="442.5981">decreased in this case.</text><!--MD5=[852e25480325dd751dfa6886087d8047]
+link *start to new_ship--><path d="M626.141,32 C635.947,32 645.754,32 655.561,32 " fill="none" id="*start-to-new_ship" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="660.689,32,651.689,28,655.689,32,651.689,36,660.689,32" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9bb41369c8ad020e513b4ff6742ab07c]
+link new_ship to player_sees--><path d="M706.982,57.39 C661.137,98.775 567.978,182.872 515.382,230.352 " fill="none" id="new_ship-to-player_sees" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="511.355,233.987,520.7161,230.926,515.0666,230.6368,515.3558,224.9874,511.355,233.987" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[2e695a6363b71245f5bf7a6deb220a54]
+link new_ship to ai_sees--><path d="M753.3,57.237 C766.357,73.634 783.654,95.356 797.361,112.57 " fill="none" id="new_ship-to-ai_sees" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="800.764,116.844,798.2873,107.3116,797.6496,112.9324,792.0288,112.2947,800.764,116.844" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[fdf4af1e0c8dee42a8b8094698224c52]
+link player_sees to pa--><path d="M461.687,298.071 C451.086,319.58 436.941,348.28 425.831,370.821 " fill="none" id="player_sees-to-pa" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="423.509,375.532,431.0755,369.2274,425.7193,371.0471,423.8996,365.6909,423.509,375.532" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b96d0782104e1a51017a67fe4c930832]
+link player_sees to pt--><path d="M555.342,298.071 C617.97,322.909 704.774,357.335 763.924,380.794 " fill="none" id="player_sees-to-pt" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="768.846,382.746,761.9536,375.7108,764.1979,380.9033,759.0053,383.1477,768.846,382.746" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9113c51b5343537dfc4f741f7a1533e4]
+link player_sees to pi--><path d="M359.475,296.438 C308.461,312.25 249.437,334.807 201,365 C192.631,370.217 184.582,377.305 177.756,384.173 " fill="none" id="player_sees-to-pi" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="174.095,387.952,183.2298,384.2702,177.5737,384.3605,177.4834,378.7044,174.095,387.952" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4790e7b843cefee92b91e6cc9d3b70e3]
+link ai_sees to aa--><path d="M811.725,167.103 C797.985,207.642 770.089,292.189 751,365 C738.571,412.409 727.109,467.157 719.483,505.851 " fill="none" id="ai_sees-to-aa" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="718.48,510.964,724.1385,502.9029,719.443,506.0576,716.2883,501.3621,718.48,510.964" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9759a178ca8b1dcca2d69fbb06aa2de2]
+link ai_sees to at--><path d="M840.547,167.103 C855.864,185.072 877.014,209.881 894.188,230.029 " fill="none" id="ai_sees-to-at" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="897.567,233.992,894.7706,224.5485,894.3226,230.1876,888.6835,229.7395,897.567,233.992" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7115b7968aa8ec5525d3cd9bd1384e23]
+link ai_sees to ai--><path d="M871.686,163.146 C930.627,186.12 1026.28,223.402 1084.05,245.922 " fill="none" id="ai_sees-to-ai" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1088.83,247.785,1081.8952,240.7916,1084.1709,245.9705,1078.9919,248.2462,1088.83,247.785" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5786edada7171abe1d4dbfbc409645c3]
+link trade to trade_ok--><path d="M1081.67,596.321 C1074.82,617.614 1066.35,643.95 1059.62,664.879 " fill="none" id="trade-to-trade_ok" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1058.04,669.803,1064.6055,662.4617,1059.5722,665.0435,1056.9903,660.0102,1058.04,669.803" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b33b382b26d9360326e7122395cea95f]
+link trade to trade_x--><path d="M1106.82,596.41 C1112.72,616.078 1119.06,640.552 1122,663 C1126.5,697.373 1125.56,706.517 1122,741 C1119.14,768.6428 1111.53,800.2686 1106.86,818.0137 " fill="none" id="trade-to-trade_x" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1105.51,823.0554,1111.7008,815.3955,1106.8027,818.2254,1103.9728,813.3272,1105.51,823.0554" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7aa513b18c24ac74b3753f46d06c6c81]
+link trade_ok to trade_x--><path d="M1061.31,734.227 C1072.86,761.311 1089,799.1734 1097.41,818.891 " fill="none" id="trade_ok-to-trade_x" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1099.37,823.4954,1099.5199,813.6477,1097.4091,818.896,1092.1608,816.7851,1099.37,823.4954" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[057137f802dff6fd4daa4a2b0858efec]
+link pa to ai_surrenders--><path d="M401.157,440.198 C390.77,488.026 370.681,582.405 356,663 C347.711,708.505 339.519,761.16 334.371,795.4422 " fill="none" id="pa-to-ai_surrenders" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="333.571,800.7827,338.8597,792.4743,334.3114,795.8378,330.9479,791.2896,333.571,800.7827" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[44b4c81c203954648774e26f5d50c1f9]
+link pa to ai_fight_ok--><path d="M424.118,440.175 C435.106,461.429 449.798,489.846 461.879,513.213 " fill="none" id="pa-to-ai_fight_ok" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="464.258,517.815,463.6788,507.9832,461.9621,513.3733,456.572,511.6566,464.258,517.815" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[51c472fd8182e530de647331e6cef96a]
+link pt to ptaa--><path d="M843.149,440.175 C852.076,461.34 863.998,489.609 873.83,512.92 " fill="none" id="pt-to-ptaa" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="875.895,517.815,876.0836,507.9679,873.9522,513.2079,868.7122,511.0765,875.895,517.815" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b3248c9ba7faa89f098fa0071a8ace58]
+link pt to trade--><path d="M885.988,440.175 C925.271,462.049 978.18,491.509 1020.81,515.244 " fill="none" id="pt-to-trade" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1025.42,517.815,1019.517,509.9312,1021.056,515.3747,1015.6125,516.9137,1025.42,517.815" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[fa8c0a4d60d7d19ce51d3bd4f547c86c]
+link pt to ptai--><path d="M768.871,428.543 C741.871,436.543 709.6,445.251 680,451 C442.953,497.04 368.794,433.771 140,511 C131.381,513.909 122.689,517.921 114.43,522.36 " fill="none" id="pt-to-ptai" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="109.889,524.866,119.7012,524.0169,114.266,522.449,115.8339,517.0137,109.889,524.866" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d6a04f51f21eead8f79b06abc6a97f08]
+link pi to px--><path d="M159.307,428.218 C161.344,458.152 165.226,515.228 167.032,541.77 " fill="none" id="pi-to-px" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="167.384,546.95,170.7654,537.6998,167.0454,541.9615,162.7838,538.2415,167.384,546.95" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7c2881c1ba0df63bc29ce1a088424d01]
+link aa to player_attacks--><path d="M708.734,603.246 C708.182,622.992 707.543,645.839 707.022,664.478 " fill="none" id="aa-to-player_attacks" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="706.878,669.618,711.1284,660.7335,707.018,664.62,703.1315,660.5095,706.878,669.618" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3e7f55a724f2360dd53c6164a211ff4f]
+link aa to player_surrenders--><path d="M753.595,603.337 C784.996,641.701 817.269,697.26 789,741 C761.911,782.9147 710.391,805.7179 666.164,818.0153 " fill="none" id="aa-to-player_surrenders" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="661.085,819.3908,670.8177,820.8988,665.9111,818.0837,668.7263,813.1771,661.085,819.3908" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3e778c721f1641744a217f2d28d7291a]
+link at to atpa--><path d="M837.959,277.339 C698.343,294.797 428.993,331.497 339,365 C332.821,367.3 326.584,370.172 320.519,373.329 " fill="none" id="at-to-atpa" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="315.919,375.793,325.7411,375.0681,320.3262,373.4315,321.9628,368.0166,315.919,375.793" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c9a47de442e5c35e117fb780d4eb82a3]
+link at to trade--><path d="M1002.117,298.086 C1031.16,313.718 1061.32,335.692 1079,365 C1106.02,409.796 1105.5,471.64 1101.08,512.677 " fill="none" id="at-to-trade" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1100.5,517.825,1105.4943,509.3364,1101.0667,512.8572,1097.5459,508.4296,1100.5,517.825" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4da7ceb5efb1f468ac0d40acfb076e09]
+link at to atpi--><path d="M939.535,298.071 C950.29,319.58 964.64,348.28 975.91,370.821 " fill="none" id="at-to-atpi" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="978.266,375.532,977.8163,365.6934,976.0288,371.0604,970.6618,369.273,978.266,375.532" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ee86b8bad08b156bd90dc8e07667b7a6]
+link ai to ax--><path d="M1145.3,305.256 C1154.71,334.537 1167.14,373.221 1173.63,393.411 " fill="none" id="ai-to-ax" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1175.22,398.361,1176.2723,388.5685,1173.6891,393.6011,1168.6565,391.0179,1175.22,398.361" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[38007367ea75dcb1cfa677409b5a13cb]
+link ptaa to player_attacks--><path d="M842.155,596.321 C813.643,618.243 778.176,645.51 750.589,666.719 " fill="none" id="ptaa-to-player_attacks" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="746.578,669.803,756.1513,667.4896,750.5422,666.7559,751.2759,661.1468,746.578,669.803" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[79935d379e6ecdd3bc55deae96ca010d]
+link ptaa to player_surrenders--><path d="M886.459,596.225 C878.641,637.091 860.624,701.345 821,741 C779.299,782.7345 716.281,805.7758 666.145,818.2242 " fill="none" id="ptaa-to-player_surrenders" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="661.026,819.4696,670.7163,821.2297,665.8844,818.2881,668.826,813.4562,661.026,819.4696" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[05d48343aff73d788e6c2cc71c4259cf]
+link ptai to px--><path d="M123.34,557 C133.145,557 142.95,557 152.754,557 " fill="none" id="ptai-to-px" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="157.882,557,148.882,553,152.882,557,148.882,561,157.882,557" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[80c98cbfc2531676bc7702e67db585d8]
+link atpa to ai_surrenders--><path d="M269.442,440.088 C269.014,499.363 271.113,632.325 295,741 C299.069,759.511 306.117,779.3049 312.745,795.6892 " fill="none" id="atpa-to-ai_surrenders" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="314.784,800.6593,315.0677,790.8145,312.8857,796.0337,307.6666,793.8517,314.784,800.6593" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3766315f4155da083d7c61391947ab66]
+link atpa to ai_fight_ok--><path d="M315.384,440.175 C347.099,461.96 389.769,491.271 424.248,514.956 " fill="none" id="atpa-to-ai_fight_ok" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="428.411,517.815,423.2579,509.4218,424.2898,514.9838,418.7279,516.0157,428.411,517.815" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[51d5e91516d919df3a98765c7d5d77f6]
+link atpi to ax--><path d="M1061.56,408 C1095.24,408 1128.91,408 1162.59,408 " fill="none" id="atpi-to-ax" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1167.99,408,1158.99,404,1162.99,408,1158.99,412,1167.99,408" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[550f9b59b3033821df215d43a638ee49]
+link GMN861265 to atpi--><path d="M660.604,364.995 C723.991,337.303 813.729,310.65 890.5,335 C916.28,343.177 941.18,360.348 960.095,375.984 " fill="none" id="GMN861265-atpi" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[010ad784cd7536557a2cb0f2fd231703]
+link ai_fight_ok to player_attacks--><path d="M543.2,596.134 C577.497,618.225 620.298,645.796 653.406,667.122 " fill="none" id="ai_fight_ok-to-player_attacks" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="657.805,669.956,652.4048,661.7196,653.6015,667.2485,648.0727,668.4452,657.805,669.956" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6d577b7444299d0e9290d945c88fb4f9]
+link ai_fight_ok to player_surrenders--><path d="M512.983,596.057 C526.333,615.236 541.324,639.389 551,663 C568.943,706.786 578.442,760.778 583.091,795.7732 " fill="none" id="ai_fight_ok-to-player_surrenders" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="583.742,800.7952,586.5514,791.3555,583.099,795.8367,578.6178,792.3843,583.742,800.7952" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[30bd06fb1477be672f2d75d245523753]
+link ai_attacks to player_attacks--><path d="M534.227,727.39 C567.802,733.053 601.378,732.485 634.954,725.686 " fill="none" id="ai_attacks-to-player_attacks" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="639.907,724.638,630.2736,722.5891,635.0155,725.6737,631.9308,730.4156,639.907,724.638" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9de155524f98c4421caca3c3395e8f35]
+link player_attacks to ai_attacks--><path d="M639.907,679.362 C606.332,671.95 572.756,670.77 539.18,675.82 " fill="none" id="player_attacks-to-ai_attacks" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="534.227,676.61,543.7451,679.1409,539.1645,675.8216,542.4837,671.2409,534.227,676.61" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6ae5b430007d4cb0cc333086c37b26a0]
+link ai_attacks to player_surrenders--><path d="M493.185,741.007 C511.422,758.695 532.975,779.6002 550.822,796.9099 " fill="none" id="ai_attacks-to-player_surrenders" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="554.804,800.7727,551.1289,791.6352,551.215,797.2914,545.5588,797.3776,554.804,800.7727" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[df5d75c5131ebfa135f4f4861b468fd7]
+link player_attacks to ai_surrenders--><path d="M639.9,725.618 C573.186,748.446 470.434,783.6048 401.516,807.1867 " fill="none" id="player_attacks-to-ai_surrenders" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="396.614,808.8642,406.4243,809.7354,401.3448,807.2456,403.8345,802.1661,396.614,808.8642" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c922ff979083841bf4c70e81e2110d1c]
+reverse link fx to player_surrenders--><path d="M466.339,833 C481.804,833 497.27,833 512.735,833 " fill="none" id="fx-backto-player_surrenders" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="461.094,833,470.094,837,466.094,833,470.094,829,461.094,833" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[53bf07e4649f4cc29406df5ff0d6cc3f]
+link ai_surrenders to fx--><path d="M396.672,833 C409.661,833 422.651,833 435.641,833 " fill="none" id="ai_surrenders-to-fx" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="440.813,833,431.813,829,435.813,833,431.813,837,440.813,833" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8cb5241a01077f56f0785aa960458303]
+@startuml
+hide empty description
+
+[*] -> new_ship
+new_ship : <compare visibility>
+new_ship - -> player_sees
+new_ship - -> ai_sees
+
+state player_sees
+state "Attack" as pa
+state "Trade" as pt
+state "Avoid" as pi
+state "Treach" as ptaa
+state "Ignore" as ptai
+state px <<end>>
+player_sees : "You see a ship. It doesn't see you"
+player_sees : [Attack] [Trade] [Avoid]
+player_sees - -> pa
+player_sees - -> pt
+player_sees - -> pi
+
+state ai_sees
+state "Attack" as aa
+state "Trade" as at
+state "Avoid" as ai
+state "Treach" as atpa
+state "Ignore" as atpi
+state ax <<end>>
+ai_sees : <ai decides>
+ai_sees - -> aa
+ai_sees - -> at
+ai_sees - -> ai
+
+state ai_fight_ok
+state ai_attacks
+state player_attacks
+state player_surrenders
+state ai_surrenders
+state fx <<end>>
+
+state trade
+state trade_ok
+state trade_x <<end>>
+trade: "They want to buy X
+trade: and sell you Y"
+trade: [Deal] [No deal]
+trade_ok: +1 rating
+trade_ok: <move cargo>
+trade - -> trade_ok
+trade - -> trade_x
+trade_ok - -> trade_x
+
+pa : -1 rating
+pa : <ai decides>
+pa - -> ai_surrenders
+pa - -> ai_fight_ok
+
+pt: +1 rating up to 0
+pt : <ai decides>
+pt - -> ptaa
+pt - -> trade
+pt - -> ptai
+
+pi - -> px
+
+
+aa: +1 rating up to 0
+aa : "The ship approaches
+aa : you aggressively"
+aa : [Attack] [Surrender]
+aa - -> player_attacks
+aa - -> player_surrenders
+
+at : "The ship wants to trade"
+at : [Attack] [Trade] [Ignore]
+at - -> atpa
+at - -> trade
+at - -> atpi
+
+ai: "You didn't
+ai: see a ship"
+ai : [ok]
+ai - -> ax
+
+ptaa: +2 rating up to 0
+ptaa: "They chose war"
+ptaa: [Attack] [Surrender]
+ptaa - ->player_attacks
+ptaa - ->player_surrenders
+
+ptai: "Not interested"
+ptai : [ok]
+ptai -> px
+
+
+atpa: -2 rating
+atpa : <ai decides>
+atpa - -> ai_surrenders
+atpa - -> ai_fight_ok
+
+atpi: -1 rating down to 0
+atpi: or skip
+atpi -> ax
+
+note left of atpi
+"Skip" happens when
+you click the button
+rather fast (within
+800ms). Rating is not
+decreased in this case.
+end note
+
+ai_fight_ok: "The ship is
+ai_fight_ok: going to attack"
+ai_fight_ok: [Attack] [Surrender]
+ai_fight_ok - ->player_attacks
+ai_fight_ok - ->player_surrenders
+
+ai_attacks: <damage player ship>
+ai_attacks: "They attack you!"
+ai_attacks: [Attack] [Surrender]
+ai_attacks -> player_attacks
+ai_attacks - -> player_surrenders
+
+player_attacks: <damage ai ship>
+player_attacks: <ai decides>
+player_attacks -> ai_attacks
+player_attacks - -> ai_surrenders
+
+player_surrenders: +1 rating up to 0
+player_surrenders: <ai takes cargo>
+player_surrenders -l->fx
+
+ai_surrenders: -1 rating down to 0
+ai_surrenders: "Take cargo"
+ai_surrenders ->fx
+@enduml
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

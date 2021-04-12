@@ -1,0 +1,48 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>CFEngine Master Policy Framework where to put files</title>
+<meta name="description" content="That was a google query I struggled to find answer to">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin cfengine-master-policy-framework-where-to-put-files -->
+		<div class="post">
+			<h2><a href="cfengine-master-policy-framework-where-to-put-files.html">CFEngine Master Policy Framework where to put files</a></h2>
+			<p class="trivia">
+				Created: 2017-02-09 &mdash; modified: 2017-03-08 &mdash; tags: CFEngine
+			</p>
+			<p class="intro">That was a google query I struggled to find answer to</p>
+			<p>Full discussion is available <a href="https://groups.google.com/forum/#!topic/help-cfengine/cYtjzIIBf30">on Google Groups</a>, but <strong>TL;DR</strong> is like this:</p>
+
+<ul>
+<li><p>Add this line into your <code>def.json</code> file:</p>
+
+<pre><code>{ "classes": { "services_autorun": ["any"] } }
+</code></pre></li>
+<li><p>Save your custom policies as <code>services/autorun/*.cf</code></p></li>
+</ul>
+		</div>
+		<!-- end cfengine-master-policy-framework-where-to-put-files -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

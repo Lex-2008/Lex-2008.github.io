@@ -1,0 +1,176 @@
+<!doctype html><html><body>
+<!-- vim: set sw=3 ts=3: -->
+<style>
+.ship {display:inline-block; width:300px}
+</style>
+
+<fieldset id="me" class="ship"></fieldset>
+<fieldset id="he" class="ship"></fieldset>
+<button onclick="attack()">attack</button>
+
+<script>
+
+var cargoPerBay=4;
+
+function Collection(){
+        this.list=[];
+        this.byType={};
+        this.compact=true;
+        this.actionButton='';
+        this.add=function(type){
+                this.list.push(type);
+                if(!this.byType[type]){
+                        this.byType[type]=0;
+                }
+                this.byType[type]++;
+        }
+        this.pop=function(count){
+                // used with components when attacked
+                // and with cargo when a cargo bay is destroyed
+                // assumes that this.list has enough items
+                while(count>0){
+                        this.byType[this.list.pop()]--;
+                        count--;
+                }
+                this.clean();
+        }
+        this.rmByType=function(type,count){
+                // used with cargo when selling / using rockets/fuel
+                // assumes that such type exists
+                this.byType[type]-=count;
+                while(count>0){
+                        this.list.splice(this.list.lastIndexOf(type),1);
+                        count--;
+                }
+                this.clean();
+        }
+        this.clean=function(){
+                // used by above three functions
+                Object.keys(this.byType).forEach(type=>{
+                        if(this.byType[type]<=0){
+                                delete this.byType[type];
+                        }
+                });
+        }
+        this.truncate=function(max){
+                // used with cargo when a cargo bay is destroyed
+                this.pop(this.list.length-max);
+        }
+        this.render=function(){
+                        // return `<ul>${Object.keys(this.byType).map(k=>`<li>${k} x${this.byType[k]}</li>`).join('')}</ul>
+                        // <ul class="full">${this.list.map(a=>`<li>${a}</li>`).join('')}</ul>`;
+                var button='';
+                if(this.actionButton){
+                        button=`<button>${this.actionButton}</button>`;
+                }
+                if(this.compact) {
+                        return `<ul>${Object.keys(this.byType).map(k=>`<li>${k} x${this.byType[k]}${button}</li>`).join('')}</ul>`;
+                } else {
+                        return `<ul>${this.list.map(a=>`<li>${a}</li>`).join('')}${button}</ul>`;
+                }
+        }
+}
+
+Ship=function(name) {
+        this.components=new Collection();
+        this.components.add('Head');
+        this.cargo=new Collection();
+        this.shotsReceived=Math.random()*100;
+        this.cargoMax=function(){
+                //return maximum allowed cargo
+                return (this.components.byType['Cargo Bay']||0)*cargoPerBay;
+        }
+        this.attack=function(max){
+                // launch up to max missiles
+                var shots=Math.min(this.components.byType['Gun'], this.cargo.byType['Rocket'], max);
+                if(!shots) return 0;
+                this.cargo.rmByType('Rocket',shots);
+                return shots;
+        }
+        this.damage=function(shots){
+                if(shots==0){return 0};
+                var old_sr=this.shotsReceived;
+                var new_sr=this.shotsReceived+shots;
+                var total=this.components.list.length;
+                var engines=Math.min(this.components.byType['Engine'], this.cargo.byType['Fuel']);
+                if(!engines) engines=0;
+                this.cargo.rmByType('Fuel',engines);
+                var scale=(1-engines/total);
+                shots=Math.floor(new_sr*scale)-Math.floor(old_sr*scale);
+                this.shotsReceived=new_sr;
+                if(shots>=this.components.length){
+                        alert('ship destroyed');
+                } else {
+                        this.components.pop(shots);
+                }
+                this.cargo.truncate(this.cargoMax());
+        }
+        this.render=function(domElement,visiblity){
+                var randomId=Math.random().toString(36).substring(5);
+                var cargoInfo='';
+                if(visiblity>=2){
+                        cargoInfo=`${this.cargo.list.length} total, ${this.cargoMax() - this.cargo.list.length} free`;
+                } else if(visiblity==1){
+                        cargoInfo=`${this.cargoMax()} max`;
+                } else {
+                        cargoInfo=`unknown`;
+                }
+                domElement.innerHTML=`<legend>${name}</legend>
+                        <ul>
+                        <li>Components (${this.components.list.length} total):
+                                <input type="checkbox" class="compact" id="a${randomId}"><label for="a${randomId}">(compact)</label>
+                                ${(visiblity>=1)?this.components.render():''}
+                        </li>
+                        <li>Cargo (${cargoInfo}):
+                                <input type="checkbox" class="compact" id="b${randomId}"><label for="b${randomId}">(compact)</label>
+                                ${(visiblity>=2)?this.cargo.render():''}
+                        </li>
+                        </ul>`;
+                var self=this;
+                domElement.querySelector(`#a${randomId}`).onclick=function(){self.components.compact=this.checked;self.render(domElement,visiblity)};
+                domElement.querySelector(`#a${randomId}`).checked=self.components.compact;
+                domElement.querySelector(`#b${randomId}`).onclick=function(){self.cargo.compact=this.checked;self.render(domElement,visiblity)};
+                domElement.querySelector(`#b${randomId}`).checked=self.cargo.compact;
+        }
+}
+
+function randomInt(a,b){
+        return Math.floor(Math.random()*(b-a))+a;
+}
+
+function randomFrom(a){
+        return a[Math.floor(Math.random()*a.length)];
+}
+
+function randomShip(name,numComps,freeCargo){
+        var comps=['Engine','Gun','Cargo Bay'];
+        var cargos=['Fuel','Rocket'];
+        var ship=new Ship(name);
+        while(ship.components.list.length<numComps){
+                ship.components.add(randomFrom(comps));
+        }
+        while(ship.cargo.list.length<ship.cargoMax()-freeCargo){
+                ship.cargo.add(randomFrom(cargos));
+        }
+        return ship;
+}
+
+var me=randomShip('The Ship',randomInt(10,20),randomInt(3,10));
+var he=randomShip('Bad guys',randomInt(5,15),randomInt(5,10));
+
+function attack(){
+        he.damage(me.attack(he.components.list.length));
+        // me.damage(he.attack(me.components.list.length));
+        me.render($('#me'),2);
+        he.render($('#he'),2);
+}
+
+function $(q){
+        return document.querySelector(q);
+}
+
+me.render($('#me'),2);
+he.render($('#he'),2);
+
+</script>
+</body></html>

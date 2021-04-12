@@ -1,0 +1,60 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Macro to excange two values in Vim</title>
+<meta name="description" content="<div id="excerpt">You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?</div>">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin macro-to-excange-two-values-in-vim -->
+		<div class="post">
+			<h2><a href="macro-to-excange-two-values-in-vim.html">Macro to excange two values in Vim</a></h2>
+			<p class="trivia">
+				Created: 2013-01-09 &mdash; modified: 2013-01-09 &mdash; tags: vim
+			</p>
+			<p class="intro"><div id="excerpt">You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?</div></p>
+			<div>
+
+<br>For example, you have two parameters:
+<br><pre>Parameter=Value
+Another parameter=some other value
+</pre>And you want to exchange their values to get this:
+<br><pre>Parameter=some other value
+Another parameter=Value
+</pre>
+<br>If you might need to do it more than once and your level of laziness (a.k.a. urge to optimize stuff) is somewhat close to mine, you might find this Vim command useful:
+<br><tt>^f=l"qDj^f=l"wD"qpk^f="wp</tt>
+<br>It does exactly that.
+<br>
+<br>To use it:
+<br>
+<ol>
+<li>Copy-paste above line into Vim</li>
+<li>Copy it into an internal Vim register (<tt>"xdd</tt> to cut current line to register x)</li>
+<li>Put cursor somewhere in the first line and execute macro stored in your register (<tt>@x</tt>)</li>
+</ol>As you probably know, Vim uses same registers both for copy-paste operations and for macros. Also it saves them between sessions in viminfo file, nice!
+</div>
+		</div>
+		<!-- end macro-to-excange-two-values-in-vim -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

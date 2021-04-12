@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>space 1d 0: idea</title>
+<meta name="description" content="Game about space which will be more fun to make than to play.">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin space-1d-0-idea -->
+		<div class="post">
+			<h2><a href="space-1d-0-idea.html">space 1d 0: idea</a></h2>
+			<p class="trivia">
+				Created: 2018-04-01 &mdash; modified: 2020-05-17 &mdash; tags: space
+			</p>
+			<p class="intro">Game about space which will be more fun to make than to play.</p>
+			<p>Being inspired by UI of <a href="https://www.decisionproblem.com/paperclips/index2.html">game about paperclips</a>, story behind <a href="https://en.wikipedia.org/wiki/Dwarf_Fortress">Dwarf Fortress</a>, and warm memories of playing <a href="https://en.wikipedia.org/wiki/Space_Trader_(Palm_OS)">Space Trader</a>,
+I decided to try to make a <em>game about space</em> with as simple UI as possible.
+So far the idea is like this: you fly in some unspecified direction (no need to have maps!),
+meet other ships, and trade/fight with them.</p>
+
+<p>Each ship will be presented in UI as two lists - of components and cargo, like this:</p>
+
+<div>
+<style>
+.ship {display:inline-block; width:300px}
+.compact:checked ~ ul:not(.compact) {display:none}
+.compact:not(:checked) ~ ul.compact {display:none}
+</style>
+<fieldset class="ship">
+        <legend>Ship</legend>
+        <ul>
+                <li>Components (<span class="components-count">15</span> total):
+                        <input type="checkbox" class="compact" id="components-compact"><label for="components-compact">(compact)</label>
+                        <ul class="compact">
+                                <li>Head</li>
+                                <li>Engine x5</li>
+                                <li>Gun x3</li>
+                                <li>Cargo bay x4</li>
+                        </ul>
+                        <ul>
+                                <li>Head</li>
+                                <li>Engine</li>
+                                <li>Engine</li>
+                                <li>Engine</li>
+                                <li>Engine</li>
+                                <li>Engine</li>
+                                <li>Gun</li>
+                                <li>Gun</li>
+                                <li>Gun</li>
+                                <li>Cargo bay</li>
+                                <li>Cargo bay</li>
+                                <li>Cargo bay</li>
+                                <li>Cargo bay</li>
+                        </ul>
+                </li>
+                <li>Cargo (<span class="cargo-count">16</span> total, <span class="cargo-free">4</span> free):
+                        <input type="checkbox" class="compact" id="cargo-compact"><label for="cargo-compact">(compact)</label>
+                        <ul class="compact">
+                                <li>Fuel x6</li>
+                                <li>Rocket x6</li>
+                        </ul>
+                        <ul>
+                                <li>Fuel</li>
+                                <li>Fuel</li>
+                                <li>Fuel</li>
+                                <li>Fuel</li>
+                                <li>Fuel</li>
+                                <li>Fuel</li>
+                                <li>Rocket</li>
+                                <li>Rocket</li>
+                                <li>Rocket</li>
+                                <li>Rocket</li>
+                                <li>Rocket</li>
+                                <li>Rocket</li>
+                        </ul>
+                </li>
+        </ul>
+</fieldset
+</div>
+
+<p>By clicking the "(compact)" checkbox you can switch between
+compact view (which shows only count of each component)
+and
+full view (which shows list of components as is)</p>
+
+<p>Next step is to add a second ship and some combat.</p>
+		</div>
+		<!-- end space-1d-0-idea -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Using true instead of echo to debug bash scripts</title>
+<meta name="description" content="<b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin using-true-instead-of-echo-to-debug-bash-scripts -->
+		<div class="post">
+			<h2><a href="using-true-instead-of-echo-to-debug-bash-scripts.html">Using true instead of echo to debug bash scripts</a></h2>
+			<p class="trivia">
+				Created: 2019-01-09 &mdash; modified: 2020-03-01 &mdash; tags: Bash
+			</p>
+			<p class="intro"><b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output</p>
+			<p>Sometimes we use <code>echo</code> to debug bash scripts, like this:</p>
+
+<pre><code>echo Beginning computation...
+some_commands
+result="$(something_else)"
+echo "function returned $result"
+</code></pre>
+
+<p>Then, to aid debugging even more, we run the whole script with <code>bash -x script.sh</code>.
+This prints each line before it gets executed.
+As a result, you will see each <code>echo</code> line twice: once before it gets executed and once for <code>echo</code> output, like this:</p>
+
+<pre><code>+ echo Beginning computation...
+Beginning computation...
++ some_commands
++ result="$(something_else)"
++ echo function returned twnty
+function returned twnty
+</code></pre>
+
+<p>If you don't fancy seeing duplicate lines, you can just replace <code>echo</code> with <code>true</code>, like this:</p>
+
+<pre><code>true Beginning computation...
+some_commands
+result="$(something_else)"
+true "function returned $result"
+</code></pre>
+
+<p><code>true</code> accepts any number of arguments and simply ignores them.
+But <code>bash -x script.sh</code> output will look nicer:</p>
+
+<pre><code>+ true Beginning computation...
++ some_commands
++ result="$(something_else)"
++ true function returned twnty
+</code></pre>
+
+<p>Moreover, if you like separating different parts of your script with comment lines like this:</p>
+
+<pre><code>part_one
+# ================
+part_two
+</code></pre>
+
+<p>Then just replacing first comment character <code>#</code> with <code>true</code> will forward these lines to <code>bash -x</code> log:</p>
+
+<pre><code>$ cat sctipt.sh
+part_one
+true ================
+part_two
+
+$ bash -x sctipt.sh
++ part_one
++ true ================
++ part_two
+</code></pre>
+
+<p>Thanks <a href="https://github.com/vpodzime">Vratislav</a> for this trick!</p>
+
+<script src="/microlight.js"></script>
+		</div>
+		<!-- end using-true-instead-of-echo-to-debug-bash-scripts -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

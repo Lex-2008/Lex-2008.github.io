@@ -1,0 +1,149 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Whitelisting emails with sendmail</title>
+<meta name="description" content="So they weren't rejected by dnsbl spam filter">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin whitelisting-emails-with-sendmail -->
+		<div class="post">
+			<h2><a href="whitelisting-emails-with-sendmail.html">Whitelisting emails with sendmail</a></h2>
+			<p class="trivia">
+				Created: 2015-10-27 &mdash; modified: 2016-12-11 &mdash; tags: e-mail
+			</p>
+			<p class="intro">So they weren't rejected by dnsbl spam filter</p>
+			<p>Recently I became annoyed by growing amount of spam messages I was receiving.</p>
+
+<p>Previously I had a simple spam filter, which worked according to this logic:</p>
+
+<blockquote>
+  <p>messages from contacts in my address book should go to inbox, <br />
+other messages should go to trash</p>
+</blockquote>
+
+<p>I'm not very popular person in the Internet, so I am rarely contacted by someone
+I didn't contact before (actually, <strong>never</strong> during last year),
+so it worked fine.</p>
+
+<p>Actually I was checking what mail was considered spam and found some cases which one could consider false positives
+-- so called "news" mails from websites where I registered.
+I never was very interested in them, so this logic worked even better then expected.</p>
+
+<p>However, one day I got tired by increasing amount of garbage coming into my trash
+and decided to give a shot to some spam-filter.</p>
+
+<p>Sendmail has a built-in support for <a href="https://en.wikipedia.org/wiki/DNSBL">dnsbl</a> filters,
+which check IP of the server trying to give you a message,
+and if this server was known to send spam before - reject the message.</p>
+
+<p>Of course, this technology can also give false positive results,
+so people usually advice to combine several dnsbl lists with scoring system and
+with other antispam technologies (word filters, signature checking, etc).</p>
+
+<p>I already had a nice-working spam-filtering logic, so wanted to combine it with
+the new one on the rules like this:</p>
+
+<blockquote>
+  <p>messages from contacts in my address book should go to inbox, <br />
+other messages should go to the spamfilter
+(and if they pass it - to trash)</p>
+</blockquote>
+
+<p>And, turns out, it's quite easy to do for those who keep address book on the mail server.
+All you need is to extract all addresses from your address book and add them to <code>/etc/mail/access</code> file.</p>
+
+<h2>Requirements</h2>
+
+<p>Below steps are for the following case:</p>
+
+<ul>
+<li><p>Address book is in SquirrelMail format at <code>/home/alexey/alexey.abook</code>
+(you can make links if it's in another place)</p></li>
+<li><p>Mail server is sendmail and it's installed on the same server</p></li>
+<li><p>Preferred dnsbl source is <code>rbl.rbldns.ru</code></p></li>
+</ul>
+
+<p>For different cases steps should be adjusted more or less.</p>
+
+<h2>Steps</h2>
+
+<ol>
+<li><p>Check that your <code>/etc/mail/sendmail.mc</code> has the following lines:</p>
+
+<pre><code>FEATURE(`dnsbl', `rbl.rbldns.ru')dnl
+FEATURE(`access_db')dnl
+FEATURE(`delay_checks')dnl
+</code></pre>
+
+<p>(first line enables dnsbl,
+second enables email address check,
+third delays dnsbl check until after email address check)</p></li>
+<li><p>Add this line at the bottom of <code>/etc/mail/access</code> file:</p>
+
+<pre><code>### AUTOMATED LIST BELOW
+</code></pre></li>
+<li><p>Put this script to <code>/etc/cron.daily/mail-whitelist</code>:</p>
+
+<pre><code>#!/bin/bash
+
+
+sed -ni '1,/### AUTOMATED LIST BELOW/p' '/etc/mail/access'
+cut -d \| -f 4 /home/alexey/alexey.abook | sed 's/$/ OK/' &gt;&gt;'/etc/mail/access'
+makemap hash '/etc/mail/access' &lt; '/etc/mail/access'
+</code></pre></li>
+</ol>
+
+<h2>Result</h2>
+
+<p>Result was somewhat interesting:
+I'm now getting only one spam message per day (versus 50 before) -
+as I see, usually sent via "official" mail servers of big email companies.
+However, number of log entries for "rejected" messages is four times higher
+then number of spam messages before -
+looks like spam bots keep retrying after being rejected.
+Oh well.</p>
+
+<hr />
+
+<p><strong>Note</strong>:
+For someone interested, my "old" filter is implemented by this simple rule in <code>~/.procmailrc</code>:</p>
+
+<pre><code>FRIENDS=`cut -d \| -f 4 $HOME/alexey.abook | tr '\n' '|' | sed 's/|$//'`
+
+:0:
+*$ !^From:.*($FRIENDS)
+$HOME/Maildir/.Trash/
+</code></pre>
+
+<p>Note that it works for me because I'm using Maildir for storing email messages
+(note <code>$HOME/Maildir/</code> in the script above),
+<code>procmail</code> for sorting it,
+and SquirrelMail for keeping my address book
+(note <code>$HOME/alexey.abook</code>).</p>
+
+<script src="/microlight.js"></script>
+		</div>
+		<!-- end whitelisting-emails-with-sendmail -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

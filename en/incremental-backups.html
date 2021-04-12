@@ -1,0 +1,214 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Incremental backups</title>
+<meta name="description" content="How I organised backups of my machine">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin incremental-backups -->
+		<div class="post">
+			<h2><a href="incremental-backups.html">Incremental backups</a></h2>
+			<p class="trivia">
+				Created: 2014-06-17 &mdash; modified: 2016-09-26 &mdash; tags: bash
+			</p>
+			<p class="intro">How I organised backups of my machine</p>
+			<p><strong>Update</strong>: since April 2016, I've moved to a new backup system,
+based on <a href="rsync-backups.html"><code>rsync --link-dest</code></a> parameter.
+I believe it's better for numerous reasons,
+so please use that!</p>
+
+<hr />
+
+<p>Based on a <a href="/ru/incremental-backup-с-помощью-tar.html">short note</a> from my Russian blog, let's make a good backupping system.</p>
+
+<h3>Humble beginning</h3>
+
+<p>We can start from a simple one-liner:</p>
+
+<pre><code>tar --create --gzip --ignore-failed-read --one-file-system --preserve-permissions --sparse --exclude=*cache* --exclude=*trash* --exclude=home/*/.ssh/‌* --ignore-case --listed-incremental=/backup/weekly --file=/backup/weekly-$(date +%G-%V).tar.gz /home /etc /usr/local/bin
+</code></pre>
+
+<p>It creates files with names like <code>weekly-2015-39.tar.gz</code> in the <code>/backup/</code> folder.
+They are compressed (note <code>--gzip</code> argument),
+each of them has only files changed since last archive creation (note <code>--listed-incremental=</code> argument),
+and they have some other useful features - you can check the <code>man tar</code> page for other arguments.</p>
+
+<p>You should run this command weekly.
+Stick it to <code>/etc/cron.weekly/</code>, for example.</p>
+
+<h3>Recoverability</h3>
+
+<p>Let's start with adding some recovery information for the case of broken bits.
+<code>par2create</code> is the tool to create a file with such recovery information
+(you're encouraged to check how to recover them yourself - I won't tell you).</p>
+
+<p>That's done by a simple command</p>
+
+<pre><code>par2create -r10 -n1 {filename}
+</code></pre>
+
+<p>where <code>-r10</code> means "recover from the loss of up to 10% of original file",
+and <code>-n1</code> means "create only one recovery file"</p>
+
+<p>To make it play nicely, the script grows a bit:</p>
+
+<pre><code>from="/home /etc /usr/local/bin"
+cd /backup # destination for archives
+file="weekly-$(date +%G-%V).tar.gz"
+tar --create --gzip --ignore-failed-read --one-file-system --preserve-permissions --sparse --exclude=*cache* --exclude=*trash* --exclude=home/*/.ssh/‌* --ignore-case --listed-incremental=weekly --file=$file $from
+par2create -r10 -n1 $file
+</code></pre>
+
+<p>In addition to files mentinoed above, it will also create files like <code>weekly-2015-39.tar.gz.par2</code> and <code>weekly-2015-39.tar.gz.vol000+200.par2</code> with some recovery information.</p>
+
+<h3>Space concerns</h3>
+
+<p>Ok, so incremental archives work like this:
+first, tar creates a "base" archive, which contains <em>all</em> files
+(and the <code>weekly</code> file with some metadata)
+and then, every week it creates an incremental archive with files changed during this week
+(and also updates the <code>weekly</code> file).</p>
+
+<p>Eventually used space grows, and you might think that it's time to recreate the base archive and delete all incremental ones.</p>
+
+<p>To do this, let's compare the sizes of "base" and all "incremental" archives,
+and when sum of incremental gets bigger then the base - it's time to clean up.</p>
+
+<p>So we will do something like this:</p>
+
+<pre><code>let size_base=$(du -c base-*.tar.gz | grep total)
+let size_incr=$(du -c weekly-*.tar.gz | grep total)
+if [ $size_inc -gt $size_base ]; then
+    # Clean up and create new base archive
+else
+    # Create weekly archive as normal
+fi
+</code></pre>
+
+<p>Since we're creating archives in two different places -
+it's time to move relevant lines to a separate function.</p>
+
+<p>And the whole script will look like this
+(note that I also added a command to create the "base" archive when there is no "weekly" file):</p>
+
+<pre><code>from="/home /etc /usr/local/bin"
+cd /backup # destination for archives
+
+archive() {
+    tar --create --gzip --ignore-failed-read --one-file-system --preserve-permissions --sparse --exclude=*cache* --exclude=*trash* --exclude=home/*/.ssh/‌* --ignore-case --listed-incremental=$1 --file=$2 $from
+    par2create -r10 -n1 $2
+}
+
+week=$(date +%G-%V)
+
+if [ ! -f weekly ]; then
+    # First run - create base archive
+    archive weekly base-$week.tar.gz
+else
+    # Check sizes
+    let size_base=$(du -c base-*.tar.gz | grep total)
+    let size_incr=$(du -c weekly-*.tar.gz | grep total)
+    if [ $size_inc -gt $size_base ]; then
+        # Clean up and create new base archive
+        delete_list="$(ls weekly-* base-*)"
+        rm weekly
+        archive weekly base-$week.tar.gz
+        rm $delete_list
+    else
+        # Create weekly archive
+        archive weekly weekly-$week.tar.gz
+    fi
+fi
+</code></pre>
+
+<h3>Daily backups</h3>
+
+<p>Let's also add some daily backups.
+But keeping in mind that some files might change every day,
+instead of just renaming <code>weekly</code> to <code>daily</code>,
+let's make them also incremental, but based on latest <code>weekly</code> file.</p>
+
+<p>Like this:</p>
+
+<pre><code>#!/bin/bash
+
+from="/home /etc /usr/local/bin"
+cd /backup # destination for archives
+
+archive() {
+    tar --create --gzip --ignore-failed-read --one-file-system --preserve-permissions --sparse --exclude=*cache* --exclude=*trash* --exclude=home/*/.ssh/‌* --ignore-case --listed-incremental=$1 --file=$2 $from
+    par2create -r10 -n1 $2
+}
+
+dow=$(date +%w)
+week=$(date +%G-%V)
+
+if [ ! -f weekly ]; then
+    # First run - create base archive
+    archive weekly base-$week.tar.gz
+    cp weekly daily
+elif [ $dow == 0 ]; then
+    # Sunday - check sizes
+    let size_base=$(du -c base-*.tar.gz | grep total)
+    let size_incr=$(du -c weekly-*.tar.gz | grep total)
+    if [ $size_inc -gt $size_base ]; then
+        # Clean up and create new base archive
+        delete_list="$(ls weekly-* base-*)"
+        rm weekly
+        archive weekly base-$week.tar.gz
+        rm $delete_list
+    else
+        # Create weekly archive
+        archive weekly weekly-$week.tar.gz
+    fi
+    rm daily*
+    cp weekly daily
+else
+    # Create daily archive
+    archive daily daily-$dow.tar.gz
+fi
+</code></pre>
+
+<p>At the end you can also add some command to <code>rsync</code> your backups to remote server.</p>
+
+<p>In next article I'll cover more advanced topics, like:</p>
+
+<ul>
+<li><p>encryption</p></li>
+<li><p>multiple machines backups</p></li>
+<li><p>separating settings, code, and data</p></li>
+<li><p>...and maybe something more</p></li>
+</ul>
+
+<p>Stay tuned!</p>
+
+<blockquote>
+  <p>Thanks to my Linux <a href="http://ruario.ghost.io">friend</a> for his valuable input on this subject</p>
+</blockquote>
+
+<script src="/microlight.js"></script>
+		</div>
+		<!-- end incremental-backups -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

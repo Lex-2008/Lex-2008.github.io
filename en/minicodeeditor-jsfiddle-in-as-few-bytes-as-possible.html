@@ -1,0 +1,78 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>MiniCodeEditor: jsFiddle in as few bytes as possible</title>
+<meta name="description" content="probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin minicodeeditor-jsfiddle-in-as-few-bytes-as-possible -->
+		<div class="post">
+			<h2><a href="minicodeeditor-jsfiddle-in-as-few-bytes-as-possible.html">MiniCodeEditor: jsFiddle in as few bytes as possible</a></h2>
+			<p class="trivia">
+				Created: 2014-01-22 &mdash; modified: 2014-01-22 &mdash; tags: javascript
+			</p>
+			<p class="intro">probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf</p>
+			<div>
+Let's start with "minimal" version presented on <a href="http://xem.github.io/miniCodeEditor/">their site</a> (168 bytes):
+<pre>data:text/html,&lt;body oninput='e.firstChild.srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]'onload='for(i=3;i--;)e.innerHTML+="&lt;textarea id=t"+i+" rows=9&gt;"'id=e&gt;&lt;iframe&gt;</pre>
+
+First thing, let's change <tt>oninput</tt> event to <tt>onchange</tt> to prevent things like <code>for(;;)</code> killing the browser (184 bytes):
+<pre>data:text/html,&lt;body <b>onchange</b>='e.firstChild.srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]'onload='for(i=3;i--;)e.innerHTML+="&lt;textarea id=t"+i+" rows=9&gt;"'id=e&gt;&lt;iframe&gt;</pre>
+
+Now let's add some very basic style. We'll set CSS property of all things to occupy quarter of a screen and let the browser do layout for us. We use 49% instead of 50% to compensate for border sizes which we don't care to reset.
+<pre>data:text/html,&lt;body onchange='e.firstChild.srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]'onload='for(i=3;i--;)e.innerHTML+="&lt;textarea id=t"+i+"&gt;"'id=e&gt;&lt;iframe&gt;<b>&lt;/iframe&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}</b></pre>
+
+But we want the iframe to be in bottom-right corner, like in original jsFiddle, so in DOM tree it has to be last, so we have to add it after all textareas in <tt>body onload</tt> event. We will also change <tt>body onchange</tt> event to use <tt>lastChild</tt> instead of <tt>firstChild</tt>:
+<pre>data:text/html,&lt;body onchange='e.<b>last</b>Child.srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]'onload='for(j=3;j--;)e.innerHTML+="&lt;textarea id=t"+j+"&gt;";<b>e.innerHTML+="&lt;iframe&gt;&lt;/iframe&gt;"</b>'id=e&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}</pre>
+
+To save some characters while typing <tt>e.innerHTML</tt>, we'll save <tt>'innerHTML'</tt> to a variable on a first use, and use this variable as index for <tt>e</tt>: (233 bytes):
+<pre>data:text/html,&lt;body onchange='e.lastChild.srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]'onload='for(j=3;j--;)e<b>[i="innerHTML"]</b>+="&lt;textarea id=t"+j+"&gt;";e<b>[i]</b>+="&lt;iframe&gt;&lt;/iframe&gt;"'id=e&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}</pre>
+
+<br>
+now let's add "data" link to share result with friends. Since we can't use <tt>lastChild</tt> anymore, we'll have to use <tt>children[4]</tt> to address the iframe.
+<pre>data:text/html,&lt;body onchange='e.<b>children[4]</b>.srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]'onload='for(j=3;j--;)e[i="innerHTML"]+="&lt;textarea id=t"+j+"&gt;";e[i]+="&lt;iframe&gt;&lt;/iframe&gt;<b>&lt;br&gt;&lt;a id=w&gt;link</b>"'id=e&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}</pre>
+We'll use assignment result to assign same value to several variables (like <code>a=b=1</code> assigns same value to several variables). (279 bytes):
+<pre>data:text/html,&lt;body onchange='<b>w.href="data:text/html,"+</b>(e.children[4].srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v])'onload='for(j=3;j--;)e[i="innerHTML"]+="&lt;textarea id=t"+j+"&gt;";e[i]+="&lt;iframe&gt;&lt;/iframe&gt;&lt;br&gt;&lt;a id=w&gt;link"'id=e&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}</pre>
+<br>
+
+now let's also add "fiddle" link to let our friends edit the result. It will be almost like a quine (a program which prints itself): a page which, when edited, will produce a link to an edited version of itself.
+To do this, first let's add a "load" function which will add some contents to textareas. The most obvious place to do that is when generating them
+<pre>data:text/html,&lt;body onchange='w.href="data:text/html,"+(e.children[4].srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]);'onload='for(j=3;j--;)e[i="innerHTML"]+="&lt;textarea id=t"+j+"&gt;"<b>+["","",""][j]</b>;e[i]+="&lt;iframe&gt;&lt;/iframe&gt;&lt;br&gt;&lt;a id=w&gt;link"'id=e&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}</pre>
+now let's add a link, which href attribute will be computed as this: get current URL, and replace arguments to "load" function with real data:
+<pre>data:text/html,&lt;body onchange='w.href="data:text/html,"+(e.children[4].srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v])<b>;r.href=(""+location).replace(/\[".*"\]/,JSON.stringify([t0[v],t1[v],t2[v]]))</b>'onload='for(j=3;j--;)e[i="innerHTML"]+="&lt;textarea id=t"+j+"&gt;"+["","",""][j];e[i]+="&lt;iframe&gt;&lt;/iframe&gt;&lt;br&gt;&lt;a id=w&gt;link<b>&lt;/a&gt; &lt;a id=r&gt;fiddle</b>";'id=e&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}</pre>
+to be very nice, let's also rename "link" to "data", and load the generated HTML to iframe by calling <tt>onchange</tt> event handler from the <tt>onload</tt> event (403 bytes):
+<pre>data:text/html,&lt;body onchange='w.href="data:text/html,"+(e.children[4].srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]);r.href=(""+location).replace(/\[".*"\]/,JSON.stringify([t0[v],t1[v],t2[v]]))'onload='for(j=3;j--;)e[i="innerHTML"]+="&lt;textarea id=t"+j+"&gt;"+["","",""][j];e[i]+="&lt;iframe&gt;&lt;/iframe&gt;&lt;br&gt;&lt;a id=w&gt;<b>data</b>&lt;/a&gt; &lt;a id=r&gt;fiddle";<b>e.onchange()</b>'id=e&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}</pre>
+
+Above code produces wrong links if your text contains hash <tt>#</tt> or quote <tt>'</tt> characters, so let's properly escape input. Final version (531 byte):
+<pre>data:text/html,&lt;body onchange='w.href=(d="data:text/html")+","+(e.children[4].srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]).replace("%23","%2523");r.href=d+";base64,"+btoa(x=((l=""+location)[14]==","?unescape(l.slice(15)):atob(l.slice(22))).replace(/\[".*"\]/,JSON.stringify([btoa(t0[v]),btoa(t1[v]),btoa(t2[v])])))'onload='for(j=3;j--;)e[i="innerHTML"]+="&lt;textarea id=t"+j+"&gt;"+atob(["","",""][j]);e[i]+="&lt;iframe&gt;&lt;/iframe&gt;&lt;br&gt;&lt;a id=w&gt;data&lt;/a&gt; &lt;a id=r&gt;fiddle";e.onchange()'id=e&gt;&lt;style&gt;body&gt;*{width:49%;height:48%}
+</pre>
+Note: to try them out, just copy-paste above data: URLs to your browser's address bar!
+
+<script src="/microlight.js"></script>
+<script>microlight.reset('pre')</script>
+</div>
+		</div>
+		<!-- end minicodeeditor-jsfiddle-in-as-few-bytes-as-possible -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

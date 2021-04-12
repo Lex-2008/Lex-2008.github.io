@@ -1,0 +1,182 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>How to use parameters to set working directory in org mode code block</title>
+<meta name="description" content="For when you want working dorectory (:dir) be a parameter, just like variable (:var)">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin how-to-use-parameters-to-set-working-directory-in-org-mode-code-block -->
+		<div class="post">
+			<h2><a href="how-to-use-parameters-to-set-working-directory-in-org-mode-code-block.html">How to use parameters to set working directory in org mode code block</a></h2>
+			<p class="trivia">
+				Created: 2020-04-11 &mdash; modified: 2020-04-23 &mdash; tags: org
+			</p>
+			<p class="intro">For when you want working dorectory (:dir) be a parameter, just like variable (:var)</p>
+			<p>Org mode code blocks have a very powerful feature of being exeutable.
+You can type some code like this:</p>
+
+<pre><code>#+begin_src sh :results scalar
+  echo "hello, my hostname is:"
+  hostname
+#+end_src
+</code></pre>
+
+<p>Point a text cursor there, press Ctrl+C twice, and the following output appears below:</p>
+
+<pre><code>#+RESULTS:
+: hello, my hostname is:
+: flower2
+</code></pre>
+
+<p><code>:results scalar</code> is there to make output appear as-is, and not as table.</p>
+
+<p>You can as well pass arguments to code blocks.
+Moreover, you can store such argument in one place, and reuse it in several code blocks:</p>
+
+<pre><code>#+name: hostname
+| shpakovsky.ru |
+
+#+begin_src sh :var host=hostname :results scalar
+  echo "hostname of $host is:"
+  ssh root@$host hostname
+#+end_src
+
+#+RESULTS:
+: hostname of shpakovsky.ru is:
+: shpakovsky.ru
+</code></pre>
+
+<p>You can read more about it in <a href="https://orgmode.org/manual/Environment-of-a-Code-Block.html">orgmode manual</a>.</p>
+
+<p>Moreover, you can specify working directory, and it even supports TRAMP syntax, so you can run this code on a remote machine.
+Of course, you can prepend your commands with <code>ssh $host</code>, but if you have more than a few commands, or would like to use some other programming language -
+using TRAMP is much better.</p>
+
+<p>However, can you can't easily pass directory name as parameter.</p>
+
+<p>But you can write some simple <em>elisp</em> helper, which will get property and format it as desired.
+Apparently, this is <a href="https://orgmode.org/manual/Environment-of-a-Code-Block.html#:~:text=Emacs%20lisp%20code%20can%20also%20set%20the%20values%20for%20variables">documented</a> feature.
+So far I succeeded only at getting properties inside <code>:PROPERTIES:</code> header, but that's better than nothing!
+Look:</p>
+
+<pre><code>* Define your inputs here
+  :PROPERTIES:
+  :host:     shpakovsky.ru
+  :user:     alexey
+  :header-args: :results scalar
+  :END:
+
+#+begin_src emacs-lisp :results silent
+  (defun host ()
+    (org-entry-get nil "host" t))
+  (defun user ()
+    (org-entry-get nil "user" t))
+  (defun ssh_dir ()
+    (format "/ssh:%s@%s:" (user) (host)))
+#+end_src
+
+#+begin_src sh :dir (ssh_dir)
+  echo "running as user $(whoami) on host $(hostname)"
+  echo "my public IP address is:"
+  curl ifconfig.co
+  echo "and it resolves back to:"
+  host `curl -s ifconfig.co`
+#+end_src
+
+#+RESULTS:
+: running as user alexey on host shpakovsky.ru
+: my public IP address is:
+: 109.120.165.193
+: and it resolves back to:
+: 193.165.120.109.in-addr.arpa domain name pointer shpakovsky.ru.
+</code></pre>
+
+<p>Note, however, that since this way you'll be using <em>headers</em> instead of <em>tables</em> for "host" and "user" values,
+you will have to wrap them in braces, like this:</p>
+
+<pre><code>#+begin_src sh :var host=(host)
+  echo "above code was executed on $host"
+#+end_src
+
+#+RESULTS:
+: above code was executed on shpakovsky.ru
+</code></pre>
+
+<p><strong>Update from 2020-04-20:</strong> as <a href="https://emacs.stackexchange.com/a/41951/28525">this StackExchange answer</a> suggests, you can make these values available from other sections (not only the one where they are defined, with all its subsections) by using "executable code blocks" and wrapping <code>org-entry-get</code> into <code>org-with-point-at org-babel-current-src-block-location</code>, like this:</p>
+
+<pre><code>* Section One
+  :PROPERTIES:
+  :hellomessage: hello
+  :END:
+
+  #+NAME: get_property
+  #+BEGIN_SRC emacs-lisp :var prop_name="" :results silent
+  (org-with-point-at org-babel-current-src-block-location
+    (org-entry-get nil prop_name t))
+  #+END_SRC
+
+* Section Two
+
+  #+HEADER: :var prop_message=get_property("hellomessage")
+  #+BEGIN_SRC emacs-lisp
+    (message prop_message)
+  #+END_SRC
+
+  #+RESULTS:
+  : hello
+</code></pre>
+
+<p>Note, however, that you will have to confirm code block execution twice.</p>
+
+<p><strong>Update from 2020-04-14:</strong> you can also get results or previous blocks like this (also posted on <a href="https://emacs.stackexchange.com/a/57796/28525">StackExchange</a>):</p>
+
+<pre><code>#+name: block-1
+#+BEGIN_SRC sh
+  echo '/bin'
+#+END_SRC
+
+#+RESULTS: block-1
+: /bin
+
+#+begin_src emacs-lisp :results silent
+  (defun result1 ()
+    (save-excursion
+      (org-babel-goto-named-result "block-1")
+      (setq value (org-babel-read-result))
+      )
+    (print value)
+    )
+#+end_src
+
+#+BEGIN_SRC sh :dir (result1) :results scalar
+  pwd
+#+END_SRC
+
+#+RESULTS:
+: /bin
+</code></pre>
+		</div>
+		<!-- end how-to-use-parameters-to-set-working-directory-in-org-mode-code-block -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

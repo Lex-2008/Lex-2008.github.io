@@ -1,0 +1,56 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Paste and replace in Vim</title>
+<meta name="description" content="How to copy-paste text from one place to another, replacing what's already there">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin paste-and-replace-in-vim -->
+		<div class="post">
+			<h2><a href="paste-and-replace-in-vim.html">Paste and replace in Vim</a></h2>
+			<p class="trivia">
+				Created: 2013-01-16 &mdash; modified: 2013-01-16 &mdash; tags: vim
+			</p>
+			<p class="intro">How to copy-paste text from one place to another, replacing what's already there</p>
+			<div>
+<br>Consider the following situation:<pre>f(good);
+...&lt;somewhere below&gt;...
+f(bad)</pre> and you want to change it to this: <pre>f(good);
+...&lt;somewhere below&gt;...
+f(good)</pre>
+<br>Usual Windows-way would be:<br><ol>
+<li>select "good" and copy it to clipboard</li>
+<li>select "bad" and paste stuff from clipboard</li>
+</ol>
+<br>How to achieve the same in Vim, without using extra <tt>"x</tt> registers?<br><br>Visual mode to rescue!<br><ol>
+<li>(Y)ank (copy) "good" text (<tt>yib</tt> to (Y)ank (I)nside (B)rackets when cursor is in "good" word)</li>
+<li>Move the cursor to "bad" word</li>
+<li>Select it (in visual mode) and paste stuff (<tt>vibp</tt> to go (V)isual, select (I)nside (B)rackets, and (P)aste)</li>
+</ol>
+<br><br>Related reading: <a href="http://vimdoc.sourceforge.net/htmldoc/visual.html">:help v</a> <a href="http://vimdoc.sourceforge.net/htmldoc/change.html#v_p">:help v_p</a>
+</div>
+		</div>
+		<!-- end paste-and-replace-in-vim -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

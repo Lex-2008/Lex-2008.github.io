@@ -1,0 +1,72 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Colors 2</title>
+<meta name="description" content="A CSS-only version of fancy 2D background gradient">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin colors2 -->
+		<div class="post">
+			<h2><a href="colors2.html">Colors 2</a></h2>
+			<p class="trivia">
+				Created: 2016-06-29 &mdash; modified: 2017-06-17 &mdash; tags: css
+			</p>
+			<p class="intro">A CSS-only version of fancy 2D background gradient</p>
+			<div>
+<style>
+    body {background: linear-gradient(
+            rgba(255,0,255,0.5),
+            rgba(255,255,0,0.5),
+            rgba(0,255,255,0.5),
+            rgba(255,0,255,0.5)),
+        linear-gradient(to right, #f00, #0f0, #00f);
+    }
+
+#wrap, #menu {background-color: rgba(255,255,255,0.7);}
+#header {background-color: rgba(249,249,249,0.9);}
+</style>
+</div>
+
+<p>I've <a href="colors.html">noted</a> before how to create a fancy 2D gradient using javascript.
+That's fancy. And a lot of code. And it makes sense in some cases.
+In another cases one might as well consider this simple CSS style:</p>
+
+<pre><code>background:
+    linear-gradient(
+        rgba(255,0,255,128),
+        rgba(255,255,0,128),
+        rgba(0,255,255,128),
+        rgba(255,0,255,128)),
+    linear-gradient(to right, #f00, #0f0, #00f);
+</code></pre>
+
+<p>You can see it applied to <code>&lt;body&gt;</code> element on this very page.
+Maybe not as nice, but it definitely works!</p>
+
+<p>Inspired by <a href="http://rentafounder.com/textured-gradients-in-pure-css/">this</a> <a href="http://archive.is/4unnE">(archived)</a> article,
+but has next-to-nothing in common. (Although it worth reading, too!)</p>
+		</div>
+		<!-- end colors2 -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

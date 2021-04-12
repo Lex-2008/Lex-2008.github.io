@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><body>
+<!-- vim: set sw=3 ts=3: -->
+<canvas id="canvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element.
+</canvas>
+
+<script src="scroll.js"></script>
+<script src="delaunator.min.js"></script>
+<script>
+var planets = [];
+var triangles = [];
+var map={minx:0, miny:0, maxx:0, maxy:0};
+
+	function shuffle(array) {
+			return array.map((a) => ({sort: Math.random(), value: a}))
+			  .sort((a, b) => a.sort - b.sort)
+			  .map((a) => a.value)
+		}
+
+// ensure we have enough planets
+	function populate(minx, miny, maxx, maxy){
+			if(minx>=map.minx && miny>=map.miny && maxx<=map.maxx && maxy<=map.maxy) return;
+			console.time('populate');
+			var updated = false;
+			for(var x = minx; x < maxx; x++){
+					for(var y = miny; y < maxy; y++){
+							if(x<map.minx || y<map.miny || x>=map.maxx || y>=map.maxy){
+									var xx = shuffle([0,1,2,3,4,5,6,7,8,9]);
+									var yy = shuffle([0,1,2,3,4,5,6,7,8,9]);
+									for(var i=0; i<10; i++){
+											planets.push({x:x*10+xx[i]+0.5, y:y*10+yy[i]+0.5});
+										}
+									updated = true;
+								}
+						}
+				}
+			if(!updated) return;
+			map={minx:minx,miny:miny,maxx:maxx,maxy:maxy};
+			// triangulate
+			var delaunay = Delaunator.from(planets,planet=>planet.x,planet=>planet.y);
+			triangles = [];
+			for (var i = 0; i < delaunay.triangles.length; i += 3) {
+					var p0 = delaunay.triangles[i];
+					var p1 = delaunay.triangles[i + 1];
+					var p2 = delaunay.triangles[i + 2];
+					triangles.push({a:p0, b:p1, c:p2});
+				}
+			console.timeEnd('populate');
+		}
+
+
+	function drawLine(x1, y1, x2, y2, options) {
+			if(x1 < options.minx && x2 < options.minx) return;
+			if(x1 > options.maxx && x2 > options.maxx) return;
+			if(y1 < options.miny && y2 < options.miny) return;
+			if(y1 > options.maxy && y2 > options.maxy) return;
+			options.ctx.beginPath();
+			options.ctx.moveTo(x1, y1);
+			options.ctx.lineTo(x2, y2);
+			options.ctx.stroke();
+		}
+
+	function draw(options){
+			options.ctx.beginPath();
+			options.ctx.lineWidth = 1/options.scale;
+			for (var x = Math.ceil(options.minx/10)*10; x < options.maxx; x+=10) {
+					drawLine(x, options.miny, x, options.maxy, options);
+				}
+			for (var y = Math.ceil(options.miny/10)*10; y < options.maxy; y+=10) {
+					drawLine(options.minx, y, options.maxx, y, options);
+				}
+			for (var i = 0; i < triangles.length; i ++) {
+					var row=triangles[i];
+					drawLine(planets[row.a].x, planets[row.a].y, planets[row.b].x, planets[row.b].y, options);
+					drawLine(planets[row.b].x, planets[row.b].y, planets[row.c].x, planets[row.c].y, options);
+					drawLine(planets[row.a].x, planets[row.a].y, planets[row.c].x, planets[row.c].y, options);
+				}
+			var z=options.scale;
+			options.ctx.scale(1/z, 1/z);
+			for (var i = 0; i < planets.length; i ++) {
+					if(planets[i].x<options.minx || planets[i].x>options.maxx || planets[i].y<options.miny || planets[i].y>options.maxy) continue;
+					var text = i;
+					var tm=ctx.measureText(text);
+
+					options.ctx.clearRect(planets[i].x*z-tm.actualBoundingBoxLeft,
+						planets[i].y*z-tm.actualBoundingBoxAscent,
+							tm.width,
+							tm.actualBoundingBoxAscent+tm.actualBoundingBoxDescent);
+					options.ctx.fillText(text,planets[i].x*z, planets[i].y*z);
+				}
+			options.ctx.scale(z,z);
+		};
+
+	function main(options){
+			populate(Math.floor(options.minx/10)-1,Math.floor(options.miny/10)-1,Math.ceil(options.maxx/10)+1,Math.ceil(options.maxy/10)+1);
+			draw(options);
+		};
+
+ctx=document.getElementById('canvas').getContext('2d');
+ctx.textBaseline = 'top';
+
+	new CanvasDragZoom(document.getElementById('canvas'), main, 50);
+
+
+</script></body></html>
+

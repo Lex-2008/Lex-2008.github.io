@@ -1,0 +1,83 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Redirecting custom file descriptor to subprocess</title>
+<meta name="description" content="TL;DR: 3> >(command)">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin redirecting-custom-file-descriptor-to-subprocess -->
+		<div class="post">
+			<h2><a href="redirecting-custom-file-descriptor-to-subprocess.html">Redirecting custom file descriptor to subprocess</a></h2>
+			<p class="trivia">
+				Created: 2016-09-19 &mdash; modified: 2016-09-21 &mdash; tags: bash
+			</p>
+			<p class="intro">TL;DR: 3> >(command)</p>
+			<p><a href="http://tldp.org/LDP/abs/html/process-sub.html">Process Substitution</a> is nice, but rarely used Bash feature.
+It lets you put (in/out)put of one process in where another process expects a file.</p>
+
+<p>For example (not real code):</p>
+
+<pre><code>ls | tee &gt;(mail -s "listing" user@example.com)
+</code></pre>
+
+<p>lets you show output of <code>ls</code> command on the screen and email it at the same time.</p>
+
+<p>Also, it can be used with <code>exec</code>:</p>
+
+<pre><code>exec &gt;(tee ~/log)
+</code></pre>
+
+<p>to append all following script output to a file while printing it to the screen.</p>
+
+<p>But what if you want to do it, while using a stream other then 1 (stdout)?
+Naive code like this</p>
+
+<pre><code>3&gt;(command)
+</code></pre>
+
+<p>Will fail with a cryptic error message.</p>
+
+<p>Instead, you must understand that Bash replaces the >(...) syntax with
+file descriptor name in the command line
+(try <code>echo &lt;(true)</code> if you don't believe),
+and that full syntax for working with custom streams looks like this:</p>
+
+<pre><code>N &gt; file
+</code></pre>
+
+<p>(spaces are optional, N is the number of stream / file descriptor)</p>
+
+<p>So what you actually want is written at the top of this article:</p>
+
+<pre><code>3&gt; &gt;(command)
+</code></pre>
+
+<p>where <code>3</code> is the number of your stream, <br />
+first <code>&gt;</code> is redirection command, <br />
+then space to distinguish it from <code>&gt;&gt;</code> "append" redirect, <br />
+and <code>&gt;(</code> begins the process substitution.</p>
+		</div>
+		<!-- end redirecting-custom-file-descriptor-to-subprocess -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

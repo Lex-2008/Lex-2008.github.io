@@ -1,0 +1,73 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Sorting sent email</title>
+<meta name="description" content="How to automate it if you host your mail yourself">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin sorting-sent-email -->
+		<div class="post">
+			<h2><a href="sorting-sent-email.html">Sorting sent email</a></h2>
+			<p class="trivia">
+				Created: 2014-11-01 &mdash; modified: 2016-06-16 &mdash; tags: e-mail
+			</p>
+			<p class="intro">How to automate it if you host your mail yourself</p>
+			<p>There are numerous ways of sorting incoming mail into folders (personally I use procmail),
+but not enough ways of sorting <em>sent</em> mail.
+SquirrelMail has <a href="http://squirrelmail.org/plugin_view.php?id=281">Per Recipient Sent Folders</a> plugin, but that's sorting on the client-side.
+Most email clients have an option to save sent mail to "Sent" folder, but quite few of them can save it to other folders.</p>
+
+<p>This script tries to solve this sorting problem.
+It runs on the server and monitors the "Sent" folder for new files (using <code>inotifywait</code>).
+When it finds one, it extracts an email address from its "To" header (using <code>mu view</code>, but you can also use grep, but be careful if the header wraps in two lines) and uses it to move file to an appropriate folder.</p>
+
+<p>Note that you need to know some shell scripting to adjust this script to suite your taste.
+<code>expr "$to"</code> lines are used to match only a part of email address (using RegExp),
+while email list inside the <code>case "$to"</code> is used when you want to match a full email address.</p>
+
+<p>Also note that rules at the bottom of the script have priority (override) over those above them.</p>
+
+<pre><code>#!/bin/bash
+
+cd Maildir/.Sent/cur/
+
+inotifywait --quiet --monitor --format '%f' --event moved_to . | while read line; do
+    to="$(mu view --summary-len=1 "$line" | sed -n '/To:/{s/.*[ &lt;]\(.*@[^ &gt;]*\).*/\1/;p}')"
+    dest=''
+    # sorting begins here
+    case "$to" in
+        # compare whole addresses
+        ("friend@mail.ru") dest='.friend' ;;
+    esac
+    # compare partial addresses
+    expr "$to" : ".*@company.com" &gt;/dev/null &amp;&amp; dest='.work'
+    [ "$dest" ] &amp;&amp; mv "$line" "../../$dest/cur/"
+done;
+</code></pre>
+
+<script src="/microlight.js"></script>
+		</div>
+		<!-- end sorting-sent-email -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

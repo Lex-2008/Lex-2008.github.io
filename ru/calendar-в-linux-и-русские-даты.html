@@ -1,0 +1,84 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>calendar в Linux и русские даты</title>
+<meta name="description" content="Заметка об еще одной интересной, но забытой программе">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Фото</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Заметки</a></h1>
+		<p>Записи о разном</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin calendar-в-linux-и-русские-даты -->
+		<div class="post">
+			<h2><a href="calendar-в-linux-и-русские-даты.html">calendar в Linux и русские даты</a></h2>
+			<p class="trivia">
+				Создано: 2015-01-20 &mdash; изменено: 2016-12-13 &mdash; метки: linux
+			</p>
+			<p class="intro">Заметка об еще одной интересной, но забытой программе</p>
+			<p>В Linux, оказывается, помимо более-менее известной программы <code>cal</code>, печатающей календарик:</p>
+
+<pre><code>$ cal
+    Январь 2015       
+Вс Пн Вт Ср Чт Пт Сб  
+             1  2  3  
+ 4  5  6  7  8  9 10  
+11 12 13 14 15 16 17  
+18 19 20 21 22 23 24  
+25 26 27 28 29 30 31
+</code></pre>
+
+<p>есть также программа <code>calendar</code>, печатающая список празников на сегодня-завтра:</p>
+
+<pre><code>$ calendar 
+Jan 20  George Burns born, 1898
+Jan 20  St. Agnes Eve (Ah, bitter chill it was...)
+Jan 21  Lenin died, 1924
+Jan 21  Thomas Jonathan "Stonewall" Jackson born in Clarksburg, VA, 1824
+Jan 21  День инженерных войск
+</code></pre>
+
+<p>В Debian (и Ubuntu) есть предустановленный список праздников разных стран,
+который хранится в файлах в папке <code>/usr/share/calendar/</code>.
+Его можно дополнять, редактировать, и выбирать, праздники каких стран нас интересуют.
+Для этого достаточно изменить файл <code>calendar.all</code>,
+но все редактируемые файлы желательно перенести в <code>/etc/calendar</code>, от dpkg подальше.</p>
+
+<p>Однако, у меня обнаружилась бага:
+в части файлов названия месяцев были записаны по-русски,
+а программа их не понимала и считала, что этот праздник должен быть каждый месяц :-)</p>
+
+<p>Конечно, это легко исправить - достаточно поменять названия месяцев с русского на английский.
+В этом нам поможет sed - достаточно перейти в папку с проблемными файлами и выполнить такую команду:</p>
+
+<pre><code>sed -i 's/янв\.\?/Jan/;s/фев\.\?/Feb/;s/мар\.\?/Mar/;s/апр\.\?/Apr/;s/май\.\?/May/;s/июн\.\?/Jun/;s/июл\.\?/Jul/;s/авг\.\?/Aug/;s/сен\.\?/Sep/;s/окт\.\?/Oct/;s/ноя\.\?/Nov/;s/дек\.\?/Dec/;' *
+</code></pre>
+
+<p>Файлы с русскими праздниками лежат в папке <code>/usr/share/calendar/ru_RU/</code>,
+а перенести их желательно в папку <code>/etc/calendar/ru_RU/</code>:</p>
+
+<pre><code>mv -r /usr/share/calendar/ru_RU/ /etc/calendar/
+</code></pre>
+
+<p>Команды выполнять, конечно, от root'а :-)</p>
+		</div>
+		<!-- end calendar-в-linux-и-русские-даты -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Алексей Шпаковский</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(щелкните чтобы увидеть адрес)</a>
+	</div>
+</div>
+</body></html>

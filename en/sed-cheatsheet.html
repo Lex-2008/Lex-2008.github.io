@@ -1,0 +1,68 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>sed cheatsheet</title>
+<meta name="description" content="A helpful guide to a simple programming language I still don't comprehend">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin sed-cheatsheet -->
+		<div class="post">
+			<h2><a href="sed-cheatsheet.html">sed cheatsheet</a></h2>
+			<p class="trivia">
+				Created: 2015-10-30 &mdash; modified: 2015-11-02 &mdash; tags: bash
+			</p>
+			<p class="intro">A helpful guide to a simple programming language I still don't comprehend</p>
+			<p>While fixing the script at the bottom <a href="spam-emails.html#script">of this page</a>, I found a nice and helpful cheatsheet worth saving for future reference.</p>
+
+<pre><code>:  # label
+=  # line_number
+a  # append_text_to_stdout_after_flush
+b  # branch_unconditional
+c  # range_change
+d  # pattern_delete_top/cycle
+D  # pattern_ltrunc(line+nl)_top/cycle
+g  # pattern=hold
+G  # pattern+=nl+hold
+h  # hold=pattern
+H  # hold+=nl+pattern
+i  # insert_text_to_stdout_now
+l  # pattern_list
+n  # pattern_flush=nextline_continue
+N  # pattern+=nl+nextline
+p  # pattern_print
+P  # pattern_first_line_print
+q  # flush_quit
+r  # append_file_to_stdout_after_flush
+s  # substitute
+t  # branch_on_substitute
+w  # append_pattern_to_file_now
+x  # swap_pattern_and_hold
+y  # transform_chars
+</code></pre>
+
+<p>Thanks to StackOverflow user <a href="http://unix.stackexchange.com/users/2343/peter-o">Peter.O</a> for his helpful <a href="http://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string#answer-26290">comment</a>!</p>
+		</div>
+		<!-- end sed-cheatsheet -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

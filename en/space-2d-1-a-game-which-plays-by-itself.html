@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>space 2d 1: a game which plays by itself</title>
+<meta name="description" content="a humble beginning">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin space-2d-1-a-game-which-plays-by-itself -->
+		<div class="post">
+			<h2><a href="space-2d-1-a-game-which-plays-by-itself.html">space 2d 1: a game which plays by itself</a></h2>
+			<p class="trivia">
+				Created: 2021-04-11 &mdash; modified: 2021-04-12 &mdash; tags: space
+			</p>
+			<p class="intro">a humble beginning</p>
+			<p>So I have a <a href="space-10-finished-game-about-combat.html">three-dimensional space <em>shooter</em> game</a>, a <a href="space-1d-8-colors-stats-challenge-mode.html">one-dimensional space <em>adventure</em> game</a>, so now it's time for a two-dimensional space <em>strategy</em> game.</p>
+
+<p>Actually, it's planned to be adventure-which-turns-into-strategy game:
+players first will be playing as a <em>Space Trader</em> flying between planets trading goods,
+then (having earned enough money) they will be able to create a company and own factories producing goods,
+and later - create a country, own planets and even roll out their own currency!</p>
+
+<p>And all this - in the same world, surrounded by the same familiar planets.
+I'm striving to reproduce the same <a href="https://youtu.be/sn_ERwCzJ0k?t=186">feel of attachment</a> I enjoyed in a different game.</p>
+
+<p>Moreover, the world around player is not static: eventually you will reach the end of territory controlled by your home country - and witness either uncolonized planets being colonized, or a war happening between two or more countries.
+You can easily cross borders, switch sides (buy robots on one side and sell to another, as long as you have enough money), and see planets changing hands.</p>
+
+<p>What happens with buildings when their planet get a new government?
+They start receiving salary in a different currency, that's all!</p>
+
+<h2>Current state</h2>
+
+<p>To see current state of the game, <a href="space-2d-1-a-game-which-plays-by-itself/triangles.html">click here</a>.</p>
+
+<p>What should you see here?
+Hopefully, a galaxy map which you can drag around and zoom using mouse wheel.
+A bunch of planets - circles: colonized planets are highlighted by color of their government
+(there is no such thing as "free planet" in this game - all planets have a government), empty planets are dull gray.
+Lines between planets show which are connected - such planets are called "neighbours",
+and if three neighboring planets belong to the same country - triangle between them is highlighted in their countrys color.</p>
+
+<p>Next, if you zoom to some of colonized planets, you will see small box with condensed information about each of them.</p>
+
+<p>First row shows three numbers:</p>
+
+<ul>
+<li><p>planet number - in future versions all planets will have names, but for now best name we have is a number.</p></li>
+<li><p>planets <em>distance to war</em> - how many lines you need to travel from this planet in order to reach a planet which is either not colonized or belongs to a different country.</p></li>
+<li><p>planets <em>value</em> - how much AI likes this planet. Currently it's just a production of robots per turn.</p></li>
+</ul>
+
+<p>Each of the following rows show three numbers corresponding to current state of three resources existing in this game: fuel, ore, robots.
+Fuel is produced on refineries and is required by mines and factories to function.
+Ore is produced in mines and is required by factories to function.
+Robots are produced on factories and are required by refineries and mines to function.</p>
+
+<ul>
+<li><p>Row with letter "Q" shows planet <em>quality</em> - how many units of fuel, ore, and robots do refineries, mines and factories produce every turn.</p></li>
+<li><p>Row with letter "P" shows <em>price</em> of each of these goods.</p></li>
+<li><p>Row with letter "I" shows <em>income</em> that each of these buildings brings to their owners every turn.</p></li>
+<li><p>Row with letter "S" shows current <em>storage</em> of these goods on this planet.</p></li>
+<li><p>Row with letter "B" shows amount of building of each type.</p></li>
+</ul>
+
+<h2>Bidding</h2>
+
+<p>Planets are "owned" by entities called "countries" (and they fight with each other), and
+buildings are owned by entities called "companies" - they earn money and spend them on purchasing new buildings.</p>
+
+<p>This is done via a "bidding" process: when a planet has a surplus of robots, it spends them to create a new building.
+Until next turn, companies can bid for this building - and highest bid wins.</p>
+
+<p>That goes against usual process of "company acquires resources and builds something", but protects prices from insane fluctuations.
+If you have a better idea how to implement this - please let me know! Email is click-protected at the bottom.</p>
+		</div>
+		<!-- end space-2d-1-a-game-which-plays-by-itself -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

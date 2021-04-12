@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<!-- vim: set sw=3 ts=3: -->
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Y fw, X up, Z lt</title>
+		<!-- <title>THREEjs default: Z fw, Y up, X lt</title> -->
+		<style>
+			html, body { padding: 0; margin: 0; overflow: hidden; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<div id="stats" style="position: absolute; left:0px; top:0px; width: 100%; height: 100%; pointer-events: none; text-align: center; font-size:100pt; font-family:sans-serif">
+			<span id="t0" style="color: blue">0</span><span id="tt" style="color: white">:</span><span id="t1" style="color:red">0</span>
+			<div id="pp" style="font-size:50%">
+				<span id="p0" style="color: blue">0</span><span style="color: white">:</span><span id="p1" style="color:red">0</span>
+			</div>
+		</div>
+		<canvas id="myCanvas" style="position: absolute; left:0px; top:0px; width: 100%; height: 100%; pointer-events: none; z-index: 10;"></canvas>
+		<script src="three.js"></script>
+		<script>
+
+PointerLockControls = function ( camera, THREE_obj, HTML_element ) {
+	/**
+	 * @author mrdoob / http://mrdoob.com/
+	 * @edited Aleksei.Shpakovsky.ru
+	 */
+	var scope = this;
+	THREE_obj.add( camera );
+	var onMouseMove = function ( event ) {
+		if ( scope.enabled === false ) return;
+		var movementX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
+		var movementY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
+		camera.rotateY(-movementX * 0.002);
+		camera.rotateX(-movementY * 0.002);
+	};
+	var changeCallback = function(){
+		scope.enabled=(!!document.pointerLockElement)
+	};
+	document.addEventListener( 'mousemove', onMouseMove, false );
+	document.addEventListener('pointerlockchange', changeCallback, false);
+	this.enabled = false;
+	HTML_element.requestPointerLock();
+};
+
+var SHIP_SPEED=0.1;
+var SHIP_ROTATE=0.02;
+var BALL_SPEED=0.5;
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1e6 );
+var renderer = new THREE.WebGLRenderer();
+
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+document.getElementById("myCanvas").width=window.innerWidth;
+document.getElementById("myCanvas").height=window.innerHeight;
+document.getElementById("stats").style.fontSize=window.innerHeight/8+'px';
+
+var log_el=document.getElementById('log');
+function mylog(){
+	var a=['','==='];
+	var i;
+	for (i = 0; i < arguments.length; i++) {
+		a.push(JSON.stringify(arguments[i]));
+	}
+	log_el.innerText+=a.join('\n');
+}
+
+shipMaterials=[
+	new THREE.MeshBasicMaterial( { color: 0x0088ff, wireframe: true } ),
+	new THREE.MeshLambertMaterial( { color: 0xffAAAA } ),
+	new THREE.MeshLambertMaterial( { color: 0xAAAAff } )];
+
+function Ship(type, scene){
+	var geometry = new THREE.ConeGeometry(0.5,2,6); //radius, height, segments
+	var material;
+	this.mesh = new THREE.Mesh( geometry, shipMaterials[type-1] );
+	scene.add( this.mesh );
+	this.type=type;
+	this.team=type==2?1:0;
+	this.ai=new AI(this, type!=1);
+	this.getForwardPos=function(firingShip,r){
+		// gets position in "forward" direction where firingShip should shoot a ball
+		// in order to hit this ship
+		// 0th approxination - assume that target position is where the ship currently is
+		var result1=this.mesh.position;
+		var old_error=1e6; // approximation error - let it be huge for the first time
+		var ball_dist=firingShip.mesh.position.distanceTo(result1); // distance that the ball should travel - from firingShip to target pos
+		var time=ball_dist/BALL_SPEED; // time that the ball will travel from firingShip to target position
+		for(var i=0;i<20;i++){
+			var ship_dist=SHIP_SPEED*time; // distance that this ship (the one bwing targeted at) will travel in this time
+			var target_local=(new THREE.Vector3(0,ship_dist,0)); // target position in this ship's local coordinates
+			var result1=this.mesh.localToWorld(target_local); // same in global coords
+			var ball_dist=firingShip.mesh.position.distanceTo(result1); // distance that the ball should travel - from firingShip to target pos
+			var time=ball_dist/BALL_SPEED; // time that the ball will travel from firingShip to target position
+			// calculate error value: it takes ball `time` frames to travel to result1 position, but ship will be there in `ship_dist/SHIP_SPEED` frames
+			var new_error=Math.abs(time - ship_dist/SHIP_SPEED);
+			// console.log('step', i, time, ship_dist/SHIP_SPEED, new_error);
+			if(new_error<10){
+				// Not sure why 10 is good enough, but it is
+				break;
+			}
+			if(new_error>old_error){
+				// Iteration method failed (never happened to me)
+				console.log('error exit');
+				break;
+			}
+			old_error=new_error;
+		}
+		// Add some randomness
+		if(r){
+			result1.add(new THREE.Vector3(Math.random()*r-r/2,Math.random()*r-r/2,Math.random()*r-r/2));
+		}
+		return result1;
+		// Trying to calculate it using heavy algebra failed
+		// var dist=firingShip.mesh.position.distanceTo(this.mesh.position); // distance between ships
+		// var A=1-(BALL_SPEED/SHIP_SPEED)*(BALL_SPEED/SHIP_SPEED); //TODO: const
+		// var forwardVec=this.mesh.localToWorld(new THREE.Vector3(0,1,0)).sub(this.mesh.position);
+		// var directionToFiringShip=firingShip.mesh.position.clone().sub(this.mesh.position);
+		// var alpha=forwardVec.angleTo(directionToFiringShip);
+		// var K=(BALL_SPEED/SHIP_SPEED)*dist*Math.cos(alpha);
+		// var C=-dist*dist;
+		// var D=K*K-A*C;
+		// var a=(-K+Math.sqrt(D))/A;
+		// dist=SHIP_SPEED*a/BALL_SPEED; // distance from this ship to target position
+		// var target_local=(new THREE.Vector3(0,dist,0)); // target position in local coordinates
+		// var result=this.mesh.localToWorld(target_local); // same in global coords
+	}
+	this.lastShootTime=0;
+	this.shootInDirection=function(vec){
+		var now=(new Date()).getTime();
+		if(now<this.lastShootTime+1000){
+			return false;
+		}
+		this.lastShootTime=now;
+		// ball={pos:Vector3,move:Vector3,ship:obj,team:int,mesh:obj}
+		balls.add({pos:this.mesh.position,move:vec,ship:this,team:this.team,mesh:null});
+	};
+	this.shootAtPosition=function(pos,r){
+		var vec=pos.clone().sub(this.mesh.position).normalize();
+		// Add some randomness
+		if(r){
+			vec.add(new THREE.Vector3(Math.random()*r-r/2,Math.random()*r-r/2,Math.random()*r-r/2));
+		}
+		var dist=this.mesh.position.distanceTo(pos);
+		this.shootInDirection(vec);
+
+	}
+};
+
+
+var hits=[0,0];
+var hits_p=[0,0];
+
+function Balls(scene){
+	// ball={pos:Vector3,move:Vector3,ship:obj,team:int,mesh:obj}
+	this.balls=[];
+	var ballGeometry = new THREE.SphereGeometry(0.2, 2, 2);
+	var teamMaterials=[
+		new THREE.MeshBasicMaterial( { color: 0x0000ff } ),
+		new THREE.MeshBasicMaterial( { color: 0xff0000 } ),
+	];
+	this.add=function(ball){
+		ball.mesh = new THREE.Mesh( ballGeometry, teamMaterials[ball.team] );
+		scene.add(ball.mesh);
+		ball.mesh.position.copy(ball.pos);
+		ball.move.multiplyScalar(BALL_SPEED);
+		this.balls.push(ball);
+		// TODO: Move the ball outside the player sphere
+		// TODO: remove if too many
+	};
+	this.move=function(){
+		for(var i=0;i<this.balls.length;i++){
+			this.balls[i].mesh.position.add(this.balls[i].move);
+		}
+	}
+	this.remove=function(i){
+		scene.remove(this.balls[i].mesh);
+		this.balls.splice(i,1);
+	}
+	this.checkCollisions=function(ships){
+		for(var i=0;i<this.balls.length;i++){
+			for(var j=0;j<ships.length;j++){
+				if(this.balls[i].ship==ships[j])
+					continue;
+				if(this.balls[i].mesh.position.distanceTo(ships[j].mesh.position)<1){
+					hits[1-ships[j].team]++;
+					ships[j].ai.damage(this.balls[i].ship);
+					// document.title=hits.join(':');
+					document.getElementById('t0').innerText=hits[0];
+					document.getElementById('t1').innerText=hits[1];
+					if(this.balls[i].ship==my_ship || ships[j]==my_ship){
+						// Note that we check for friendly fire here, too
+						hits_p[1-ships[j].team]++;
+						document.getElementById('p0').innerText=hits_p[0];
+						document.getElementById('p1').innerText=hits_p[1];
+					}
+					this.remove(i);
+					i--;
+					break; // from loop over ships
+				}
+			}
+		}
+	}
+}
+
+function AI(ship, enabled){
+	/* state:
+	   0: moving
+	   1: turning
+	   */
+	this.ship=ship;
+	this.state=0;
+	this.target=null;
+	this.enabled=enabled;
+	this.attackingShip=null;
+	var hitCountTolerate=Math.random(7);
+	this.damage=function(attackingShip){
+		// start turning
+		this.state=0;
+		nextTurnChangeTime=0;
+		// remember that ship, if it's not targeted yet (for human AI)
+		if(attackingShip!=this.target){
+			this.attackingShip=attackingShip;
+		}
+		// target attacker after some amount of hits (for machine AI)
+		hitCountTolerate--;
+		if(this.enabled && hitCountTolerate<0){
+			this.targetShip=attackingShip;
+		}
+		hitCountTolerate=Math.random(7);
+	};
+	var nextTurnChangeTime=0;
+	var turning=[0,0,0];
+	this.turn=function(){
+		var time=Date.now();
+		if(time>nextTurnChangeTime){
+			this.state=1-this.state;
+			if(this.state==0){
+				turning=[0,0,0];
+			} else if(Math.random()>0.5){
+				turning=[(Math.random()*2-1)*SHIP_ROTATE,0,0];
+			} else {
+				turning=[0,0,(Math.random()*2-1)*SHIP_ROTATE];
+			}
+			nextTurnChangeTime=time+Math.random()*3000+(this.state==0?3000:3000);
+		}
+		this.ship.mesh.rotateX(turning[0]);
+		this.ship.mesh.rotateY(turning[1]);
+		this.ship.mesh.rotateZ(turning[2]);
+	}
+	var nextTargetChangeTime=0;
+	this.shoot=function(){
+		var time=Date.now();
+		if(time>nextTargetChangeTime){
+			var enemies=ships.filter(ship=>ship.team!=this.ship.team);
+			// TODO; if(enemies.length<1)...
+			this.target=enemies[Math.floor(Math.random()*enemies.length)];
+			nextTargetChangeTime=time+Math.random()*5000+3000;
+		}
+		this.ship.shootAtPosition(this.target.getForwardPos(this.ship,2.5),0.1);
+	}
+	if(!this.enabled){
+		this.turn=this.shoot=function(){};
+	}
+}
+
+function HUD(c){
+	var ctx=c.getContext("2d");
+	ctx.strokeStyle="#00FFFF";
+	var border=30;
+
+	var drawCorner=function(n){
+		/* n:
+		 * 0=TL
+		 * 1=TR
+		 * 2=BL
+		 * 3=BR
+		 */
+		var x0=[0,c.width,0,c.width][n];
+		var y0=[0,0,c.height,c.height][n];
+		// (S)ign
+		var xs=[1,-1,1,-1][n];
+		var ys=[1,1,-1,-1][n];
+		ctx.beginPath();
+		ctx.moveTo(x0+xs*border, y0+ys*border);
+		ctx.lineTo(x0+xs*3*border, y0+ys*border);
+		ctx.lineTo(x0+xs*border, y0+ys*3*border);
+		ctx.lineTo(x0+xs*border, y0+ys*border);
+		ctx.stroke();
+	}
+
+	var drawSide=function(n,coord){
+		/* n:
+		 * 0=T
+		 * 1=L
+		 * 2=R
+		 * 3=B
+		 */
+		var x0=[coord,border,c.width-border,coord][n];
+		var y0=[border,coord,coord,c.height-border][n];
+		// (S)ign
+		var xs=[1,1,-1,1][n];
+		var ys=[1,1,1,-1][n];
+		// (V)ariable sign
+		var xv=[-1,1,1,-1][n];
+		var yv=[1,-1,-1,1][n];
+		ctx.beginPath();
+		ctx.moveTo(x0, y0);
+		ctx.lineTo(x0+xs*2*border, y0+ys*border);
+		ctx.lineTo(x0+xs*xv*2*border, y0+ys*yv*border);
+		ctx.lineTo(x0, y0);
+		ctx.stroke();
+	}
+				
+	this.clear=function(){
+		ctx.clearRect(0,0,c.width,c.height);
+	}
+
+	this.drawBehind=function(){
+		ctx.strokeRect(border,border,c.width-border*2,c.height-border*2);
+	}
+
+	this.drawCircle=function(x,y){
+		ctx.beginPath();
+		ctx.arc(x,y,10,0,2*Math.PI);
+		ctx.stroke();
+	}
+
+	this.drawSquare=function(x,y){
+		var s=10;
+		ctx.strokeRect(x-s,y-s,2*s,2*s);
+	}
+
+	this.drawCross=function(){
+		var s=15;
+		var x=c.width/2;
+		var y=c.height/2;
+		ctx.beginPath();
+		ctx.moveTo(x, y-s);
+		ctx.lineTo(x, y+s);
+		ctx.moveTo(x-s, y);
+		ctx.lineTo(x+s, y);
+		ctx.stroke();
+	}
+
+	this.drawSmart=function(x,y,style){
+		/* style:
+		   0 = circle
+		   1 = square
+		 */
+		if(x<0 && y<0){
+			drawCorner(0);
+		} else if(x>canvas.width && y<0){
+			drawCorner(1);
+		} else if(x<0 && y>canvas.height){
+			drawCorner(2);
+		} else if(x>canvas.width && y>canvas.height){
+			drawCorner(3);
+		} else if(y<0){
+			drawSide(0,x);
+		} else if(x<0){
+			drawSide(1,y);
+		} else if(x>canvas.width){
+			drawSide(2,y);
+		} else if(y>canvas.height){
+			drawSide(3,x);
+		} else if(style==0){
+			this.drawCircle(x,y);
+			return true;
+		} else if(style==1){
+			this.drawSquare(x,y);
+			return true;
+		}
+		return false;
+	}
+
+}
+
+var GameState=function(){
+	/* states:
+	   0 = only stars
+	   1 = target ship stays
+	   2 = target ship moves
+	   3 = target ship moves and we shoot it
+	   4 = target ship shoots back
+	   5 = TDM
+	   */
+	this.state=0;
+	this.playerShoots=false;
+	this.playerAiming=false;
+	this.enemyMoves=false;
+	this.enemyShoots=false;
+	this.setState=function(state){
+		var old_state=this.state;
+		this.state=state;
+		if(this.state>=1 && ships.length<2){
+			ships[1]=new Ship(2,scene);
+			ships[1].mesh.position.copy(my_ship.mesh.position.clone().addScaledVector(camera.getWorldDirection(new THREE.Vector3()),30));
+			my_ship.ai.target=ships[1];
+		}
+		if(this.state>=5 && ships.length<6){
+			ships.push(new Ship(2,scene));
+			ships.push(new Ship(2,scene));
+			ships.push(new Ship(3,scene));
+			ships.push(new Ship(3,scene));
+			var randomVec=function(r){
+				return new THREE.Vector3(Math.random()*2*r-r,Math.random()*2*r-r,Math.random()*2*r-r);
+			}
+			var center=my_ship.mesh.position.clone().addScaledVector(camera.getWorldDirection(new THREE.Vector3()),50);
+			ships[2].mesh.position.copy(randomVec(30).add(center));
+			ships[3].mesh.position.copy(randomVec(30).add(center));
+			ships[4].mesh.position.copy(randomVec(30).add(center));
+			ships[5].mesh.position.copy(randomVec(30).add(center));
+			if(old_state<1){
+				ships[1].mesh.position.copy(randomVec(30).add(center));
+			}
+		}
+		if(this.state<5) {
+			while(ships.length>2){
+				scene.remove(ships[ships.length-1].mesh);
+				ships.length--;
+			}
+			my_ship.ai.target=ships[1];
+		}
+		if(this.state<1) {
+			while(ships.length>1){
+				scene.remove(ships[ships.length-1].mesh);
+				ships.length--;
+			}
+			my_ship.ai.target=null;
+		}
+		this.enemyMoves=this.state>=2;
+		this.playerAiming=this.state>=2;
+		this.playerShoots=this.state>=3;
+		this.enemyShoots=this.state>=4;
+		document.getElementById('t0').style.display=this.playerShoots?'':'none';
+		document.getElementById('tt').style.display=this.enemyShoots?'':'none';
+		document.getElementById('t1').style.display=this.enemyShoots?'':'none';
+		document.getElementById('pp').style.display=ships.length>2?'':'none';
+	}
+	this.setState(0);
+}
+
+// Global objects
+ships=[new Ship(1,scene)];
+my_ship=ships[0];
+balls=new Balls(scene);
+hud=new HUD(document.getElementById('myCanvas'));
+state=new GameState();
+PointerLockControls( camera, my_ship.mesh, renderer.domElement );
+camera.rotateX(Math.PI/2);
+canvas=renderer.domElement;
+canvas.onclick=function(){ canvas.requestPointerLock(); };
+
+// LIGHTS
+const pointLight = new THREE.PointLight(0xFFFFFF);
+pointLight.position.z = 0.75;
+my_ship.mesh.add(pointLight);
+var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
+
+// STARS
+fix_coord=['x','x','y','y','z','z'];
+val_coord=[-1,1,   -1,1,   -1,1];
+fix_mul=1e5;
+star_size=fix_mul/1e3*3;
+var frand=function(){
+	return Math.random()*2*fix_mul-fix_mul;
+}
+mat2 = new THREE.MeshBasicMaterial( { color: 0xffffff} );
+for (var f=0;f<6;f++){
+	for (var i=0;i<100;i++){
+		var g1=new THREE.BoxGeometry( star_size, star_size, star_size );
+		var cube = new THREE.Mesh( g1, mat2 ); // adding material argument might save garbage
+		cube.position.set(frand(),frand(),frand());
+		// cube.position.set(10,0,0);
+		cube.position[fix_coord[f]]=val_coord[f]*fix_mul;
+		  scene.add( cube );
+	}
+}
+
+function targetClosest(f){
+	my_ship.ai.target=ships.filter(s=>s.team==1).reduce(function(a,ship){
+		dist=f(ship);
+		if(dist<a.dist){
+			return {dist:dist,ship:ship};
+		} else {
+			return a;
+		}
+	},{dist:f(ships[1]),ship:ships[1]}).ship;
+}
+
+function targetAttacker(){
+	if(my_ship.ai.attackingShip){
+		my_ship.ai.target=my_ship.ai.attackingShip;
+	}
+}
+
+buttons=[];
+document.addEventListener( 'keyup', function(e){buttons[e.keyCode]=false;});
+document.addEventListener( 'keydown', function(e){ buttons[e.keyCode]=true;});
+
+function controls(){
+	       if(buttons[81]){ //q
+		       // my_ship.mesh.rotateY(-SHIP_ROTATE);
+		       my_ship.mesh.rotateOnWorldAxis(camera.localToWorld(new THREE.Vector3(0,0,1)).sub(my_ship.mesh.position),SHIP_ROTATE);
+		       camera.rotateZ(-SHIP_ROTATE);
+	       }
+	       if(buttons[87]){ //w
+		       // my_ship.mesh.rotateX(SHIP_ROTATE);
+		       my_ship.mesh.rotateOnWorldAxis(camera.localToWorld(new THREE.Vector3(1,0,0)).sub(my_ship.mesh.position),SHIP_ROTATE);
+		       camera.rotateX(-SHIP_ROTATE);
+	       }
+	       if(buttons[69]){ //e
+		       // my_ship.mesh.rotateY(SHIP_ROTATE);
+		       my_ship.mesh.rotateOnWorldAxis(camera.localToWorld(new THREE.Vector3(0,0,-1)).sub(my_ship.mesh.position),SHIP_ROTATE);
+		       camera.rotateZ(SHIP_ROTATE);
+	       }
+	       if(buttons[65]){ //a
+		       // my_ship.mesh.rotateZ(SHIP_ROTATE);
+		       my_ship.mesh.rotateOnWorldAxis(camera.localToWorld(new THREE.Vector3(0,1,0)).sub(my_ship.mesh.position),SHIP_ROTATE);
+		       camera.rotateY(-SHIP_ROTATE);
+	       }
+	       if(buttons[83]){ //s
+		       // my_ship.mesh.rotateX(-SHIP_ROTATE);
+		       my_ship.mesh.rotateOnWorldAxis(camera.localToWorld(new THREE.Vector3(-1,0,0)).sub(my_ship.mesh.position),SHIP_ROTATE);
+		       camera.rotateX(SHIP_ROTATE);
+	       }
+	       if(buttons[68]){ //d
+		       // my_ship.mesh.rotateZ(-SHIP_ROTATE);
+		       my_ship.mesh.rotateOnWorldAxis(camera.localToWorld(new THREE.Vector3(0,-1,0)).sub(my_ship.mesh.position),SHIP_ROTATE);
+		       camera.rotateY(SHIP_ROTATE);
+	       }
+	       if(buttons[32]){ //space
+		       // my_ship.mesh.translateY(1);
+		       // shoot1();
+	       }
+	       if(buttons[49]){ //1
+		       state.setState(1);
+	       }
+	       if(buttons[50]){ //2
+		       state.setState(2);
+	       }
+	       if(buttons[51]){ //3
+		       state.setState(3);
+	       }
+	       if(buttons[52]){ //4
+		       state.setState(4);
+	       }
+	       if(buttons[53]){ //5
+		       state.setState(5);
+	       }
+	       if(buttons[67]){ //c
+		       targetClosest(ship=>ship.mesh.position.distanceTo(my_ship.mesh.position));
+	       }
+	       if(buttons[70]){ //f
+		       targetAttacker();
+	       }
+	       if(buttons[88]){ //x
+		       targetClosest(ship=>camera.getWorldDirection(new THREE.Vector3()).angleTo(ship.mesh.position.clone().sub(my_ship.mesh.position)));
+	       }
+}
+
+
+function render() {
+	requestAnimationFrame( render );
+	controls();
+	if(state.enemyMoves){
+		ships.map(a=>a.ai.turn());
+		ships.map(a=>a.mesh.translateY(SHIP_SPEED));
+	} else {
+		my_ship.mesh.translateY(SHIP_SPEED);
+	}
+	renderer.render( scene, camera );
+	if(state.enemyShoots){
+		ships.map(a=>a.ai.shoot());
+	}
+	balls.move();
+	balls.checkCollisions(ships);
+	hud.clear();
+	if(state.playerShoots){
+		my_ship.shootInDirection(camera.getWorldDirection(new THREE.Vector3()));
+	}
+	if(state.playerAiming){
+		var vector=my_ship.ai.target.mesh.position.clone();
+		vector.project(camera);
+		// TODO: why does it work?
+		if(vector.z>1){
+			// target is behind us
+			hud.drawBehind();
+		} else {
+			// draw square
+			var x=Math.round( (   vector.x + 1 ) * canvas.width  / 2 );
+			var y=Math.round( ( - vector.y + 1 ) * canvas.height / 2 );
+			if(hud.drawSmart(x,y,1)){
+				// draw circle
+				var vector=my_ship.ai.target.getForwardPos(my_ship);
+				vector.project(camera);
+				var x=Math.round( (   vector.x + 1 ) * canvas.width  / 2 );
+				var y=Math.round( ( - vector.y + 1 ) * canvas.height / 2 );
+				hud.drawCircle(x,y);
+			}
+		}
+		hud.drawCross();
+	}
+}
+render();
+
+		</script>
+	</body>
+</html>

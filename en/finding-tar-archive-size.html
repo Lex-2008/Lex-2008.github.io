@@ -1,0 +1,95 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Finding tar archive size without actually making it</title>
+<meta name="description" content="TL;DR: --totals --file=/dev/null | grep 'Total bytes written'">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin finding-tar-archive-size -->
+		<div class="post">
+			<h2><a href="finding-tar-archive-size.html">Finding tar archive size without actually making it</a></h2>
+			<p class="trivia">
+				Created: 2016-07-21 &mdash; modified: 2016-10-31 &mdash; tags: bash
+			</p>
+			<p class="intro">TL;DR: --totals --file=/dev/null | grep 'Total bytes written'</p>
+			<hr />
+
+<p>Since tar doesn't do any compression, it's possible to know <strong>exact</strong> size of tar archive without reading the files - just by looking at their sizes.
+It's almost like arithmetical sum of all their sizes, but tar-specific - since tar also uses some blocks to encode file metadata and directory structure.</p>
+
+<p>This can be useful, for example, if you're making a website with some files
+and want to let users download whole folders as archives
+without actually storing these archives on disk.</p>
+
+<p>In that case you would probably use a script like this:</p>
+
+<pre><code>#!/bin/sh
+echo "HTTP/1.0 200 OK"
+echo
+tar --create "path"
+</code></pre>
+
+<p>Which makes a basic HTTP response and pipes output of tar command.</p>
+
+<p>But when downloading a file produced with such script you will notice absence of progress bar in your browser - because it doesn't know the size of the file it's downloading.
+To fix it, you want to supply Content-Length header, with the size of the file.
+And it must be <strong>exact</strong> size - otherwise browser will download incomplete file or report an error.</p>
+
+<p>Turns out, it's possible to find the size of the tar archive <strong>before</strong> making the actual archive, and answer is in <a href="https://lists.gnu.org/archive/html/bug-tar/2007-01/msg00013.html">this email</a> from 2007:
+you just need to add <code>--totals --file=/dev/null</code> to the arguments of your tar command and look at the line containing <code>Total bytes written</code> text.</p>
+
+<p>Like this:</p>
+
+<pre><code>echo -n "Content-Length: "
+tar --create "path" --totals --file=/dev/null * 2&gt;&amp;1 | sed '/Total bytes written/!d;s/.*: \([0-9]*\) (.*/\1/'
+</code></pre>
+
+<p>As it's said in the email, it will tell you the size of resulting archive without reading actual files - just by looking at their sizes.
+It still needs to read all directories, however.</p>
+
+<hr />
+
+<p>To make your download script produce files with nice names, you can use Content-Disposition header:</p>
+
+<pre><code>echo "Content-Disposition: filename=\"all.tar\""
+</code></pre>
+
+<p>And if you want to have better control of tree structure inside your archive, you might want to <code>cd</code> to target directory first:</p>
+
+<pre><code>tar --create -C "path" '*'
+</code></pre>
+
+<p>or even</p>
+
+<pre><code>tar --create -C "path/.." "$(basename "$path")"
+</code></pre>
+
+<p>so your archive contained only one item in its root, matching the name of the dir you're archiving.</p>
+
+<p>Note that you probably must change both <code>tar</code> lines - the one which report the archive size and the one which makes the actual archive.
+If the size advertised in Content-Length header doesn't match the actual archive size - it's better not to have it at all!</p>
+		</div>
+		<!-- end finding-tar-archive-size -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

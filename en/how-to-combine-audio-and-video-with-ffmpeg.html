@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>How to combine audio and video with ffmpeg</title>
+<meta name="description" content="When you downloaded them separately">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin how-to-combine-audio-and-video-with-ffmpeg -->
+		<div class="post">
+			<h2><a href="how-to-combine-audio-and-video-with-ffmpeg.html">How to combine audio and video with ffmpeg</a></h2>
+			<p class="trivia">
+				Created: 2020-05-10 &mdash; modified: 2020-05-11 &mdash; tags: Bash Linux
+			</p>
+			<p class="intro">When you downloaded them separately</p>
+			<p>Sometimes, download managers offer two options when downloading videos from a video-hosting websites: either you can download high-resolution video, or a video with audio.
+But what if you want both: high-resolution video together with audio? Then you can combine them!</p>
+
+<p>Imagine that files you downloaded are named <code>audio.mp4</code> and <code>video.mp4</code> (note that "audio" file does include video, too, but we're not interested it it).
+Then you can just run a simple command like this:</p>
+
+<pre><code>ffmpeg -i video.mp4 -i audio.mp4 -map 0:v -map 1:a -c copy -shortest output.mp4
+</code></pre>
+
+<p>Thanks to <a href="https://stackoverflow.com/a/11783474">this</a> stackoverflow answer for a detailed writeup!</p>
+		</div>
+		<!-- end how-to-combine-audio-and-video-with-ffmpeg -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

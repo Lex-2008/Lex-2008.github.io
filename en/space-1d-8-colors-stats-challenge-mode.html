@@ -1,0 +1,114 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>space 1d 8: Colors, stats, challenge mode</title>
+<meta name="description" content="Ships now have colors and like you from the first encounter if your ships color is close to theirs. But still, to change it you need to decrease your karma below -1.">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin space-1d-8-colors-stats-challenge-mode -->
+		<div class="post">
+			<h2><a href="space-1d-8-colors-stats-challenge-mode.html">space 1d 8: Colors, stats, challenge mode</a></h2>
+			<p class="trivia">
+				Created: 2021-03-06 &mdash; modified: 2021-03-05 &mdash; tags: space
+			</p>
+			<p class="intro">Ships now have colors and like you from the first encounter if your ships color is close to theirs. But still, to change it you need to decrease your karma below -1.</p>
+			<p>Important information for newcomers to my blog:</p>
+
+<blockquote>
+  <p>It's the latest post about a <em>1-dimensional game without graphics about space</em> which I'm making.
+The game is available in the iframe further down on this page.
+It aims to be self-explanatory just by reading the text :)</p>
+
+<p>Moreover, most of the time it has a safe default option highlighted, which you can activate by pressing "spacebar" key on your keyboard.
+So just keep hitting it, and see the game "play by itself" nicely.</p>
+</blockquote>
+
+<p><a href="space-1d-7-ship-names-memory-and-feelings.html">Last update</a> introduced GTA-style "paint shops".
+But there were no real colors. So now there are!</p>
+
+<p>Right from start, your ship is assigned a random color.
+AI-controlled ships also have <a href="https://mokole.com/palette.html">pregenerated</a> random colors.</p>
+
+<p>These colors don't affect gameplay much,
+the only thing that they do affect is initial "feelings" towards your ship set during first encounter.
+If colors are "close enough", then AI ship "<em>likes</em>" you.
+If they are "very close", then they <strong>love</strong> you.</p>
+
+<p>Color distance is computed in <a href="https://en.wikipedia.org/wiki/CIELAB_color_space">L*a*b*</a> colorspace,
+which aims to describe how similar colors are to human eye
+(weird that AI uses it, don't you think?
+I also got that idea, but only after the code was done,
+so it is how it is).
+If distance between colors of player and AI ships is less than 50 in L*a*b* space,
+then player rating is set to +1 ("<em>like</em>");
+if it's less than 30 - then to +2 ("<em>love</em>");
+if it's less than 20 - then to +3 ("<em>love very much</em>").</p>
+
+<p>Functions to convert colors from RGB to L*a*b* were taken from <a href="http://www.easyrgb.com/en/math.php">easyrgb</a> found via <a href="https://stackoverflow.com/q/15408522">this</a> stackoverflow question.</p>
+
+<p>As with name, in order to change your ship's color,
+you need to decrease your karma (average rating among other ships) to less than -1,
+and have number of cargo items (rockets and fuel) equal to number of your ship components.</p>
+
+<p>Also, AI behaviour was amended to be more agressive / permissive - so now even in case of near-0 karma
+AI ships might attack you - even if they like you - if they see you as a good prey.</p>
+
+<p>Stat reset was also changed to make "per-ship" and global stat resets independent.</p>
+
+<p>But now, I would like to offer you a <strong>challenge</strong>:
+how fast (with minimum number of encounters) can you get from 0 karma to paint shops?
+Either from start of the game to the first visit of paint shop, or from last karma reset.
+The number of encounters is shown on the paint shop screen, at the top of the "Status" box.</p>
+
+<p>Note that while the game doesn't feature any <em>cheats</em>, it's pretty trivial to modify its memory,
+so no guarantees are possible regarding validity of submissions.</p>
+
+<p>Contesters just need to send me a webpage screenshot when you visit the paint shop.
+Additional information is welcome, email at the bottom of the page :)</p>
+
+<p>For comparison, <a href="space-1d-8-colors-stats-challenge-mode.png">here</a> is a screenshot of my attempt of getting +1 karma.
+Yes, my ship was bigger in the beginning (over 20 components), but some "friends"
+prefered fight.</p>
+
+<p>Hint: since you keep your ship during "karma reset",
+it worth building a good ship first, and doing a karma reset before rushing down for negative karma.
+Also remember that you need both karma&lt;-1, and required amount cargo in order to be qualified to enter paint shop.
+Good luck!</p>
+
+<div>
+<style>
+img {max-width:100%; background: white}
+iframe {width: 100%; height: 700px; background: white}
+</style>
+<iframe src="space-1d-8-colors-stats-challenge-mode.htm"></iframe>
+</div>
+
+<p>Hint2: If you don't like playing in iframe, you can open the game page directly: either follow <a href="space-1d-8-colors-stats-challenge-mode.htm">this link</a>, or edit this page URL to remove last letter.
+So URL ending with <code>.html</code> is this page, URL ending with <code>.htm</code> is the game only.</p>
+
+<p>Hint3: if you need some cheats - just ask!</p>
+		</div>
+		<!-- end space-1d-8-colors-stats-challenge-mode -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<!-- vim: set sw=3 ts=3: -->
+	<canvas id="canvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+		Your browser does not support the canvas element.
+	</canvas>
+
+	<script src="scroll.js"></script>
+	<script src="planets.js"></script>
+	<script src="buildings.js"></script>
+	<script src="companies.js"></script>
+	<script src="countries.js"></script>
+	<script src="timeline.js"></script>
+	<script src="delaunator.min.js"></script>
+	<script>
+
+		function shuffle(array) {
+			return array.map((a) => ({ sort: Math.random(), value: a }))
+				.sort((a, b) => a.sort - b.sort)
+				.map((a) => a.value)
+		}
+
+		function drawTriangle(triangle, options) {
+			var xx = triangle.map((planet) => planet.x);
+			var yy = triangle.map((planet) => planet.y);
+			if (Math.max(...xx) < options.minx) return;
+			if (Math.min(...xx) > options.maxx) return;
+			if (Math.max(...yy) < options.miny) return;
+			if (Math.min(...yy) > options.maxy) return;
+			// console.log('triangle in view');
+			if (triangle[0].owner != triangle[1].owner || triangle[1].owner != triangle[2].owner) return;
+			// console.log('1-owner triangle', triangle[0].owner);
+			if (triangle[0].owner == null || triangle[0].owner != triangle[1].owner || triangle[1].owner != triangle[0].owner) return;
+			// console.log('triangle to draw', triangle[0].owner.color);
+			options.ctx.fillStyle = triangle[0].owner.color;
+			options.ctx.beginPath();
+			options.ctx.moveTo(triangle[0].x, triangle[0].y);
+			options.ctx.lineTo(triangle[1].x, triangle[1].y);
+			options.ctx.lineTo(triangle[2].x, triangle[2].y);
+			options.ctx.closePath();
+			options.ctx.fill();
+		}
+
+		// function drawLine(x1, y1, x2, y2, options) {
+		function drawLine(a, b, options) {
+			if (!a.owner && !b.owner) return;
+			var x1 = a.x; var y1 = a.y; var x2 = b.x; var y2 = b.y;
+			if (x1 < options.minx && x2 < options.minx) return;
+			if (x1 > options.maxx && x2 > options.maxx) return;
+			if (y1 < options.miny && y2 < options.miny) return;
+			if (y1 > options.maxy && y2 > options.maxy) return;
+			options.ctx.beginPath();
+			options.ctx.moveTo(x1, y1);
+			options.ctx.lineTo(x2, y2);
+			options.ctx.stroke();
+		}
+
+		function drawPlanet(planet, i, options) {
+			if (planet.x < options.minx || planet.x > options.maxx || planet.y < options.miny || planet.y > options.maxy) return;
+			var z = options.scale;
+			if (planet.owner) {
+				options.ctx.fillStyle = planet.owner.color;
+			} else {
+				options.ctx.fillStyle = 'lightgray';
+			}
+			options.ctx.beginPath();
+			options.ctx.arc(planet.x * z, planet.y * z, 7, 0, 6.3);
+			options.ctx.fill();
+			options.ctx.fillStyle = 'black';
+			if (!planet.owner && ![...planet.neighbours].some(planet => planet.owner)) return;
+			if (z < 30) return; // show text only on high zoom levels
+			var lines = planet.getText(i);
+			var tms = lines.map(line => options.ctx.measureText(line));
+			var width = Math.max(...tms.map(tm => tm.width));
+			var heights = tms.map(tm => tm.actualBoundingBoxAscent + tm.actualBoundingBoxDescent);
+			var height = heights.reduce((a, v) => a + v, 0);
+			var y = planet.y * z;
+			options.ctx.clearRect(planet.x * z - 1, y - 1, width + 2, height + 2);
+			for (var i = 0; i < lines.length; i++) {
+				options.ctx.fillText(lines[i], planet.x * z, y);
+				y += heights[i];
+			};
+		}
+
+		function draw(options) {
+			options.ctx.textBaseline = 'top';
+			window.options = options;
+			options.ctx.beginPath();
+			options.ctx.lineWidth = 1 / options.scale;
+			// first draw all triangles
+			for (var i = 0; i < planets.triangles.length; i++) {
+				drawTriangle(planets.triangles[i], options);
+			}
+			options.ctx.fillStyle = 'black';
+			// then draw all lines
+			for (var i = 0; i < planets.triangles.length; i++) {
+				var row = planets.triangles[i];
+				drawLine(row[0], row[1], options);
+				drawLine(row[0], row[2], options);
+				drawLine(row[1], row[2], options);
+				// drawLine(row[0].x, row[0].y, row[1].x, row[1].y, options);
+				// drawLine(row[1].x, row[1].y, row[2].x, row[2].y, options);
+				// drawLine(row[0].x, row[0].y, row[2].x, row[2].y, options);
+			}
+			// for (var x = Math.ceil(options.minx/10)*10; x < options.maxx; x+=10) {
+			// 		drawLine(x, options.miny, x, options.maxy, options);
+			// 	}
+			// for (var y = Math.ceil(options.miny/10)*10; y < options.maxy; y+=10) {
+			// 		drawLine(options.minx, y, options.maxx, y, options);
+			// 	}
+			// then draw planets, but not on very low zoom levels
+			if (options.scale < 10) return;
+			var z = options.scale;
+			options.ctx.save();
+			options.ctx.scale(1 / z, 1 / z);
+			for (var i = 0; i < planets.list.length; i++) {
+				drawPlanet(planets.list[i], i, options);
+			}
+			options.ctx.restore();
+		};
+
+
+
+		console.time('place');
+		planets.ensureSquareSurrounded(0, 0);
+		// planets.list[40].colonise();
+		for (var i = 0; i < 90; i += 20) {
+			planets.list[i].colonise();
+		}
+		var old_count = timeline.list.length;
+		console.timeEnd('place');
+		console.time('progress');
+		while (timeline.list.length < old_count * 2) {
+			timeline.loop(10);
+		}
+		console.timeEnd('progress');
+		console.log('spent',timeline.list.length,'turns');
+		var canvas = document.getElementById('canvas');
+		canvas.width = window.innerWidth-30;
+		canvas.height = window.innerHeight-30;
+		var cdg = new CanvasDragZoom(canvas, draw, 50);
+
+setInterval(function() {
+		timeline.next();
+		cdg.redraw();
+	},10);
+
+	</script>
+</body>
+
+</html>

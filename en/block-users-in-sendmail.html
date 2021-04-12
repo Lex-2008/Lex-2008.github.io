@@ -1,0 +1,76 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Block users in sendmail</title>
+<meta name="description" content="How to disable mail receiving by local users without deleting their accounts">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin block-users-in-sendmail -->
+		<div class="post">
+			<h2><a href="block-users-in-sendmail.html">Block users in sendmail</a></h2>
+			<p class="trivia">
+				Created: 2014-09-13 &mdash; modified: 2016-06-24 &mdash; tags: e-mail
+			</p>
+			<p class="intro">How to disable mail receiving by local users without deleting their accounts</p>
+			<p>On my server, sendmail is configured to receive mail for all local users.
+And that includes "system" users, like <code>root</code>, <code>backup</code>, and <code>mail</code>.
+So how can one forbid them to receive email, without deleting their accounts?
+That's actually quite easy.</p>
+
+<hr />
+
+<p>First, enable relevant sendmail feature: open the file <code>/etc/mail/sendmail.mc</code>
+and add this line somewhere in it:</p>
+
+<pre><code>FEATURE(`blacklist_recipients')
+</code></pre>
+
+<p>After that, rebuild the actual sendmail config and restart sendmail:</p>
+
+<pre><code>cd /etc/mail; make; service sendmail restart
+</code></pre>
+
+<hr />
+
+<p>Second, edit <code>/etc/mail/access</code> file and add <code>REJECT</code> rules for them, like this:</p>
+
+<pre><code>backup@shpakovsky.ru    REJECT
+</code></pre>
+
+<p>After that, rebuild the actual database:</p>
+
+<pre><code>makemap hash /etc/mail/access &lt; /etc/mail/access
+</code></pre>
+
+<hr />
+
+<p>And last, test it: write an email to forbidden e-mail address and enjoy
+automated response from MAILER-DEMON :-)</p>
+
+<p>More information regarding anti-spam protection you can find
+<a href="http://www.sendmail.com/sm/open_source/docs/m4/anti_spam.html">in the official sendmail documentation</a> <a href="http://archive.is/mnRVL">(archived version)</a>.</p>
+		</div>
+		<!-- end block-users-in-sendmail -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

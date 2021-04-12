@@ -1,0 +1,735 @@
+title=Space 8: collision detection
+intro=Now you can't go outside the ship
+tags=Space
+created=2017-11-06
+
+Collision detection inside the ship - how hard can it be?
+
+Instead of doing checks for each "floor tile" (1x1 square),
+we'll think in terms of "rooms" (just like Heat Signature did in [this post][hs])
+and "doors".
+
+I think it works almost flawlessly, what do you think?
+
+Controls as [before][]:
+
+[hs]: http://www.pentadact.com/2015-11-14-teaching-heat-signatures-ship-generator-to-think-in-sectors/
+[before]: space-6-on-a-ship.html
+
+<div>
+		<script src="three.js"></script>
+		<script src="cannon.js"></script>
+		<script src="PointerLockControls-6.js"></script>
+		<script>
+			// Our Javascript will go here.
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, 686/460, 0.1, 1e6 );
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(  686, 460);
+document.querySelector('.post').appendChild( renderer.domElement );
+
+world = new CANNON.World();
+world.gravity.set(0,0,0);
+world.broadphase = new CANNON.NaiveBroadphase();
+world.solver.iterations = 10;
+
+world2 = new CANNON.World();
+world2.gravity.set(0,0,-10);
+world2.broadphase = new CANNON.NaiveBroadphase();
+world2.solver.iterations = 10;
+
+// world.defaultContactMaterial.contactEquationStiffness = 1e6;
+// world.defaultContactMaterial.contactEquationRelaxation = 10;
+world.defaultContactMaterial.friction = 100;
+world.defaultContactMaterial.restitution = 0;
+
+world2.defaultContactMaterial.friction=0;
+
+// 2D Map functions
+
+const map_multiplier=4;
+
+// Class!
+// .data is 2d array where 1 means 'can go', 0 means 'can not', 2 means 'special processing needed'
+var My2DMap=function(w,h) {
+	this.data=[];
+	this.w=w*map_multiplier;
+	this.h=h*map_multiplier;
+	for(var i=0; i<this.w; i++){
+		this.data[i]=[];
+		for(var j=0; j<this.h; j++){
+			this.data[i][j]=1;
+		}
+	}
+	this.emptyCell=function(r,c,value){
+
+	}
+	this.addWall=function(type,r,c){
+	}
+}
+
+var ship={
+	w:3,
+	h:5,
+	cells:
+		[[3,3,3],
+		 [0,1,0],
+		 [1,1,1],
+		 [1,1,1],
+		 [1,1,1]],
+	walls:[//h
+		[[3,3,3],
+		 [3,0,3],
+		 [2,0,2],
+		 [0,0,0],
+		 [0,0,0],
+		 [1,2,1]],
+	       //v
+		[[3,0,0,3],
+		 [0,1,1,0],
+		 [1,0,0,1],
+		 [2,0,0,2],
+		 [1,0,0,1]]],
+	};
+
+var ship_plan={
+	rooms:[
+		{id:0,
+			x_pos:0,
+			y_pos:0,
+			z_pos:0,
+			x_size:3,
+			y_size:4,
+			z_size:1},
+		],
+}
+
+var b=0.2;
+var b2=2*b;
+rooms=[
+{x0:2-b,y0:-1-b,dx:b2,dy:2+b2},
+{x0:b,y0:-b,dx:2-b2,dy:b2},
+{x0:-2-b,y0:-1-b,dx:2+b2,dy:2+b2}];
+rooms[0].doors={'-x':[],'+x':[],'-y':[],'+y':[]};
+rooms[1].doors={'-x':[],'+x':[],'-y':[],'+y':[]};
+rooms[2].doors={'-x':[],'+x':[],'-y':[],'+y':[]};
+rooms[0].doors['-x'].push({
+	room:rooms[1],
+	y_min:1,
+	y_max:1+b2,
+	y_change:-1,
+});
+rooms[1].doors['+x'].push({
+	room:rooms[0],
+	y_min:0,
+	y_max:1,//too much
+	y_change:1,
+});
+rooms[1].doors['-x'].push({
+	room:rooms[2],
+	y_min:0,
+	y_max:1,//too much
+	y_change:1,
+});
+rooms[2].doors['+x'].push({
+	room:rooms[1],
+	y_min:1,
+	y_max:1+b2,
+	y_change:-1,
+});
+rooms[0].id=0;
+rooms[1].id=1;
+rooms[2].id=2;
+
+function ship_builder(ship, THREE_scene, CANNON_world){
+	var x_origin=ship.h/2.0-0.5;
+	var y_origin=ship.w/2.0-0.5;
+	var THREE_Geometry, CANNON_body, CANNON_body2;
+	var add_box=function(x,y,z,x0,y0,z0,turn_z){
+		//note: uses real coords (x fw, y lt, z up)
+		var geometry = new THREE.BoxGeometry(x,y,z);
+		var cube = new THREE.Mesh( geometry ); // adding material argument might save garbage
+		cube.position.set(x0,y0,z0);
+		if(turn_z==1){
+			cube.rotation.z=Math.PI/4;
+		}
+		if(turn_z==2){
+			cube.rotation.y=Math.PI/4;
+		}
+		THREE_Geometry.mergeMesh( cube );
+		var shape = new CANNON.Box(new CANNON.Vec3(x/2,y/2,z/2));
+		var rot=new CANNON.Quaternion();
+		if(turn_z==1){
+			rot.setFromAxisAngle(new CANNON.Vec3(0,0,1),Math.PI/4);
+		}
+		if(turn_z==2){
+			rot.setFromAxisAngle(new CANNON.Vec3(0,1,0),Math.PI/4);
+		}
+		CANNON_body.addShape(shape, new CANNON.Vec3(x0,y0,z0), rot);
+	};
+	var mkbox=function(r,c,up,r0,c0,up0,turn_z){
+		//wrapper around above function to pass expected args
+		//uses map coords (row, column, floor)
+		return add_box(r,c,up,-r0+x_origin,-c0+y_origin,up0,turn_z);
+	}
+	var floor=function(r,c,ceil=0){
+		return mkbox(1, 1, 0.1, r, c, ceil);
+	};
+	var wwfloor=function(r,c,ceil=0){
+		// return mkbox(1, 1, 0.1, r, c, ceil);
+		mkbox(0.1, 1, 0.1, r-0.45, c, ceil);
+		mkbox(0.1, 1, 0.1, r+0.45, c, ceil);
+		mkbox(1, 0.1, 0.1, r, c-0.45, ceil);
+		mkbox(1, 0.1, 0.1, r, c+0.45, ceil);
+		xceil=ceil?(1-0.05/2):0.05/2;
+		mkbox(0.05, 1, 0.05, r, c, xceil);
+		mkbox(1, 0.05, 0.05, r, c, xceil);
+	};
+	var add_cyl=function(r1,r2,len,x0,y0,z0){
+		segments = 12;
+		//(radiusTop, radiusBottom, height, radiusSegments, heightSegments, openEnded, thetaStart, thetaLength)
+		var geometry = new THREE.CylinderGeometry( r1, r2, len, segments );
+		var cylinder = new THREE.Mesh( geometry ); // adding material argument might save garbage
+		cylinder.rotation.z=-Math.PI/2;
+		cylinder.position.set(x0,y0,z0);
+		THREE_Geometry.mergeMesh( cylinder );
+
+		// ( radiusTop  radiusBottom  height  numSegments )
+		var shape = new CANNON.Cylinder ( r1, r2, len, segments );
+		var quat = new CANNON.Quaternion();
+		quat.setFromAxisAngle(new CANNON.Vec3(1,0,0),-Math.PI/2);
+		var translation = new CANNON.Vec3(0,0,0);
+		shape.transformAllPoints(translation,quat);
+		quat.setFromAxisAngle(new CANNON.Vec3(0,0,1),-Math.PI/2);
+		shape.transformAllPoints(translation,quat);
+		CANNON_body.addShape(shape, new CANNON.Vec3(x0,y0,z0));
+	};
+	var engine=function(r,c){
+		return add_cyl(0.4, 0.5, 1, -r+x_origin, -c+y_origin, 0.5);
+	};
+	var wall=[
+		function(r,c){//h
+		return mkbox(0.1, 1, 1, r, c, 0.5);
+		},
+		function(r,c){//v
+		return mkbox(1, 0.1, 1, r, c, 0.5);
+		}];
+	var wwall=[
+		function(r,c){//h
+			mkbox(0.1, 1, 0.33, r, c, 0.33/2);
+			mkbox(0.1, 1, 0.33, r, c, 1-0.33/2);
+			mkbox(0.1, 0.33, 0.34, r, c-0.335, 0.5);
+			mkbox(0.1, 0.33, 0.34, r, c+0.335, 0.5);
+		},
+		function(r,c){//v
+			mkbox(1, 0.1, 0.33, r, c, 0.33/2);
+			mkbox(1, 0.1, 0.33, r, c, 1-0.33/2);
+			mkbox(0.33, 0.1, 0.34, r-0.335, c, 0.5);
+			mkbox(0.33, 0.1, 0.34, r+0.335, c, 0.5);
+		}];
+	var www_w=0.05;
+	var wwwall=[
+		function(r,c){//h
+			mkbox(www_w, 1, www_w, r, c, 0.05);
+			mkbox(www_w, 1, www_w, r, c, 0.95);
+			mkbox(www_w, www_w, 1, r, c-0.45, 0.5);
+			mkbox(www_w, www_w, 1, r, c+0.45, 0.5);
+			mkbox(0.05, 1, 0.05, r, c, 0.5);
+			mkbox(0.05, 0.05, 1, r, c, 0.5);
+		},
+		function(r,c){//v
+			mkbox(1, www_w, www_w, r, c, 0.05);
+			mkbox(1, www_w, www_w, r, c, 0.95);
+			mkbox(www_w, www_w, 1, r-0.45, c, 0.5);
+			mkbox(www_w, www_w, 1, r+0.45, c, 0.5);
+			mkbox(1, 0.05, 0.05, r, c, 0.5);
+			mkbox(0.05, 0.05, 1, r, c, 0.5);
+		}];
+	var dock1=function(r,c){
+			var w1=www_w/2/Math.sqrt(2);
+			mkbox(w1, w1, 0.5, r-0.75+www_w/4, c-0.5-www_w/4, 0.5,1);
+			mkbox(w1, w1, 0.5, r-0.75+www_w/4, c-0.5+www_w/4, 0.5,1);
+			mkbox(2*w1, 2*w1, 0.5, r-0.75-www_w/4, c+0.5, 0.5,1);
+			mkbox(w1, 0.5, w1, r-0.75, c, 1-www_w/4,2);
+			mkbox(w1, 0.5, w1, r-0.75, c, 1+www_w/4,2);
+			mkbox(2*w1, 0.5, 2*w1, r-0.75, c, 0,2);
+		}
+	var dock3=function(r,c){
+			var w1=www_w/2/Math.sqrt(2);
+			mkbox(w1, w1, 0.5, r+0.75+www_w/4, c+0.5-www_w/4, 0.5,1);
+			mkbox(w1, w1, 0.5, r+0.75+www_w/4, c+0.5+www_w/4, 0.5,1);
+			mkbox(2*w1, 2*w1, 0.5, r+0.75-www_w/4, c-0.5, 0.5,1);
+			mkbox(w1, 0.5, w1, r+0.75, c, 0-www_w/4,2);
+			mkbox(w1, 0.5, w1, r+0.75, c, 0+www_w/4,2);
+			mkbox(2*w1, 0.5, 2*w1, r+0.75, c, 1,2);
+		}
+	var THREE_Geometry = new THREE.Geometry();
+	// var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+	var CANNON_body = new CANNON.Body({ mass: 1 });
+	var map = new My2DMap(ship.w,ship.h);
+	//cells
+	for(var r=0;r<ship.h;r++){
+		for(var c=0;c<ship.w;c++){
+			switch(ship.cells[r][c]){
+				case 1:
+					floor(r,c);
+					floor(r,c,1);
+				break;
+				case 3:
+					wwfloor(r,c);
+					wwfloor(r,c,1);
+				break;
+				case 5:
+					engine(r,c);
+				break;
+				case 7:
+					dock1(r,c);
+				break;
+				case 8:
+					dock3(r,c);
+				break;
+			}
+		}
+	}
+	//horiz walls
+	for(var c=0;c<ship.w;c++){
+		for(var r=0;r<=ship.h;r++){
+			switch(ship.walls[0][r][c]){
+				case 1:
+					wall[0](r-0.5,c);
+				break;
+				case 2:
+					wwall[0](r-0.5,c);
+				break;
+				case 3:
+					wwwall[0](r-0.5,c);
+				break;
+			}
+		}
+	}
+	//vert walls
+	for(var c=0;c<=ship.w;c++){
+		for(var r=0;r<ship.h;r++){
+			switch(ship.walls[1][r][c]){
+				case 1:
+					wall[1](r,c-0.5);
+				break;
+				case 2:
+					wwall[1](r,c-0.5);
+				break;
+				case 3:
+					wwwall[1](r,c-0.5);
+				break;
+			}
+		}
+	}
+	// return boxes;
+	var mat = new THREE.MeshLambertMaterial( );
+	var mesh = new THREE.Mesh( THREE_Geometry, mat);
+	THREE_scene.add( mesh );
+	CANNON_world.addBody(CANNON_body);
+	return [mesh,CANNON_body];
+};
+
+function random_ship(){
+	var range_rand=function(a,b){
+		return Math.floor(Math.random()*(b-a)+a);
+	}
+	var w=7;
+	// var h=range_rand(3,15);
+	var h=10;
+	var cells=[];
+	var walls1=[];
+	var walls0=[];
+	lastrow=[0,0,0,0,0,0,0];
+	for (var x=0;x<h;x++){
+		var d=range_rand(1,4);
+		if(x==0) d=3;
+		var f=(x==0?3:1);
+		switch(range_rand(1,5)){
+			case 1:
+				cells.push([0,0,0,f,0,0,0]);
+				walls1.push([0,0,0,d,d,0,0,0]);
+			break;
+			case 2:
+				cells.push([0,0,f,f,f,0,0]);
+				walls1.push([0,0,d,0,0,d,0,0]);
+			break;
+			case 3:
+				cells.push([0,f,f,f,f,f,0]);
+				walls1.push([0,d,0,0,0,0,d,0]);
+			break;
+			case 4:
+				cells.push([f,f,f,f,f,f,f]);
+				walls1.push([d,0,0,0,0,0,0,d]);
+			break;
+		}
+		thisrow=cells[cells.length-1];
+		w0=[];
+		for(var y=0;y<w;y++){
+			w0.push((!thisrow[y]==!lastrow[y])?0:(x==0?3:1));
+	        }
+		walls0.push(w0);
+		lastrow=thisrow;
+	}
+	w0=[];
+	for(var y=0;y<w;y++){
+		w0.push((thisrow[y]==0||y==3)?0:1);
+	}
+	walls0.push(w0);
+	// cells[cells.length-1][3]=8;
+	return {
+		w:w,
+		h:h,
+		cells:cells,
+		walls:[walls0,walls1]
+	};
+}
+
+function lturn(x,y,z){
+	// var v=ship[0].localToWorld(new THREE.Vector3( x, y, z ));
+	// v=v.sub(ship[0].position);
+	// v.multiplyScalar(0.1);
+	// ship[1].angularVelocity=ship[1].angularVelocity.vadd(v);
+	var v=c_ship[0].localToWorld(new THREE.Vector3( x, y, z ));
+	v=v.sub(c_ship[0].position);
+	v.multiplyScalar(0.1);
+	c_ship[1].angularVelocity=c_ship[1].angularVelocity.vadd(v);
+}
+
+function pturn(x,y,z){
+	var v=player[0].localToWorld(new THREE.Vector3( x, y, z ));
+	v=v.sub(ship[0].position);
+	v=v.sub(player[0].position);
+	v.multiplyScalar(0.1);
+	// ship[1].angularVelocity.vadd(new CANNON.Vec3(v.x,v.y,v.z));
+	player[1].angularVelocity=player[1].angularVelocity.vadd(v);
+	// ship[1].angularVelocity.set(v.x*mod,v.y*mod,v.z*mod);
+}
+
+function lmove(x,y,z){
+	mod=0.1;
+	//ship[1].applyLocalImpulse(new CANNON.Vec3(x*mod,y*mod,z*mod),new CANNON.Vec3( 0, 0, 0 ))
+	c_ship[1].applyLocalImpulse(new CANNON.Vec3(x*mod,y*mod,z*mod),new CANNON.Vec3( 0, 0, 0 ))
+}
+
+
+function pmove(x,y,z){
+	mod=0.1;
+	player[0].translateX(x*mod);
+	player[0].translateY(y*mod);
+	player[0].translateZ(z*mod);
+	new_x=player[0].position.x-player[1].room.x0;
+	new_y=player[0].position.y-player[1].room.y0;
+	if(new_x<0){
+		for(var d=0;d<player[1].room.doors['-x'].length;d++){
+			if(player[1].y<=player[1].room.doors['-x'][d].y_max && player[1].y>=player[1].room.doors['-x'][d].y_min){
+				player[1].y+=player[1].room.doors['-x'][d].y_change;
+				player[1].room=player[1].room.doors['-x'][d].room;
+				player[1].x=player[1].room.dx-new_x;
+				new_y=player[1].y;
+			}
+		}
+	} else if(new_x>player[1].room.dx){
+		for(var d=0;d<player[1].room.doors['+x'].length;d++){
+			if(player[1].y<=player[1].room.doors['+x'][d].y_max && player[1].y>=player[1].room.doors['+x'][d].y_min){
+				player[1].x=new_x-player[1].room.dx;
+				player[1].y+=player[1].room.doors['+x'][d].y_change;
+				player[1].room=player[1].room.doors['+x'][d].room;
+				new_y=player[1].y;
+			}
+		}
+	} else
+		player[1].x=new_x;
+	if(new_y<0){
+	} else if(new_y>player[1].room.dy){
+	} else
+		player[1].y=new_y;
+	player[0].position.x=player[1].room.x0+player[1].x;
+	player[0].position.y=player[1].room.y0+player[1].y;
+}
+
+ship=(ship_builder(ship,scene,world,world2));
+ship2=(ship_builder(random_ship(),scene,world,world2));
+ship2[1].position.x=10;
+// var axisHelper = new THREE.AxisHelper( 5 );
+// ship[0].add( axisHelper );
+ship[1].angularDamping = 0.5;
+ship[1].linearDamping = 0.5;
+c_ship=ship;
+ship2[1].angularDamping = 0.5;
+ship2[1].linearDamping = 0.5;
+// ship[1].angularVelocity.set(0.1,0.2,0.3);
+// ship[1].angularVelocity.set(0.0,0.0,0.5);
+
+const pointLight =
+  new THREE.PointLight(0xFFFFFF);
+
+  // set its position
+  pointLight.position.x = 0;
+  pointLight.position.y = 0;
+  pointLight.position.z = 0.75;
+
+  // add to the scene
+  ship[0].add(pointLight);
+
+  var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+  // var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+  scene.add( light );
+
+  geometry = new THREE.BoxGeometry( 1, 1, 1 );
+  material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+  mesh = new THREE.Mesh( geometry, material );
+  scene.add( mesh );
+  shape = new CANNON.Box(new CANNON.Vec3(0.5,0.5,0.5));
+  mass = 1;
+  body = new CANNON.Body({
+	  mass: 1
+  });
+body.addShape(shape);
+body.angularVelocity.set(0,10,0);
+body.angularDamping = 0.5;
+body.linearDamping = 0.5;
+body.position.x=20;
+world.addBody(body);
+
+
+// var localPivotA = new CANNON.Vec3(1, 0, 0);
+// var localPivotB = new CANNON.Vec3(-1, 0, 0);
+// var constraint = new CANNON.PointToPointConstraint(body, localPivotA, ship[1], localPivotB);
+// world.addConstraint(constraint);
+
+fix_coord=['x','x','y','y','z','z'];
+val_coord=[-1,1,   -1,1,   -1,1];
+fix_mul=1e5;
+star_size=fix_mul/1e3*3;
+var frand=function(){
+	return Math.random()*2*fix_mul-fix_mul;
+}
+mat2 = new THREE.MeshBasicMaterial( { color: 0xffffff} );
+for (var f=0;f<6;f++){
+	for (var i=0;i<100;i++){
+		var g1=new THREE.BoxGeometry( star_size, star_size, star_size );
+		var cube = new THREE.Mesh( g1, mat2 ); // adding material argument might save garbage
+		cube.position.set(frand(),frand(),frand());
+		// cube.position.set(10,0,0);
+		cube.position[fix_coord[f]]=val_coord[f]*fix_mul;
+		  scene.add( cube );
+	}
+}
+
+// var geometry = new THREE.Geometry();
+// var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+// body = new CANNON.Body({ mass: 1 });
+// // add_box(1,2,3,0,0,0,geometry,body);
+// var cube = new THREE.Mesh( geometry, material );
+// var axisHelper = new THREE.AxisHelper( 5 );
+// cube.add( axisHelper );
+// scene.add( cube );
+// body.angularVelocity.set(0,10,0);
+// body.angularDamping = 0.1;
+// world.addBody(body);
+
+// camera.position.z = 0.5
+// camera.position.x = -3.5
+camera.rotation.z = -Math.PI/2
+camera.rotation.y = -Math.PI/2
+// ship[0].add(camera);
+player=PointerLockControls( camera, ship[0], world2, renderer.domElement );
+player[1]={
+	x:-rooms[1].x0,
+	y:-rooms[1].y0,
+	w:{x:0,y:0}
+}
+player[1].room=rooms[1];
+pmove(0,0,0);
+
+// var orto_co = new CANNON.RotationalEquation(player[1],ship[1], {axisA:CANNON.Vec3(0,0,1),axisB:CANNON.Vec3(1,0,0)});
+// co={update:function(){},equations:[orto_co]};
+// world2.addConstraint(co);
+// var orto_co = new CANNON.RotationalEquation(player[1],ship[1], {axisA:CANNON.Vec3(0,0,1),axisB:CANNON.Vec3(0,1,0)});
+// co={update:function(){},equations:[orto_co]};
+// world2.addConstraint(co);
+
+canvas=renderer.domElement;
+canvas.onclick=function(){ canvas.requestPointerLock(); };
+
+
+buttons=[];
+document.addEventListener( 'keyup', function(e){buttons[e.keyCode]=false;});
+document.addEventListener( 'keydown', function(e){ buttons[e.keyCode]=true; });
+function controls(){
+	       if(buttons[38]){ //up
+		       lturn(0,-1,0)
+	       }
+	       if(buttons[37]){ //left
+		       lturn(0,0,1)
+	       }
+	       if(buttons[40]){ //down
+		       lturn(0,1,0)
+	       }
+	       if(buttons[39]){ //right
+		       lturn(0,0,-1)
+	       }
+	       if(buttons[87]){ //w
+		       lmove(1,0,0)
+	       }
+	       if(buttons[65]){ //a
+		       lmove(0,1,0)
+	       }
+	       if(buttons[83]){ //s
+		       lmove(-1,0,0)
+	       }
+	       if(buttons[68]){ //d
+		       lmove(0,-1,0)
+	       }
+	       if(buttons[81]){ //q
+		       lturn(-1,0,0)
+	       }
+	       if(buttons[69]){ //e
+		       lturn(1,0,0)
+	       }
+	       if(buttons[82]){ //r
+		       lmove(0,0,1)
+	       }
+	       if(buttons[70]){ //f
+		       lmove(0,0,-1)
+	       }
+	       if(buttons[89]){ //y
+	        // body.locallyTranslate(new BABYLON.Vector3(0.01, 0, 0));
+		       pmove(0.1,0,0)
+	       }
+	       if(buttons[71]){ //g
+               // body.locallyTranslate(new BABYLON.Vector3(0, 0.01, 0));
+		       pmove(0,0.1,0)
+	       }
+	       if(buttons[72]){ //h
+		       pmove(-0.1,0,0)
+	       }
+	       if(buttons[74]){ //j
+               // body.locallyTranslate(new BABYLON.Vector3(0, -0.01, 0));
+		       pmove(0,-0.1,0)
+	       }
+	       if(buttons[32]){ //space
+		       // // ship[1].applyForce()
+		       // var mod=0.002;
+		       // var box_corner=body.pointToWorldFrame(new CANNON.Vec3( 0.5, -0.5, 0 ));
+		       // var ship_point=ship[1].pointToWorldFrame(new CANNON.Vec3( 2.5, 0.5, 0.5 ));
+		       // var ship_to_box=ship_point.vsub(box_corner);//.scale(-mod);
+		       // ship_to_box.normalize();
+		       // ship_to_box=ship_to_box.scale(-mod);
+		       // console.log(ship_to_box.length());
+		       // var box_to_ship=ship_to_box.negate();
+	               // ship[1].applyImpulse(ship_to_box,ship_point);
+	               // body.applyImpulse(box_to_ship,box_corner);
+		       // var box_corner=body.pointToWorldFrame(new CANNON.Vec3( 0.5, 0.5, 0 ));
+		       // var ship_point=ship[1].pointToWorldFrame(new CANNON.Vec3( 2.5, -0.5, 0.5 ));
+		       // var ship_to_box=ship_point.vsub(box_corner);//.scale(-mod);
+		       // ship_to_box.normalize();
+		       // ship_to_box=ship_to_box.scale(-mod);
+		       // console.log(ship_to_box.length());
+		       // var box_to_ship=ship_to_box.negate();
+	               // ship[1].applyImpulse(ship_to_box,ship_point);
+	               // body.applyImpulse(box_to_ship,box_corner);
+
+		       var mod=0.003;
+		       var len=0;
+		       var offset=-0.05/2;//-0.0003/2;
+
+		       var ship_point=ship[1].pointToWorldFrame(new CANNON.Vec3( 2.5-offset, 0.5, 0.5 ));
+		       var ship2_point=ship2[1].pointToWorldFrame(new CANNON.Vec3( -5+offset, 0.5, 0.5 ));
+		       var a_to_b=ship_point.vsub(ship2_point);//.scale(-mod);
+		       // a_to_b.normalize();
+		       a_to_b=a_to_b.scale(-mod);
+		       var b_to_a=a_to_b.negate();
+	               ship[1].applyImpulse(a_to_b,ship_point);
+	               ship2[1].applyImpulse(b_to_a,ship2_point);
+		       len+=(a_to_b.length());
+
+		       var ship_point=ship[1].pointToWorldFrame(new CANNON.Vec3( 2.5-offset, -0.5, 0.5 ));
+		       var ship2_point=ship2[1].pointToWorldFrame(new CANNON.Vec3( -5+offset, -0.5, 0.5 ));
+		       var a_to_b=ship_point.vsub(ship2_point);//.scale(-mod);
+		       // a_to_b.normalize();
+		       a_to_b=a_to_b.scale(-mod);
+		       var b_to_a=a_to_b.negate();
+	               ship[1].applyImpulse(a_to_b,ship_point);
+	               ship2[1].applyImpulse(b_to_a,ship2_point);
+		       len+=(a_to_b.length());
+
+		       var ship_point=ship[1].pointToWorldFrame(new CANNON.Vec3( 2.5-offset, 0, 1 ));
+		       var ship2_point=ship2[1].pointToWorldFrame(new CANNON.Vec3( -5+offset, 0, 1 ));
+		       var a_to_b=ship_point.vsub(ship2_point);//.scale(-mod);
+		       // a_to_b.normalize();
+		       a_to_b=a_to_b.scale(-mod);
+		       var b_to_a=a_to_b.negate();
+	               ship[1].applyImpulse(a_to_b,ship_point);
+	               ship2[1].applyImpulse(b_to_a,ship2_point);
+		       len+=(a_to_b.length());
+
+		       var ship_point=ship[1].pointToWorldFrame(new CANNON.Vec3( 2.5-offset, 0, 0 ));
+		       var ship2_point=ship2[1].pointToWorldFrame(new CANNON.Vec3( -5+offset, 0, 0 ));
+		       var a_to_b=ship_point.vsub(ship2_point);//.scale(-mod);
+		       // a_to_b.normalize();
+		       a_to_b=a_to_b.scale(-mod);
+		       var b_to_a=a_to_b.negate();
+	               ship[1].applyImpulse(a_to_b,ship_point);
+	               ship2[1].applyImpulse(b_to_a,ship2_point);
+		       len+=(a_to_b.length());
+
+		       console.log(len);
+
+	       }
+	       if(buttons[67]){ //c
+		       // lmove(1,0,0)
+		       if(player[0].parent!=ship[0]){
+			       player[0].parent=ship[0];
+			       pointLight.parent=ship[0];
+			c_ship=ship;
+			       ship_point=ship[0].position;
+			       ship2_point=ship2[0].position;
+			       player[0].position.sub(ship_point.sub(ship2_point));
+		       }
+	       }
+	       if(buttons[86]){ //v
+		       // lmove(1,0,0)
+		       if(player[0].parent!=ship2[0]){
+			       player[0].parent=ship2[0];
+			       pointLight.parent=ship2[0];
+			c_ship=ship2;
+			       ship_point=ship[0].position;
+			       ship2_point=ship2[0].position;
+			       player[0].position.add(ship_point.sub(ship2_point));
+		       }
+	       }
+}
+
+function render() {
+	requestAnimationFrame( render );
+	// cube.rotation.x += 0.1;
+	// cube.rotation.y += 0.01;
+	// cube.rotation.z += 0.001;
+	controls();
+	   // player[1].applyLocalForce(new CANNON.Vec3(0,0,-1), new CANNON.Vec3(0,0,0));
+	         world.step(1/60);
+	         // world2.step(1/60);
+
+		   // Copy coordinates from Cannon.js to Three.js
+	   // cube.position.copy(body.position);
+	   mesh.position.copy(body.position);
+	   ship[0].position.copy(ship[1].position);
+	   ship2[0].position.copy(ship2[1].position);
+	   // player[0].position.copy(player[1].position);
+	   // cube.quaternion.copy(body.quaternion);
+	   mesh.quaternion.copy(body.quaternion);
+	   // mesh.quaternion.copy(player[0].children[0].getWorldQuaternion());
+	   ship[0].quaternion.copy(ship[1].quaternion);
+	   ship2[0].quaternion.copy(ship2[1].quaternion);
+	   // player[0].quaternion.copy(player[1].quaternion);
+
+	renderer.render( scene, camera );
+}
+render();
+
+		</script>
+</div>

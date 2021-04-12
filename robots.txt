@@ -1,0 +1,29 @@
+user-agent: *
+disallow: *.jpg
+disallow: *.JPG
+disallow: *.png
+disallow: /en/markdown.
+disallow: /private
+disallow: /cache
+disallow: /robots.txt
+
+disallow: /Visiglyphs/
+disallow: /map.php
+disallow: /news.php
+disallow: /stats.php
+disallow: /test
+disallow: /opr0s.tk
+disallow: /4282
+disallow: /formula
+disallow: /opera
+disallow: /pictures
+disallow: /quotes
+disallow: /soft
+disallow: /stories
+disallow: /video
+
+disallow: /en/tag_
+disallow: /ru/tag_
+disallow: /photos/tag_
+
+Host: alexey.shpakovsky.ru

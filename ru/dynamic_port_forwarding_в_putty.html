@@ -1,0 +1,60 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Dynamic port forwarding в PuTTY</title>
+<meta name="description" content="Как запустить SOCKS5 прокси с помощью PuTTY">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Фото</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Заметки</a></h1>
+		<p>Записи о разном</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin dynamic_port_forwarding_в_putty -->
+		<div class="post">
+			<h2><a href="dynamic_port_forwarding_в_putty.html">Dynamic port forwarding в PuTTY</a></h2>
+			<p class="trivia">
+				Создано: 2014-05-13 &mdash; изменено: 2015-11-03 &mdash; метки: ссылки linux
+			</p>
+			<p class="intro">Как запустить SOCKS5 прокси с помощью PuTTY</p>
+			<p>На свою память пологаться, конечно, можно, но лучше иметь инструкцию с картинками, чтобы, если что-то не заработает, не пришлось бы задумываться: "это я что-то забыл или здесь что-то не работает"?</p>
+
+<p><img src="dynamic_port_forwarding_в_putty.png" alt="Инструкция в виде одной картинки" title="" /></p>
+
+<p>Такой гайд в картинках нашелся на сайте <a href="http://erdees.ru/it/socks5-proksi-cherez-ssh-tunnel-pri-pomoshhi-putty/">erdees.ru</a>, а ниже приведу его краткий конспект:</p>
+
+<ul>
+<li>на первой странице ввести Host Name и Port</li>
+<li>Connection -> SSH -> Tunnels:
+<ul>
+<li>Source port: (номер порта для прокси)</li>
+<li>Destination: Dynamic, Auto</li>
+<li>Add</li>
+</ul></li>
+<li>в браузере:
+<ul>
+<li>прописываем адрес прокси в поле "SOCKS"</li>
+<li>все остальные поля оставляем пустыми</li>
+<li>тип прокси: SOCKS 5</li>
+</ul></li>
+</ul>
+		</div>
+		<!-- end dynamic_port_forwarding_в_putty -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Алексей Шпаковский</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(щелкните чтобы увидеть адрес)</a>
+	</div>
+</div>
+</body></html>

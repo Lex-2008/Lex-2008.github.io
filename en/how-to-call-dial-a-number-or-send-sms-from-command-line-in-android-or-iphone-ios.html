@@ -1,0 +1,80 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>How to call (dial a number) or send SMS from command line in Android or iPhone (iOS)</title>
+<meta name="description" content="Note that to get command line on iPhone, you need to jailbreak it first.">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios -->
+		<div class="post">
+			<h2><a href="how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios.html">How to call (dial a number) or send SMS from command line in Android or iPhone (iOS)</a></h2>
+			<p class="trivia">
+				Created: 2014-11-29 &mdash; modified: 2017-06-14 &mdash; tags: bash android
+			</p>
+			<p class="intro">Note that to get command line on iPhone, you need to jailbreak it first.</p>
+			<h2>iPhone</h2>
+
+<p><strong>To call</strong>: install sbutils from Cydia and type this on command line:</p>
+
+<pre><code>sbopenurl tel:+79123456789
+</code></pre>
+
+<p><strong>To SMS</strong>: install biteSMS from Cydia and type this:</p>
+
+<pre><code>/Applications/biteSMS.app/biteSMS -send -carrier +79123456789 'hello'
+</code></pre>
+
+<p>Note that I tried some other application,
+but it don't work with Cyrillic (and probably other non-ASCII) letters</p>
+
+<hr />
+
+<h2>Android</h2>
+
+<p><strong>To call</strong>:</p>
+
+<pre><code>am start -a android.intent.action.CALL -d tel:+79123456789
+</code></pre>
+
+<p><strong>To SMS</strong>: install shellMS from F-Droid and follow its instructions, like this:</p>
+
+<pre><code>am startservice -n com.android.shellms/.sendSMS -e contact +79123456789 -e msg 'hello'
+</code></pre>
+
+<p>Note that I tried using some native intent,
+but it didn't even fill in the message.</p>
+
+<p><strong>To turn screen on or off</strong>, emulate pressing "power" button:</p>
+
+<pre><code>input keyevent 26
+</code></pre>
+
+<p><strong>To check if screen is on or off</strong> (note that you need Unix tools for this):</p>
+
+<pre><code>dumpsys power | grep blanked | sed 's/.*=//'
+</code></pre>
+		</div>
+		<!-- end how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

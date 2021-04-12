@@ -1,0 +1,156 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>How to install extensions to CFEngine's PostgreSQL</title>
+<meta name="description" content="TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin how-to-install-extensions-to-cfengines-postgresql -->
+		<div class="post">
+			<h2><a href="how-to-install-extensions-to-cfengines-postgresql.html">How to install extensions to CFEngine's PostgreSQL</a></h2>
+			<p class="trivia">
+				Created: 2018-02-07 &mdash; modified: 2018-07-30 &mdash; tags: CFEngine
+			</p>
+			<p class="intro">TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.</p>
+			<h2>Environment</h2>
+
+<p>This is the environment I was working with:</p>
+
+<ul>
+<li><p>OS: CentOS 6.9</p></li>
+<li><p>CFEngine: 3.7.3 Enterprise</p></li>
+<li><p>PostgreSQL version: 9.3 (shipped together with CFEngine)</p></li>
+<li><p>Desired plugin: <a href="http://pgfoundry.org/projects/pgdnsres/">pg-dns-resolve</a> so you could issue <code>SELECT gethostbyname('www.google.com')</code>.</p></li>
+</ul>
+
+<h2>Investigation</h2>
+
+<p>Download the script above and inside it you will find installation instructions:</p>
+
+<pre><code>* Make sure, you have ip4r installed. Get it from: http://pgfoundry.org/projects/ip4r/
+* Make sure, you have PL/Pythonu installed and are allowed to add new functions
+* PL/Pythonu must be built against Python &gt;= 2.4
+* psql [YOUR OPTIONS] &lt; plpython_dns-functions.sql
+</code></pre>
+
+<p>You actually don't need to build ip4r and PL/Python from sources,
+since PostgreSQL provides packages for them (but not for pg-dns-resolve).
+You can download them from here: <a href="https://ftp.postgresql.org/pub/repos/yum/9.3/redhat/rhel-6.9-x86_64">https://ftp.postgresql.org/pub/repos/yum/9.3/redhat/rhel-6.9-x86_64</a>
+(Note that URL mentions PostgreSQL <strong>9.3</strong> and RedHat <strong>6.9</strong> versions, what corresponds to our environment)</p>
+
+<h2>ip4r installation</h2>
+
+<p>Navigate to above URL and search (Ctrl+F) for "ip4r". You will find two packages: <code>ip4r93-2.1-1.rhel6.x86_64.rpm</code> and <code>ip4r93-2.2-1.rhel6.x86_64.rpm</code> - note that they differ only in version, so let's install latest one :-)</p>
+
+<p>SSH into your your CFEngine Hub machine and issue the following commands:</p>
+
+<ol>
+<li><p>Download the ip4r package</p>
+
+<pre><code>wget https://ftp.postgresql.org/pub/repos/yum/9.3/redhat/rhel-6.9-x86_64/ip4r93-2.2-1.rhel6.x86_64.rpm
+</code></pre></li>
+<li><p>Install it ignoring dependencies. RPM will complain that ip4r requires PostgreSQL to be installed and is broken without it, but that's fine - we don't need a <em>system</em> PostgreSQL, we have one shipped with CFEngine, instead. Actually, we need only some files from this RPM package:</p>
+
+<pre><code>rpm -U ip4r93-2.2-1.rhel6.x86_64.rpm --nodeps
+</code></pre></li>
+<li><p>List extracted files:</p>
+
+<pre><code>rpm -q --filesbypkg ip4r93
+</code></pre>
+
+<p>We see that this package installed <code>ip4r.so</code> into library path <code>/usr/pgsql-9.3/lib/</code> and few extensions to <code>/usr/pgsql-9.3/share/extension/</code></p></li>
+<li><p>Copy them to CFEngine-PostgreSQL dirs:</p>
+
+<pre><code>cp /usr/pgsql-9.3/lib/ip4r.so /var/cfengine/lib/postgresql/
+cp /usr/pgsql-9.3/share/extension/ip4r* /var/cfengine/share/postgresql/extension
+</code></pre></li>
+<li><p>Let CFEngine's PostgreSQL know about new extension (you need to <code>cd</code> to a <code>cfpostgres</code>-user-readable dir before running <code>psql</code> command):</p>
+
+<pre><code>cd /tmp
+su cfpostgres -c "/var/cfengine/bin/psql cfmp -c 'CREATE EXTENSION ip4r;'"
+</code></pre></li>
+<li><p>This part is done!</p></li>
+</ol>
+
+<h2>PL/Python installation</h2>
+
+<p>Same as for ip4r: find latest package in the <a href="https://ftp.postgresql.org/pub/repos/yum/9.3/redhat/rhel-6.9-x86_64">package list</a> (at the moment of writing this guide it was <code>postgresql93-plpython-9.3.20-5PGDG.rhel6.x86_64.rpm</code>) and run the following commands on your hub:</p>
+
+<ol>
+<li><p>Download:</p>
+
+<pre><code>wget https://ftp.postgresql.org/pub/repos/yum/9.3/redhat/rhel-6.9-x86_64/postgresql93-plpython-9.3.20-5PGDG.rhel6.x86_64.rpm
+</code></pre></li>
+<li><p>Unpack:</p>
+
+<pre><code>rpm -U postgresql93-plpython-9.3.20-5PGDG.rhel6.x86_64.rpm --nodeps
+</code></pre></li>
+<li><p>List:</p>
+
+<pre><code>rpm -q --filesbypkg postgresql93-plpython
+</code></pre></li>
+<li><p>Copy:</p>
+
+<pre><code>cp /usr/pgsql-9.3/lib/plpython2.so /var/cfengine/lib/postgresql/
+cp /usr/pgsql-9.3/share/extension/plpython* /var/cfengine/share/postgresql/extension
+</code></pre></li>
+<li><p>Install (note that here command is slightly different, since we're installing <em>language</em>, not <em>extension</em>):</p>
+
+<pre><code>cd /tmp
+su cfpostgres -c "/var/cfengine/bin/psql cfmp -c 'CREATE LANGUAGE plpythonu;'"
+</code></pre></li>
+<li><p>Done!</p></li>
+</ol>
+
+<h2>pg-dns-resolve installation</h2>
+
+<p>Here everything is easier - just download and follow the official 1-command "guide":</p>
+
+<ol>
+<li><p>Download</p>
+
+<pre><code>wget http://pgfoundry.org/frs/download.php/2758/plpython_dns-functions.sql
+</code></pre></li>
+<li><p>Install</p>
+
+<pre><code>cd /tmp
+su cfpostgres -c "/var/cfengine/bin/psql cfmp -f plpython_dns-functions.sql"
+</code></pre></li>
+<li><p>Enjoy!</p>
+
+<pre><code>su cfpostgres -c "/var/cfengine/bin/psql cfmp -c \"select hostbyname('www.google.ru')\""
+</code></pre>
+
+<p>Expected output:</p>
+
+<pre><code>   hostbyname   
+----------------
+ 64.233.165.94
+(1 row)
+</code></pre></li>
+</ol>
+		</div>
+		<!-- end how-to-install-extensions-to-cfengines-postgresql -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

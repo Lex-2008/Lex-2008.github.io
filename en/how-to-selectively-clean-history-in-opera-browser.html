@@ -1,0 +1,53 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>How to selectively clean history in Opera browser</title>
+<meta name="description" content="For example, to delete browsing history of a website">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin how-to-selectively-clean-history-in-opera-browser -->
+		<div class="post">
+			<h2><a href="how-to-selectively-clean-history-in-opera-browser.html">How to selectively clean history in Opera browser</a></h2>
+			<p class="trivia">
+				Created: 2016-08-23 &mdash; modified: 2016-12-11 &mdash; tags: opera
+			</p>
+			<p class="intro">For example, to delete browsing history of a website</p>
+			<p>Let's say, for example, that you want to delete all <em>facebook</em> entries from
+browser history at your work.
+To do this:</p>
+
+<ol>
+<li><p>Open history page (Ctrl+H on Win, or button on navigation bar)</p></li>
+<li><p>Type <code>facebook.com</code> in search field</p></li>
+<li><p>Open javascript console (Ctrl+Shift+C) and paste this:</p>
+
+<pre><code>setInterval(()=&gt;{document.querySelector('history-element').shadowRoot.querySelector('.delete').click()},100)
+</code></pre></li>
+</ol>
+
+<p>And see all your history items disappear!</p>
+		</div>
+		<!-- end how-to-selectively-clean-history-in-opera-browser -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

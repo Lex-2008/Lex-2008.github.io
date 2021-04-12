@@ -1,0 +1,61 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Block spam from subdomains</title>
+<meta name="description" content="If you have a domain and don't want to be blocked for sending spam.">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin block-spam-from-subdomains -->
+		<div class="post">
+			<h2><a href="block-spam-from-subdomains.html">Block spam from subdomains</a></h2>
+			<p class="trivia">
+				Created: 2015-10-13 &mdash; modified: 2016-12-11 &mdash; tags: e-mail
+			</p>
+			<p class="intro">If you have a domain and don't want to be blocked for sending spam.</p>
+			<p>If you're a proud owner of your own domain (say, <code>example.com</code>),
+and have an email address with it,
+then you probably know what are SPF-records and how to use them
+to prevent other people getting unwanted messages with your address
+in the "From" field.</p>
+
+<p>But one day you may learn (usually by getting a "bounce" email) that
+spammers can send emails from subdomains of your main domain
+(say, <code>bill@office.example.com</code>).</p>
+
+<p>That's not nice, because:
+<em>a)</em> other people are getting spam, and
+<em>b)</em> your domain gets visible by anti-spam filters.</p>
+
+<p>To somehow prevent or limit this, you can simply add this wildcard SPF record to your DNS system:</p>
+
+<pre><code>* IN TXT "v=spf1 -all"
+</code></pre>
+
+<p>It will tell all email servers that respect SPF that they should <strong>reject</strong> all mail coming from all subdomains of your domain.</p>
+
+<p><strong>Source</strong>: <a href="http://www.openspf.org/FAQ/The_demon_question">http://www.openspf.org/FAQ/The_demon_question</a></p>
+		</div>
+		<!-- end block-spam-from-subdomains -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Busybox-only pstree</title>
+<meta name="description" content="For when you're on limited environment but want to see a process tree">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin busybox-only-pstree -->
+		<div class="post">
+			<h2><a href="busybox-only-pstree.html">Busybox-only pstree</a></h2>
+			<p class="trivia">
+				Created: 2020-01-31 &mdash; modified: 2020-12-07 &mdash; tags: bash
+			</p>
+			<p class="intro">For when you're on limited environment but want to see a process tree</p>
+			<p>Just use this script:</p>
+
+<pre><code>#!/bin/busybox ash
+#
+# Script to show process tree.
+# Accepts one optional argument:
+# pid of root process - by default 1 (init)
+
+cd /tmp
+
+# Build list of 'parent child' pids
+grep 'PPid:' /proc/*/status | sed -r 's_/proc/([^/]*)/[^0-9]*([0-9]*)_\2 \1_' &gt;ppids.ps
+
+# Preserve ps output to show
+ps w &gt;ps.ps
+
+# own pid - we don't show own children because they're guaranteed
+# to change between above two calls
+self=$$
+
+# function to show one process with all children, recursively
+# args:
+# * pid of process to show
+# * indent - string of spaces to print before current line
+showproc()
+{
+    # print current process
+    echo "$2$(grep "^ *$1 " ps.ps || echo "$1 ???")"
+    # don't print own children
+    test $1 == $self &amp;&amp; return
+    # print children, adding two spaces to indent
+    for subpid in `grep "^$1 " ppids.ps | awk '{print $2}'`; do
+        showproc $subpid "  $2"
+    done
+}
+
+# start with root process (pid 1 by default)
+showproc ${1:-1} ''
+</code></pre>
+
+<script src="/microlight.js"></script>
+		</div>
+		<!-- end busybox-only-pstree -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

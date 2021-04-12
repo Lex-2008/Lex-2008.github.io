@@ -1,0 +1,103 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Patch for avfs to show "magic" dirs</title>
+<meta name="description" content="Suggestion to improve its usability">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin avfs-dirs -->
+		<div class="post">
+			<h2><a href="avfs-dirs.html">Patch for avfs to show "magic" dirs</a></h2>
+			<p class="trivia">
+				Created: 2020-03-21 &mdash; modified: 2020-03-22 &mdash; tags: linux
+			</p>
+			<p class="intro">Suggestion to improve its usability</p>
+			<p><a href="http://avf.sourceforge.net/">AVFS</a> is a FUSE filesystem which lets you look into archives without extracting them.
+However, it doesn't show them - you're expected to add the magic <code>#</code> symbol to filename in order to use avfs features:</p>
+
+<pre><code>[lex@flower2 test]$ ls -lah
+total 4.7M
+drwxr-xr-x 1 lex lex 4.0K Mar 22 13:58 .
+drwx------ 1 lex lex  72K Mar 22 13:58 ..
+-rw-rw-r-- 1 lex lex 2.3M Feb  3  2018 cfengine-3.10.3.tar.gz
+
+[lex@flower2 test]$ ls -lah cfengine-3.10.3.tar.gz#
+total 2.3M
+drwxr--r--  1 lex lex  2.3M Feb  3  2018 .
+drwxr-xr-x  1 lex lex  4.0K Mar 22 13:58 ..
+drwxr-xr-x 20 lex root    0 Feb  2  2018 cfengine-3.10.3
+
+[lex@flower2 test]$ ls -lah cfengine-3.10.3.tar.gz#/* | head
+total 3.7M
+drwxr-xr-x 20 lex root    0 Feb  2  2018 .
+drwxr--r--  1 lex lex  2.3M Feb  3  2018 ..
+-rwxr--r--  1 lex root  40K Feb  2  2018 aclocal.m4
+-rwxr--r--  1 lex root 6.3K Feb  2  2018 AUTHORS
+drwxr-xr-x  2 lex root    0 Feb  2  2018 cf-agent
+drwxr-xr-x  2 lex root    0 Feb  2  2018 cf-execd
+drwxr-xr-x  2 lex root    0 Feb  2  2018 cf-key
+drwxr-xr-x  2 lex root    0 Feb  2  2018 cf-monitord
+drwxr-xr-x  2 lex root    0 Feb  2  2018 cf-promises
+</code></pre>
+
+<p>This patch makes avfs show the otherwise-invisible "magic" directory in this case:</p>
+
+<pre><code>[lex@flower2 test]$ ls -lah
+total 4.7M
+drwxr-xr-x 1 lex lex 4.0K Mar 22 13:58 .
+drwx------ 1 lex lex  72K Mar 22 13:58 ..
+-rw-rw-r-- 1 lex lex 2.3M Feb  3  2018 cfengine-3.10.3.tar.gz
+drwxr--r-- 1 lex lex 2.3M Feb  3  2018 cfengine-3.10.3.tar.gz#
+</code></pre>
+
+<p>Note that it does so by only inspecting file extension, and not the file format itself.
+Moreover, avfs supports specifying which archiver to use - so if you have a tarball renamed to <code>*.bak</code>, you can still access it by specifying <code>#utar</code>, like this:</p>
+
+<pre><code>[lex@flower2 test]$ mv cfengine-3.10.3.tar.gz{,.bak}
+
+[lex@flower2 test]$ ls -lah cfengine-3.10.3.tar.gz.bak#ugz#utar
+total 4.0K
+drwxr-xr-x  3 lex lex     0 Feb  2  2018 .
+drwxr-xr-x  1 lex lex  4.0K Mar 22 14:41 ..
+drwxr-xr-x 20 lex root    0 Feb  2  2018 cfengine-3.10.3
+</code></pre>
+
+<p>This case is not supported by this patch (i.e. you won't see this directory with <code>ls</code>, but you still can <code>cd</code> into it and <code>ls</code> its content, like shown above).</p>
+
+<p>To build avfs with this patch, first clone the official AVFS repo with git:</p>
+
+<pre><code>git clone https://git.code.sf.net/p/avf/git avf-git
+</code></pre>
+
+<p>And then follow the <a href="https://sourceforge.net/p/avf/git/ci/master/tree/doc/README.avfs-fuse#l11">official build instructions for AVFS</a>, but just before <code>make</code> step run the following:</p>
+
+<pre><code>wget http://alexey.shpakovsky.ru/en/avfs-dirs.patch
+git apply avfs-dirs.patch
+</code></pre>
+
+<p>Then <a href="https://sourceforge.net/p/avf/git/ci/master/tree/doc/README.avfs-fuse#l60">mount avfs as usual</a> and enjoy!</p>
+		</div>
+		<!-- end avfs-dirs -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

@@ -1,0 +1,1240 @@
+
+<!-- -*- web-mode-markup-indent-offset: 3; web-mode-css-indent-offset: 3; web-mode-code-indent-offset: 3; web-mode-style-padding: 3; web-mode-script-padding: 3; web-mode-block-padding: 2; indent-tabs-mode: t; tab-width: 3; -*- -->
+<!doctype html><html><body>
+		<!-- vim: set sw=3 ts=3: -->
+		<style>
+body {margin: auto;width: 685px;}
+#frames {width: 649px;}
+.ship {display:inline-block; width:306px; vertical-align: top;}
+.ship > div {white-space:nowrap;}
+button:focus {outline: 1px solid black;}
+/* .dock ~ fieldset ul li:last-child button {display: none;} */
+		</style>
+
+		<fieldset id="frames"><legend>Status</legend>
+			<style>
+#frames > div {display:none}
+			</style>
+			<div id="ship_ignored">
+					A ship in deep space ignored you, but you didn't see it.
+					<button class="default" onclick="gm.step('next_ship')">ok</button>
+			</div>
+			<div id="player_approaches">
+				You see a ship called <b id="player_approach_name"></b>. They don't see you.
+				<span id="player_approach_text"></span>
+				Would you like to approach them?
+				<!-- NOTE: you can approach agressively even without guns. It's called bluff. -->
+				<button onclick="gm.opponent.rate(-1, true);gm.step('player_approaches_aggr')">Approach agressively and offer to fight</button>
+				<button onclick="gm.step('player_approaches_peace')">Offer peace and trade</button>
+				<button class="default" onclick="gm.step('player_avoids')">Avoid contact</button>
+			</div>
+			<div id="ai_ignored">
+				<!-- NOTE: this is used when player approaches peacefully, but AI wants
+					neither to trade nor to attack. -->
+					Ship didn't want to trade and flew away.
+					<!-- TODO: maybe attack here? -->
+					<button class="default" onclick="gm.step('next_ship')">ok</button>
+			</div>
+			<div id="ai_peaceful">
+				A ship called <b id="ai_peaceful_approach_name"></b> approaches you and offers to <b>trade</b>.
+				<span id="ai_peaceful_approach_text"></span>
+				<!-- NOTE: you can bluff here, too -->
+				<button onclick="gm.step('player_treach')">Offer to fight instead</button>
+																
+				<button onclick="gm.step('trade')">Trade</button>
+				<!-- TODO: AI can attack when player ignores -->
+				<button class="default" onclick="gm.step('player_ignored')">Ignore</button>
+			</div>
+			<div id="trade">
+				<style>
+#trade.fr .rf, #trade.rf .fr {display:none}
+#trade input {width: 3em}
+				</style>
+				They <b>want</b> to buy up to <span id="trade_count_max"></span> <b class="fr">Rockets</b><b class="rf">Fuel</b> from you.
+				They <b>offer</b> one <b class="fr">Fuel</b> <b class="rf">Rocket</b> for each one.
+				How many would you agree to trade?
+				<label><input type="number" id="trade_count_deal" min=1> items</label>
+				<button onclick="gm.step('trade_ok')">Deal</button>
+				<button onclick="gm.stats.trades_rejected++;texter.outcome('trade_rejected');gm.step('next_ship')">No deal</button>
+			</div>
+			<div id="ai_aggressive">
+				<!-- NOTE: this is to be used when AI sees player first -->
+				A ship called <b id="ai_aggressive_approach_name"></b> approaches you and is <b>going to attack</b>.
+				<span id="ai_aggressive_approach_text"></span>
+				Your actions?
+				<button id="g_a" onclick="gm.step('player_attacks')">attack</button>
+				<button id="g_s" onclick="gm.step('player_surrenders')">surrender</button>
+			</div>
+			<div id="ai_treach">
+				<!-- NOTE: this is to be used when player approaches ship peacefully, but AI wants to attack. -->
+				Instead of peace and trade, the ship prefers war and treach.
+				Your actions?
+				<button id="t_a" onclick="gm.step('player_attacks')">attack</button>
+				<button id="t_s" onclick="gm.step('player_surrenders')">surrender</button>
+			</div>
+			<div id="ai_fight_ok">
+				<!-- NOTE: this is to be used when player attacks ai, and ai is ready to fight back.
+				   Both during first encounter and after ai offered trade. -->
+					They are not amused by your behaviour and prepare to fight.
+					Your actions?
+					<button id="f_a" onclick="gm.step('player_attacks')">attack</button>
+					<button id="f_s" onclick="gm.step('player_surrenders')">surrender</button>
+			</div>
+			<div id="ai_attacks">
+				Ship is attacking you. Your actions?
+				<button id="a_a" onclick="gm.step('player_attacks')">attack</button>
+				<button id="a_s" onclick="gm.step('player_surrenders')">surrender</button>
+			</div>
+			<div id="ai_surrenders">
+				Enemy surrendered and opened their cargo bays for you. Take what you want!
+				<button class="default" onclick="gm.step('next_ship')">done</button>
+			</div>
+			<div id="player_surrenders">
+				Your opponent took all they wanted and left victorious. But at least you survived, and you still have your ship!
+				<button class="default" onclick="gm.step('next_ship')">ok</button>
+			</div>
+			<div id="base_offer">
+				You've arrived to a space station. It offers you a job:
+				transfer <b id="offer_boxes"></b> boxes to the next station and get a reward.
+				<span id="offer_cargo_bay">Required cargo bay will be provided free of charge.</span>
+				<button class="default" onclick="gm.step('player_accepts_offer')">yes</button>
+				<button onclick="gm.step('next_ship')">no</button>
+			</div>
+			<div id="base_ignore">
+				You've arrived to a space station.
+				It <i>would</i> offer you a job, but you don't have enough available cargo space!
+				A free cargo bay can't be provided this time, since you already have enough of them.
+				Free some cargo space in order to accept job offers!
+				Hint:&nbsp;you can lose some cargo by attacking other ships.
+				<button class="default" onclick="gm.step('next_ship')">ok</button>
+			</div>
+			<div id="base_reward">
+				You've delivered cargo to a space station. Choose a reward:
+				<span id="reward_component_wrap">
+					<button id="reward_component" onclick="gm.step('player_accepts_component')"></button>
+					or
+				</span>
+				<button id="reward_cargo" onclick="gm.step('player_accepts_cargo')"></button>
+			</div>
+			<div id="dock">
+				You've arrived to a space dock.
+				Here you can somewhat reorganize components of your ship.
+				For a price of 1 cargo item, you can move one of components to the tail of your ship.
+				Pay with:
+				<label><input type="radio" name="dock_pay" id="dock_pay_r"> rockets</label>
+				<label><input type="radio" name="dock_pay" id="dock_pay_f"> fuel</label>
+				<button class="default" onclick="gm.step('next_ship')">done</button>
+			</div>
+			<div id="stats">
+				You've arrived to a stats board.
+				Here you can see your progress.
+				<button class="default" onclick="$('#stats2').style.display='none';gm.step('next_ship')">ok</button>
+			</div>
+			<div id="paint">
+				You've arrived to a paint shop.
+				Here, for a price of <b id="paint_price"></b> cargo items, you can repaint and rename your ship.
+				Other ships won't recognise you anymore &mdash; effectively, this resets their opinion towards you to "neutral",
+				and your karma from <b id="paint_karma"></b> to <b>0</b>.
+				<br>
+				Pay with:
+				<label><b id="paint_pay_r"></b> rockets <input type="range" id="paint_pay"
+					oninput="$('#paint_pay_f').innerText=this.value;$('#paint_pay_r').innerText=gm.my_ship.components.list.length-this.value">
+					<b id="paint_pay_f"></b> fuel.</label>
+				Also, you can reset:
+				<ul>
+					<li><label>
+							<input type="checkbox" id="paint_hist" onclick="if(!this.checked)$('#paint_stats').checked=false">
+							your ship's computer memory &mdash; this way, you also will forget when you last saw them.
+						</label></li>
+					<li><label>
+							<input type="checkbox" id="paint_stats" onclick="if(this.checked)$('#paint_hist').checked=true">
+							your stats (number of encounters, wins/losses, etc) &mdash; this is almost like starting a new game, but you keep your ship!
+						</label></li>
+				</ul>
+				<button onclick="gm.step('paint_ok')">do it</button>
+				<button class="default" onclick="gm.step('next_ship')">no</button>
+			</div>
+		</fieldset>
+
+		<fieldset id="me" class="ship"></fieldset>
+		<fieldset id="he" class="ship"></fieldset>
+		<fieldset id="stats2" style="display:none" class="ship">
+			<legend>Your Stats</legend>
+			<ul>
+				<li>Total number of encounters: <b id="stats_encounters"></b>
+				<li>Encounters with ships: <b id="stats_ships"></b> (<b id="stats_ships_prc"></b>%)
+				<li>Encounters skipped: <b id="stats_skip"></b> (<b id="stats_skip_prc"></b>%)
+				<li>Contacts avoided: <b id="stats_avoided"></b> (<b id="stats_avoided_prc"></b>%)
+				<li>
+					Jobs completed/accepted (ratio):
+					<b id="stats_jobs2"></b>/<b id="stats_jobs1"></b> (<b id="stats_jobs_prc"></b>%)
+				</li>
+				<li>
+					Fights won/lost (winning ratio):
+					<b id="stats_wins"></b>/<b id="stats_lost"></b> (<b id="stats_wins_prc"></b>%)
+				</li>
+				<li>
+					Trades offered: <b id="stats_trades"></b> (<b id="stats_trades_prc"></b>%)
+					<ul>
+						<li>accepted: <b id="stats_trades_accepted"></b> (<b id="stats_trades_accepted_prc"></b>%)
+						<li>rejected: <b id="stats_trades_rejected"></b> (<b id="stats_trades_rejected_prc"></b>%)
+						<li>ignored: <b id="stats_trades_ignored"></b> (<b id="stats_trades_ignored_prc"></b>%)
+						<li>turned into a fight: <b id="stats_trades_fight"></b> (<b id="stats_trades_fight_prc"></b>%)
+					</ul>
+				</li>
+				<li>
+					Karma: <b id="stats_karma"></b>.
+					Ships breakdown by feeling towards you:
+					<table>
+						<tr><th>Love U very much:</th><td id="stats_rating3"></td><td>(<b id="stats_rating3_prc"></b>%)</td></tr>
+						<tr><th>Love:            </th><td id="stats_rating2"></td><td>(<b id="stats_rating2_prc"></b>%)</td></tr>
+						<tr><th>Like:            </th><td id="stats_rating1"></td><td>(<b id="stats_rating1_prc"></b>%)</td></tr>
+						<tr><th>Don't care:      </th><td id="stats_rating0"></td><td>(<b id="stats_rating0_prc"></b>%)</td></tr>
+						<tr><th>Disike:          </th><td id="stats_rating-1"></td><td>(<b id="stats_rating-1_prc"></b>%)</td></tr>
+						<tr><th>Hate:            </th><td id="stats_rating-2"></td><td>(<b id="stats_rating-2_prc"></b>%)</td></tr>
+						<tr><th>Hate U very much:</th><td id="stats_rating-3"></td><td>(<b id="stats_rating-3_prc"></b>%)</td></tr>
+					</table>
+				</li>
+		</fieldset>
+		<hr>
+		<center><small>
+			Spaceship names generated by <a href="https://donjon.bin.sh/scifi/name/#type=sx;sx=spaceship">donjon SciFi Name Generator</a>.
+			</small></center>
+
+
+		<script>
+			// ========== game loop ===============
+
+			function GameManager(){
+							this.state='next_ship';
+							var saved=loadShip();
+							this.my_ship=saved.ship;
+							this.opponent=null;
+							// this.last_action='';
+							this.defStats=function(){return {
+											encounters:0,
+											ships:0,
+											skip:0,
+											avoided:0,
+											jobs1:0,
+											jobs2:0,
+											wins:0,
+											lost:0,
+											trades_accepted:0,
+											trades_rejected:0,
+											trades_ignored:0,
+											trades_fight:0,
+										};};
+							this.stats=this.defStats();
+							if(saved.stats)this.stats=saved.stats;
+							if(saved.ships)ships.load(saved.ships);
+							this.step=function(new_state){
+											if(new_state){
+															this.state=new_state;
+														}
+											this.my_ship.components.action=null;
+											this.my_ship.cargo.action=null;
+											if(this.opponent){
+															this.opponent.components.action=null;
+															this.opponent.cargo.action=null;
+														}
+											switch(this.state){
+															case 'next_ship':
+																var random=Math.random();
+																this.stats.encounters++;
+																this.opponent=null;
+																if(random<0.1){
+																				// dock
+																				if(this.my_ship.cargo.byType['Rocket']>0 ||
+																								this.my_ship.cargo.byType['Fuel']>0){
+																								this.step('dock');
+																								return;
+																							}
+																			}
+																if(random<0.3){
+																				// base
+																				this.step(b.next_state(this.my_ship));
+																				return;
+																			}
+																if(random<0.35 && this.stats.karma<=-1 &&
+																				((this.my_ship.cargo.byType['Rocket']||0) + (this.my_ship.cargo.byType['Fuel']||0)
+																								>= this.my_ship.components.list.length)){
+																				// paint
+																				this.step('paint');
+																				return;
+																			}
+																if(random<0.4){
+																				// stats
+																				this.step('stats');
+																				return;
+																			}
+																this.stats.ships++;
+																this.opponent=ships.randomShip(this.my_ship, this.stats.encounters);
+																if(compareRadars(this.my_ship, this.opponent)>0){
+																				// player sees them first
+																				texter.init(0,false);
+																				this.step('player_approaches');
+																			} else {
+																							// ai decides
+																							var next_step=ai.approach(this.my_ship, this.opponent);
+																							switch(next_step){
+																											case 'ai_peaceful':
+																												texter.init(1,true);
+																												break;
+																											case 'ai_aggressive':
+																												this.opponent.rate(1);
+																												texter.init(1,false);
+																												break;
+																											case 'ship_ignored':
+																												// that doesn't count as encounter, nothing special to do here
+																												break;
+																										}
+																							this.step(next_step);
+																						}
+																break;
+															case 'ship_ignored':
+																this.stats.avoided++;
+																this.opponent=null;
+																render();
+																break;
+															case 'player_approaches':
+																$('#player_approach_name').innerText=this.opponent.name;
+																$('#player_approach_text').innerHTML=texter.show();
+																time.start();
+																render();
+																break;
+															case 'player_avoids':
+																if(time.check()){
+																				texter.outcome('avoid');
+																				gm.stats.avoided++;
+																			} else {
+																							texter.outcome('skip');
+																							gm.stats.skip++;
+																						}
+																gm.step('next_ship');
+																break;
+															case 'player_approaches_aggr':
+																// NOTE that this is used when player sees AI ship first
+																if(ai.player_approaches_aggr(this.my_ship, this.opponent)){
+																				this.step('ai_fight_ok');
+																			} else {
+																							this.step('ai_surrenders');
+																						}
+																break;
+															case 'player_treach':
+																// NOTE that this is used when AI offers trade, but player offers fight.
+																gm.stats.trades_fight++;
+																gm.opponent.rate(-2,true);
+																if(ai.player_treach(this.my_ship, this.opponent)){
+																				this.step('ai_fight_ok');
+																			} else {
+																							this.step('ai_surrenders');
+																						}
+																break;
+															case 'player_ignored':
+																if(time.check()){
+																				gm.stats.trades_ignored++;
+																				gm.opponent.rate(-1);
+																				texter.outcome('player_ignored');
+																			} else {
+																							texter.outcome('skip');
+																							gm.stats.skip++;
+																						}
+																gm.step('next_ship')
+																break;
+															case 'player_approaches_peace':
+																this.opponent.rate(1);
+																texter.trade=true;
+																var next_step=ai.player_approaches_peace(this.my_ship, this.opponent);
+																this.step(next_step);
+																break;
+															case 'ai_treach':
+																gm.stats.trades_fight++;
+																this.opponent.rate(2);
+																$('#t_a').disabled=!this.my_ship.can_attack();
+																$('#t_s').classList[this.my_ship.can_attack()?'remove':'add']('default');
+																render();
+																break;
+															case 'ai_ignored':
+																texter.outcome('ai_ignored');
+																this.stats.trades_ignored++;
+																this.opponent=null;
+																render();
+																break;
+															case 'ai_aggressive':
+																$('#ai_aggressive_approach_name').innerText=this.opponent.name;
+																$('#ai_aggressive_approach_text').innerHTML=texter.show();
+																$('#g_a').disabled=!this.my_ship.can_attack();
+																$('#g_s').classList[this.my_ship.can_attack()?'remove':'add']('default');
+																render();
+																break;
+															case 'ai_fight_ok':
+																$('#f_a').disabled=!this.my_ship.can_attack();
+																$('#f_s').classList[this.my_ship.can_attack()?'remove':'add']('default');
+																render();
+																break;
+															case 'ai_peaceful':
+															   $('#ai_peaceful_approach_name').innerText=this.opponent.name;
+															   $('#ai_peaceful_approach_text').innerHTML=texter.show();
+																time.start();
+																render();
+																break;
+															case 'trade':
+																var offer=ai.trade(this.my_ship, this.opponent);
+																if(!offer){
+																				console.log('unexpected trade');
+																				this.step('next_ship');
+																			}
+																$('#trade_count_max').innerHTML=offer.count;
+																$('#trade_count_deal').max=offer.count;
+																$('#trade_count_deal').value=offer.count;
+																$('#trade').className=offer.dir;
+																render();
+																break;
+															case 'trade_ok':
+																this.stats.trades_accepted++;
+																this.opponent.rate(1,true);
+																texter.outcome('trade_ok');
+																var count=parseInt($('#trade_count_deal').value);
+																var dir=$('#trade').className;
+																if(dir=='rf'){
+																				this.my_ship.cargo.rmByType('Fuel',count);
+																				this.my_ship.cargo.add('Rocket',count);
+																			} else {
+																							this.my_ship.cargo.rmByType('Rocket',count);
+																							this.my_ship.cargo.add('Fuel',count);
+																						}
+																this.step('next_ship');
+																break;
+															case 'ai_attacks':
+																this.my_ship.damage(this.opponent.attack(this.my_ship.components.list.length));
+																$('#a_a').disabled=!this.my_ship.can_attack();
+																render();
+																break;
+															case 'player_attacks':
+																this.opponent.damage(this.my_ship.attack(this.opponent.components.list.length));
+																if(ai.damage_received(this.my_ship, this.opponent)){
+																				this.step('ai_attacks');
+																			} else {
+																							this.step('ai_surrenders');
+																						}
+																break;
+															case 'player_surrenders':
+																this.stats.lost++;
+																this.opponent.rate(1);
+																texter.outcome('player_surrenders');
+																ai.take_cargo(this.my_ship, this.opponent);
+																this.opponent=null;
+																render();
+																break;
+															case 'ai_surrenders':
+																this.stats.wins++;
+																this.opponent.rate(-1);
+																texter.outcome('ai_surrenders');
+																this.opponent.cargo.action='take_cargo';
+																this.opponent.cargo.actionText='Take';
+																render(true);
+																break;
+															case 'base_offer':
+																$('#offer_boxes').innerHTML=b.job_offer.boxes;
+																$('#offer_cargo_bay').style.display=b.job_offer.cargo_bay?'':'none';
+																render();
+																break;
+															case 'base_ignore':
+																render();
+																break;
+															case 'player_accepts_offer':
+																this.stats.jobs1++;
+																if(b.job_offer.cargo_bay){
+																				this.my_ship.components.add('Cargo Bay');
+																			}
+																this.my_ship.job=b.job_offer.boxes;
+																this.my_ship.cargo.add('Box', b.job_offer.boxes);
+																this.step('next_ship');
+																break;
+															case 'base_reward':
+																this.stats.jobs2++;
+																$('#reward_component_wrap').style.display=b.job_reward.component?'':'none';
+																$('#reward_component').innerHTML=b.job_reward.component;
+																var cargo_arr=[];
+																if(b.job_reward.rockets){
+																				cargo_arr.push(
+																								b.job_reward.rockets+
+																								' rocket'+
+																								(b.job_reward.rockets>1?'s':'')
+																							);
+																			}
+																if(b.job_reward.fuel){
+																				cargo_arr.push(b.job_reward.fuel+' fuel');
+																			}
+																$('#reward_cargo').innerHTML=cargo_arr.join(' and ');
+																if(b.job_reward.component){
+																				$('#reward_component').classList.add('default');
+																				$('#reward_cargo').classList.remove('default');
+																			} else {
+																							$('#reward_cargo').classList.add('default');
+																							$('#reward_component').classList.remove('default');
+																						}
+																render();
+																break;
+															case 'player_accepts_component':
+																this.my_ship.components.add(b.job_reward.component);
+																this.step('next_ship');
+																break;
+															case 'player_accepts_cargo':
+																this.my_ship.cargo.add('Rocket', b.job_reward.rockets);
+																this.my_ship.cargo.add('Fuel', b.job_reward.fuel);
+																this.step('next_ship');
+																break;
+															case 'dock':
+																var r=this.my_ship.cargo.byType['Rocket']>0;
+																var f=this.my_ship.cargo.byType['Fuel']>0;
+																$('#dock_pay_r').disabled=!r;
+																$('#dock_pay_f').disabled=!f;
+																$('#dock_pay_r').checked=r;
+																$('#dock_pay_f').checked=!r;
+																this.my_ship.components.action='dock_move';
+																this.my_ship.components.actionText='Move';
+																render();
+																break;
+															case 'paint':
+																var paint_price=gm.my_ship.components.list.length;
+																$('#paint_price').innerText=paint_price;
+																$('#paint_karma').innerText=this.stats.karma;
+																var r=this.my_ship.cargo.byType['Rocket']||0;
+																var f=this.my_ship.cargo.byType['Fuel']||0;
+																var max_f=Math.min(f,paint_price);
+																var min_f=Math.max(0,paint_price-r);
+																$('#paint_pay').max=max_f;
+																$('#paint_pay').min=min_f;
+																$('#paint_pay').value=min_f;
+																$('#paint_pay').oninput();
+																render();
+																break;
+															case 'paint_ok':
+																this.my_ship.cargo.rmByType('Rocket', $('#paint_pay_r').innerText-0);
+																this.my_ship.cargo.rmByType('Fuel', $('#paint_pay_f').innerText-0);
+																this.my_ship.name=prompt('Give your ship a new name:', this.my_ship.name);
+																ships.ships.forEach(x=>x.stats.rating=0);
+																if($('#paint_hist').checked){
+																				ships.ships.forEach(x=>x.stats=false);
+																			}
+																if($('#paint_stats').checked){
+																				this.stats=this.defStats();
+																			}
+																this.step('next_ship');
+																break;
+															case 'stats':
+																$('#stats_encounters').innerText=this.stats.encounters;
+																$('#stats_skip').innerText=this.stats.skip;
+																$('#stats_skip_prc').innerText=Math.round(this.stats.skip/this.stats.encounters*100);
+																$('#stats_ships').innerText=this.stats.ships;
+																$('#stats_ships_prc').innerText=Math.round(this.stats.ships/this.stats.encounters*100);
+																$('#stats_avoided').innerText=this.stats.avoided;
+																$('#stats_avoided_prc').innerText=this.stats.ships==0?'0':Math.round(this.stats.avoided/this.stats.ships*100);
+																$('#stats_jobs1').innerText=this.stats.jobs1;
+																$('#stats_jobs2').innerText=this.stats.jobs2;
+																$('#stats_jobs_prc').innerText=this.stats.jobs1==0?'0':Math.round(this.stats.jobs2/this.stats.jobs1*100);
+																$('#stats_wins').innerText=this.stats.wins;
+																$('#stats_lost').innerText=this.stats.lost;
+																$('#stats_wins_prc').innerText=this.stats.wins==0?'0':Math.round(this.stats.wins/(this.stats.wins+this.stats.lost)*100);
+																var trades=this.stats.trades_accepted+this.stats.trades_rejected+this.stats.trades_ignored;
+																$('#stats_trades').innerText=trades;
+																$('#stats_trades_prc').innerText=this.stats.ships==0?'0':Math.round(trades/this.stats.ships*100);
+																$('#stats_trades_accepted').innerText=this.stats.trades_accepted;
+																$('#stats_trades_accepted_prc').innerText=trades==0?'0':Math.round(this.stats.trades_accepted/trades*100);
+																$('#stats_trades_rejected').innerText=this.stats.trades_rejected;
+																$('#stats_trades_rejected_prc').innerText=trades==0?'0':Math.round(this.stats.trades_rejected/trades*100);
+																$('#stats_trades_ignored').innerText=this.stats.trades_ignored;
+																$('#stats_trades_ignored_prc').innerText=trades==0?'0':Math.round(this.stats.trades_ignored/trades*100);
+																$('#stats_trades_fight').innerText=this.stats.trades_fight;
+																$('#stats_trades_fight_prc').innerText=trades==0?'0':Math.round(this.stats.trades_fight/trades*100);
+																this.stats.karma=ships.ships.reduce((a,x)=>x.stats?x.stats.rating+a:a,0)/ships.ships.length;
+																$('#stats_karma').innerText=Math.round(this.stats.karma*100)/100;
+																var ratings=ships.ships.map(
+																				x=>x.stats&&x.stats.encounters?Math.max(-3,Math.min(x.stats.rating,3)):-4
+																			).reduce(
+																							(a,x)=>{a[x]++;return a},
+																							{'-4':0,'-3':0,'-2':0,'-1':0,'0':0,'1':0,'2':0,'3':0}
+																						);
+																var ships_seen=ships.ships.reduce((a,x)=>(x.stats&&x.stats.encounters)?a+1:a,0);
+																for(var i=-3;i<=3;i++){
+																				$('#stats_rating'+i).innerText=ratings[i];
+																				$('#stats_rating'+i+'_prc').innerText=Math.round(ratings[i]/ships_seen*100);
+																			}
+																$('#stats2').style.display='';
+																render();
+																break;
+															default:
+																alert('unknown state: '+this.state);
+														}//switch
+											saveShip(this.my_ship,this.stats,ships.save());
+										}//function
+						}
+
+			// ========== ai stuff ===============
+
+			ai_stronger=function(player,ai) {
+							// ignore if have no guns
+							if(!ai.can_attack()) return false;
+							var v=visiblity(ai, player);
+							// <0: comp count
+							// 0: comp list
+							// 1: cargo count
+							// 2+: cargo list
+							if(v<0){
+											// lvl1: compare size
+											return player.components.list.length < ai.components.list.length;
+										}
+							if(v<1){
+											// lvl2: compare number of guns
+											// TODO: consider also element order - gun at the tail of the ship is more vulnerable than closer to the head/middle
+											return (player.components.byType['Gun']||0) < (ai.components.byType['Gun']||0);
+										}
+							if(v<2){
+											// lvl2+: limit number of guns by *total* cargo
+											return Math.min(player.components.byType['Gun']||0, player.cargo.list.length) < ai.can_attack();
+										}
+							// lvl3: aggressive towards weaker ships
+							// TODO: consider how many hits can each ship shoot/withstand
+							return player.can_attack() < ai.can_attack();
+						}
+
+			ai_attacks=function(player,ai) {
+							// return true or false - attack or surrender
+							// This function is same as the one above, but with weaker comparisons
+							if(!ai.can_attack()) return false;
+							if(ai.stats.rating<-2) return true;
+							// Note on -2 above: this is often evaluated after player attacks. Player attacking ai decreases rating by 1.
+							// Thus if in the beginning of encounter player's rating was -1 (merely "dislike"), player attacking decreases it to -2.
+							// We don't want to have "kill rage" at this point yet. Let's reserve "kill rage" to "very hate" level (-3 or below).
+							var v=visiblity(ai, player);
+							if(v<0) return player.components.list.length < ai.components.list.length*1.4;
+							if(v<1) return (player.components.byType['Gun']||0) < (ai.components.byType['Gun']||0)*1.4;
+							if(v<2) return Math.min(player.components.byType['Gun']||0, player.cargo.list.length) < ai.can_attack()*1.4;
+							return player.can_attack() < ai.can_attack()*1.4;
+						}
+
+			// TODO: ai_trade
+			// returns {dir:'rf',count:5} or false, where
+			// 'rf' means 'offers rocket, takes fuel, 1-to-1'
+			// 'fr' means opposite
+			// this function must check:
+			// * that both player and ai have enough cargo
+			ai_trade=function(player,ai) {
+							var total=ai.cargo.list.length;
+							if(total==0) return false; //has nothing to trade
+							var guns=ai.components.byType['Gun']||0;
+							var engines=ai.components.byType['Engine']||0;
+							var comps=guns+engines;
+							if(comps==0) return false; //indifferent to rockets/fuel
+							var want_rockets=Math.floor(total*(guns/comps)) - (ai.cargo.byType['Rocket']||0);
+							var want_fuel=Math.floor(total*(engines/comps)) - (ai.cargo.byType['Fuel']||0);
+							if(want_rockets > 0){
+											// TODO: check visiblity
+											var player_has=player.cargo.byType['Rocket']||0;
+											var has=ai.cargo.byType['Fuel']||0;
+											if(player_has==0 || has==0) return false;
+											return {dir:'fr',count:Math.min(player_has, has, want_rockets)}
+										}
+							if(want_fuel > 0){
+											// TODO: check visiblity
+											var player_has=player.cargo.byType['Fuel']||0;
+											var has=ai.cargo.byType['Rocket']||0;
+											if(player_has==0 || has==0) return false;
+											return {dir:'rf',count:Math.min(player_has, has, want_fuel)}
+										}
+						}
+
+			ai={
+							approach: function(player, ai){
+											// returns next state - 'ai_peaceful', 'ai_aggressive', or 'ship_ignored';
+											if(ai.stats.rating<0) return ai_stronger(player,ai)?'ai_aggressive':'ship_ignored';
+											if(ai.stats.rating>0) return ai_trade(player, ai)?'ai_peaceful':'ship_ignored';
+											// with rating==0, approach only if stronger
+											if(!ai_stronger(player,ai)) return 'ship_ignored';
+											// consider trade and attack gains
+											// TODO: attack_gain doesn't consider damage from player
+											var attack_gain=Math.min(player.cargo.list.length, ai.cargoMax()-ai.cargo.list.length) * (visiblity(ai, player)>0);
+											var trade_gain=ai_trade(player,ai);
+											trade_gain=trade_gain?trade_gain.count:0;
+											if(attack_gain==0 && trade_gain==0) return 'ship_ignored';
+											if(attack_gain<trade_gain) return 'ai_peaceful';
+											if(trade_gain<attack_gain) return 'ai_aggressive';
+											//trade and attack are equal - toss a coin
+											return (Math.random()<0.5)?'ai_aggressive':'ai_peaceful';
+										},
+							player_approaches_aggr: function(player, ai){
+											// return true or false - be aggressive or surrender
+											return ai_attacks(player,ai);
+										},
+							player_approaches_peace: function(player, ai){
+											// returns next state - 'trade', 'ai_treach', or 'ai_ignored';
+											if(ai.stats.rating<-1) return ai_stronger(player,ai)?'ai_treach':'ai_ignored';
+											return ai_trade(player, ai)?'trade':'ai_ignored';
+										},
+							player_treach: function(player, ai){
+											// return true or false - be aggressive or surrender
+											return ai_attacks(player,ai);
+										},
+							damage_received: function(player, ai){
+											// return true or false - attack or surrender
+											return ai_attacks(player,ai);
+										},
+							trade: function(player, ai){
+											return ai_trade(player, ai);
+										},
+							take_cargo: function(player, ai){
+											// take what you want
+											// TODO: skip boxes
+											// TODO: take only what's needed
+											var count=Math.min(player.cargo.list.length,ai.cargoMax()-ai.cargo.list.length);
+											player.cargo.pop(count);
+										}
+						}
+
+			// ========== base stuff ===============
+
+			Base=function(){
+							this.job_offer={boxes:0,cargo_bay:false};
+							this.job_reward={rockets:0,fuel:0,component:''};
+							this.reward=null;
+							this.boxesPerBay=cargoPerBay-1; //we leave some free space for player's stuff
+							this.free_cargo_limit=4; //how many free cargo boxes to give
+							this.next_state=function(ship){
+											if(ship.job>0 && (ship.cargo.byType['Box']||0)==0){
+															// player lost all cargo - forgive them and move on
+															ship.job=0;
+														}
+											if(ship.job>0){
+															// some cargo delivered
+															var delivered=(ship.cargo.byType['Box']||0);
+															var gift_components=Math.max(1,Math.floor(delivered/2));
+															this.job_reward.component=(delivered>=ship.job)?randomFrom(comps):'';
+															this.job_reward.rockets=randomInt(0,gift_components);
+															this.job_reward.fuel=gift_components-this.job_reward.rockets;
+															ship.cargo.rmByType('Box', delivered);
+															ship.job=0;
+															return 'base_reward';
+														}
+											// new job
+											// first, figure out if player has any space available
+											var free_cargo=ship.cargoMax()-ship.cargo.list.length;
+											if(free_cargo<this.boxesPerBay){
+															if((ship.components.byType['Cargo Bay']||0)<this.free_cargo_limit){
+																			// player has few cargo boxes -- offer them a new one
+																			this.job_offer={boxes:this.boxesPerBay,cargo_bay:true};
+																			return 'base_offer';
+																		} else {
+																						// player has many cargo boxes and no free space - bye-bye
+																						return 'base_ignore';
+																					}
+														} else {
+																		// give job offer in multiples of this.boxesPerBay
+																		this.job_offer={boxes:Math.floor(free_cargo/this.boxesPerBay)*this.boxesPerBay,cargo_bay:false};
+																		return 'base_offer';
+																	}
+										}
+						}
+
+			// ========== "last encounter" text generator ===============
+
+			Texter=function(){
+							this.initiator=0; // 0 for player, 1 for ai.
+							this.trade=false;
+							this.init=function(who,trade){
+											this.initiator=who;
+											this.trade=trade;
+										}
+							this.a=function(){return (this.initiator?'they':'you')};
+							this.b=function(){return (this.initiator?'you':'they')};
+							this.outcome=function(state){
+											var text='';
+											switch(state){
+															case 'trade_ok':
+																text=`${this.a()} offered a trade and ${this.b()} accepted it`;
+																break;
+															case 'player_surrenders':
+															case 'ai_surrenders':
+																var player_wins=state=='ai_surrenders';
+																var a_wins=(!this.initiator) == player_wins; // either initiator==0 and player_wins, or initiator==1 and player lost
+																var b_wins=this.initiator == player_wins;
+																if(this.trade){
+																				text=`${this.a()} offered a trade but ${this.b()} offered a fight and ${(b_wins?'won':'lost')}`;
+																			} else {
+																							text=`${this.a()} attacked and ${(a_wins?'won':'lost')}`;
+																						}
+																break;
+															case 'player_ignored': // you ignored their trade offer
+															case 'ai_ignored': // ai ignored your trade offer
+																text=`${this.a()} offered a trade but ${this.b()} ignored it`;
+																break;
+															case 'trade_rejected':
+																if(this.initiator){
+																				text="they offered a trade but you rejected it";
+																			} else {
+																							text="you offered a trade but rejected their offer";
+																						}
+																break;
+															case 'avoid':
+																text="you avoided contact";
+																break;
+															case 'skip':
+																gm.opponent.stats.skip=1;
+																text=gm.opponent.stats.text;
+																break;
+															default:
+																text=`unknown state ${state} happened`;
+																break;
+														}
+											gm.opponent.stats.text=text;
+											// alert(text);
+										}
+							this.show=function(){
+											var text='';
+											if(gm.opponent.stats.rating!=0){
+															if(gm.opponent.stats.rating<-1) text='hate';
+															if(gm.opponent.stats.rating==-1) text='dislike';
+															if(gm.opponent.stats.rating==1) text='like';
+															if(gm.opponent.stats.rating>1) text='love';
+															text=`They <b>${text}</b> you${Math.abs(gm.opponent.stats.rating)>2?' <b>very much</b>':''}. `;
+														}
+											if(gm.opponent.stats.last_encounter){
+															text+=`Last time you met this ship ${gm.stats.encounters-gm.opponent.stats.last_encounter} encounters ago. `;
+														} else {
+																		text='This is your <b>first encounter</b> with them. ';
+																	}
+											var texts=[];
+											if(gm.opponent.stats.skip) texts.push('you skipped them');
+											if(gm.opponent.stats.text) texts.push('<b>'+gm.opponent.stats.text+'</b>');
+											if(texts.length>0) text+=`That time, ${texts.join('. Before that, ')}. `;
+											if(gm.opponent.stats.last_size){
+															var size_delta=gm.opponent.components.list.length-gm.opponent.stats.last_size;
+															if(size_delta!=0){
+																			text+=`They got ${size_delta<0?'smaller':'larger'} since then.`;
+																		}
+														}
+											gm.opponent.stats.last_encounter=gm.stats.encounters;
+											gm.opponent.stats.encounters++;
+											// TODO: sequential skips? This should be cleaned in some other place!
+											gm.opponent.stats.skip=0;
+											return text;
+										}
+						}
+
+			// ========== helper functions ===============
+
+			function visiblity(ship1,ship2){
+							// returns how good ship1 sees ship2
+							return (ship1.components.byType['Radar']||0) - (ship2.components.byType['Cloak']||0)
+						}
+
+			function compareRadars(ship1,ship2){
+							// check which ship sees other one first.
+							// Returns >0 if ship1 wins, <0 if ship2 wins
+							// first, compare # of (radar-cloak)'s
+							var d = (ship1.components.byType['Radar']||0) - (ship2.components.byType['Cloak']||0) -
+								((ship2.components.byType['Radar']||0) - (ship2.components.byType['Cloak']||0))
+							// if they match - compare # of elements (bigger ship easier to notice).
+							// if these match, too - first ship (player) wins
+							if(!d)
+								d = (ship2.components.list.length - ship1.components.list.length) || 1
+							return d;
+						}
+
+			// ========== actions ===============
+
+			function take_cargo(how,which){
+							if(gm.my_ship.cargo.list.length>=gm.my_ship.cargoMax()){
+											return false
+										}
+							if(how=='byType'){
+											gm.opponent.cargo.rmByType(which);
+											gm.my_ship.cargo.add(which);
+										}
+							if(how=='byNumber'){
+											var type=gm.opponent.cargo.rmByNumber(which);
+											gm.my_ship.cargo.add(type);
+										}
+							render(true);
+						}
+
+			function dock_move(how,which){
+							var pay_with=$('#dock_pay_r').checked?'Rocket':'Fuel';
+							if(!gm.my_ship.cargo.byType[pay_with]){
+											return false;
+										}
+							gm.my_ship.cargo.rmByType(pay_with);
+							if(how=='byType'){
+											gm.my_ship.components.rmByType(which);
+											gm.my_ship.components.add(which);
+										}
+							if(how=='byNumber'){
+											var type=gm.my_ship.components.rmByNumber(which);
+											gm.my_ship.components.add(type);
+										}
+							$('#dock_pay_r').disabled=!(gm.my_ship.cargo.byType['Rocket']>0);
+							$('#dock_pay_f').disabled=!(gm.my_ship.cargo.byType['Fuel']>0);
+							var y=window.scrollY;
+							render(true);
+							window.scrollTo(0,y);
+						}
+
+			// ===== old stuff =====
+
+			var cargoPerBay=5;
+
+			function Collection(){
+							this.list=[];
+							this.byType={};
+							this.compact=true;
+							this.actionButton='';
+							this.add=function(type, count){
+											if(count===0) return;
+											if(count===undefined) count=1;
+											if(this.byType[type]){
+															this.byType[type]+=count;
+														} else {
+																		this.byType[type]=count;
+																	}
+											for(var i=0;i<count;i++){
+															this.list.push(type);
+														}
+										}
+							this.pop=function(count){
+											// used with components when attacked
+											// and with cargo when a cargo bay is destroyed
+											// assumes that this.list has enough items
+											if(count===undefined) count=1;
+											while(count>0){
+															this.byType[this.list.pop()]--;
+															count--;
+														}
+											this.clean();
+										}
+							this.rmByType=function(type,count){
+											// used with cargo when selling / using rockets/fuel
+											// assumes that such type exists
+											if(count===undefined) count=1;
+											if(count==0) return;
+											this.byType[type]-=count;
+											while(count>0){
+															this.list.splice(this.list.lastIndexOf(type),1);
+															count--;
+														}
+											this.clean();
+										}
+							this.rmByNumber=function(num){
+											// used with cargo when selling / using rockets/fuel
+											// assumes that number is correct
+											var type=this.list[num];
+											this.byType[type]--;
+											this.list.splice(num,1);
+											this.clean();
+											return type;
+										}
+							this.clean=function(){
+											// used by above three functions
+											Object.keys(this.byType).forEach(type=>{
+															if(this.byType[type]<=0 || isNaN(this.byType[type])){
+																			delete this.byType[type];
+																		}
+														});
+										}
+							this.truncate=function(max){
+											// used with cargo when a cargo bay is destroyed
+											this.pop(this.list.length-max);
+											this.clean();
+										}
+							this.render=function(){
+											var button=(a,b)=>this.action?` <button onclick="${this.action}('${a}','${b}')">${this.actionText}</button>`:'';
+											if(this.compact) {
+															return `<ul>${Object.keys(this.byType).map(k=>`<li>${k} x${this.byType[k]}${button('byType',k)}</li>`).join('')}</ul>`;
+														} else {
+																		return `<ul>${this.list.map((a,i)=>`<li>${a}${button('byNumber',i)}</li>`).join('')}</ul>`;
+																	}
+										}
+						}
+
+			Ship=function(name) {
+							this.name=name;
+							this.components=new Collection();
+							//this.components.add('Head');
+							this.cargo=new Collection();
+							this.shotsReceived=Math.random()*100;
+							this.job=0;
+							this.rate=function(delta,unlimited){
+											if(unlimited || (Math.sign(this.stats.rating) == -Math.sign(delta))){
+															this.stats.rating+=delta;
+														}
+										}
+							this.cargoMax=function(){
+											//return maximum allowed cargo
+											return (this.components.byType['Cargo Bay']||0)*cargoPerBay;
+										}
+							this.can_attack=function(){
+											var shots=Math.min((this.components.byType['Gun']||0), (this.cargo.byType['Rocket']||0));
+											return shots;
+										}
+							this.attack=function(max){
+											// launch up to max missiles
+											var shots=Math.min(this.components.byType['Gun'], this.cargo.byType['Rocket'], max);
+											if(!shots) return 0;
+											this.cargo.rmByType('Rocket',shots);
+											return shots;
+										}
+							this.damage=function(shots){
+											if(shots==0){return 0};
+											var old_sr=this.shotsReceived;
+											var new_sr=this.shotsReceived+shots;
+											this.shotsReceived=new_sr;
+											var total=this.components.list.length;
+											var engines=Math.min(this.components.byType['Engine'], this.cargo.byType['Fuel']);
+											if(engines){
+															this.cargo.rmByType('Fuel',engines);
+															var scale=1-Math.sqrt(engines/total);
+															shots=Math.floor(new_sr*scale)-Math.floor(old_sr*scale);
+														}
+											if(shots>=this.components.length){
+															alert('ship destroyed');
+														} else {
+																		this.components.pop(shots);
+																	}
+											this.cargo.truncate(this.cargoMax());
+										}
+							this.render=function(domElement,visiblity){
+											var randomId=Math.random().toString(36).substring(5);
+											var cargoInfo='';
+											if(visiblity>=1){
+															cargoInfo=`${this.cargo.list.length} used, ${this.cargoMax() - this.cargo.list.length} free`;
+														} else if(visiblity==0){
+																		cargoInfo=`${this.cargoMax()} max`;
+																	} else {
+																					cargoInfo=`unknown`;
+																				}
+											domElement.innerHTML=`<legend>${this.name}</legend>
+		  <div>Components (${this.components.list.length} total)
+		  ${(visiblity>=0)?`
+		  <label><input type="checkbox" class="compact" id="a${randomId}">(compact):</label>
+		  `+this.components.render():''}
+		  </div><div>
+		  Cargo (${cargoInfo})
+		  ${(visiblity>=2)?`
+		  <label><input type="checkbox" class="compact" id="b${randomId}">(compact):</label>
+		  `+this.cargo.render():''}
+		  </div>`;
+											var self=this;
+											if(visiblity>=0){
+															domElement.querySelector(`#a${randomId}`).onclick=function(){self.components.compact=this.checked;self.render(domElement,visiblity)};
+															domElement.querySelector(`#a${randomId}`).checked=self.components.compact;
+														}
+											if(visiblity>=2){
+															domElement.querySelector(`#b${randomId}`).onclick=function(){self.cargo.compact=this.checked;self.render(domElement,visiblity)};
+															domElement.querySelector(`#b${randomId}`).checked=self.cargo.compact;
+														}
+										}
+						}
+
+			ShipList=function(names) {
+							this.min_time_between_encounters=5;
+							this.ship_grow_speed=0.1; // max speed how fast AI ships grow if you're not looking - this number of components per each "encounter" (time unit).
+							this.names=names;
+							this.ships=[];
+							this.randomShip=function(player_ship,current_encounter){
+											while(true){
+															var i=Math.floor(Math.random()*this.ships.length);
+															var ship=this.ships[i];
+															if(ship.name==player_ship.name) continue;
+															if(ship.stats && ship.stats.last_encounter > (current_encounter-this.min_time_between_encounters)) continue;
+															break;
+														}
+											var seen_before=ship.stats && ship.stats.last_encounter;
+											if(seen_before) {
+															ship.stats.last_size=ship.components.list.length;
+											}
+											// First, figoure out current ship size
+											var min=5;//Math.max(5,this.my_ship.components.list.length/2);
+											var max=Math.max(15,player_ship.components.list.length*1.5);
+											var ship_size_delta=0;
+											if(seen_before) {
+															// how much ship could grow while we were away
+															var ship_size_delta=Math.round((current_encounter-ship.stats.last_encounter)*this.ship_grow_speed);
+															max=Math.min(max, ship.components.list.length + ship_size_delta);
+														}
+											if(max<min) min=max;
+											var current_ship_size=randomInt(min,max);
+											// console.log('picking ship size between', min,max,'change from/to',ship.components.list.length, current_ship_size);
+											// Second, figure out minimum ship size it reached while player was away
+											var min_ship_size=0;
+											if(seen_before) {
+															var max=Math.min(current_ship_size, ship.components.list.length);
+															var min=current_ship_size-ship_size_delta;
+															if(max<min) min=max;
+															var min_ship_size=randomInt(min,max);
+														}
+											// truncate ship to min size and add components to current size
+											ship.components.truncate(min_ship_size);
+											// console.log('truncating to/result',min_ship_size,ship.components.list.length);
+											while(ship.components.list.length<current_ship_size){
+															ship.components.add(randomFrom(comps));
+														}
+											// console.log('growing to/result',current_ship_size,ship.components.list.length);
+											if(current_ship_size!=ship.components.list.length) debugger;
+											// cargo is always fresh
+											ship.cargo.truncate(0);
+											var cargoCount=randomInt(0,ship.cargoMax());
+											var cargos=['Fuel','Rocket'];
+											while(ship.cargo.list.length<cargoCount){
+															ship.cargo.add(randomFrom(cargos));
+														}
+											// update stats
+											if(!seen_before){
+												ship.stats={
+																encounters:0,
+																last_encounter: 0,
+																text: false,
+																rating: 0,
+															}
+														}
+											return ship;
+										}
+							this.load=function(a){
+											// alert('loading ships:'+JSON.stringify(a));
+											for(var i=0; i<this.names.length; i++){
+															this.ships[i]=new Ship(this.names[i]);
+															if(!a[i]) continue;
+															if(a[i].comps) {
+																			for(var j=0;j<a[i].comps.length;j++){
+																							this.ships[i].components.add(a[i].comps[j]);
+																						}
+																		}
+															this.ships[i].stats=a[i].stats;
+														}
+										}
+							this.save=function(){
+											var a=[];
+											for(var i=0; i<this.ships.length; i++){
+															a[i]={
+																			'comps':this.ships[i].components.list,
+																			'stats':this.ships[i].stats,
+																		}
+														}
+											// alert('saving ships:'+JSON.stringify(a));
+											return a;
+										}
+						}
+
+			function randomInt(a,b){
+							return Math.floor(Math.random()*(b-a+1))+a;
+						}
+
+			function randomFrom(a){
+							return a[Math.floor(Math.random()*a.length)];
+						}
+
+			var comps=['Engine','Gun','Cargo Bay', 'Engine','Gun','Cargo Bay', 'Radar','Cloak'];
+
+			// still used for player ship
+			function randomShip(name,numComps,freeCargo){
+							var cargos=['Fuel','Rocket'];
+							var ship=new Ship(name);
+							while(ship.components.list.length<numComps){
+											ship.components.add(randomFrom(comps));
+										}
+							while(ship.cargo.list.length<ship.cargoMax()-freeCargo){
+											ship.cargo.add(randomFrom(cargos));
+										}
+							return ship;
+						}
+
+			function saveShip(ship,stats,ships){
+							var str=JSON.stringify({name:ship.name,
+											components:ship.components.list,
+											cargo:ship.cargo.list,
+											shotsReceived:ship.shotsReceived,
+											job:ship.job,
+											stats:stats,
+											ships:ships});
+							try{
+											window.localStorage.my_ship=str;
+										} catch(e){
+														window.name=str;
+													}
+						}
+
+			function loadShip(){
+							try{
+											var data=window.localStorage.my_ship;
+										} catch(e) {
+														var data=window.name;
+													}
+							try{
+											var data=JSON.parse(data);
+											var ship=new Ship(data.name);
+											for(var i=0;i<data.components.length;i++){
+															ship.components.add(data.components[i]);
+														}
+											for(var i=0;i<data.cargo.length;i++){
+															ship.cargo.add(data.cargo[i]);
+														}
+											ship.shotsReceived=data.shotsReceived;
+											ship.job=data.job;
+											var ret={ship:ship};
+											if(data.stats)ret.stats=data.stats;
+											if(data.ships)ret.ships=data.ships;
+											else ret.ships=[];
+											return ret;
+										} catch(e) {
+														console.log(e);
+														return {ship:randomShip('Your Ship',randomInt(10,20),randomInt(3,10)),ships:[]};
+													}
+						}
+
+			Time=function(){
+							this.start_time=0;
+							this.start=function(){
+											this.start_time=performance.now();
+										};
+							this.check=function(){
+											// returns true if more than 850ms passed since start
+											var passed=performance.now()-this.start_time;
+											// console.log(passed);
+											return passed>850;
+										}
+						}
+
+			// NOTE: ships must be set before gm inits
+			// ships=new ShipList(["0", '1', '2','3','4','5']);
+			ships=new ShipList(["Beast of Burden", "Blade of Occam", "Lance of Centri", "Wasp", "Stophy's Venture", "Enterprise", "Sally Ride", "Stellar Explorer", "First Light", "Lance of Zhargi", "Adventurer of Bacia", "Astral Enterprise", "Star of Kali", "Isaur Gypsy", "Astral Pioneer", "Celestial Maiden", "Luna Moth", "Harrier", "Fralphua's Opportunity", "Tory's Venture", "Star of Kini", "Flame of Rasi", "Bolo", "Edwin Hubble", "Ycon Express", "Wren", "Spirit of Taly", "Illustrious", "Yukon", "Bara Traveler", "Horizon", "Star of Icon", "Lady of Ghera", "Celestial Jewel", "Youthful Indiscretion", "Gauntlet of Anic", "Shoole Trader", "Bake Clipper", "Jewel of Jocia", "Solar Constellation", "Uctim Clipper", "Castle of Syko", "Stellar Jewel", "Profit Margin", "Irregular of Taly", "Swallow", "Pathfinder", "Celestial Destiny", "Spirit of Inquiry"]);
+			gm=new GameManager();
+			b=new Base();
+			texter=new Texter();
+			time=new Time();
+			gm.step();
+
+			function render(see_through){
+							gm.my_ship.render($('#me'),999);
+							if(gm.opponent){
+											if(see_through){
+															var vis=999;
+														} else {
+																		var vis=visiblity(gm.my_ship,gm.opponent);
+																	}
+											gm.opponent.render($('#he'),vis);
+										} else {
+														$('#he').innerHTML='';
+													}
+							$('#he').style.display=gm.opponent?'':'none';
+							$('#frames').className=gm.state;
+							var el=$('#'+gm.state+' .default');
+							if(el) el.focus();
+						}
+
+function $(q){
+return document.querySelector(q);
+}
+
+$('#frames style').innerHTML+=Array.apply(null,document.querySelectorAll("#frames > div")).map(a=>`#frames.${a.id} #${a.id} {display: block}`).join("\n");
+
+		</script>
+	</body></html>

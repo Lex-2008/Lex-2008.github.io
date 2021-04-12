@@ -1,0 +1,58 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Progress bar in bash</title>
+<meta name="description" content="one-line bash function to draw a nice progress bar">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin bash-progress-bar -->
+		<div class="post">
+			<h2><a href="bash-progress-bar.html">Progress bar in bash</a></h2>
+			<p class="trivia">
+				Created: 2016-04-07 &mdash; modified: 2016-12-12 &mdash; tags: bash
+			</p>
+			<p class="intro">one-line bash function to draw a nice progress bar</p>
+			<p>If you happen to look at a long running job in bash
+(instead of running it in background, like me),
+then you might find this function useful.</p>
+
+<p>It accepts two arguments: current position and total length of job
+(in arbitrary units)
+and prints back them and a progress bar.</p>
+
+<p>It uses the whole width of the screen.</p>
+
+<p>Requirements / dependencies:
+<code>tput</code> to get screen width and
+<code>bc</code> for calculations.</p>
+
+<pre><code>$ function bar() { local COLS="$(tput cols)"; local LEN="$(echo "$COLS-4-${#1}-${#2}" | bc)"; echo -en "\r$1/$2 ["; (eval "printf '#%.0s' {1..$(echo "($1*$LEN)/$2" | bc)}; printf ' %.0s' {1..$COLS}") | head -c $(echo $LEN | bc); echo -en "]\r" ; }
+$ bar 2 12; echo
+2/12 [############                                                             ]
+$
+</code></pre>
+		</div>
+		<!-- end bash-progress-bar -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

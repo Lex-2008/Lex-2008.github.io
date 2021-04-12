@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>microlight.js</title>
+<meta name="description" content="a 2.2k library to hilight any code">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin microlightjs -->
+		<div class="post">
+			<h2><a href="microlightjs.html">microlight.js</a></h2>
+			<p class="trivia">
+				Created: 2016-06-16 &mdash; modified: 2016-06-30 &mdash; tags: javascript
+			</p>
+			<p class="intro">a 2.2k library to hilight any code</p>
+			<p>Today I learned about existence of <a href="https://asvd.github.io/microlight/">microlight.js</a>
+<a href="http://archive.is/FhTPN">(archived version)</a>
+- a small library to hilight any code.</p>
+
+<p>Of course, it has some bugs and incompatibilities with Bash
+- like, it has a list of keywords, among which is "from"
+(it's a keyword in some languages),
+and it highlights it in <code>rsync --exclude-from=/file/name</code>.
+Or, it has a simple regexp detector, which considers everything
+between forward slashes to be an regexp.
+So if you put a UNIX path somewhere outside the quotes
+- then it will hilight it like an regexp, like this:
+<code>/usr/bin/bash</code>.</p>
+
+<p>But what did you expect from a 2.2k library?
+Language detection?!</p>
+
+<p>I'm actually using a modified version by <a href="https://github.com/WolfieZero/microlight">WolfieZero</a>,
+which adds classes instead of hardcoded styles
+(because I think that styles implemented by <a href="https://github.com/asvd/microlight">original author</a>
+are not very good for white background),
+and modified it a bit further to use <code>querySelectorAll</code> function
+instead of <code>getElementsByClassName</code>
+and to act by default on all <code>&lt;code&gt;</code> elements
+(to make it out-of-the-box-compatible with markdown-generated markup)</p>
+
+<p>My modified version should appear below:</p>
+
+<div>
+<pre><code id="aa"></code></pre>
+<script>
+gebi=function(q){return document.getElementById(q)}
+xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', '/microlight.js', true);
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        gebi('aa').innerHTML=xmlhttp.responseText;
+        gebi('a1').innerHTML=xmlhttp.responseText;
+    }
+};
+xmlhttp.send(null);
+</script>
+<script id="a1"></script>
+</div>
+		</div>
+		<!-- end microlightjs -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

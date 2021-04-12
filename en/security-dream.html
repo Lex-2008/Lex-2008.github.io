@@ -1,0 +1,99 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Security dream</title>
+<meta name="description" content="I had a dream. A nightmare, actually.">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin security-dream -->
+		<div class="post">
+			<h2><a href="security-dream.html">Security dream</a></h2>
+			<p class="trivia">
+				Created: 2015-01-28 &mdash; modified: 2016-12-14 &mdash; tags: security life
+			</p>
+			<p class="intro">I had a dream. A nightmare, actually.</p>
+			<p>I dreamed that I lost my phone.
+How bad could it be?
+I had all important information properly <a href="https://www.aeyoun.com/posts/abysmal-android-backups.html?pk_campaign=shpak">backed up</a>,
+but the phone was picked up by a hacker.</p>
+
+<ul>
+<li><p>The phone was protected by "pattern"
+(to unlock the phone you connect few dots in a 3-by-3 grid).
+Of course, it was quite easy to pick,
+just by looking at the dirty screen.</p></li>
+<li><p>The phone had saved password to my email,
+so of course hacker got access to it, too.</p></li>
+<li><p>I usually don't save passwords as emails,
+but many services let you reset your password
+by sending you an email with a link.
+So did my <a href="https://en.wikipedia.org/wiki/Virtual_private_server">VPS</a> provider.</p></li>
+<li><p>In the VPS control panel, hacker was able to change <a href="https://en.wikipedia.org/wiki/Superuser">root</a> password for the VPS container.
+Ouch.</p></li>
+<li><p>VPS had a keyfile to access my home machine.
+Luckily, it gave hacker only user-level access.</p></li>
+<li><p>Unluckily, some of scripts in my home directory were referenced from <code>/etc/cron.daily/</code> and ran by root every day.
+So the next day, hacker had <a href="https://en.wikipedia.org/wiki/Superuser">root</a> access to my home machine, too.</p></li>
+<li><p>And I use this machine for online banking...</p></li>
+</ul>
+
+<p>Question to the reader:
+How many security rules did I break?
+Can you enumerate all of them?
+A winner will be mentioned on this blog!</p>
+
+<blockquote>
+  <p><em>Disclaimer:</em></p>
+
+<p>This was neither a dream, nor happened in reality.
+Actually it could not ever happen because many of the issues mentioned here didn't exist at the time of writing.
+Moreover, it will never happen because some of mentioned issues were fixed before I published this.</p>
+
+<p>Please don't steal my phone!</p>
+</blockquote>
+
+<p>I write this mainly to encourage those readers who has many accounts,
+to decide which are "strongly protected" (like computer at your home),
+and which are not (like phones and throw-away accounts on forums),
+and to check how do they depend on each other.</p>
+
+<p>If somebody breaks into your house and steals your laptop -
+their access to your facebook account will be, probably, less of your worries.
+But if to compromise your bank account it's enough just to steal your phone - then probably something's wrong.</p>
+
+<p>I suggest drawing a diagram with all accounts you have,
+and pointing arrows showing what depends on what.
+For example, like this:</p>
+
+<p><img src="security-dream.jpg" alt="Diagram showing how different accounts depend on each other" title="" /></p>
+
+<p>It shows that to get access to my vk.com account,
+one needs to get access to my e-mail account first,
+which he or she can get either by changing DNS records,
+or accessing VPS where the mail is hosted.
+Yes, this diagram misses the phone.</p>
+		</div>
+		<!-- end security-dream -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

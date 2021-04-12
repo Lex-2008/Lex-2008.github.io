@@ -1,0 +1,944 @@
+<!-- -*- web-mode-markup-indent-offset: 3; web-mode-css-indent-offset: 3; web-mode-code-indent-offset: 3; web-mode-style-padding: 3; web-mode-script-padding: 3; web-mode-block-padding: 2; indent-tabs-mode: t; tab-width: 3; -*- -->
+<!doctype html><html><body>
+        <!-- vim: set sw=3 ts=3: -->
+        <style>
+                #frames {width: 586px;}
+                .ship {display:inline-block; width:275px; vertical-align: top;}
+                button:focus {outline: 1px solid black;}
+        </style>
+
+        <fieldset id="frames"><legend>Status</legend>
+                <style>
+                        #frames > div {display:none}
+                </style>
+                <div id="ship_ignored">
+                        <!-- NOTE: this is used when other ship saw you first - both when AI decided
+                        to avoid and to ignore (but you didn't see it anyway) -->
+                        A ship in deep space looked at you and flew away. You didn't see it.
+                        <button class="default" onclick="gm.step('next_ship')">ok</button>
+                </div>
+                <div id="player_approaches">
+                        <style>
+                                #player_approaches canvas {float: left; margin-right: 0.75em;}
+                        </style>
+                        <canvas width="54" height="54"></canvas>
+                        You see a ship. What are you going to do?
+                        <span class="text"></span>
+                        <!-- NOTE: you can approach agressively even without guns. It's called bluff. -->
+                        <button class="approach" onclick="gm.step('player_approaches_aggr')">Approach aggressively<span class="cost"> (cost: <b></b> fuel)</span></button>
+                        <!-- <button class="approach" onclick="gm.step('player_approaches_peace')">Approach peacefully and offer trade<span class="cost"> (cost: <b></b> fuel)</span></button> -->
+                        <button class="default" onclick="gm.step('player_approaches_ign')">Ignore</button>
+                        <button class="avoid" onclick="gm.step('player_approaches_avoid')">Avoid contact<span class="cost"> (cost: <b></b> fuel)</span></button>
+                </div>
+                <div id="ai_ignored">
+                        <!-- NOTE: this is used when player approaches peacefully, but AI wants
+                                  neither to trade nor to attack. Also, when a bug happens and AI first wants to trade but then changes its mind -->
+                        Ship didn't want to trade and flew away.
+                        <!-- TODO: maybe attack here? -->
+                        <button class="default" onclick="gm.step('next_ship')">ok</button>
+                </div>
+                <div id="ai_peaceful">
+                        A ship wants to trade.
+                        <button id="p_a" onclick="gm.step('player_attacks')">attack</button>
+                        <button onclick="gm.step('trade')">trade</button>
+                        <!-- TODO: AI can attack when player ignores -->
+                        <button class="default" onclick="gm.step('next_ship')">Ignore</button>
+                </div>
+                <div id="trade">
+                        <style>
+                                #trade.fr .rf, #trade.rf .fr {display:none}
+                                #trade input {width: 3em}
+                        </style>
+                        They <b>want</b> to buy up to <span id="trade_count_max"></span> <b class="fr">Rockets</b><b class="rf">Fuel</b> from you.
+                        They <b>offer</b> one <b class="fr">Fuel</b> <b class="rf">Rocket</b> for each one.
+                        How many would you agree to trade?
+                        <label><input type="number" id="trade_count_deal"> items</label>
+                        <button onclick="gm.step('trade_ok')">Deal</button>
+                        <button onclick="gm.step('next_ship')">No deal</button>
+                </div>
+                <div id="ai_aggressive">
+                        <!-- NOTE: this is used both when AI sees player first and approaches,
+                        and when player approaches ship peacefully, but AI wants to attack. -->
+                        Ship is going to attack you. Your actions?
+                        <button id="g_a" onclick="gm.step('player_attacks')">attack</button>
+                        <button id="g_s" onclick="gm.step('player_surrenders')">surrender</button>
+                </div>
+                <div id="ai_attacks">
+                        Ship is attacking you. Your actions?
+                        <button id="a_a" onclick="gm.step('player_attacks')">attack</button>
+                        <button id="a_s" onclick="gm.step('player_surrenders')">surrender</button>
+                </div>
+                <div id="ai_surrenders">
+                        Enemy surrendered and opened their cargo bays for you. Take what you want!
+                        <button class="default" onclick="gm.step('next_ship')">done</button>
+                </div>
+                <div id="player_surrenders">
+                        Your opponent took all they wanted and left victorious. But at least you survived, and you still have your ship!
+                        <button class="default" onclick="gm.step('next_ship')">ok</button>
+                </div>
+                <div id="base_offer">
+                        You've arrived to a space station. It offers you a job:
+                        transfer <b id="offer_boxes"></b> boxes to the next station and get a reward.
+                        <span id="offer_cargo_bay">Required cargo bay will be provided free of charge.</span>
+                        <button class="default" onclick="gm.step('player_accepts_offer')">yes</button>
+                        <button onclick="gm.step('next_ship')">no</button>
+                </div>
+                <div id="base_reward">
+                        You've delivered cargo to a space station. Collect a reward:
+                        <button id="reward_component" onclick="gm.step('player_accepts_component')"></button>
+                        <button id="reward_cargo" onclick="gm.step('player_accepts_cargo')"></button>
+                </div>
+                <div id="dock">
+                        <style>
+                                .dock ~ fieldset ul li:last-child button {display: none;}
+                        </style>
+                        You've arrived to a space dock.
+                        Here you can somewhat reorganize components of your ship.
+                        For a price of 1 fuel, you can move one of components to the tail of your ship.
+                        <button class="default" onclick="gm.step('next_ship')">done</button>
+                </div>
+                <div id="dump">
+                        You've arrived to a space dump.
+                        Here you can get rid of components and cargo that you don't need.
+                        For some of them you'll get a compensation which you can also dump.
+                        <button class="default" onclick="gm.step('next_ship')">done</button>
+                </div>
+        </fieldset>
+
+        <fieldset id="me" class="ship"></fieldset>
+        <fieldset id="he" class="ship"></fieldset>
+
+
+        <script>
+                // ========== game loop ===============
+
+                function GameManager(){
+                        this.state='next_ship';
+                        this.my_ship=loadShip();
+                        this.opponent=null;
+                        this.last_action='';
+                        this.last_action='';
+                        this.step=function(new_state){
+                                if(new_state){
+                                        this.state=new_state;
+                                }
+                                this.my_ship.components.action=this.my_ship.cargo.action=null;
+                                if(this.opponent){
+                                        this.opponent.components.action=this.opponent.cargo.action=null;
+                                }
+                                switch(this.state){
+                                        case 'next_ship':
+                                                var random=Math.random();
+                                                this.opponent=null;
+                                                if(random<0.1){
+                                                        if(this.my_ship.cargo.byType['Fuel']>0){
+                                                                this.step('dock');
+                                                                return;
+                                                        }
+                                                } else if(random<0.2){
+                                                        if(this.my_ship.components.list.length>10){
+                                                                this.step('dump');
+                                                                return;
+                                                        }
+                                                } else if(random<0.4){
+                                                        this.step(b.next_state(this.my_ship));
+                                                        return;
+                                                }
+                                                var min=5;//Math.max(5,this.my_ship.components.list.length/2);
+                                                var max=Math.max(15,this.my_ship.components.list.length*1.5);
+                                                this.opponent=randomShip('Opponent',randomInt(min,max),randomInt(5,10));
+                                                this.dist=Math.max(this.my_ship.components.byType['Radar']||0,this.opponent.components.byType['Radar']||0);
+                                                if(this.dist==0){
+                                                        //neither player, nor opponent has any radars.
+                                                        console.log('two ships without radars');
+                                                        //let's pretend this didn't happen.
+                                                        this.step('ship_ignored');
+                                                        return;
+                                                }
+                                                var angle=Math.random()*Math.PI/2;
+                                                var angle=Math.asin(Math.random());
+                                                this.dist_long=this.dist*Math.cos(angle);
+                                                this.dist_lat=this.dist*Math.sin(angle);
+                                                if(compareRadars(this.my_ship, this.opponent)>0){
+                                                        // player sees them first
+                                                        this.step('player_approaches');
+                                                } else {
+                                                        // ai decides
+                                                        this.step(ai.approach(this.my_ship, this.opponent, false));
+                                                }
+                                                break;
+                                        case 'ship_ignored':
+                                                this.opponent=null;
+                                                render();
+                                                break;
+                                        case 'player_approaches':
+                                                var a=approachAvoidCost(this.my_ship, this.opponent);
+                                                if(!a) {
+                                                        this.step('ship_ignored');
+                                                        return;
+                                                }
+                                                // draw radars
+                                                var c = $('#player_approaches canvas');
+                                                var ctx = c.getContext("2d");
+                                                var s=c.width;
+                                                var d=3;
+                                                ctx.clearRect(0, 0, s, s);
+                                                // draw corner
+                                                ctx.beginPath();
+                                                ctx.moveTo(d,s);
+                                                ctx.lineTo(s,s);
+                                                ctx.lineTo(s,d);
+                                                ctx.stroke();
+                                                // draw all radars
+                                                var rr=this.my_ship.components.byType['Radar']||1;
+                                                for(var r=1; r<=rr; r++){
+                                                        var rrr=r/rr*(s-d); //radius of radar
+                                                        ctx.beginPath();
+                                                        ctx.arc(s, s, rrr, Math.PI, 1.5 * Math.PI);
+                                                        ctx.stroke();
+                                                }
+                                                // draw player
+                                                ctx.beginPath();
+                                                ctx.fillStyle = 'blue';
+                                                ctx.moveTo(s,s-10);
+                                                ctx.lineTo(s,s);
+                                                ctx.lineTo(s-5,s);
+                                                ctx.fill();
+                                                // draw enemy
+                                                ctx.beginPath();
+                                                ctx.fillStyle = 'red';
+                                                ctx.arc((1-this.dist_lat/rr)*(s-d)+d, (1-this.dist_long/rr)*(s-d)+d, 2, 0, 2 * Math.PI); // Control point one
+                                                ctx.fill();
+                                                $$('#player_approaches .approach').map(x=>x.disabled=!a.approach.can);
+                                                $$('#player_approaches .approach .cost').map(x=>x.style.display=a.approach.can?'':'none');
+                                                $('#player_approaches .text').innerHTML='';
+                                                if(a.approach.can){
+                                                        $$('#player_approaches .approach .cost b').map(x=>x.innerHTML=a.approach.cost);
+                                                }
+                                                if(a.approach.reason){
+                                                        $('#player_approaches .text').innerHTML+=a.approach.reason;
+                                                }
+                                                $$('#player_approaches .avoid').map(x=>x.disabled=!a.avoid.can);
+                                                $$('#player_approaches .avoid .cost').map(x=>x.style.display=a.avoid.can?'':'none');
+                                                if(a.avoid.can){
+                                                        $$('#player_approaches .avoid .cost b').map(x=>x.innerHTML=a.avoid.cost);
+                                                }
+                                                if(a.avoid.reason){
+                                                        $('#player_approaches .text').innerHTML+=a.avoid.reason;
+                                                }
+                                                render();
+                                                break;
+                                        case 'player_approaches_aggr':
+                                                var a=approachAvoidCost(this.my_ship, this.opponent);
+                                                this.my_ship.cargo.rmByType('Fuel', a.approach.cost);
+                                                if(ai.player_approaches_aggr(this.my_ship, this.opponent)){
+                                                        this.step('ai_aggressive');
+                                                } else {
+                                                        this.step('ai_surrenders');
+                                                }
+                                                break;
+                                        case 'player_approaches_peace':
+                                                var a=approachAvoidCost(this.my_ship, this.opponent);
+                                                this.my_ship.cargo.rmByType('Fuel', a.approach.cost);
+                                                this.step(ai.player_approaches_peace(this.my_ship, this.opponent));
+                                                break;
+                                        case 'player_approaches_ign':
+                                                this.step(ai.approach(this.my_ship, this.opponent, true));
+                                                break;
+                                        case 'player_approaches_avoid':
+                                                var a=approachAvoidCost(this.my_ship, this.opponent);
+                                                this.my_ship.cargo.rmByType('Fuel', a.avoid.cost);
+                                                this.step('next_ship');
+                                                break;
+                                        case 'ai_ignored':
+                                                this.opponent=null;
+                                                render();
+                                                break;
+                                        case 'ai_aggressive':
+                                                $('#g_a').disabled=!this.my_ship.can_attack();
+                                                $('#g_s').classList[this.my_ship.can_attack()?'remove':'add']('default');
+                                                render();
+                                                break;
+                                        case 'ai_peaceful':
+                                                $('#p_a').disabled=!this.my_ship.can_attack();
+                                                render();
+                                                break;
+                                        case 'trade':
+                                                var offer=ai.trade(this.my_ship, this.opponent);
+                                                if(!offer){
+                                                        console.log('unexpected trade');
+                                                        this.step('ai_ignored');
+                                                        return;
+                                                }
+                                                $('#trade_count_max').innerHTML=offer.count;
+                                                $('#trade_count_deal').max=offer.count;
+                                                $('#trade_count_deal').value=offer.count;
+                                                $('#trade').className=offer.dir;
+                                                render();
+                                                break;
+                                        case 'trade_ok':
+                                                var count=parseInt($('#trade_count_deal').value);
+                                                var dir=$('#trade').className;
+                                                if(dir=='rf'){
+                                                        this.my_ship.cargo.rmByType('Fuel',count);
+                                                        this.my_ship.cargo.add('Rocket',count);
+                                                } else {
+                                                        this.my_ship.cargo.rmByType('Rocket',count);
+                                                        this.my_ship.cargo.add('Fuel',count);
+                                                }
+                                                this.step('next_ship');
+                                                break;
+                                        case 'ai_attacks':
+                                                this.my_ship.damage(this.opponent.attack(this.my_ship.components.list.length));
+                                                $('#a_a').disabled=!this.my_ship.can_attack();
+                                                render();
+                                                break;
+                                        case 'player_attacks':
+                                                this.opponent.damage(this.my_ship.attack(this.opponent.components.list.length));
+                                                if(ai.damage_received(this.my_ship, this.opponent)){
+                                                        this.step('ai_attacks');
+                                                } else {
+                                                        this.step('ai_surrenders');
+                                                }
+                                                break;
+                                        case 'player_surrenders':
+                                                ai.take_cargo(this.my_ship, this.opponent);
+                                                this.opponent=null;
+                                                render();
+                                                break;
+                                        case 'ai_surrenders':
+                                                this.opponent.cargo.action='take_cargo';
+                                                this.opponent.cargo.actionText='Take';
+                                                render(true);
+                                                break;
+                                        case 'base_offer':
+                                                $('#offer_boxes').innerHTML=b.job_offer.boxes;
+                                                $('#offer_cargo_bay').style.display=b.job_offer.cargo_bay?'':'none';
+                                                render();
+                                                break;
+                                        case 'player_accepts_offer':
+                                                if(b.job_offer.cargo_bay){
+                                                        this.my_ship.components.add('Cargo Bay');
+                                                }
+                                                this.my_ship.job=b.job_offer.boxes;
+                                                this.my_ship.cargo.add('Box', b.job_offer.boxes);
+                                                this.step('next_ship');
+                                                break;
+                                        case 'base_reward':
+                                                $('#reward_component').style.display=b.job_reward.component?'':'none';
+                                                $('#reward_component').innerHTML=b.job_reward.component;
+                                                var cargo_arr=[];
+                                                if(b.job_reward.rockets){
+                                                        cargo_arr.push(b.job_reward.rockets+' rockets');
+                                                }
+                                                if(b.job_reward.defense){
+                                                        cargo_arr.push(b.job_reward.defense+' defense ammo');
+                                                }
+                                                $('#reward_cargo').innerHTML=cargo_arr.join(' and ');
+                                                if(b.job_reward.component){
+                                                        $('#reward_component').classList.add('default');
+                                                        $('#reward_cargo').classList.remove('default');
+                                                } else {
+                                                        $('#reward_cargo').classList.add('default');
+                                                        $('#reward_component').classList.remove('default');
+                                                }
+                                                render();
+                                                break;
+                                        case 'player_accepts_component':
+                                                this.my_ship.components.add(b.job_reward.component);
+                                                this.step('next_ship');
+                                                break;
+                                        case 'player_accepts_cargo':
+                                                this.my_ship.cargo.add('Rocket', b.job_reward.rockets);
+                                                this.my_ship.cargo.add('Defense Ammo', b.job_reward.defense);
+                                                this.step('next_ship');
+                                                break;
+                                        case 'dock':
+                                                this.my_ship.components.action='dock_move';
+                                                this.my_ship.components.actionText='Move';
+                                                render();
+                                                break;
+                                        case 'dump':
+                                                this.my_ship.components.action='dump_component';
+                                                this.my_ship.components.actionText='Dump';
+                                                this.my_ship.cargo.action='dump_cargo';
+                                                this.my_ship.cargo.actionText='Dump';
+                                                render();
+                                                break;
+                                        default:
+                                                alert('unknown state: '+this.state);
+                                }//switch
+                                saveShip(this.my_ship);
+                        }//function
+                }
+
+                // ========== ai stuff ===============
+
+                ai_stronger=function(player,ai) {
+                        // returns positive number if AI is stronger (by how much),
+                        // negative is AI is weaker,
+                        // 0 if player equals AI (or both have good defenses)
+                        var v=visiblity(ai, player);
+                        var a=Math.max(ai.strength(0) - player.strength(1,v), 0); //how many rockets from AI will hit player
+                        var b=Math.max(player.strength(0,v) - ai.strength(1), 0); //how many rockets from player will hit AI
+                        return a-b;
+                }
+
+                ai_interested=function(player,ai,cost) {
+                        // returns true if player is considered attack-worthy
+                        var v=visiblity(ai, player);
+                        // <0: comp count
+                        // 0: comp list
+                        // 1: cargo count
+                        // 2+: cargo list
+                        // TODO: if(v>=2) then check what kind of cargo player has
+                        if(v>=1){
+                                return player.cargo.list.length>cost;
+                        }
+                        if(v==0){
+                                return player.cargoMax()/2>cost;
+                        }
+                        // v<0
+                        return true;
+                }
+
+                ai_attacks=function(player,ai) {
+                        // return true or false - attack or surrender
+                        if(!ai.can_attack()) return false; //do not attack if can not
+                        return ai_stronger(player,ai)>=0;  //do attack if player is equal or weaker
+                }
+
+                ai_trade_wants=function(ai) {
+                        var total_cargo=ai.cargo.list.length;
+                        if(total_cargo==0) return false; //has nothing to trade
+                        // estimate our needs
+                        var rockets=ai.components.byType['Gun']||0;
+                        var defs=ai.components.byType['Defense Grid']||0;
+                        var fuel=Math.round(ai.components.list.length/4);
+                        var total_needs=rockets+defs+fuel;
+                        // calculate our desires. Positive means want to buy, negative means want to sell
+                        var rockets=Math.round(total_cargo/total_needs*rockets) - (ai.cargo.byType['Rocket']||0);
+                        var defs=Math.round(total_cargo/total_needs*defs) - (ai.cargo.byType['Defense Ammo']||0);
+                        var fuel=Math.round(total_cargo/total_needs*fuel) - (ai.cargo.byType['Fuel']||0);
+                        return [
+                                {type:'Rocket', count:rockets},
+                                {type:'Defense Ammo', count:defs},
+                                {type:'Fuel', count:fuel},
+                        ]
+                }
+
+                ai_trade_offers=function(ai) {
+                        var wants=ai_trade_wants(ai);
+                        if(!wants) return [];
+                        var buy=wants.filter(x=>x.count>0);
+                        var sell=wants.filter(x=>x.count<0);
+                        if(buy.length==0 || sell.length==0) return [];
+                        var result=[];
+                        for(var i=0; i<buy.length; i++){
+                                for(var j=0; j<sell.length; j++){
+                                        result.push({buy:buy[i].type, sell:sell[j].type, max:Math.min(buy[i].count, -sell[j].count)});
+                                }
+                        }
+                        return result;
+                }
+
+                ai={
+                        approach: function(player, ai, last){
+                                // returns next state - 'ai_peaceful', 'ai_aggressive', or ('ship_ignored'|'player_approaches');
+                                var cost=approachAvoidCost(ai, player);
+                                if(!cost){
+                                        // ignore if doesn't see
+                                        return last?'next_ship':'player_approaches';
+                                }
+                                // TODO: consider trade
+                                if(ai_stronger(player,ai)>1 && cost.approach.can){
+                                        // ai much stronger - consider attack
+                                        if(ai_interested(player, ai, cost.approach.cost)){
+                                                ai.cargo.rmByType('Fuel',cost.approach.cost);
+                                                return 'ai_aggressive';
+                                        }
+                                } else if(ai_stronger(player,ai)<-1 && cost.approach.can){
+                                        // ai much weaker - avoid
+                                        return last?'next_ship':'ship_ignored';
+                                        }
+                                // ignore
+                                return last?'next_ship':'player_approaches';
+                        },
+                        player_approaches_aggr: function(player, ai){
+                                // return true or false - be aggressive or surrender
+                                return ai_attacks(player,ai);
+                        },
+                        player_approaches_peace: function(player, ai){
+                                // returns next state - 'trade', 'ai_aggressive', or 'ai_ignored';
+                                if(ai_trade(player, ai)){
+                                        return 'trade';
+                                } else if(ai_stronger(player,ai) && ai_interested(player, ai, 0)){
+                                        return 'ai_aggressive';
+                                } else {
+                                        return 'ai_ignored';
+                                }
+                        },
+                        damage_received: function(player, ai){
+                                // return true or false - attack or surrender
+                                return ai_attacks(player,ai);
+                        },
+                        trade: function(player, ai){
+                                return ai_trade(player, ai);
+                        },
+                        take_cargo: function(player, ai){
+                                // take what you want
+                                // TODO: skip boxes
+                                // TODO: take only what's needed
+                                var count=Math.min(player.cargo.list.length,ai.cargoMax()-ai.cargo.list.length);
+                                player.cargo.pop(count);
+                        }
+                }
+
+                // ========== base stuff ===============
+
+                Base=function(){
+                        this.job_offer={boxes:0,cargo_bay:false};
+                        this.job_reward={rockets:0,fuel:0,component:''};
+                        this.reward=null;
+                        this.boxesPerBay=cargoPerBay-1; //we leave some free space for player's stuff
+                        this.free_cargo_limit=4; //how many free cargo boxes to give
+                        this.next_state=function(ship){
+                                if(ship.job>0 && (ship.cargo.byType['Box']||0)==0){
+                                        // player lost all cargo - forgive them and move on
+                                        ship.job=0;
+                                }
+                                if(ship.job>0){
+                                        // some cargo delivered
+                                        var delivered=(ship.cargo.byType['Box']||0);
+                                        this.job_reward.component=(delivered>=ship.job)?randomFrom(comps):'';
+                                        this.job_reward.rockets=randomInt(0,delivered+1);
+                                        this.job_reward.defense=delivered-this.job_reward.rockets;
+                                        ship.cargo.rmByType('Box', delivered);
+                                        ship.job=0;
+                                        return 'base_reward';
+                                }
+                                // new job
+                                // first, figure out if player has any space available
+                                var free_cargo=ship.cargoMax()-ship.cargo.list.length;
+                                if(free_cargo<this.boxesPerBay){
+                                        if((ship.components.byType['Cargo Bay']||0)<this.free_cargo_limit){
+                                                // player has few cargo boxes -- offer them a new one
+                                                this.job_offer={boxes:this.boxesPerBay,cargo_bay:true};
+                                                return 'base_offer';
+                                        } else {
+                                                // player has many cargo boxes and no free space - bye-bye
+                                                return 'next_ship';
+                                        }
+                                } else {
+                                        // give job offer in multiples of this.boxesPerBay
+                                        this.job_offer={boxes:Math.floor(free_cargo/this.boxesPerBay)*this.boxesPerBay,cargo_bay:false};
+                                        return 'base_offer';
+                                }
+                        }
+                }
+
+                // ========== helper functions ===============
+
+                function visiblity(ship1,ship2){
+                        // returns how good ship1 sees ship2
+                        return (ship1.components.byType['Scanner']||0) - (ship2.components.byType['Cloak']||0)
+                }
+
+                function compareRadars(ship1,ship2){
+                        // check which ship sees other one first.
+                        // Returns >0 if ship1 wins, <0 if ship2 wins
+                        // first, compare # of (radar-cloak)'s
+                        var d = (ship1.components.byType['Radar']||0) - (ship2.components.byType['Radar']||0);
+                        // if they match - compare # of elements (bigger ship easier to notice).
+                        // if these match, too - first ship (player) wins
+                        if(!d)
+                                d = (ship2.components.list.length - ship1.components.list.length) || 1
+                        return d;
+                }
+
+                function approachAvoidCost(ship1,ship2){
+                        // uses gm.dist*
+                        // dist_long is how far forward the ship is,
+                        // dist_lat is how far sideways - assuming target ship immovable.
+                        // dist is counted in "radars", might be fractial, but must be less than radar count
+                        function a(ship, action, fuel, engines){
+                                if((ship.cargo.byType['Fuel']||0) < fuel){
+                                        return {can: false, reason: `You don't have enough <b>fuel</b> to <b>${action}</b> this ship. You need at least <b>${fuel}</b>. `}
+                                }
+                                if((ship.components.byType['Engine']||0) < engines){
+                                        return {can: false, reason: `You don't have enough <b>engines</b> to <b>${action}</b> this ship. You need at least <b>${engines}</b>. `}
+                                }
+                                return {can: true, cost: fuel}
+                        }
+                        var radars=(ship1.components.byType['Radar']||0);
+                        if(gm.dist>radars) return false; //doesn't see
+                        var ratio=gm.dist_lat/radars; // how easy is it to maneuvr towards the target
+                        var comps=ship1.components.list.length;
+                        var fuel_to_approach=Math.ceil(comps*ratio/2);
+                        var clicks_to_approach=Math.ceil(gm.dist_long);
+                        var engines_to_approach=Math.ceil(fuel_to_approach/clicks_to_approach);
+                        // if we can't see them - we assume they have same number of radars as we do
+                        var v=visiblity(ship1, ship2);
+                        if(v>=0){
+                                radars=(ship2.components.byType['Radar']||0);
+                        }
+                        if(gm.dist_lat>radars) return {
+                                //they wouldn't see us if we keep moving, so no need to avoid on purpose
+                                approach: a(ship1, 'approach', fuel_to_approach, engines_to_approach),
+                                avoid: {can: false, cost: 0, reason: "Avoiding is not necessary: if you ignore this ship - they won't see you anyway. "}
+                        };
+                        // same math as above, just moving away from ship
+                        var ratio=gm.dist_lat/radars;
+                        var fuel_to_avoid=Math.ceil(comps*(1-ratio)/2);
+                        var clicks_to_avoid=clicks_to_approach;
+                        var engines_to_avoid=Math.ceil(fuel_to_avoid/clicks_to_avoid);
+                        return {
+                                approach: a(ship1, 'approach', fuel_to_approach, engines_to_approach),
+                                avoid: a(ship1, 'avoid', fuel_to_avoid, engines_to_avoid),
+                        };
+                }
+
+                // ========== actions ===============
+
+                function take_cargo(how,which){
+                        if(gm.my_ship.cargo.list.length>=gm.my_ship.cargoMax()){
+                                return false
+                        }
+                        if(how=='byType'){
+                                gm.opponent.cargo.rmByType(which);
+                                gm.my_ship.cargo.add(which);
+                        }
+                        if(how=='byNumber'){
+                                var type=gm.opponent.cargo.rmByNumber(which);
+                                gm.my_ship.cargo.add(type);
+                        }
+                        render(true);
+                }
+
+                function dock_move(how,which){
+                        if(!gm.my_ship.cargo.byType['Fuel']){
+                                return false;
+                        }
+                        gm.my_ship.cargo.rmByType('Fuel');
+                        if(how=='byType'){
+                                gm.my_ship.components.rmByType(which);
+                                gm.my_ship.components.add(which);
+                        }
+                        if(how=='byNumber'){
+                                var type=gm.my_ship.components.rmByNumber(which);
+                                gm.my_ship.components.add(type);
+                        }
+                        var y=window.scrollY;
+                        render(true);
+                        window.scrollTo(0,y);
+                }
+
+                function dump_component(how,which){
+                        if(how=='byType'){
+                                gm.my_ship.components.rmByType(which);
+                                if(which!='Cargo Bay'){
+                                        gm.my_ship.components.add('Cargo Bay');
+                                } else {
+                                        gm.my_ship.cargo.truncate(gm.my_ship.cargoMax());
+                                }
+                        }
+                        if(how=='byNumber'){
+                                var type=gm.my_ship.components.rmByNumber(which);
+                                if(type!='Cargo Bay')
+                                        gm.my_ship.components.add('Cargo Bay');
+                        }
+                        render(true);
+                }
+                function dump_cargo(how,which){
+                        if(how=='byType'){
+                                gm.my_ship.cargo.rmByType(which);
+                                if(which!='Fuel')
+                                        gm.my_ship.cargo.add('Fuel');
+                        }
+                        if(how=='byNumber'){
+                                var type=gm.my_ship.cargo.rmByNumber(which);
+                                if(type!='Fuel')
+                                        gm.my_ship.cargo.add('Fuel');
+                        }
+                        render(true);
+                }
+
+                // ===== old stuff =====
+
+                var cargoPerBay=6;
+
+                function Collection(){
+                        this.list=[];
+                        this.byType={};
+                        this.compact=true;
+                        this.actionButton='';
+                        this.add=function(type, count){
+                                if(count===0) return;
+                                if(count===undefined) count=1;
+                                if(this.byType[type]){
+                                        this.byType[type]+=count;
+                                } else {
+                                        this.byType[type]=count;
+                                }
+                                for(var i=0;i<count;i++){
+                                        this.list.push(type);
+                                }
+                        }
+                        this.pop=function(count){
+                                // used with components when attacked
+                                // and with cargo when a cargo bay is destroyed
+                                // assumes that this.list has enough items
+                                if(count===undefined) count=1;
+                                while(count>0){
+                                        this.byType[this.list.pop()]--;
+                                        count--;
+                                }
+                                this.clean();
+                        }
+                        this.rmByType=function(type,count){
+                                // used with cargo when selling / using rockets/fuel
+                                // assumes that such type exists
+                                if(count===undefined) count=1;
+                                if(count==0) return;
+                                this.byType[type]-=count;
+                                while(count>0){
+                                        this.list.splice(this.list.lastIndexOf(type),1);
+                                        count--;
+                                }
+                                this.clean();
+                        }
+                        this.rmByNumber=function(num){
+                                // used with cargo when selling / using rockets/fuel
+                                // assumes that number is correct
+                                var type=this.list[num];
+                                this.byType[type]--;
+                                this.list.splice(num,1);
+                                this.clean();
+                                return type;
+                        }
+                        this.clean=function(){
+                                // used by above three functions
+                                Object.keys(this.byType).forEach(type=>{
+                                        if(this.byType[type]<=0 || isNaN(this.byType[type])){
+                                                delete this.byType[type];
+                                        }
+                                });
+                        }
+                        this.truncate=function(max){
+                                // used with cargo when a cargo bay is destroyed
+                                this.pop(this.list.length-max);
+                                this.clean();
+                        }
+                        this.render=function(){
+                                var button=(a,b)=>this.action?` <button onclick="${this.action}('${a}','${b}')">${this.actionText}</button>`:'';
+                                if(this.compact) {
+                                        return `<ul>${Object.keys(this.byType).map(k=>`<li>${k} x${this.byType[k]}${button('byType',k)}</li>`).join('')}</ul>`;
+                                } else {
+                                        return `<ul>${this.list.map((a,i)=>`<li>${a}${button('byNumber',i)}</li>`).join('')}</ul>`;
+                                }
+                        }
+                }
+
+                Ship=function(name) {
+                        this.name=name;
+                        this.components=new Collection();
+                        //this.components.add('Head');
+                        this.cargo=new Collection();
+                        this.shotsReceived=Math.random()*100;
+                        this.job=0;
+                        this.cargoMax=function(){
+                                //return maximum allowed cargo
+                                return (this.components.byType['Cargo Bay']||0)*cargoPerBay;
+                        }
+                        this.can_attack=function(){
+                                var shots=Math.min((this.components.byType['Gun']||0), (this.cargo.byType['Rocket']||0));
+                                return shots;
+                        }
+                        this.strength=function(type,v){
+                                // helper function for AI - returns estimated number of guns or defenses
+                                // type is 0=attack or 1=defense
+                                var component=['Gun', 'Defense Grid'][type];
+                                var cargo=['Rocket', 'Defense Ammo'][type];
+                                if(v===undefined) v=9;
+                                // <0: comp count
+                                // 0: comp list
+                                // 1: cargo count
+                                // 2+: cargo list
+                                if(v<0){
+                                        // invisible ship - assume sixth part of components are guns or defenses
+                                        return Math.round(this.components.list.length/6);
+                                } else if(v==0){
+                                        // return number of components, taking into account max possible number of cargo
+                                        // (assume quater of cargo belongs to this component)
+                                        return Math.min((this.components.byType[component]||0), this.cargoMax()/4);
+                                } else if(v==1){
+                                        // same as above, just real cargo number
+                                        return Math.min((this.components.byType[component]||0), this.cargo.list.length/4);
+                                } else { //v>=2
+                                        // same as above, just number of real cargo
+                                        return Math.min((this.components.byType[component]||0), this.cargo.byType[cargo]||0);
+                                }
+                        }
+                        this.attack=function(max){
+                                // launch up to max missiles
+                                var shots=Math.min(this.components.byType['Gun'], this.cargo.byType['Rocket'], max);
+                                if(!shots) return 0;
+                                this.cargo.rmByType('Rocket',shots);
+                                return shots;
+                        }
+                        this.damage=function(shots){
+                                if(shots==0) return;
+                                var def=Math.min(this.components.byType['Defense Grid']||0, this.cargo.byType['Defense Ammo']||0, shots);
+                                this.cargo.rmByType('Defense Ammo',def);
+                                shots-=def;
+                                if(shots>this.components.length){
+                                        // this shouldn't happen, since we shouldn't shoot more rockets than opponent ship has components
+                                        console.log('received more shots than components');
+                                        shots=this.components.length;
+                                }
+                                this.components.pop(shots);
+                                /*
+                                var old_sr=this.shotsReceived;
+                                var new_sr=this.shotsReceived+shots;
+                                this.shotsReceived=new_sr;
+                                var total=this.components.list.length;
+                                var engines=Math.min(this.components.byType['Engine'], this.cargo.byType['Fuel']);
+                                if(engines){
+                                        this.cargo.rmByType('Fuel',engines);
+                                        var scale=1-Math.sqrt(engines/total);
+                                        shots=Math.floor(new_sr*scale)-Math.floor(old_sr*scale);
+                                }
+                                if(shots>=this.components.length){
+                                        alert('ship destroyed');
+                                } else {
+                                        this.components.pop(shots);
+                                }
+                                */
+                                this.cargo.truncate(this.cargoMax());
+                        }
+                        this.render=function(domElement,visiblity){
+                                var randomId=Math.random().toString(36).substring(5);
+                                var cargoInfo='';
+                                if(visiblity>=1){
+                                        cargoInfo=`${this.cargo.list.length} total, ${this.cargoMax() - this.cargo.list.length} free`;
+                                } else if(visiblity==0){
+                                        cargoInfo=`${this.cargoMax()} max`;
+                                } else {
+                                        cargoInfo=`unknown`;
+                                }
+                                domElement.innerHTML=`<legend>${name}</legend>
+                                <div>Components (${this.components.list.length} total)
+                                        ${(visiblity>=0)?`
+                                <input type="checkbox" class="compact" id="a${randomId}"><label for="a${randomId}">(compact):</label>
+                                `+this.components.render():''}
+                                                </div><div>
+                                                Cargo (${cargoInfo})
+                                                                ${(visiblity>=2)?`
+                                <input type="checkbox" class="compact" id="b${randomId}"><label for="b${randomId}">(compact):</label>
+                                `+this.cargo.render():''}
+                                                </div>`;
+                                var self=this;
+                                if(visiblity>=0){
+                                        domElement.querySelector(`#a${randomId}`).onclick=function(){self.components.compact=this.checked;self.render(domElement,visiblity)};
+                                        domElement.querySelector(`#a${randomId}`).checked=self.components.compact;
+                                }
+                                if(visiblity>=2){
+                                        domElement.querySelector(`#b${randomId}`).onclick=function(){self.cargo.compact=this.checked;self.render(domElement,visiblity)};
+                                        domElement.querySelector(`#b${randomId}`).checked=self.cargo.compact;
+                                }
+                        }
+                }
+
+                function randomInt(a,b){
+                        return Math.floor(Math.random()*(b-a))+a;
+                }
+
+                function randomFrom(a){
+                        return a[Math.floor(Math.random()*a.length)];
+                }
+
+                var comps=['Engine','Gun','Defense Grid','Cargo Bay', 'Engine','Gun','Defense Grid','Cargo Bay', 'Radar','Scanner','Cloak'];
+
+                function randomShip(name,numComps,freeCargo){
+                        var cargos=['Fuel','Rocket','Defense Ammo'];
+                        var ship=new Ship(name);
+                        while(ship.components.list.length<numComps){
+                                ship.components.add(randomFrom(comps));
+                        }
+                        while(ship.cargo.list.length<ship.cargoMax()-freeCargo){
+                                ship.cargo.add(randomFrom(cargos));
+                        }
+                        return ship;
+                }
+
+                function saveShip(ship){
+                        var str=JSON.stringify({name:ship.name,
+                                                                                        components:ship.components.list,
+                                                                                        cargo:ship.cargo.list,
+                                                                                        shotsReceived:ship.shotsReceived,
+                                                                                        job:ship.job});
+                        try{
+                                window.localStorage.my_ship=str;
+                        } catch(e){
+                                window.name=str;
+                        }
+                }
+
+                function loadShip(){
+                        try{
+                                var data=window.localStorage.my_ship;
+                        } catch(e) {
+                                var data=window.name;
+                        }
+                        try{
+                                var data=JSON.parse(data);
+                                var ship=new Ship(data.name);
+                                for(var i=0;i<data.components.length;i++){
+                                        ship.components.add(data.components[i]);
+                                }
+                                for(var i=0;i<data.cargo.length;i++){
+                                        ship.cargo.add(data.cargo[i]);
+                                }
+                                ship.shotsReceived=data.shotsReceived;
+                                ship.job=data.job;
+                                return ship;
+                        } catch(e) {
+                                console.log(e);
+                                return randomShip('Your Ship',randomInt(10,20),randomInt(3,10));
+                        }
+
+                }
+
+                gm=new GameManager();
+                b=new Base();
+                gm.step();
+
+                function render(see_through){
+                        gm.my_ship.render($('#me'),999);
+                        if(gm.opponent){
+                                if(see_through){
+                                        var vis=999;
+                                } else {
+                                        var vis=visiblity(gm.my_ship,gm.opponent);
+                                }
+                                gm.opponent.render($('#he'),vis);
+                        } else {
+                                $('#he').innerHTML='';
+                        }
+                        $('#he').style.display=gm.opponent?'':'none';
+                        $('#frames').className=gm.state;
+                        var el=$('#'+gm.state+' .default');
+                        if(el) el.focus();
+                }
+
+                function $(q){
+                        return document.querySelector(q);
+                }
+                function $$(q){
+                        return Array.apply(null,document.querySelectorAll(q));
+                }
+
+                $('#frames style').innerHTML+=Array.apply(null,document.querySelectorAll("#frames > div")).map(a=>`#frames.${a.id} #${a.id} {display: block}`).join("\n");
+
+        </script>
+</body></html>

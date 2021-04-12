@@ -1,0 +1,63 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>$title</title>
+<meta name="description" content="$intro">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Фото</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Заметки</a></h1>
+		<p>Записи о разном</p>
+	</div>
+	<!-- begin index only -->
+	<style></style>
+	<script>document.getElementsByTagName('style')[0].innerHTML='body{display:none}'</script>
+	<div id="controls">
+		<table>
+			<tr><th>Метки:</th><td id="tags"></td></tr>
+			<tr><th><label for="search">Поиск:</label></th><td><input type="search" id="search" placeholder="Введите текст для поиска" autofocus></td></tr>
+		</table>
+	</div>
+	<!-- end index only -->
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin $name -->
+		<div class="post">
+			<h2><a href="$name.html">$title</a></h2>
+			<p class="trivia">
+				Создано: $created &mdash; изменено: $modified &mdash; метки: $tags
+			</p>
+			<p class="intro">$intro</p>
+			$content
+			<!-- begin index only -->
+			<div class="data"> <!-- same data to be accessible by scripts
+$title
+$created
+$modified
+$tags
+$intro
+			--> </div>
+			<!-- end index only -->
+		</div>
+		<!-- end $name -->
+	</div>
+	<!-- begin index only -->
+	<script src="../index.js"></script>
+	<script>document.getElementsByTagName('style')[0].innerHTML=''</script>
+	<!-- end index only -->
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Алексей Шпаковский</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(щелкните чтобы увидеть адрес)</a>
+	</div>
+</div>
+</body></html>

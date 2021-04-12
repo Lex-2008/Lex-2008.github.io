@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0034)https://www.linux.com/print/412538 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!--<base href="https://www.linux.com/news/linux-workstation-security/2017/5/4-best-practices-web-browser-security-your-linux-workstation">--><base href=".">
+    <title>4 Best Practices for Web Browser Security on Your Linux Workstation</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="https://www.linux.com/sites/all/themes/custom/lcom/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="./browser-security-on-linux_files/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all">
+<link type="text/css" rel="stylesheet" href="./browser-security-on-linux_files/css_dQUmkOHGvhdsk3fw1ClcAv2fBIdCRpG6DXJhEQw3_TE.css" media="all">
+<link type="text/css" rel="stylesheet" href="./browser-security-on-linux_files/css_817h1qJ0DUOH_8GLL6XO9rJQ4uTJqRKVrWprWohggHY.css" media="all">
+<link type="text/css" rel="stylesheet" href="./browser-security-on-linux_files/css_PCWqauS-TfKIiAc4Fr7XOd_IWZP_Sp0aJvAxXAFb0AY.css" media="all">
+  </head>
+  <body>
+        <div class="print-logo"><img class="print-logo" id="logo" typeof="foaf:Image" src="./browser-security-on-linux_files/logo.png" alt="Linux.com | The source for Linux information"></div>
+    <div class="print-site_name">Published on <em class="placeholder">Linux.com | The source for Linux information</em> (<a href="https://www.linux.com/">https://www.linux.com</a>)</div>
+    <p>
+    </p><div class="print-breadcrumb"><a href="https://www.linux.com/">Home</a> &gt; 4 Best Practices for Web Browser Security on Your Linux Workstation</div>
+    <hr class="print-hr">
+    <div class="print-content"><article class="node-412538 node node-imagex-news view-mode-print clearfix" about="/news/linux-workstation-security/2017/5/4-best-practices-web-browser-security-your-linux-workstation" typeof="sioc:Item foaf:Document">
+
+      <header>
+                    <h2 class="node__title node-title"><a href="https://www.linux.com/news/linux-workstation-security/2017/5/4-best-practices-web-browser-security-your-linux-workstation">4 Best Practices for Web Browser Security on Your Linux Workstation</a> <span class="print-footnote">[1]</span></h2>
+            <span property="dc:title" content="4 Best Practices for Web Browser Security on Your Linux Workstation" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      
+          </header>
+  
+  <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>There is no question that the web browser will be the piece of software with the largest and the most exposed attack surface on your Linux workstation. It is a tool written specifically to download and execute untrusted, frequently hostile code. </p>
+<p>It attempts to shield you from this danger by employing multiple mechanisms such as sandboxes and code sanitization, but they have all been previously defeated on multiple occasions. System administrators should learn to approach browsing websites as the most insecure activity you’ll engage in on any given day.</p>
+<p>There are several ways you can reduce the impact of a compromised browser, but the truly effective ways will require significant changes in the way you operate your workstation.</p>
+<h3>1: Graphical environment</h3>
+<p>The venerable X protocol was conceived and implemented for a wholly different era of personal computing and lacks important security features that should be considered essential on a networked workstation. To give a few examples:</p>
+<p>• Any X application has access to full screen contents</p>
+<p>• Any X application can register to receive all keystrokes, regardless into which window they are typed</p>
+<p>A sufficiently severe browser vulnerability means attackers get automatic access to what is effectively a built-in keylogger and screen recorder and can watch and capture everything you type into your root terminal sessions.</p>
+<p>You should strongly consider switching to a more modern platform like Wayland, even if this means using many of your existing applications through an X11 protocol wrapper. With Fedora starting to default to Wayland for all applications, we can hope that most software will soon stop requiring the legacy X11 layer.</p>
+<h3>2: Use two different browsers</h3>
+<p>This is the easiest to do, but only offers minor security benefits. Not all browser compromises give an attacker full unfettered access to your system — sometimes they are limited to allowing one to read local browser storage, steal active sessions from other tabs, capture input entered into the browser, etc. Using two different browsers, one for work/ high security sites, and another for everything else will help prevent minor compromises from giving attackers access to the whole cookie jar. The main inconvenience will be the amount of memory consumed by two different browser processes.</p>
+<p>Here’s what we on The Linux Foundation sysadmin team recommend:</p>
+<p><strong>Firefox for work and high security sites</strong></p>
+<p>Use Firefox to access work-related sites, where extra care should be taken to ensure that data like cookies, sessions, login information, keystrokes, etc, should most definitely not fall into attackers’ hands. You should NOT use this browser for accessing any other sites except select few. You should install the following essential Firefox add-ons:</p>
+<p><strong>NoScript </strong></p>
+<p>• NoScript prevents active content from loading, except from user whitelisted domains. It is a great hassle to use with your default browser (though offers really good security benefits), so we recommend only enabling it on the browser you use to access work-related sites.</p>
+<p><strong>Privacy Badger &nbsp;</strong></p>
+<p>• EFF’s Privacy Badger will prevent most external trackers and ad platforms from being loaded, which will help avoid compromises on these tracking sites from affecting your browser (trackers and ad sites are very commonly targeted by attackers, as they allow rapid infection of thousands of systems worldwide).</p>
+<p><strong>HTTPS Everywhere </strong></p>
+<p>• This EFF-developed Add-on will ensure that most of your sites are accessed over a secure connection, even if a link you click is using http:// (great to avoid a number of attacks, such as <a href="https://moxie.org/software/sslstrip/">SSL-strip</a> <span class="print-footnote">[2]</span>).</p>
+<p>Certificate Patrol is also a nice-to-have tool that will alert you if the site you’re accessing has recently changed their TLS certificates — especially if it wasn’t nearing expiration dates or if it is now using a different certification authority. It helps alert you if someone is trying to man-in-the-middle your connection, but generates a lot of benign false-positives.</p>
+<p>You should leave Firefox as your default browser for opening links, as NoScript will prevent most active content from loading or executing.</p>
+<p><strong>Chrome/Chromium for everything else</strong></p>
+<p>Chromium developers are ahead of Firefox in adding a lot of nice security features (at least<a href="https://bugs.chromium.org/p/chromium/adminIntro"> on Linux</a> <span class="print-footnote">[3]</span>), such as seccomp sandboxes, kernel user namespaces, etc, which act as an added layer of isolation between the sites you visit and the rest of your system. </p>
+<p>Chromium is the upstream open-source project, and Chrome is Google’s proprietary binary build based on it (insert the usual paranoid caution about not using it for anything you don’t want Google to know about).</p>
+<p>It is recommended that you install Privacy Badger and HTTPS Everywhere extensions in Chrome as well and give it a distinct theme from Firefox to indicate that this is your “untrusted sites” browser.</p>
+<h3>3: Use Firejail </h3>
+<p>Firejail is a project that uses Linux namespaces and seccomp-bpf to create a sandbox around Linux applications. It is an excellent way to help build additional protection between the browser and the rest of your system. You can use Firejail to create separate isolated instances of Firefox to use for different purposes — for work, for personal but trusted sites (such as banking), and one more for casual browsing (social media, etc).</p>
+<p><a href="https://firejail.wordpress.com/">Firejail </a> <span class="print-footnote">[4]</span>is most effective on Wayland, unless you use X11-isolation mechanisms (the —x11 flag). To start using Firejail with Firefox, please refer to the documentation provided by the project:</p>
+<p>• <a href="https://firejail.wordpress.com/documentation-2/firefox-guide/">Firefox Sandboxing Guide</a> <span class="print-footnote">[5]</span></p>
+<h3>4: Fully separate your work and play environments via virtualization </h3>
+<p>This step is a bit paranoid, but as I’ve said (many times) before, security is just like driving on the highway — anyone going slower than you is an idiot, while anyone driving faster than you is a crazy person. &nbsp;</p>
+<p>See the <a href="https://www.qubes-os.org/">QubesOS </a> <span class="print-footnote">[6]</span>project, which strives to provide a “reasonably secure” workstation environment via compartmentalizing your applications into separate fully isolated VMs. You may also investigate <a href="https://subgraph.com/sgos/">SubgraphOS</a> <span class="print-footnote">[7]</span> that achieves similar goals using container technology (currently in Alpha).</p>
+<p>Over the next few weeks in this ongoing Linux workstation security series, we’ll cover more best practices. Next time, join us to learn how to combat credential phishing with FidoU2F and generate secure passwords with password manager recommendations.</p>
+<p><a href="http://bit.ly/2ldrFwF"><img alt="Workstation Security" src="./browser-security-on-linux_files/workstation-security-githubpub-linuxcom-hero-2_0.jpg" title="Workstation Security"></a> <span class="print-footnote">[8]</span></p>
+<p><em>Read more:</em></p>
+<p>Part 6: <a href="https://www.linux.com/news/linux-workstation-security/2017/4/how-safely-and-securely-back-your-linux-workstation">How to Safely and Securely Back Up Your Linux Workstation</a> <span class="print-footnote">[9]</span></p>
+<p>Part 1: <a href="https://www.linux.com/news/linux-workstation-security/2017/2/3-security-features-consider-when-choosing-linux-workstation">3 Security Features to Consider When Choosing a Linux Workstation</a> <span class="print-footnote">[10]</span></p></div></div></div><div class="field field-name-field-tags field-type-taxonomy-term-reference field-label-above"><div class="field-label">Tags:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="https://www.linux.com/tags/security" typeof="Concept" property="prefLabel" datatype="">security</a> <span class="print-footnote">[11]</span></div><div class="field-item odd"><a href="https://www.linux.com/tags/ebook" typeof="Concept" property="prefLabel" datatype="">eBook</a> <span class="print-footnote">[12]</span></div><div class="field-item even"><a href="https://www.linux.com/tags/linux-foundation-0" typeof="Concept" property="prefLabel" datatype="">The Linux Foundation</a> <span class="print-footnote">[13]</span></div><div class="field-item odd"><a href="https://www.linux.com/tags/sysadmin" typeof="Concept" property="prefLabel" datatype="">SysAdmin</a> <span class="print-footnote">[14]</span></div><div class="field-item even"><a href="https://www.linux.com/tags/system-administration" typeof="Concept" property="prefLabel" datatype="">System Administration</a> <span class="print-footnote">[15]</span></div><div class="field-item odd"><a href="https://www.linux.com/tags/tools" typeof="Concept" property="prefLabel" datatype="">Tools</a> <span class="print-footnote">[16]</span></div><div class="field-item even"><a href="https://www.linux.com/tags/web" typeof="Concept" property="prefLabel" datatype="">Web</a> <span class="print-footnote">[17]</span></div><div class="field-item odd"><a href="https://www.linux.com/tags/internet" typeof="Concept" property="prefLabel" datatype="">Internet</a> <span class="print-footnote">[18]</span></div></div></div><div class="field field-name-field-image field-type-image field-label-above"><div class="field-label">Image:&nbsp;</div><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="./browser-security-on-linux_files/network-security_0.jpg" width="1811" height="921" alt="Workstation Security" title="Workstation Security "></div></div></div><div class="field field-name-field-linux-section field-type-taxonomy-term-reference field-label-above"><div class="field-label">News Category:&nbsp;</div><div class="field-items"><div class="field-item even"><a href="https://www.linux.com/news/category/security" typeof="Concept" property="prefLabel" datatype="">Security</a> <span class="print-footnote">[19]</span></div></div></div>
+  
+  
+</article>
+</div>
+    <div class="print-footer">
+</div>
+    <hr class="print-hr">
+    <div class="print-source_url"><strong>Source URL:</strong> <a href="https://www.linux.com/news/linux-workstation-security/2017/5/4-best-practices-web-browser-security-your-linux-workstation">https://www.linux.com/news/linux-workstation-security/2017/5/4-best-practices-web-browser-security-your-linux-workstation</a></div>
+    <div class="print-links"><p><strong>Links:</strong><br>[1] https://www.linux.com/news/linux-workstation-security/2017/5/4-best-practices-web-browser-security-your-linux-workstation<br>
+[2] https://moxie.org/software/sslstrip/<br>
+[3] https://bugs.chromium.org/p/chromium/adminIntro<br>
+[4] https://firejail.wordpress.com/<br>
+[5] https://firejail.wordpress.com/documentation-2/firefox-guide/<br>
+[6] https://www.qubes-os.org/<br>
+[7] https://subgraph.com/sgos/<br>
+[8] http://bit.ly/2ldrFwF<br>
+[9] https://www.linux.com/news/linux-workstation-security/2017/4/how-safely-and-securely-back-your-linux-workstation<br>
+[10] https://www.linux.com/news/linux-workstation-security/2017/2/3-security-features-consider-when-choosing-linux-workstation<br>
+[11] https://www.linux.com/tags/security<br>
+[12] https://www.linux.com/tags/ebook<br>
+[13] https://www.linux.com/tags/linux-foundation-0<br>
+[14] https://www.linux.com/tags/sysadmin<br>
+[15] https://www.linux.com/tags/system-administration<br>
+[16] https://www.linux.com/tags/tools<br>
+[17] https://www.linux.com/tags/web<br>
+[18] https://www.linux.com/tags/internet<br>
+[19] https://www.linux.com/news/category/security<br>
+</p></div>
+
+</body></html>

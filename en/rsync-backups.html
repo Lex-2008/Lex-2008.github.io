@@ -1,0 +1,768 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Rsync backups</title>
+<meta name="description" content="How I organized backups of my files">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin rsync-backups -->
+		<div class="post">
+			<h2><a href="rsync-backups.html">Rsync backups</a></h2>
+			<p class="trivia">
+				Created: 2016-04-03 &mdash; modified: 2020-03-01 &mdash; tags: bash
+			</p>
+			<p class="intro">How I organized backups of my files</p>
+			<p><strong>Update</strong>: since January 2019, I've moved to a new backup system,
+which is hosted on <a href="https://github.com/Lex-2008/backup3">GitHub</a>.
+I believe it's better for numerous reasons,
+so please use that!</p>
+
+<hr />
+
+<h2>Introduction</h2>
+
+<p>Until recently I was <a href="incremental-backups.html">using tar</a> to backup my files.
+It was working good, especially for syncing backups remotely,
+since at the end I got only 2~3 new files,
+which could be easily copied to remote destinations.
+But this method had few caveats:</p>
+
+<ul>
+<li><p>Restoring individual files was a pain -
+to do it, I should've find out in which archive is its last version
+(i.e. recall when it was last modified),
+and then give tar a cryptic command to extract individual file.
+Not very nice: I had a "base" archive with exact snapshot of my system
+as it was 2 months ago,
+but I didn't have a snapshot of my system as it was, say, yesterday.</p></li>
+<li><p>Also, disk space management was a problem:
+since archives were incremental, to maintain recoverability
+I had to keep all files and couldn't delete anything to free space.
+Moreover, since backups were made on one machine,
+and then copied to others remotely,
+there was no way for script to know
+when it needs to think about space.
+Moreover, since simple copy utilities don't check space before copying,
+sometimes copy operation just filled up all available space
+with temporary file(s), and failed after that,
+thus leaving machine in partially unusable state with no disk space
+(luckily, I could SSH into the box and remove excessive files).</p></li>
+</ul>
+
+<p>So recently I stumbled upon a different idea:
+to use <code>rsync</code>'s <code>--link-dest</code> commandline parameter
+to keep folders with different versions of files
+(snapshots of all backed up files).</p>
+
+<p>Using hardlinks to keep same file in different folders helps
+reduce used space while keeping exact snapshots -
+to see on a file "how it was yesterday" I just need to look in
+yesterday's folder!</p>
+
+<p>Also, last folder will always have the most recent backup,
+one folder before last will have snapshot just before that,
+and by deleting oldest folders I can automatically gain free space as needed.</p>
+
+<p>Good introduction to using <code>rsync --link-dest</code> for backups
+is available <a href="http://www.mikerubel.org/computers/rsync_snapshots/#Rsync">here</a> <a href="http://archive.is/J4nnI#12%">(archived version)</a>,
+and more advanced version (which detects folder renames) - <a href="https://lincolnloop.com/blog/detecting-file-moves-renames-rsync/">here</a>
+<a href="http://archive.is/9bJKQ">(archived)</a>,
+with a result script available <a href="https://github.com/dparoli/hrsync/blob/master/hrsync">here</a> on github.</p>
+
+<h2>Basic script</h2>
+
+<p>So here is the most basic version:</p>
+
+<pre><code>#!/bin/bash
+
+#remember: no slashes at the end of $DST!
+SRC="/home /etc"
+DST=/backup-local
+TODAY="$DST/$(date +%Y-%m-%d_%H-%M-%S)"
+
+LAST="$(ls -d $DST/*/ 2&gt;/dev/null | tail -n 1)"
+test -z "$LAST" &amp;&amp; LAST="$(mktemp -d)"
+
+#Main sync operation
+rsync -a --hard-links --no-inc-recursive --human-readable --stats --verbose --link-dest="$LAST" $SRC "$TODAY"
+</code></pre>
+
+<p>It has four options:</p>
+
+<ul>
+<li><p>Where to copy from and to.
+Note that you can select several folders as source.</p></li>
+<li><p>Format for folder name (<code>TODAY</code>).
+Currently it's something like <code>2015-12-31_23-59-59</code>.</p></li>
+<li><p>Folder with last backup (<code>LAST</code>).
+It's found automatically and a temporary empty folder is created
+for the first run to avoid issues.</p></li>
+</ul>
+
+<p>And then it runs rsync.</p>
+
+<p>Pretty easy, huh?</p>
+
+<p>Note that I <em>didn't</em> put <code>$SRC</code> in quotes because I really want it to be
+expanded to two arguments if it has space (say, <code>"/home /etc"</code>), and I <em>did</em> quote <code>"$DST"</code> because I want it to be one argument even if it has spaces.</p>
+
+<h2>Check if there is something to do</h2>
+
+<p>Let's avoid creating folders if no files were changed.</p>
+
+<p>To do it, we first run rsync in <code>--dry-run</code> mode,
+and check if it transfers any files.</p>
+
+<p>Also, let's move most-used rsync commands to a separate variable.
+Relevant part of script looks like this now:</p>
+
+<pre><code>DRY_RUN_OUTPUT="/tmp/dry-run"
+RSYNC="rsync -a --hard-links --no-inc-recursive"
+
+#Check if there is something to do
+$RSYNC --dry-run --stats $SRC $LAST &gt;$DRY_RUN_OUTPUT
+grep -q 'Number of regular files transferred: 0' $DRY_RUN_OUTPUT &amp;&amp; exit 0
+
+#Main sync operation
+$RSYNC --human-readable --stats --verbose --link-dest="$LAST" $SRC "$TODAY"
+</code></pre>
+
+<h2>Excluding files</h2>
+
+<p>Probably you want to exclude some files from backup
+(say, private SSH keys, cache, trash, etc).
+To do this, just create an exclude file with content like this:</p>
+
+<pre><code>*backup*
+*cache*
+*Cache*
+home/*/.local/share/Trash*
+home/*/.ssh/id_rsa
+</code></pre>
+
+<p>and reference it in the <code>RSYNC</code> variable like this:</p>
+
+<pre><code>RSYNC="rsync -a --hard-links --no-inc-recursive --exclude-from=/backup-local/.exclude"
+</code></pre>
+
+<h2>Error checking</h2>
+
+<p>Checking for errors is good.</p>
+
+<p>Instead of writing directly to <code>$TODAY</code> folder,
+let's create a temporary <code>$TODAY.wip</code> folder,
+and rename it to <code>$TODAY</code> only if main rsync run finished successfully.</p>
+
+<p>We also need <code>LAST</code> variable to ignore such <code>wip</code> folders:</p>
+
+<pre><code>LAST="$(ls -d $DST/*/ 2&gt;/dev/null | grep -v wip | tail -n 1)"
+</code></pre>
+
+<p>Main RSYNC command will look like this, then:</p>
+
+<pre><code>$RSYNC --human-readable --stats --verbose --link-dest="$LAST" $SRC "$TODAY.wip"
+STATUS=$?
+if test $STATUS -ne 0; then
+       echo something went wrong
+       exit $STATUS
+fi
+mv "$TODAY.wip" "$TODAY"
+</code></pre>
+
+<h2>Checking disk space</h2>
+
+<p>Let's limit the script so it always tried to keep at least
+10% free disk space (both in bytes and inodes)
+Also, while cleaning up, it will leave at least two last snapshots
+(If the disk doesn't have enough free space even with only two last folders
+- it will stop).
+Let's add this variables to the config section of our script:</p>
+
+<pre><code>EXTRA_PERCENT=10
+KEEP_DIRS=2
+</code></pre>
+
+<p>And this block before main rsync operation:</p>
+
+<pre><code>TRANSFER_SIZE=$(sed '/Total transferred file size/!d;s/[^0-9]//g' $DRY_RUN_OUTPUT)
+TOTAL_SPACE=$(df -B1 --output=size $DST | sed '1d')
+let EXTRA_FREE_SPACE=TOTAL_SPACE*EXTRA_PERCENT/100
+let FREE_SPACE_NEEDED=TRANSFER_SIZE+EXTRA_FREE_SPACE
+
+CREATED_DIRS=$(sed '/Number of files/!d;s/.* dir: \([^ ]*\).*/\1/;s/[^0-9]//g' $DRY_RUN_OUTPUT)
+CREATED_FILES=$(sed '/Number of regular files transferred/!d;s/[^0-9]//g' $DRY_RUN_OUTPUT)
+TOTAL_INODES=$(df -B1 --output=itotal $DST | sed '1d')
+let EXTRA_INODES=TOTAL_INODES*EXTRA_PERCENT/100
+let INODES_NEEDED=CREATED_DIRS+CREATED_FILES+EXTRA_INODES
+
+function check_space {
+    FREE_SPACE_AVAILABLE=$(df -B1 --output=avail $DST | sed '1d')
+    INODES_AVAILABLE=$(df --output=iavail $DST | sed '1d')
+    [ $FREE_SPACE_AVAILABLE -lt $FREE_SPACE_NEEDED -o $INODES_AVAILABLE -lt $INODES_NEEDED ]
+    # return status of 1 means "need to clear space"
+}
+
+function check_dirs {
+    HISTORY_DIRS=$(ls -d $DST/‌*/ | wc -l)
+    [ $HISTORY_DIRS -gt $KEEP_DIRS ]
+    # return status of 1 means we can delete one
+}
+
+while check_space; do
+    if check_dirs; then
+        OLDEST=$(ls $DST/ | head -n 1)
+        rm -rf $DST/$OLDEST
+    else
+        echo "can't clean up"
+        exit 1
+    fi
+done
+</code></pre>
+
+<h2>Waiting for other copy of same script to finish</h2>
+
+<p>If you're running this script from a cron job,
+you might want to avoid situations when
+a new backup job starts while the previous one didn't finish.</p>
+
+<p>Checking for <code>.wip</code> extension in last folder name is not good
+- it might be there both while job is still in progress
+and if it finished with error.
+Looking at log file is not an option for the same reason.</p>
+
+<p>We should use file locks:</p>
+
+<pre><code>FLOCK_FILE="$DST/.lock"
+
+exec 200&gt;"$FLOCK_FILE"
+flock -n 200 || exit 200
+</code></pre>
+
+<h2>Limiting script running time</h2>
+
+<p>Above is good, but if a script gets "stuck" - then no more backups will be
+running.  That's not good.  To fix this, we'll run a small function in parallel
+to our main script, which will kill it after, say, 30 minutes.</p>
+
+<pre><code>TIMEOUT=30m
+
+function timeout_monitor() {
+    sleep "$1" &amp;
+    pid="$!"
+    trap "kill $pid; exit" SIGTERM
+    wait "$pid"
+    echo "Had to kill due to timeout. Please cleanup process group $2. Bye"
+    kill "$2"
+}
+timeout_monitor "$TIMEOUT" "$$" &amp;
+TIMEOUT_MONITOR_PID=$!
+trap "kill $TIMEOUT_MONITOR_PID" EXIT
+</code></pre>
+
+<p>This function greatly inspired by <a href="http://stackoverflow.com/a/28930451">this</a>
+answer on stackoverflow.</p>
+
+<p>Note, however, that we use <code>trap</code> instead of putting <code>kill</code> command at the end
+of the script (last line in the code above), because there are many "exit
+points" in our script.</p>
+
+<p>Also note that we kill <code>sleep</code> process inside <code>timeout_monitor</code> function (also
+with trap) to clean it up, too.  During normal execution main script will
+finish much faster than <code>timeout_monitor</code>, so it's better to clean up.  If
+something goes wrong - it's more acceptable to leave hanging processes (note
+the echo command).  We could consider killing the whole process group, but it
+usually means that <code>kill</code> might kill itself, and I haven't found a way to change
+process group from bash script itself.</p>
+
+<h2>First run</h2>
+
+<p>Running the script for the first time (if destination directory is empty) is a
+rare case, so in order to avoid running the script with an empty directory by
+mistake let's add an option which would forbid it by default.  Also, during
+first run we should ignore timeout (since first backup usually takes a lot of
+time, and it's normal) and delete the temporary empty folder at the end of the
+script.</p>
+
+<p>So we replace <code>test -z "$LAST" &amp;&amp; LAST="$(mktemp -d)"</code> line with this code:</p>
+
+<pre><code>ALLOW_FIRST_RUN=0
+
+LAST="$(ls -d "$DST"/*/ 2&gt;/dev/null
+if [ -z "$LAST" ]; then
+    if [ "$ALLOW_FIRST_RUN" -eq 1 ]; then
+        LAST="$(mktemp -d)"
+        kill "$TIMEOUT_MONITOR_PID"
+        trap "rmdir $LAST" EXIT
+    else
+        echo "First run not allowed, but [$DST] is empty. bye"
+        exit 3;
+    fi
+fi
+</code></pre>
+
+<p>Note that here <code>trap ... EXIT</code> command will overwrite previously defined one.</p>
+
+<h2>Redirect output</h2>
+
+<p>If you're running this script from a cron job,
+you might want to redirect all output (both stdout and stderr) to a file,
+and "important" messages (from your script) - to stdout
+(so cron would send you an email if something goes wrong).</p>
+
+<p>But when running the script interactively,
+you might want to see <em>all</em> output at your screen.</p>
+
+<p>To do this, add this somewhere at the top
+(before first <code>echo</code> command):</p>
+
+<pre><code># redirect output to a file if running non-interactively
+if test -t 1; then
+    exec 3&gt;&amp;1 &amp;&gt; &gt;(tee "$TODAY.log")
+else
+    exec 5&gt;&amp;1
+    exec 1&gt;"$TODAY.log" 2&gt;&amp;1 3&gt; &gt;(sed "1s|^|$DST:\n|" &gt;&amp;5)
+
+fi
+</code></pre>
+
+<p>and then, all "error" messages can be redirected to stream 3
+in order to be emailed when the script is run via cron.</p>
+
+<p>sed also adds a header - this is useful if one cron task is used to run several
+backup tasks.</p>
+
+<h2>Listing all changes</h2>
+
+<p>Running rsync with <code>--verbose</code> parameter shows us copied (added or modified)
+files, but not deleted. To have a better analysis of changes in your log file,
+add this command at the very end of the script:</p>
+
+<pre><code>$RSYNC --dry-run --itemize-changes "$TODAY/" "$LAST"
+</code></pre>
+
+<h2>Check if there is something to do - different way</h2>
+
+<p>In some cases (when destination is on a slow and noisy disk, for example),
+we would rather avoid touching it when there is nothing to do.
+So instead of running rsync in <code>--dry-run</code> mode, we can run it in "list" mode,
+when it lists all the files and their properties
+and compare this run with the previous one:</p>
+
+<pre><code>if test ! -z "$FILE_LIST"; then
+    $RSYNC $SRC &gt;"$FILE_LIST.new"
+    diff -q "$FILE_LIST" "$FILE_LIST.new" &amp;&gt;/dev/null &amp;&amp; exit 0
+    mv "$FILE_LIST.new" "$FILE_LIST"
+fi
+</code></pre>
+
+<p>Note that we will still need to run <code>rsync --dry-run</code> to estimate size of transfer
+(and amount of disk space needed).</p>
+
+<p>This is pure optional step - it removes one rsync operation from the target device
+at the cost of extra rsync operation on the source.
+You chose what's better!</p>
+
+<h2>Cleaning up in multiple folders</h2>
+
+<p>If you run this script every hour (or even every ten minutes),
+they you soon will start deleting some (older) backups,
+and might want to keep daily, weekly, and monthly versions by simple command:</p>
+
+<pre><code>cp -al $LAST "/backup-daily/$(date +%Y-%m-%d)"
+</code></pre>
+
+<p>Or maybe you backup from several remote machines to one "backup server".</p>
+
+<p>Anyway, you might end up in a situation when you want to clean from several
+directories, not only where you copy to.</p>
+
+<p>Most probably, you want to keep <em>same amount</em> of snapshots in all of them.</p>
+
+<p>To do this, add these options on the top of the script:</p>
+
+<pre><code>ALLOW_DELETE=1
+CLEAN_DIRS="/backup/*"
+PRESERVE_DIRS_LIST="$DST/.preserve"
+DELETE_DIRS_LIST="$DST/.delete"
+TO_SORT_LIST="$DST/.to_sort"
+</code></pre>
+
+<p>and replace the simple <code>while check_space; do</code> loop from above with this behemoth:</p>
+
+<pre><code>while check_space; do
+    echo need to clean up
+    if [ "$ALLOW_DELETE" -eq 0 ]; then
+        echo 'Need to clean up, but deleting files forbidden. Clean up manually, bye'&gt;&amp;3
+        exit 11
+    fi
+    # find a dir to delete
+    for i in $CLEAN_DIRS; do
+        ls -d "$i"/*/ | fgrep -v wip | tail -n $KEEP_DIRS &gt;$PRESERVE_DIRS_LIST
+        ls -d "$i"/*/ | fgrep -v -f $PRESERVE_DIRS_LIST &gt;$DELETE_DIRS_LIST
+        test -s $DELETE_DIRS_LIST || continue # print nothing if there's nothing to delete
+        echo -n "$(wc -l &lt;$DELETE_DIRS_LIST) " # note space at the end
+        cat $DELETE_DIRS_LIST | head -n 1
+    done &gt;$TO_SORT_LIST
+    OLDEST_FILE="$(cat $TO_SORT_LIST | sort -n | tail -n 1 | sed 's/^[0-9]* *//')"
+    if test -z "$OLDEST_FILE"; then
+        echo 'Deleted all i could, but still not enough space. Buy more disks, bye'&gt;&amp;3
+        exit 12
+    fi
+    # some logging before actual deleting
+    echo rm -rf "$OLDEST_FILE"
+    echo === $TODAY &gt;&gt;$DELETE_LOG
+    cat $TO_SORT_LIST | sort -n &gt;&gt;$DELETE_LOG
+    echo rm -rf "$OLDEST_FILE" &gt;&gt;$DELETE_LOG
+    rm -rf "$OLDEST_FILE"
+    if test -d "$OLDEST_FILE"; then
+        echo "Could not delete [$OLDEST_FILE]. Check permissions, bye"&gt;&amp;3
+        exit 13
+    fi
+done
+</code></pre>
+
+<p>Note that this also adds a variable <code>$ALLOW_DELETE</code> which can be set to 0 to
+forbid deletions. This might be useful if you know that destination should not
+run out of space - in this case deletion would be considered an error.</p>
+
+<p>Also, it doesn't delete *.log files which are usually kept in same directory -
+you can delete them periodically by running this script:</p>
+
+<pre><code>for f in /backup/*/*.log; do
+    [ -d "${f%.log}" ] || rm "$f"
+done
+</code></pre>
+
+<p>It will delete all *.log files, for which relevant directory does not exist.</p>
+
+<p>Maybe it's not the most elegant way, but deleting log files in the same loop as
+directories might delete the log file we're writing to itself!</p>
+
+<p>Also it checks that the directory was indeed deleted - otherwise, you might end
+up in an infinite loop - nasty stuff, happened to me once.</p>
+
+<h2>Cygwin considerations</h2>
+
+<p>If you happen to have Windows, you most probably want to install cygwin on it,
+in order to use SSH, rsync, and other good things.</p>
+
+<p>But when using Windows systems, you should be aware of some limitations:</p>
+
+<ul>
+<li><p>NTFS has different permissions model, so you probably don't want to copy
+file permission, owner, and group information:</p>
+
+<pre><code>test "$NTFS_DST" -eq 1 &amp;&amp; RSYNC="$RSYNC --no-perms --no-owner --no-group"
+</code></pre></li>
+<li><p>Under Cygwin, <code>df</code> doesn't report inodes, so you have to skip relevant checks.</p></li>
+</ul>
+
+<p>This will be shown in the big script below.</p>
+
+<h2>Resulting script (big)</h2>
+
+<p>With some debug output added.</p>
+
+<pre><code>#!/bin/bash
+
+test -z "$1" || SRC="$1"
+test -z "$2" || DST="$2"
+
+test -z "$SRC" &amp;&amp; { echo 'SRC not defined'; exit 1; }
+test -d "$DST" || { echo 'DST is not a dir'; exit 2; }
+DST="${DST%/}" # remove trailing slash
+
+test -z "$ALLOW_FIRST_RUN" &amp;&amp; ALLOW_FIRST_RUN=0
+
+test -z "$ALLOW_DELETE" &amp;&amp; ALLOW_DELETE=1
+test -z "$EXTRA_PERCENT" &amp;&amp; EXTRA_PERCENT=10
+test -z "$CLEAN_DIRS" &amp;&amp; CLEAN_DIRS="$DST"
+test -z "$KEEP_DIRS" &amp;&amp; KEEP_DIRS=10
+
+test -z "$NTFS_DST" &amp;&amp; NTFS_DST=0
+test -z "$IGNORE_23" &amp;&amp; IGNORE_23=0
+
+test -z "$TIMEOUT" &amp;&amp; TIMEOUT=30m
+test -z "$TIMEOUT_SMALL" &amp;&amp; TIMEOUT_SMALL=10m
+
+FLOCK_FILE="$DST/.lock"
+#FILE_LIST=
+DRY_RUN_OUTPUT="$DST/.dry-run"
+PRESERVE_DIRS_LIST="$DST/.preserve"
+DELETE_DIRS_LIST="$DST/.delete"
+TO_SORT_LIST="$DST/.to_sort"
+DELETE_LOG=/var/log/backup-delete.log
+
+test -z "$DATE_FORMAT" &amp;&amp; DATE_FORMAT="%F_%T"
+test -z "$TODAY" &amp;&amp; TODAY="$DST/$(date "+$DATE_FORMAT")"
+test -z "$RSYNC" &amp;&amp; RSYNC="rsync -a --no-inc-recursive --hard-links --fake-super"
+
+# http://stackoverflow.com/a/28930451
+function timeout_monitor() {
+    sleep "$1" &amp;
+    pid="$!"
+    trap "kill $pid; exit" SIGTERM
+    wait "$pid"
+    echo "Had to kill due to timeout. Please cleanup process group $2. Bye"
+    kill "$2"
+}
+timeout_monitor "$TIMEOUT" "$$" &amp;
+TIMEOUT_MONITOR_PID=$!
+trap "kill $TIMEOUT_MONITOR_PID" EXIT
+
+test "$NTFS_DST" -eq 1 &amp;&amp; RSYNC="$RSYNC --no-perms --no-owner --no-group"
+
+function NOT_CYGWIN() {
+    test "$(uname -o)" != "Cygwin"
+}
+
+IS_FIRST_RUN=0
+LAST="$(ls -d "$DST"/*/ 2&gt;/dev/null | grep -v wip | tail -n 1)"
+if [ -z "$LAST" ]; then
+    if [ "$ALLOW_FIRST_RUN" -eq 1 ]; then
+        LAST="$(mktemp -d)"
+        kill "$TIMEOUT_MONITOR_PID"
+        trap "rmdir $LAST" EXIT
+    else
+        echo "First run not allowed, but [$DST] is empty. bye"
+        exit 3;
+    fi
+fi
+
+# check that no other copy of this script is running
+exec 200&gt;"$FLOCK_FILE"
+flock -n 200 || exit 200
+
+
+# check if there was any change in the source
+# this is useful when we don't want to touch $DST
+# (for example, when it's on slow HDD)
+if test ! -z "$FILE_LIST"; then
+    timeout "$TIMEOUT_SMALL" $RSYNC "$SRC" &gt;"$FILE_LIST.new"
+    diff -q "$FILE_LIST" "$FILE_LIST.new" &amp;&gt;/dev/null &amp;&amp; exit 0
+    mv "$FILE_LIST.new" "$FILE_LIST"
+fi
+
+# check if there is something to do
+# Note that it's still needed even if we have a check above,
+# because there are commands below that are using $DRY_RUN_OUTPUT
+timeout "$TIMEOUT_SMALL" $RSYNC --dry-run --stats "$SRC" "$LAST" &gt;$DRY_RUN_OUTPUT
+grep -q 'Number of regular files transferred: 0' $DRY_RUN_OUTPUT &amp;&amp; exit 0
+
+# redirect output to a file if running non-interactively
+if test -t 1; then
+    exec 1&gt; &gt;(tee "$TODAY.log") 2&gt;&amp;1 3&gt;&amp;1
+else
+    exec 5&gt;&amp;1 # save original stdout, which gets emailed by cron
+    #exec 1&gt;"$TODAY.log" 2&gt;&amp;1 3&gt; &gt;(tee &gt;(sed "1s|^|$DST:\n|" &gt;&amp;5))
+    exec 1&gt;"$TODAY.log" 2&gt;&amp;1 3&gt; &gt;(sed "1s|^|$DST:\n|" &gt;&amp;5)
+fi
+
+# start logging
+echo "started $TODAY"
+
+# TODO: check that target device has enough space at all
+
+echo INFO: check disk space
+TRANSFER_SIZE=$(sed '/Total transferred file size/!d;s/[^0-9]//g' $DRY_RUN_OUTPUT)
+TOTAL_SPACE=$(df -B1 --output=size "$DST" | sed '1d')
+let EXTRA_FREE_SPACE=TOTAL_SPACE*EXTRA_PERCENT/100
+let FREE_SPACE_NEEDED=TRANSFER_SIZE+EXTRA_FREE_SPACE
+
+echo $TRANSFER_SIZE bytes in new files
+echo $EXTRA_FREE_SPACE extra free bytes
+echo $FREE_SPACE_NEEDED total space needed
+
+if NOT_CYGWIN; then # no inode info on Cygwin, sorry
+    CREATED_DIRS=$(sed '/Number of files/!d;s/.* dir: \([^ ]*\).*/\1/;s/[^0-9]//g' $DRY_RUN_OUTPUT)
+    CREATED_FILES=$(sed '/Number of regular files transferred/!d;s/[^0-9]//g' $DRY_RUN_OUTPUT)
+    TOTAL_INODES=$(df -B1 --output=itotal "$DST" | sed '1d')
+    let EXTRA_INODES=TOTAL_INODES*EXTRA_PERCENT/100
+    let INODES_NEEDED=CREATED_DIRS+CREATED_FILES+EXTRA_INODES
+
+    echo $CREATED_DIRS dirs created
+    echo $CREATED_FILES files created
+    echo $EXTRA_INODES extra inodes
+    echo $INODES_NEEDED total inodes needed
+fi
+
+# return status of 1 means "need to clear space"
+function check_space {
+    FREE_SPACE_AVAILABLE=$(df -B1 --output=avail "$DST" | sed '1d')
+    INODES_AVAILABLE=$(df --output=iavail "$DST" | sed '1d')
+    echo $FREE_SPACE_AVAILABLE space available
+    echo $INODES_AVAILABLE inodes available
+    if NOT_CYGWIN; then
+        test $FREE_SPACE_AVAILABLE -lt $FREE_SPACE_NEEDED -o $INODES_AVAILABLE -lt $INODES_NEEDED
+        return $?
+    else
+        test $FREE_SPACE_AVAILABLE -lt $FREE_SPACE_NEEDED
+        return $?
+    fi
+}
+
+while check_space; do
+    echo need to clean up
+    if [ "$ALLOW_DELETE" -eq 0 ]; then
+        echo 'Need to clean up, but deleting files forbidden. Clean up manually, bye'&gt;&amp;3
+        exit 11
+    fi
+    # find a dir to delete
+    for i in $CLEAN_DIRS; do
+        ls -d "$i"/*/ | fgrep -v wip | tail -n $KEEP_DIRS &gt;$PRESERVE_DIRS_LIST
+        ls -d "$i"/*/ | fgrep -v -f $PRESERVE_DIRS_LIST &gt;$DELETE_DIRS_LIST
+        test -s $DELETE_DIRS_LIST || continue # print nothing if there's nothing to delete
+        echo -n "$(wc -l &lt;$DELETE_DIRS_LIST) " # note space at the end
+        cat $DELETE_DIRS_LIST | head -n 1
+    done &gt;$TO_SORT_LIST
+    OLDEST_FILE="$(cat $TO_SORT_LIST | sort -n | tail -n 1 | sed 's/^[0-9]* *//')"
+    if test -z "$OLDEST_FILE"; then
+        echo 'Deleted all i could, but still not enough space. Buy more disks, bye'&gt;&amp;3
+        exit 12
+    fi
+    # some logging before actual deleting
+    echo rm -rf "$OLDEST_FILE"
+    echo === $TODAY &gt;&gt;$DELETE_LOG
+    cat $TO_SORT_LIST | sort -n &gt;&gt;$DELETE_LOG
+    echo rm -rf "$OLDEST_FILE" &gt;&gt;$DELETE_LOG
+    rm -rf "$OLDEST_FILE"
+    if test -d "$OLDEST_FILE"; then
+        echo "Could not delete [$OLDEST_FILE]. Check permissions, bye"&gt;&amp;3
+        exit 13
+    fi
+done
+
+echo INFO: main sync operation
+$RSYNC --human-readable --stats --link-dest="$LAST" "$SRC" "$TODAY.wip"
+
+STATUS=$?
+echo INFO: exit if somethig is wrong
+if test ! \( $STATUS -eq 0 -o \( $STATUS -eq 23 -a $IGNORE_23 -eq 1 \) \); then
+    echo "something went wrong. Please see log file for details. bye" &gt;&amp;3
+    echo "$TODAY.log" &gt;&amp;3
+    exit $STATUS
+fi
+
+sleep 5
+mv "$TODAY.wip" "$TODAY"
+
+echo INFO: list of changes
+# note: unlike "main sync operation" above, this will list deleted files, too
+timeout "$TIMEOUT_SMALL" $RSYNC --dry-run --itemize-changes "$TODAY/" "$LAST"
+
+echo "INFO: finish at $(date "+$DATE_FORMAT")"
+</code></pre>
+
+<p>This script is supposed to be universal and called by another scripts like this:</p>
+
+<pre><code>/usr/local/bin/backup.sh /2backup/ /backup-local
+</code></pre>
+
+<h2>Remote backups</h2>
+
+<p>Thanks to rsync magic, remote backups are as easy as local ones, with few considerations:</p>
+
+<ul>
+<li><p>the script should be run on the backup server
+(due to local <code>df</code> and <code>rm -rf</code> commands).
+Actually, it's also recommended to do it this way by some security experts
+[citation needed].</p></li>
+<li><p>it's best if the backup machine won't have root access to the system it's backing up - to do it, one can <a href="http://www.jveweb.net/en/archives/2011/01/running-rsync-as-a-daemon.html#jveweb_en_021_06">run rsync as a daemon</a> <a href="http://archive.is/mVD91#84%">(archived version)</a>.</p></li>
+<li><p>to encrypt files before transferring, we can use encfs in <code>--reverse</code> mode, but keep in mind to keep hold of your <code>.encfs*</code> file!</p></li>
+<li><p>if you're backing to multiple machines,
+to avoid keeping the <code>--exclude-fr‌om</code> file in sync between all scripts,
+we can use <a href="https://github.com/gburca/rofs-filtered">rofs-filtered</a> to exclude files on the <em>source</em> machine before rsync is run.
+But keep in mind to add <code>-ouse_ino</code> at the end if you want to keep hardlinks (<a href="https://sourceforge.net/p/fuse/mailman/fuse-devel/thread/4A9BA4F7.9090207@amazon.com/">ref</a> <a href="http://archive.is/vvvVk">(archived)</a>)</p></li>
+</ul>
+
+<h2>Alternative view</h2>
+
+<p>One might want to have an alternative view on the backup tree:</p>
+
+<ul>
+<li><p>some want to see all versions of each file in one folder</p></li>
+<li><p>others might want to see a "normal" tree of files, each file representing a "previous" version of backed-up file.</p></li>
+</ul>
+
+<p>To get them, one could use this script (it creates symlinks, so no space considerations needed):</p>
+
+<pre><code>LAST="$(ls -d $DST/*/ 2&gt;/dev/null | grep -v wip | tail -n 1)"
+FILES_LIST="/tmp/interesting-files"
+
+rm -rf /backup-older
+rm -rf /backup-prev
+
+time find "$LAST" -type f -printf '%P\n' | sed 's/\([ \o47()"&amp;;\\]\)/\\\1/g;s/\o15/\\r/g' | sed 's!\(.*\)!ls -U -i /backup-local/*/\1!' | sh | sed 's/ /$/g;s!\([0-9$]*\)$/backup-local/\([0-9_-]*\)\(.*\)/\([!/]*\)!\2 \1 \3 \4!' | uniq -f 1 | uniq -f 2 -D &gt;"$FILES_LIST"
+
+#/backup-older
+cat "$FILES_LIST" | sed 's!\([^ ]*\) \([^ ]*\) \([^ ]*\) \(.*\)!mkdir -p "/backup-older\3/\4"; ln -s "/backup-local/\1\3/\4" "/backup-older\3/\4/\1-\4"!;s/\$/ /g' | sh
+
+#/backup-prev
+cat "$FILES_LIST" | tac | uniq -f 2 | sed 's!\([^ ]*\) \([^ ]*\) \([^ ]*\) \(.*\)!mkdir -p "/backup-prev\3"; ln -s "/backup-local/\1\3/\4" "/backup-prev\3/\4"!;s/\$/ /g' | sh
+</code></pre>
+
+<p>One might think about using <code>rsync --backup-dir</code> instead,
+but it has a slight drawback of forever keeping deleted files.</p>
+
+<h2>History</h2>
+
+<ul>
+<li><p>This post started on December 8, 2015
+as a collection of useful links.</p></li>
+<li><p>At February 5, 2016 I started implementing it as a local version,
+together with "renamed folders" detection algorithm.</p></li>
+<li><p>The final shape of this script (with space checking) was finally implemented
+at the end of March 2016.</p></li>
+<li><p>In the May 2016 few optional parts were added:
+multiple folders, Cygwin, extra check.</p></li>
+<li><p>In October 2016, script timeout and more checks were added
+(first run, allow_delete, and if deletion succeeded).
+Also, logs now show also deleted files
+(via <code>rsync --itemize-changes</code> instead of <code>rsync --verbose</code>).</p></li>
+</ul>
+
+<p>This post will be updated periodically.
+To be informed on updates, please write me
+(email address at the bottom of this page)
+a short free-form message.</p>
+
+<script src="/microlight.js"></script>
+
+<script>
+function mktoc(){
+    var toc="<div class='toc'>";
+    var list=document.querySelectorAll('h2');
+    for(var i=0;i<list.length;i++){
+        list[i].id=list[i].innerText;
+        toc+="<a href=\"#"+list[i].innerText+"\">"+list[i].innerText+"</a>";
+    }
+    toc+="</div>";
+    document.body.innerHTML+=toc;
+    }
+setTimeout('mktoc()',100);
+</script>
+		</div>
+		<!-- end rsync-backups -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

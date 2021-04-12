@@ -1,0 +1,76 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Flickr background for a webpage</title>
+<meta name="description" content="Another attempt to add something nice to this blog">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin flickr-background-for-a-webpage -->
+		<div class="post">
+			<h2><a href="flickr-background-for-a-webpage.html">Flickr background for a webpage</a></h2>
+			<p class="trivia">
+				Created: 2017-06-17 &mdash; modified: 2018-08-03 &mdash; tags: Javascript
+			</p>
+			<p class="intro">Another attempt to add something nice to this blog</p>
+			<p>Having <a href="flickr-feed-generator-for-xscreensaver.html">nice background</a> on a lock screen,
+why not add a similar to the website?</p>
+
+<p>It's easy to achive just by using this code:</p>
+
+<div>
+<pre id="aa"></pre>
+
+<script id="a1">
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', '/upload/flickr.rss', false);
+xmlhttp.send(null);
+if(xmlhttp.status == 200) {
+  link=xmlhttp.responseText.match(/https:[^"]*/)[0];
+  document.body.style.background='url('+link+') fixed';
+  document.body.style.backgroundSize='cover';
+}
+</script>
+
+<script>
+    gebi=function(q){return document.getElementById(q)}
+    gebi('aa').innerHTML=gebi('a1').innerHTML;
+</script>
+
+<script src="/microlight.js"></script>
+<script>microlight.reset('pre')</script>
+<style>
+#wrap, #menu {background-color: rgba(255,255,255,0.7);}
+#header {background-color: rgba(249,249,249,0.9);}
+</style>
+</div>
+
+<p>It just takes the first link from a generated rss feed and sets it as background.</p>
+
+<p>So background of this page changes every 3 hours. Please come back in 3 hours! ;-)</p>
+
+<p>Also note my previous experiments with the background: <a href="colors.html">Colors</a>, <a href="colors2.html">Colors 2</a>.</p>
+		</div>
+		<!-- end flickr-background-for-a-webpage -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

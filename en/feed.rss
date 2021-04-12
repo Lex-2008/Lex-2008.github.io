@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel><title>Notes</title><link>http://alexey.shpakovsky.ru/en</link>
+<description>Notes about different stuff</description><language>en</language>
+<lastBuildDate>Wed, 14 Dec 2016 12:14:20 +0100</lastBuildDate>
+<pubDate>Wed, 16 Nov 2016 10:14:20 +0100</pubDate>
+<atom:link href="http://alexey.shpakovsky.ru/en/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+                RSS end-of-life
+</title><description>
+                Since none really was reading my RSS feed, I'm shutting it down.
+                To whoever reads this: whoever you are, you were the only reader of my RSS feed.
+                Please write me an email ('alexey.shpakovsky.ru'.replace('.','@'))
+                and I'll keep you updated on all updates.
+
+                I've switched to a new static-site generator, which is faster then bashblog,
+                but has less features - no RSS, for example.
+</description><link>http://alexey.shpakovsky.ru/en/lazyblog.html</link>
+<guid>http://alexey.shpakovsky.ru/en/lazyblog.html</guid>
+<dc:creator>Alexey Shpakovsky</dc:creator>
+<pubDate>Wed, 16 Nov 2016 10:14:20 +0100</pubDate>
+</item>
+</channel></rss>

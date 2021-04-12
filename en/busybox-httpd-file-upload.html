@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>busybox httpd file upload</title>
+<meta name="description" content="busybox has a nice http webserver module, even with cgi support - and you can use it to upload files, too">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin busybox-httpd-file-upload -->
+		<div class="post">
+			<h2><a href="busybox-httpd-file-upload.html">busybox httpd file upload</a></h2>
+			<p class="trivia">
+				Created: 2020-01-06 &mdash; modified: 2020-02-03 &mdash; tags: bash net linux
+			</p>
+			<p class="intro">busybox has a nice http webserver module, even with cgi support - and you can use it to upload files, too</p>
+			<p><code>busybox httpd -vvfp 8000</code> is a very handy command when you need to quickly spin up a web server to share some files.
+Another option is <code>python -m SimpleHTTPServer 8000</code>.</p>
+
+<p>But what if you need to share some file, and you don't have shell access to it (like, someone's phone)?
+Then you can just use these two files to quickly upload it to your Linux machine!</p>
+
+<h2>post_upload.htm</h2>
+
+<pre><code>&lt;html&gt;
+&lt;body&gt;
+&lt;form action=/cgi-bin/post_upload.cgi method=post enctype=multipart/form-data&gt;
+File to upload: &lt;input type=file name=file1&gt; &lt;input type=submit&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h2>post_upload.cgi</h2>
+
+<p>put this file into the <code>cgi-bin</code> dir.</p>
+
+<pre><code>#!/bin/sh
+
+# POST upload format:
+# -----------------------------29995809218093749221856446032^M
+# Content-Disposition: form-data; name="file1"; filename="..."^M
+# Content-Type: application/octet-stream^M
+# ^M    &lt;--------- headers end with empty line
+# file contents
+# file contents
+# file contents
+# ^M    &lt;--------- extra empty line
+# -----------------------------29995809218093749221856446032--^M
+
+file=/tmp/$$-$RANDOM
+
+CR=`printf '\r'`
+
+# CGI output must start with at least empty line (or headers)
+printf '\r\n'
+
+IFS="$CR"
+read -r delim_line
+IFS=""
+
+while read -r line; do
+    test x"$line" = x"" &amp;&amp; break
+    test x"$line" = x"$CR" &amp;&amp; break
+done
+
+cat &gt;"$file"
+
+# We need to delete the tail of "\r\ndelim_line--\r\n"
+tail_len=$((${#delim_line} + 6))
+
+# Get and check file size
+filesize=`stat -c"%s" "$file"`
+test "$filesize" -lt "$tail_len" &amp;&amp; exit 1
+
+# Check that tail is correct
+dd if="$file" skip=$((filesize - tail_len)) bs=1 count=1000 &gt;"$file.tail" 2&gt;/dev/null
+printf "\r\n%s--\r\n" "$delim_line" &gt;"$file.tail.expected"
+if ! diff -q "$file.tail" "$file.tail.expected" &gt;/dev/null; then
+    printf "&lt;html&gt;\n&lt;body&gt;\nMalformed file upload"
+    exit 1
+fi
+rm "$file.tail"
+rm "$file.tail.expected"
+
+# Truncate the file
+dd of="$file" seek=$((filesize - tail_len)) bs=1 count=0 &gt;/dev/null 2&gt;/dev/null
+
+printf "&lt;html&gt;\n&lt;body&gt;\nFile upload has been accepted"
+</code></pre>
+
+<p>Uploaded files will appear in <code>/tmp/</code> directory with random numbers.
+This can be changed, ofc.</p>
+
+<p>from <a href="https://github.com/mhfan/busybox/blob/master/networking/httpd_post_upload.txt">busybox repo</a>.</p>
+
+<script src="/microlight.js"></script>
+		</div>
+		<!-- end busybox-httpd-file-upload -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>
