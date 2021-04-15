@@ -44,6 +44,7 @@ document.body.onload=function(){
 Messages from the addresses below managed to avoid my [spam filter][]:
 
 [c]: # (new things go here)
+* "Nancy" gera@plustouristik.de
 * "Order" marryogh5266@gmail.com
 * "Mrs. Patra" joanfinancefirm@gmail.com <contact@joanfinancefirm.com> +919144909366
 * "Shipment" orvilleserl836@gmail.com
