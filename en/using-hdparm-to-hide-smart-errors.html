@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>Using hdparm to hide S.M.A.R.T. errors</title>
+<meta name="description" content="TL;DR: <code>sudo hdparm --repair-sector <i>SECTOR</i> <i>/dev/sdx</i></code>">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin using-hdparm-to-hide-smart-errors -->
+		<div class="post">
+			<h2><a href="using-hdparm-to-hide-smart-errors.html">Using hdparm to hide S.M.A.R.T. errors</a></h2>
+			<p class="trivia">
+				Created: 2020-08-21 &mdash; modified: 2021-05-03 &mdash; tags: linux
+			</p>
+			<p class="intro">TL;DR: <code>sudo hdparm --repair-sector <i>SECTOR</i> <i>/dev/sdx</i></code></p>
+			<h2>Intro</h2>
+
+<p>If S.M.A.R.T. self-tests started failing on you (you're both running and monitoring them, are you?), you might try to force drive to <em>relocate</em> it.
+Note that proposed method is <strong>destructive</strong>, meaning whatever was written in this sector is erased with zeros.
+It can be contents of some file, filesystem structure, etc.
+Hence, think about preserving your data first!
+If you care about it, ofc.
+Hopefully your filesystem supports data checksums, you have backups, and they're located on a filesystem that supports data checksums.</p>
+
+<h2>Problem</h2>
+
+<p>Let's consider, for example, that output of <code>sudo smartctl -a /dev/sda</code> has this snippet, among others:</p>
+
+<pre><code>&lt;…&gt;
+SMART Self-test log structure revision number 1
+Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
+# 1  Extended offline    Completed: read failure       90%      5196         318795064
+# 2  Short offline       Completed without error       00%      5194         -
+&lt;…&gt;
+</code></pre>
+
+<p>Here you can clearly see that:</p>
+
+<p>a) Offline test ended with read failure;</p>
+
+<p>b) It happened at LBA (sector) number 318795064.</p>
+
+<p>Probably this happened due to some local problem on the surface of harddisk platter.</p>
+
+<h2>Solution</h2>
+
+<p>To force drive into discarding this surface location and use some reserve space for this LBA sector, issue this command:</p>
+
+<pre><code>sudo hdparm --repair-sector 318795064 --yes-i-know-what-i-am-doing /dev/sda
+</code></pre>
+
+<p>where 318795064 is that number from <code>smartctl</code> output, and <code>/dev/sda</code> is the disk name.</p>
+
+<p>Once again, friendly reminder that it will overwrite this sector with zeros, wiping whatever was stored there previously.</p>
+
+<p>Also worth noting that sometimes surface problems span several LBA sectors, so you might want to run the above <code>hdparm</code> command for several consecutive sectors, starting from the one mentioned in <code>smartctl</code> output.</p>
+
+<p>To test disk surface starting from specific LBA sector, you can use the following command:</p>
+
+<pre><code>smartctl -t select,318795064-max /dev/sda
+</code></pre>
+
+<p><a href="https://serverfault.com/a/641135">This</a> StackOverflow answer has a nice script automating this loop of "find bad sector - overwrite it with 0s - repeat".</p>
+		</div>
+		<!-- end using-hdparm-to-hide-smart-errors -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

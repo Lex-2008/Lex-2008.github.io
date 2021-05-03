@@ -1,0 +1,384 @@
+<!DOCTYPE html> <!-- vim: set sw=3 ts=3: -->
+<html>
+
+<body>
+	<style>
+html { height: 100%;}
+body { height: 98%; overflow: hidden;}
+#map_frame, #canvas {
+/* width: 45%; */
+    display: inline-block;
+}
+#main_frame {
+	width: 50%;
+	height: 100%;
+	overflow-y:scroll;
+    display: inline-block;
+    vertical-align: top;
+}
+table, th, td {border: 1px solid black;}
+#companyTab table { width: 100%}
+#companyBids input[type="number"] { width: 13ex}
+#companyAutobids_paybackValue {width: 6ex}
+#shipBuy0Amount, #shipBuy1Amount, #shipBuy2Amount {width: 7ex}
+
+	</style>
+	<!-- <fieldset id="map_frame"> -->
+	<!-- 	<legend>Map</legend> -->
+		<canvas id="canvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>
+	<!-- </fieldset> -->
+
+	<main id="main_frame">
+		<style>#main_frame > section {display:none;}</style>
+		<nav>
+			<button class="tablinks" id="shipLink" onclick="ui.renderShipTab()">Ship</button>
+			<button class="tablinks" id="companyLink" onclick="ui.renderCompanyTab()">Buildings</button>
+			<button class="tablinks" id="countryLink" onclick="ui.renderCountryTab()">Planets</button>
+		</nav>
+
+		<section id="shipTab">
+			<fieldset>
+				<legend>Your ship</legend>
+				<!-- color: <input type="color" id="shipColor"> <br> -->
+				max cargo: <b id="shipMaxCargo"></b>
+				<button onclick="ui.shipIncreaseCargo()">increase</button>
+			</fieldset>
+			<fieldset>
+				<legend>Current Planet: <span id="shipCurrentPlanet"></span></legend>
+				Your money: <span id="shipMoney"></span>
+				<table>
+					<tr><th></th><th>Price</th><th colspan="3">Your Ship | Planet Storage</th></tr>
+					<tr><th>Fuel</th>
+						<td><span id="ship0Cost"></span></td>
+						<td><span id="ship0Your"></span></td>
+						<td>
+							<button onClick="ui.shipBuy(1,0)"> &lt; buy</button>
+							<input type="number" id="shipBuy0Amount" value="1">
+							<button onClick="ui.shipBuy(-1,0)"> sell &gt;</button>
+						</td>
+						<td><span id="ship0Planet"></span></td>
+					</tr>
+					<tr><th>Ore</th>
+						<td><span id="ship1Cost"></span></td>
+						<td><span id="ship1Your"></span></td>
+						<td>
+							<button onClick="ui.shipBuy(1,1)"> &lt; buy</button>
+							<input type="number" id="shipBuy1Amount" value="1">
+							<button onClick="ui.shipBuy(-1,1)"> sell &gt;</button>
+						</td>
+						<td><span id="ship1Planet"></span></td>
+					</tr>
+					<tr><th>Robots</th>
+						<td><span id="ship2Cost"></span></td>
+						<td><span id="ship2Your"></span></td>
+						<td>
+							<button onClick="ui.shipBuy(1,2)"> &lt; buy</button>
+							<input type="number" id="shipBuy2Amount" value="1">
+							<button onClick="ui.shipBuy(-1,2)"> sell &gt;</button>
+						</td>
+						<td><span id="ship2Planet"></span></td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset>
+				<legend>Neighbor Planet:
+					<select id="shipNeighbour" onchange="ui.renderShipNeighbour(this.value)"></select>
+				</legend>
+				<table>
+					<tr><th></th><th>Price</th><th>Profit per one</th><th>Max profit</th></tr>
+					<tr><th>Fuel</th>
+						<td><span id="ship0NeighbourPrice"></span></td>
+						<td><span id="ship0NeighbourProfit1"></span></td>
+						<td><span id="ship0NeighbourProfitMax"></span></td>
+					</tr>
+					<tr><th>Ore</th>
+						<td><span id="ship1NeighbourPrice"></span></td>
+						<td><span id="ship1NeighbourProfit1"></span></td>
+						<td><span id="ship1NeighbourProfitMax"></span></td>
+					</tr>
+					<tr><th>Robots</th>
+						<td><span id="ship2NeighbourPrice"></span></td>
+						<td><span id="ship2NeighbourProfit1"></span></td>
+						<td><span id="ship2NeighbourProfitMax"></span></td>
+					</tr>
+				</table>
+				<br>
+				<button onClick="ui.shipTravel()">Travel</button>
+			</fieldset>
+			<!--
+			<fieldset id="shipCanAttack">
+				<legend>Attack / colonise</legend>
+				Target planet:
+				<select id="shipAttackTarget"></select>
+				<button onClick="ui.shipAttack()">Attack / colonise</button>
+			</fieldset>
+			-->
+		</section>
+		<section id="shipFliesTab">
+		</section>
+
+		<section id="companyNoBidsTab">
+			<!-- shown when you have 0 buildings, can buy 0 buildings, and current planets country has 0 bids -->
+			You can't buy a building at this time.
+		</section>
+		<section id="companyNoMoneyTab">
+			<!-- shown when you have 0 buildings and can buy 0 buildings, but current planets country has some bids -->
+			You need to nave at least
+			<b id="companyNoMoneyAmount"></b> <span id="companyNoMoneyCurrency"></span>
+			to buy a building.
+		</section>
+		<section id="companyTab">
+			<fieldset open>
+				<legend>Your money</legend>
+				<div id="companyMoney"></div>
+				<i id="companyNegativeMoney">Hint: negative money? no problem! Just wait and see your buildings bringing you the money.</i>
+			</fieldset>
+
+			<fieldset open>
+				<legend>Your buildings</legend>
+				<div id="companyNoBuildings">
+					You have no buildings at this time. Place some bets to get some!
+				</div>
+				<div id="companyHasBuildings">
+				<i>Hint: there's nothing you can do about them.</i>
+				<table>
+					<thead><tr><th>Planet</th><th>Kind</th><th>Count</th><th>Profit</th></tr></thead>
+					<tbody id="companyBuildings"></tbody>
+				</table>
+				</div>
+			</fieldset>
+			<fieldset open>
+				<legend>Auto-bids</legend>
+				<label><input type="radio" name="companyAutobid" id="companyAutobids_no"
+					oninput="ui.currentPlayer.company.autobid='no'"> Do not automatically place any bids</label>
+				<br>
+				<label><input type="radio" name="companyAutobid" id="companyAutobids_max"
+					oninput="ui.currentPlayer.company.autobid='max'"> Auto place all bids yo can</label>
+				<br>
+				<label><input type="radio" name="companyAutobid" id="companyAutobids_payback"
+					oninput="ui.currentPlayer.company.autobid='payback'"> Place bids with payback period</label>
+				<label> of <input type="number" id="companyAutobids_paybackValue"
+					oninput="ui.currentPlayer.company.autobidPaybackValue=this.value"> turns</label>
+			</fieldset>
+			<fieldset open>
+				<legend>Current bids</legend>
+				<div id="companyNoBids">
+					Currently there are no bids for you.
+				</div>
+				<div id="companyHasBids">
+				<table>
+					<thead>
+						<!-- <tr>
+							<th colspan="2">Planet</th>
+							<th colspan="2">Kind</th>
+							<th>Count</th>
+						</tr> -->
+						<tr>
+							<th>Profit</th>
+							<th colspan="2">Highest bids</th>
+							<th>Your bid</th> <!-- [x] bid [amount] [x] max -->
+						</tr>
+					</thead>
+					<tbody id="companyBids"></tbody>
+				</table>
+				<i>Hint: at the end of the day, winner is whoever offered the highest bid, but he pays only the 2nd
+					highest bid.</i>
+				</div>
+			</fieldset>
+			<button onclick="ui.turn()">Turn</button>
+			<button onclick="ui.currentPlayer.wantBids=true;ui.turn()">Wait until bids</button>
+		</section>
+
+		<section id="noCountryTab">
+			<!-- shown when you have 0 planets -->
+			You have no planets so far.
+		</section>
+		<section id="countryTab">
+		</section>
+
+		<section id="turnTab">
+		</section>
+	</main>
+
+
+
+	<script src="scroll.js"></script>
+	<script src="ui.js"></script>
+	<script src="player.js"></script>
+	<script src="planets.js"></script>
+	<script src="buildings.js"></script>
+	<script src="companies.js"></script>
+	<script src="countries.js"></script>
+	<script src="timeline.js"></script>
+	<script src="delaunator.min.js"></script>
+	<script>
+
+		function shuffle(array) {
+			return array.map((a) => ({ sort: Math.random(), value: a }))
+				.sort((a, b) => a.sort - b.sort)
+				.map((a) => a.value)
+		}
+
+		function drawTriangle(triangle, options) {
+			var xx = triangle.map((planet) => planet.x);
+			var yy = triangle.map((planet) => planet.y);
+			if (Math.max(...xx) < options.minx) return;
+			if (Math.min(...xx) > options.maxx) return;
+			if (Math.max(...yy) < options.miny) return;
+			if (Math.min(...yy) > options.maxy) return;
+			// console.log('triangle in view');
+			if (triangle[0].owner != triangle[1].owner || triangle[1].owner != triangle[2].owner) return;
+			// console.log('1-owner triangle', triangle[0].owner);
+			if (triangle[0].owner == null || triangle[0].owner != triangle[1].owner || triangle[1].owner != triangle[0].owner) return;
+			// console.log('triangle to draw', triangle[0].owner.color);
+			options.ctx.fillStyle = triangle[0].owner.color;
+			options.ctx.beginPath();
+			options.ctx.moveTo(triangle[0].x, triangle[0].y);
+			options.ctx.lineTo(triangle[1].x, triangle[1].y);
+			options.ctx.lineTo(triangle[2].x, triangle[2].y);
+			options.ctx.closePath();
+			options.ctx.fill();
+		}
+
+		// function drawLine(x1, y1, x2, y2, options) {
+		function drawLine(a, b, options) {
+			if (!a.owner && !b.owner) return;
+			var x1 = a.x; var y1 = a.y; var x2 = b.x; var y2 = b.y;
+			if (x1 < options.minx && x2 < options.minx) return;
+			if (x1 > options.maxx && x2 > options.maxx) return;
+			if (y1 < options.miny && y2 < options.miny) return;
+			if (y1 > options.maxy && y2 > options.maxy) return;
+			options.ctx.beginPath();
+			options.ctx.moveTo(x1, y1);
+			options.ctx.lineTo(x2, y2);
+			options.ctx.stroke();
+		}
+
+		function drawPlanet(planet, i, options) {
+			if (planet.x < options.minx || planet.x > options.maxx || planet.y < options.miny || planet.y > options.maxy) return;
+			var z = options.scale;
+			if (planet.owner) {
+				options.ctx.fillStyle = planet.owner.color;
+			} else {
+				options.ctx.fillStyle = 'lightgray';
+			}
+			options.ctx.beginPath();
+			options.ctx.arc(planet.x * z, planet.y * z, 7, 0, 6.3);
+			options.ctx.fill();
+			options.ctx.fillStyle = 'black';
+			if (!planet.owner && ![...planet.neighbours].some(planet => planet.owner)) return;
+			if (z < 30) return; // show text only on high zoom levels
+			var lines = planet.getText(i);
+			var tms = lines.map(line => options.ctx.measureText(line));
+			var width = Math.max(...tms.map(tm => tm.width));
+			var heights = tms.map(tm => tm.actualBoundingBoxAscent + tm.actualBoundingBoxDescent);
+			var height = heights.reduce((a, v) => a + v, 0);
+			var y = planet.y * z;
+			options.ctx.clearRect(planet.x * z - 1, y - 1, width + 2, height + 2);
+			for (var i = 0; i < lines.length; i++) {
+				options.ctx.fillText(lines[i], planet.x * z, y);
+				y += heights[i];
+			};
+		}
+
+		function draw(options) {
+			options.ctx.textBaseline = 'top';
+			window.options = options;
+			options.ctx.beginPath();
+			options.ctx.lineWidth = 1 / options.scale;
+			// first draw all triangles
+			for (var i = 0; i < planets.triangles.length; i++) {
+				drawTriangle(planets.triangles[i], options);
+			}
+			options.ctx.fillStyle = 'black';
+			// then draw all lines
+			for (var i = 0; i < planets.triangles.length; i++) {
+				var row = planets.triangles[i];
+				drawLine(row[0], row[1], options);
+				drawLine(row[0], row[2], options);
+				drawLine(row[1], row[2], options);
+				// drawLine(row[0].x, row[0].y, row[1].x, row[1].y, options);
+				// drawLine(row[1].x, row[1].y, row[2].x, row[2].y, options);
+				// drawLine(row[0].x, row[0].y, row[2].x, row[2].y, options);
+			}
+			// for (var x = Math.ceil(options.minx/10)*10; x < options.maxx; x+=10) {
+			// 		drawLine(x, options.miny, x, options.maxy, options);
+			// 	}
+			// for (var y = Math.ceil(options.miny/10)*10; y < options.maxy; y+=10) {
+			// 		drawLine(options.minx, y, options.maxx, y, options);
+			// 	}
+			// then draw planets, but not on very low zoom levels
+			if (options.scale < 10) return;
+			var z = options.scale;
+			options.ctx.save();
+			options.ctx.scale(1 / z, 1 / z);
+			for (var i = 0; i < planets.list.length; i++) {
+				drawPlanet(planets.list[i], i, options);
+			}
+			options.ctx.restore();
+		};
+
+
+	// country names from https://www.seventhsanctum.com/generate.php?Genname=sfgovernment
+	// var countryNames = shuffle([ 'Collective Czardom', 'Collective of Territories',
+	// 	'Constellations Principality', 'Cooperative of Worlds', 'Electorate of Suns',
+	// 'Federation of Constellations','Free Oligarcy']);
+	var countryNames = shuffle([ 'Ginnaoter', 'Yovoitis', 'Pungillon', 'Ozao',
+		'Xuturn', 'Evis', 'Traruclite', 'Strukonerth']);
+	// // currency names from https://www.fantasynamegenerators.com/currency-names.php
+	// var currencyNames = shuffle([ 'Glaisars', 'Qlyfodes', 'Glutacas', 'Cehsos', 'Eyes', 'Souls', 'Dimes', 'Coppers', 'Guilders', 'Krones', 'Kredits'])
+	var currencyNames = shuffle([ 'Glaisars', 'Qlyfodes', 'Glutacas', 'Cehsos','Kredits', 'Units', 'Krones']);
+
+
+		console.time('place');
+		planets.ensureSquareSurrounded(0, 0, 2);
+		var countries = [];
+		[20, 100, 120, 140, 220].forEach(i=>{
+			var country = new Country(countryNames.pop(), currencyNames.pop());
+			planets.list[i].colonise(country);
+			countries.push(country);
+			for (var neighbor of planets.list[i].neighbours) {
+				if(neighbor.owner) {continue};
+				neighbor.colonise(country);
+			}
+		});
+		// for (var neighbor of planets.list[40].neighbours) {
+		// 	if(neighbor.owner) {continue};
+		// 	neighbor.colonise(countries[2]);
+		// }
+		// timeline.loop(100);
+		var old_count = timeline.list.length;
+		console.timeEnd('place');
+		console.time('progress');
+		var central_country = planets.list[120].owner;
+		var has_contact=()=>timeline.list.filter(x=>x.owner==central_country).some(x=>x.neighbours&&[...x.neighbours].some(y=>y.owner && y.owner!=central_country))
+		while (!has_contact()) {
+			timeline.loop(10);
+		}
+		console.timeEnd('progress');
+		console.log('spent', timeline.passed, 'turns');
+		var canvas = document.getElementById('canvas');
+		canvas.width = window.innerWidth/2 - 2*canvas.offsetLeft;
+		canvas.height = window.innerHeight - 2*canvas.offsetTop;
+		var cdg = new CanvasDragZoom(canvas, draw, 50);
+
+		// setInterval(function () {
+		// 	timeline.next();
+		// 	cdg.redraw();
+		// }, 10);
+
+		// gm = new GameManager();
+		player = new Player(planets.list[120]);
+		// player.company.wallet.add(1000000, countries[2]);
+		ui = new UI();
+		timeline.loopUntilPlayer();
+		// ui.currentPlayer = player;
+		// ui.renderCompanyTab();
+
+		$('#main_frame style').innerHTML+=Array.apply(null,document.querySelectorAll("#main_frame > section")).map(a=>`#main_frame.${a.id} #${a.id} {display: block}`).join("\n");
+
+
+	</script>
+</body>
+
+</html>
