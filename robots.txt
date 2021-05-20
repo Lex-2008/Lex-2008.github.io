@@ -3,8 +3,9 @@ disallow: *.jpg
 disallow: *.JPG
 disallow: *.png
 disallow: /en/markdown.
-disallow: /private
 disallow: /cache
+disallow: /photos
+disallow: /private
 disallow: /robots.txt
 
 disallow: /Visiglyphs/
