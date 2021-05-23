@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<link rel="stylesheet" href="thumbs.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>Фото</title>
+<meta name="description" content="Фото что я снял">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="ru.html">Русский</a></li>
+		<li><a href="en.html">English</a></li>
+		<li><a href="/ru/">Блог</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Фото</a></h1>
+		<p>Фото что я снял</p>
+	</div>
+	<div id="content">
+		<div id="noscript">
+			Для полной функциональности этого фотоальбома необходимо включить JavaScript.
+			Вот <a href="https://www.enable-javascript.com/ru/">
+			инструкции, как включить JavaScript в вашем браузере</a>.
+		</div>
+		<div class="post">
+
+<!-- album begin -->
+<script src="names.js"> </script>
+<script src="texts.js"> </script>
+<script src="styles.js"> </script>
+<script src="comments.js"> </script>
+<div class="thumbnails"></div>
+
+<script>
+document.getElementById('noscript').style.display='none';
+lang=location.pathname.indexOf('ru')>0?'ru':'en';
+document.querySelector('.thumbnails').innerHTML=Object.keys(names).map(dir=>`
+	<fieldset>
+		<legend>${names[dir][lang]}</legend>
+		${texts[dir][lang]?texts[dir][lang]+'<br>':''}
+		${files[dir].filter(file=>styles[dir+'/'+file])
+		.map(file=>`<a href="${dir+'/'+file}" data-fancybox="gallery" style="${styles[dir+'/'+file]}"
+			data-caption="${names[dir][lang]}${all_comments[dir+'/'+file][lang]?': '+all_comments[dir+'/'+file][lang]:''}"></a>`).join(' ')}
+	</fieldset>`).join(' ');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- album end -->
+
+		</div>
+		<!-- end containers -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" title="Creative Commons Attribution-NonCommercial-NoDerivatives">CC BY-NC-ND</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

@@ -1,7 +1,4 @@
 user-agent: *
-disallow: *.jpg
-disallow: *.JPG
-disallow: *.png
 disallow: /en/markdown.
 disallow: /cache
 disallow: /photos
