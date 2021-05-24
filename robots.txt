@@ -3,7 +3,7 @@ disallow: /en/markdown.
 disallow: /cache
 disallow: /photos
 disallow: /private
-disallow: /robots.txt
+disallow: /unlisted/photos
 
 disallow: /Visiglyphs/
 disallow: /map.php
