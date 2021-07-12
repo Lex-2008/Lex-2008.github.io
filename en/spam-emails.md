@@ -21,6 +21,8 @@ Messages from the addresses below were rejected by my [spam filter][].
 
 <div id="auto"><table>
 	<!--# include virtual="/logshow/spam-emails.sh" -->
+<tr><td colspan=2 style="text-align:left">This line marks switch from live list (above) to stored data (below)</td></tr>
+	<!--# include file="spam-emails-3.htm" -->
 <tr><td colspan=2 style="text-align:left">This line marks switch from sendmail (below) to postfix (above)</td></tr>
 	<!--# include file="spam-emails-2.htm" -->
 </table>

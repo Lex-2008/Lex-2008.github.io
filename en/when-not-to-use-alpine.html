@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css" type="text/css">
+<title>When not to use Alpine</title>
+<meta name="description" content="When you use scripting languages and want to squeeze some performance.">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="/ru/">Русский</a></li>
+		<li><a href="/en/">English</a></li>
+		<li><a href="/photos/">Photos</a></li>
+		<li><a href="/private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href=".">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin when-not-to-use-alpine -->
+		<div class="post">
+			<h2><a href="when-not-to-use-alpine.html">When not to use Alpine</a></h2>
+			<p class="trivia">
+				Created: 2021-07-11 &mdash; modified: 2021-07-11 &mdash; tags: bash linux python
+			</p>
+			<p class="intro">When you use scripting languages and want to squeeze some performance.</p>
+			<h2>Intro</h2>
+
+<p><a href="https://alpinelinux.org/">Alpine</a> is a nice and small Linux distro, very popular among container creators.</p>
+
+<p>As many know, it uses <a href="https://musl.libc.org/about.html">musl libc</a> library (after all, it mentioned on the <a href="https://alpinelinux.org/">Alpine</a> website main page!),
+which is an alternative to more popular <a href="https://www.gnu.org/software/libc/">GNU glibc</a>.</p>
+
+<p>Unfortunately, it looks like it has some <a href="https://superuser.com/a/1234279">performance issues</a> with scripting languages like Python, PHP, and bash.</p>
+
+<p>And my experience confirms this.</p>
+
+<h2>Testing setup</h2>
+
+<p>Recently I converted my server setup to using separate <a href="https://github.com/Lex-2008/containers">containers</a> for various services:
+Postfix SMTP server, SquirrelMail webmail server, Baikal CardDav server, etc - see repo for details.
+It lets me have several containers running simultaneously, with different, even conflicting, programs:
+various OSes, webservers, etc.</p>
+
+<p>Test bench contains of two PHP services:</p>
+
+<ul>
+<li><p><a href="http://squirrelmail.org/">SquirrelMail</a> webmail (latest stable version snapshots (1.4.23-svn)) under php7.4 with <a href="https://github.com/Lex-2008/abook_carddav">abook_carddav</a> plugin, using one of these:</p>
+
+<ul>
+<li><p>Either Lighttpd webserver under Alpine - <a href="https://github.com/Lex-2008/containers/blob/46f32475ae9887a88685d4c548c2712c036dfefa/squirrelmail.cont/build/Dockerfile">dockerfile</a></p></li>
+<li><p>Or Apache webserver under Debian - <a href="https://github.com/Lex-2008/containers/blob/4510700e6ae1cf18ec07770f2637ef2e8e8f72d0/squirrelmail.cont/build/Dockerfile">dockerfile</a> based on <a href="https://github.com/docker-library/php/blob/master/7.4/buster/apache/Dockerfile">php:7-alpine</a></p></li>
+</ul></li>
+<li><p><a href="https://sabre.io/baikal/">Baikal CardDav</a> server 0.8.0, using one of these:</p>
+
+<ul>
+<li><p>Either Lighttpd webserver with php7.4 under Alpine - <a href="https://github.com/Lex-2008/containers/blob/46f32475ae9887a88685d4c548c2712c036dfefa/baikal.cont/build/Dockerfile">dockerfile</a></p></li>
+<li><p>Or ngnix webserver with php8.0 under Debian - using prebuilt docker container from <a href="https://hub.docker.com/r/ckulka/baikal">ckulka/baikal</a> which is built on top of <a href="https://github.com/nginxinc/docker-nginx/blob/master/mainline/debian/Dockerfile">nginx:mainline</a>.</p></li>
+</ul></li>
+</ul>
+
+<p>In both cases, SquirrelMail was running behind reverse nginx proxy.</p>
+
+<p>I was loading main SquirrelMail addressbook page
+(<code>…/src/addressbook.php</code>)
+which was fething all contacts from CardDav address book,
+reloading that page 11 times and recording maximum, minimum, and median values.</p>
+
+<h2>Results</h2>
+
+<p>And the numbers look like this:</p>
+
+<ul>
+<li><p>633/702/953 (min/med/max) ms with both servers running Alpine.</p></li>
+<li><p>479/522/632 (min/med/max) ms with SquirrelMail running under Alpine and Baikal - under Debian;</p></li>
+<li><p>406/445/479 (min/med/max) ms when both servers run Debian;</p></li>
+</ul>
+
+<p>You can see more than 2x difference between worst and best values (953 and 406),
+and about ⅓ difference between median values on first and last rows (702 vs 445).</p>
+
+<h2>Conclusions</h2>
+
+<p>Indeed, subjectively, with PHP servers running under Debain, websites feel more responsive.</p>
+
+<p>One might notice many shortcomings in my testing method:
+changing not only OS, but also webserver and sometimes even PHP version,
+using a VPS for performance testing,
+and testing over network.</p>
+
+<p>But such critics are welcome to repeat this testing themselves -
+I <strong>will</strong> include a link to your results on this page,
+also if they don't agree with mine.
+Moreover, I'm probably more interested in results which are different than mine!</p>
+
+<p>Some more links:</p>
+
+<ul>
+<li><p><a href="https://github.com/gliderlabs/docker-alpine/issues/300">python3.5 on docker alpine is slower than docker ubuntu</a></p></li>
+<li><p><a href="https://github.com/docker-library/php/issues/592">Performance issues with php:7*-alpine containers</a></p></li>
+<li><p><a href="https://superuser.com/questions/1219609/why-is-the-alpine-docker-image-over-50-slower-than-the-ubuntu-image">Why is the Alpine Docker image over 50% slower than the Ubuntu image?</a> - also linked at the top of this article</p></li>
+</ul>
+		</div>
+		<!-- end when-not-to-use-alpine -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>
