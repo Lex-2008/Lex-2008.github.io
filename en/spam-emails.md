@@ -53,6 +53,7 @@ document.body.onload=function(){
 Messages from the addresses below managed to avoid my [spam filter][]:
 
 [c]: # (new things go here)
+* "William Olivia" ezenwasunshine2@gmail.com Annagray465@gmail.com
 * "danielle l" danielleetguy@hotmail.be
 * "Brigadier Diana Holland" hollanddiana88@gmail.com allen.rich@engineer.com allenrichp97@gmail.com
 * Яна Зеленина info@liofsorey.ru
@@ -100,7 +101,7 @@ Messages from the addresses below managed to avoid my [spam filter][]:
 * Обслуживание ПК 51090602080@ecnu.cn +7 967 079 5859 it\_help\_123@yahoo.com
 * "Yousuf Al Mulla" yousufalmulla@dubaih.com yousufalmulla@dubaiholdingae.com
 * "Bates Annette" annettebates@richdat.xyz
-* "Friedrich Mayrhofer" rperesin@mpa.santafe.gov.ar friedrich_mayrh01@yeah.net
+* "Friedrich Mayrhofer" rperesin@mpa.santafe.gov.ar friedrich\_mayrh01@yeah.net
 * "LOAN" info-forloan@info.net 	2324company@gmail.com
 * "Анастасия" lzzonjiol@net-change.com
 * "Mr Francis Mark" camera@mail.sdftc.com customerservices.moneyloans@gmail.com +856205687726 +856205687709
