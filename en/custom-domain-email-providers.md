@@ -30,3 +30,6 @@ These providers support only Russian interface, but have a free option:
 	* Unlimited storage
 
 If you *don't* have a domain name - there are many places where you can get free domain, most known of them is [dot.tk](http://www.dot.tk/en/index.html) which gives second-level domians ending with `.tk`
+
+Comparison of Yandex and Mail.Ru (in Russian):
+https://habr.com/ru/post/511328/
