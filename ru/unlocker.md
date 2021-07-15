@@ -1,9 +1,7 @@
 title=Unlocker
-intro=<p></p>
+intro=Разблоктровать доступ к файлам
 tags=программы
 created=2009-10-24
-modified=2009-10-24
-modified_now=1
 
 <div>
 <p><b>Проблема:</b>

@@ -2,8 +2,6 @@ title=PowerPro
 intro=<p>многофункциональная утилита для Windows</p>
 tags=программы
 created=2009-09-22
-modified=2009-09-22
-modified_now=1
 
 <div>
 <a href="http://powerpro.webeddie.com/">PowerPro</a> — программа, которая в ответ на любое действие пользователя:
@@ -40,7 +38,9 @@ modified_now=1
 ссылки:
 <ul>
 <li> <a href="http://powerpro.webeddie.com">Официальный сайт</a>
+</li><li> <a href="https://groups.io/g/PowerPro">Официальный форум</a>
 </li><li> <a href="http://forum.ru-board.com/topic.cgi?forum=5&amp;topic=3918">Обсуждение на Ru.Board'е</a>
 </li><li> <a href="http://ru.wikipedia.org/wiki/PowerPro">Статья в Википедии</a>
+</li><li> <a href="https://www.majorgeeks.com/mg/getmirror/powerpro,1.html">Скачать с majorgeeks</a>
 </li></ul>
 </div>

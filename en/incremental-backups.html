@@ -1,20 +1,22 @@
-<!doctype html><html><head>
+<!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css" type="text/css">
+<link rel="stylesheet" href="../style2.css">
 <title>Incremental backups</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="How I organised backups of my machine">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/incremental-backups.html">
 </head><body>
 <div id="menu">
 	<ul>
-		<li><a href="/ru/">Русский</a></li>
-		<li><a href="/en/">English</a></li>
-		<li><a href="/photos/">Photos</a></li>
-		<li><a href="/private/">Private</a></li>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/en.html">Photos</a></li>
+		<li><a href="../private/">Private</a></li>
 	</ul>
 </div>
 <div id="wrap">
 	<div id="header">
-		<h1><a href=".">Notes</a></h1>
+		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
 		<p>Notes about different stuff</p>
 	</div>
 	<div id="content">
@@ -35,7 +37,7 @@ so please use that!</p>
 
 <p>Based on a <a href="/ru/incremental-backup-с-помощью-tar.html">short note</a> from my Russian blog, let's make a good backupping system.</p>
 
-<h3>Humble beginning</h3>
+<h2>Humble beginning</h2>
 
 <p>We can start from a simple one-liner:</p>
 
@@ -50,7 +52,7 @@ and they have some other useful features - you can check the <code>man tar</code
 <p>You should run this command weekly.
 Stick it to <code>/etc/cron.weekly/</code>, for example.</p>
 
-<h3>Recoverability</h3>
+<h2>Recoverability</h2>
 
 <p>Let's start with adding some recovery information for the case of broken bits.
 <code>par2create</code> is the tool to create a file with such recovery information
@@ -75,7 +77,7 @@ par2create -r10 -n1 $file
 
 <p>In addition to files mentinoed above, it will also create files like <code>weekly-2015-39.tar.gz.par2</code> and <code>weekly-2015-39.tar.gz.vol000+200.par2</code> with some recovery information.</p>
 
-<h3>Space concerns</h3>
+<h2>Space concerns</h2>
 
 <p>Ok, so incremental archives work like this:
 first, tar creates a "base" archive, which contains <em>all</em> files
@@ -135,7 +137,7 @@ else
 fi
 </code></pre>
 
-<h3>Daily backups</h3>
+<h2>Daily backups</h2>
 
 <p>Let's also add some daily backups.
 But keeping in mind that some files might change every day,

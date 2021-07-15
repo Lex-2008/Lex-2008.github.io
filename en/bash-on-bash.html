@@ -1,20 +1,22 @@
-<!doctype html><html><head>
+<!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css" type="text/css">
+<link rel="stylesheet" href="../style2.css">
 <title>Bash on Bash</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Started using new programming language, I feel irritated and want to blog about it :)">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/bash-on-bash.html">
 </head><body>
 <div id="menu">
 	<ul>
-		<li><a href="/ru/">Русский</a></li>
-		<li><a href="/en/">English</a></li>
-		<li><a href="/photos/">Photos</a></li>
-		<li><a href="/private/">Private</a></li>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/en.html">Photos</a></li>
+		<li><a href="../private/">Private</a></li>
 	</ul>
 </div>
 <div id="wrap">
 	<div id="header">
-		<h1><a href=".">Notes</a></h1>
+		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
 		<p>Notes about different stuff</p>
 	</div>
 	<div id="content">
@@ -26,7 +28,7 @@
 				Created: 2014-03-22 &mdash; modified: 2016-06-16 &mdash; tags: bash
 			</p>
 			<p class="intro">Started using new programming language, I feel irritated and want to blog about it :)</p>
-			<h3>Deleting an item from array doesn't change indexes of other items</h3>
+			<h2>Deleting an item from array doesn't change indexes of other items</h2>
 
 <p>You can have arrays in Bash – "Hooray!", I thought:</p>
 
@@ -54,7 +56,7 @@ list[2]=grapes
 Also note that, unlike in other programming languages, you can't rely on the "list length" operator, either!
 So, if you happen to delete array items, is the "solution" to keep array length in a separate variable, increase it when adding something to array, and never decrease?</p>
 
-<h3>Pipe creates subshell, effectively making all your variables local</h3>
+<h2>Pipe creates subshell, effectively making all your variables local</h2>
 
 <p>You can have variables in Bash:</p>
 
