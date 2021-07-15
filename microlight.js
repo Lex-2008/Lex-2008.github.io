@@ -8,6 +8,10 @@
  * Code structure aims at minimizing the compressed library size
  */
 
+/* *** REMEMBER ***
+ * to re-gzip this file after edit:
+ * gzip -kf $filename
+ * *** REMEMBER ***/
 
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {

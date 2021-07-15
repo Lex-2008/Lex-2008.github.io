@@ -1,3 +1,8 @@
+/* *** REMEMBER ***
+ * to re-gzip this file after edit:
+ * gzip -kf $filename
+ * *** REMEMBER ***/
+
 function id(q){return document.getElementById(q)}
 function $(q){return document.querySelector(q)}
 
