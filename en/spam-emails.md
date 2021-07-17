@@ -10,6 +10,10 @@ li {margin-bottom: 0px;}
 td:first-child {text-align: right;}
 td {white-space: pre;}
 pre {word-break: break-all; white-space: break-spaces;}
+table { background-color: white; }
+@media (prefers-color-scheme: dark) {
+	table { background-color: black; }
+}
 </style>
 </div>
 
