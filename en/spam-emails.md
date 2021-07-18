@@ -33,7 +33,7 @@ Messages from the addresses below were rejected by my [spam filter][].
 <tr><td colspan=2 style="text-align:left">This line marks switch from sendmail (below) to postfix (above)</td></tr>
 	<!--# include file="spam-emails-2.htm" -->
 </table>
-<br> Before that, I was just listing emails, without extra data.
+<br> Before that, I was just listing emails, without extra data. Also, a month of spam got lost in transition :)
 <div class="old">
 	<!--# include file="spam-emails-1.htm" -->
 </div>
