@@ -18,10 +18,16 @@
 	<div id="header">
 		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
 		<p>Notes about different stuff</p>
+		<!-- begin index only -->
+		<div class="kb-club">
+			<a target="blank" href="https://512kb.club/#:~:text=alexey.shpakovsky.ru" title="a proud member of the 512KB Club Blue Team"
+				><span class="kb-club-no-bg">512KB Club</span><span class="kb-club-bg">Blue Team</span></a>
+		</div>
+		<!-- end index only -->
 	</div>
 	<!-- begin index only -->
-	<style></style>
-	<script>document.getElementsByTagName('style')[0].innerHTML='body{display:none}'</script>
+	<style id="hideall">#controls{display:none}</style>
+	<script>document.getElementById('hideall').innerHTML='body{display:none}'</script>
 	<div id="controls">
 		<table>
 			<tr><th>Tags:</th><td id="tags"></td></tr>
@@ -31,6 +37,38 @@
 	<!-- end index only -->
 	<div id="content">
 		<!-- put contents below -->
+		<!-- begin reasonable-spam-filter-in-postfix -->
+		<div class="post">
+			<h2><a href="reasonable-spam-filter-in-postfix.html" class="title">Reasonable spam filter in Postfix</a></h2>
+			<p class="trivia">
+				Created: 2021-07-19 &mdash; modified: 2021-07-19 &mdash; tags: linux e-mail
+			</p>
+			<p class="intro">One of reasons why people switch from sendmail to postfix is ease of configuration.</p>
+			<p class="readmore"><a href="reasonable-spam-filter-in-postfix.html">Read more...</a></p>
+			<!-- begin index only -->
+			<div> <!-- for scripts
+2021-07-19
+linux e-mail
+			--> </div>
+			<!-- end index only -->
+		</div>
+		<!-- end reasonable-spam-filter-in-postfix -->
+		<!-- begin spam-emails -->
+		<div class="post">
+			<h2><a href="spam-emails.html" class="title">This is spam</a></h2>
+			<p class="trivia">
+				Created: 2014-05-13 &mdash; modified: 2021-07-19 &mdash; tags: e-mail
+			</p>
+			<p class="intro">These are e-mail addresses that sent spam/scam/phishing emails to me.</p>
+			<p class="readmore"><a href="spam-emails.html">Read more...</a></p>
+			<!-- begin index only -->
+			<div> <!-- for scripts
+2014-05-13
+e-mail
+			--> </div>
+			<!-- end index only -->
+		</div>
+		<!-- end spam-emails -->
 		<!-- begin login-attempts -->
 		<div class="post">
 			<h2><a href="login-attempts.html" class="title">Login attempts</a></h2>
@@ -40,29 +78,13 @@
 			<p class="intro">These are logins and passwords of last 10k login attempts into my server.</p>
 			<p class="readmore"><a href="login-attempts.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2021-07-09
 e-mail
 			--> </div>
 			<!-- end index only -->
 		</div>
 		<!-- end login-attempts -->
-		<!-- begin spam-emails -->
-		<div class="post">
-			<h2><a href="spam-emails.html" class="title">This is spam</a></h2>
-			<p class="trivia">
-				Created: 2014-05-13 &mdash; modified: 2021-07-18 &mdash; tags: e-mail
-			</p>
-			<p class="intro">These are e-mail addresses that sent spam/scam/phishing emails to me.</p>
-			<p class="readmore"><a href="spam-emails.html">Read more...</a></p>
-			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
-2014-05-13
-e-mail
-			--> </div>
-			<!-- end index only -->
-		</div>
-		<!-- end spam-emails -->
 		<!-- begin custom-domain-email-providers -->
 		<div class="post">
 			<h2><a href="custom-domain-email-providers.html" class="title">Custom domain email providers</a></h2>
@@ -72,7 +94,7 @@ e-mail
 			<p class="intro">If you happen to own a domain name and want to have an email there – these guys are here to help you!</p>
 			<p class="readmore"><a href="custom-domain-email-providers.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-05-22
 links e-mail
 			--> </div>
@@ -88,7 +110,7 @@ links e-mail
 			<p class="intro">When you use scripting languages and want to squeeze some performance.</p>
 			<p class="readmore"><a href="when-not-to-use-alpine.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2021-07-11
 bash linux python
 			--> </div>
@@ -104,7 +126,7 @@ bash linux python
 			<p class="intro">It's playable now… if you can call it that :-)</p>
 			<p class="readmore"><a href="space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2021-05-03
 space
 			--> </div>
@@ -120,7 +142,7 @@ space
 			<p class="intro">TL;DR: <code>sudo hdparm --repair-sector <i>SECTOR</i> <i>/dev/sdx</i></code></p>
 			<p class="readmore"><a href="using-hdparm-to-hide-smart-errors.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-08-21
 linux
 			--> </div>
@@ -136,7 +158,7 @@ linux
 			<p class="intro">a humble beginning</p>
 			<p class="readmore"><a href="space-2d-1-a-game-which-plays-by-itself.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2021-04-11
 space
 			--> </div>
@@ -152,7 +174,7 @@ space
 			<p class="intro">The game is playable now!</p>
 			<p class="readmore"><a href="space-1d-3-making-ship-yours.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-05-16
 space
 			--> </div>
@@ -168,7 +190,7 @@ space
 			<p class="intro">One step forward, one step back</p>
 			<p class="readmore"><a href="space-1d-6-stats.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2021-02-13
 space
 			--> </div>
@@ -184,7 +206,7 @@ space
 			<p class="intro">For those cases when you need to implement something GoogleMaps-like</p>
 			<p class="readmore"><a href="javascript-canvas-drag-and-zoom-library.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2012-07-01
 javascript
 			--> </div>
@@ -200,7 +222,7 @@ javascript
 			<p class="intro">Ships now have colors and like you from the first encounter if your ships color is close to theirs. But still, to change it you need to decrease your karma below -1.</p>
 			<p class="readmore"><a href="space-1d-8-colors-stats-challenge-mode.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2021-03-06
 space
 			--> </div>
@@ -216,7 +238,7 @@ space
 			<p class="intro">Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior</p>
 			<p class="readmore"><a href="space-1d-7-ship-names-memory-and-feelings.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2021-02-21
 space
 			--> </div>
@@ -232,7 +254,7 @@ space
 			<p class="intro">Because keyboards were hard</p>
 			<p class="readmore"><a href="why-unix-commands-are-short.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-08-23
 Linux history links
 			--> </div>
@@ -248,7 +270,7 @@ Linux history links
 			<p class="intro">For when you're on limited environment but want to see a process tree</p>
 			<p class="readmore"><a href="busybox-only-pstree.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-01-31
 bash
 			--> </div>
@@ -264,7 +286,7 @@ bash
 			<p class="intro">a static blog generator which tries to do as little as possible on the server side</p>
 			<p class="readmore"><a href="lazyblog.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-12-14
 bash javascript
 			--> </div>
@@ -280,7 +302,7 @@ bash javascript
 			<p class="intro">How would it look</p>
 			<p class="readmore"><a href="emoji-programming.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-11-18
 Fun
 			--> </div>
@@ -296,7 +318,7 @@ Fun
 			<p class="intro">For all your slack needs</p>
 			<p class="readmore"><a href="o-rly-book-cover-generator.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-07-03
 Fun Links
 			--> </div>
@@ -312,7 +334,7 @@ Fun Links
 			<p class="intro">A brief dive into a history of early web</p>
 			<p class="readmore"><a href="web-before-css.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-06-29
 css history links
 			--> </div>
@@ -328,7 +350,7 @@ css history links
 			<p class="intro">An interesting article showing how credit cards appeared</p>
 			<p class="readmore"><a href="a-history-of-visa.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2019-05-29
 history links
 			--> </div>
@@ -344,7 +366,7 @@ history links
 			<p class="intro">Interesting article about how software was distributed in old times.</p>
 			<p class="readmore"><a href="downloading-games-from-the-radio.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-03-08
 history links
 			--> </div>
@@ -360,7 +382,7 @@ history links
 			<p class="intro">Interview (with a transcript) with its creator.</p>
 			<p class="readmore"><a href="why-sqlite-succeeded-as-a-database.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-04-30
 history links
 			--> </div>
@@ -376,7 +398,7 @@ history links
 			<p class="intro">It was the first programming language I was learning</p>
 			<p class="readmore"><a href="turbo-pascal-speed.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2009-08-22
 links
 			--> </div>
@@ -392,7 +414,7 @@ links
 			<p class="intro">Interesting article about speed of modern computers</p>
 			<p class="readmore"><a href="input-lag.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-12-24
 links
 			--> </div>
@@ -408,7 +430,7 @@ links
 			<p class="intro">An interesting article about designing of common UI elements which we now are taking for granted.</p>
 			<p class="readmore"><a href="designing-windows-95.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-02-03
 History links
 			--> </div>
@@ -424,7 +446,7 @@ History links
 			<p class="intro">Changes in physics</p>
 			<p class="readmore"><a href="space-1d-5-costly-approach.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-05-21
 space links
 			--> </div>
@@ -440,7 +462,7 @@ space links
 			<p class="intro">Game about space which will be more fun to make than to play.</p>
 			<p class="readmore"><a href="space-1d-0-idea.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-04-01
 space
 			--> </div>
@@ -456,7 +478,7 @@ space
 			<p class="intro">more choices</p>
 			<p class="readmore"><a href="space-1d-4-trading-and-bluffing.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-05-17
 space
 			--> </div>
@@ -472,7 +494,7 @@ space
 			<p class="intro">Moving forward with a simple game.</p>
 			<p class="readmore"><a href="space-1d-2-more-ships.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-05-10
 space
 			--> </div>
@@ -488,7 +510,7 @@ space
 			<p class="intro">Adding some action to the simple game prototype.</p>
 			<p class="readmore"><a href="space-1d-1-combat.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-04-02
 space
 			--> </div>
@@ -504,7 +526,7 @@ space
 			<p class="intro">When you downloaded them separately</p>
 			<p class="readmore"><a href="how-to-combine-audio-and-video-with-ffmpeg.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-05-10
 Bash Linux
 			--> </div>
@@ -520,7 +542,7 @@ Bash Linux
 			<p class="intro">For when you want working dorectory (:dir) be a parameter, just like variable (:var)</p>
 			<p class="readmore"><a href="how-to-use-parameters-to-set-working-directory-in-org-mode-code-block.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-04-11
 org
 			--> </div>
@@ -536,7 +558,7 @@ org
 			<p class="intro">How it was done. 10 days of obfurscated Javascript.</p>
 			<p class="readmore"><a href="debugging-google-maps-in-opera.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2012-03-20
 Opera links
 			--> </div>
@@ -552,7 +574,7 @@ Opera links
 			<p class="intro">Suggestion to improve its usability</p>
 			<p class="readmore"><a href="avfs-dirs.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-03-21
 linux
 			--> </div>
@@ -568,7 +590,7 @@ linux
 			<p class="intro">TL;DR: it's an app called "dupd"</p>
 			<p class="readmore"><a href="fastest-way-to-find-duplicate-files.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-02-19
 linux links
 			--> </div>
@@ -584,7 +606,7 @@ linux links
 			<p class="intro"><b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output</p>
 			<p class="readmore"><a href="using-true-instead-of-echo-to-debug-bash-scripts.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2019-01-09
 Bash
 			--> </div>
@@ -600,7 +622,7 @@ Bash
 			<p class="intro"><code>set -e</code> might work not as you expected inside (parentheses).</p>
 			<p class="readmore"><a href="set--e-inconsistency-inside-blocks.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2019-02-15
 Bash
 			--> </div>
@@ -616,7 +638,7 @@ Bash
 			<p class="intro">How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another</p>
 			<p class="readmore"><a href="transferring-huge-sparse-files.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-01-24
 Linux bash python
 			--> </div>
@@ -632,7 +654,7 @@ Linux bash python
 			<p class="intro">a 2.2k library to hilight any code</p>
 			<p class="readmore"><a href="microlightjs.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-06-16
 javascript
 			--> </div>
@@ -648,7 +670,7 @@ javascript
 			<p class="intro">How I organized backups of my files</p>
 			<p class="readmore"><a href="rsync-backups.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-04-03
 bash
 			--> </div>
@@ -664,7 +686,7 @@ bash
 			<p class="intro">busybox has a nice http webserver module, even with cgi support - and you can use it to upload files, too</p>
 			<p class="readmore"><a href="busybox-httpd-file-upload.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2020-01-06
 bash net linux
 			--> </div>
@@ -680,7 +702,7 @@ bash net linux
 			<p class="intro">How to get a random port number for a small service</p>
 			<p class="readmore"><a href="random-port-number.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2019-12-26
 Links net
 			--> </div>
@@ -696,7 +718,7 @@ Links net
 			<p class="intro">Interesting dive into how Internet became the mess that it is now</p>
 			<p class="readmore"><a href="user-agent-string-history.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2008-09-03
 History links
 			--> </div>
@@ -712,7 +734,7 @@ History links
 			<p class="intro">Another attempt to add something nice to this blog</p>
 			<p class="readmore"><a href="flickr-background-for-a-webpage.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-06-17
 Javascript
 			--> </div>
@@ -728,7 +750,7 @@ Javascript
 			<p class="intro">Is it hard to download any Chromium build?</p>
 			<p class="readmore"><a href="download-any-chromium-build.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-03-27
 python chromium
 			--> </div>
@@ -744,7 +766,7 @@ python chromium
 			<p class="intro">Let's add a colorful background to this blog, hm?</p>
 			<p class="readmore"><a href="colors.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-09-03
 javascript
 			--> </div>
@@ -760,7 +782,7 @@ javascript
 			<p class="intro">A bit of policy magic to avoid writing policy</p>
 			<p class="readmore"><a href="how-to-configure-access-rules-in-cfengine-via-json-only.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-07-19
 CFEngine links
 			--> </div>
@@ -776,7 +798,7 @@ CFEngine links
 			<p class="intro">TL;DR: make a cgroup and assign processes into them, in the systemd .service file</p>
 			<p class="readmore"><a href="how-to-limit-systemd-units-services-to-use-only-one-cpu-core.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-07-27
 CFEngine Linux links
 			--> </div>
@@ -792,7 +814,7 @@ CFEngine Linux links
 			<p class="intro">TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.</p>
 			<p class="readmore"><a href="how-to-install-extensions-to-cfengines-postgresql.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-02-07
 CFEngine
 			--> </div>
@@ -808,7 +830,7 @@ CFEngine
 			<p class="intro">TL;DR: use tar and pipe to stdout!</p>
 			<p class="readmore"><a href="how-to-download-folder-without-creating-archive.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-06-22
 bash
 			--> </div>
@@ -824,7 +846,7 @@ bash
 			<p class="intro">My first (almost) finished game</p>
 			<p class="readmore"><a href="space-10-finished-game-about-combat.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-06-15
 Space
 			--> </div>
@@ -840,7 +862,7 @@ Space
 			<p class="intro">On Linux, you can have different keyboard layouts for different physical keyboards. How? Easy!</p>
 			<p class="readmore"><a href="different-keyboard-layouts-for-different-keyboards.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-03-14
 Linux
 			--> </div>
@@ -856,7 +878,7 @@ Linux
 			<p class="intro">Automatically backup files on media mount, using usbmount</p>
 			<p class="readmore"><a href="auto-backup-on-mount.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2018-01-22
 bash
 			--> </div>
@@ -872,7 +894,7 @@ bash
 			<p class="intro">Unlike sector-based one, this uses more complex logic, but simpler maps</p>
 			<p class="readmore"><a href="space-9-collision-decection-on-grid.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-11-21
 Space
 			--> </div>
@@ -888,7 +910,7 @@ Space
 			<p class="intro">Now you can't go outside the ship</p>
 			<p class="readmore"><a href="space-8-collision-detection.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-11-06
 Space
 			--> </div>
@@ -904,7 +926,7 @@ Space
 			<p class="intro">Let's have something to look at!</p>
 			<p class="readmore"><a href="space-7-another-ship.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-10-02
 Space
 			--> </div>
@@ -920,7 +942,7 @@ Space
 			<p class="intro">FPV mode, so we can walk on the ship</p>
 			<p class="readmore"><a href="space-6-on-a-ship.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-10-01
 Space
 			--> </div>
@@ -936,7 +958,7 @@ Space
 			<p class="intro">To remove, say, histroy of browing Facebook from work computer.</p>
 			<p class="readmore"><a href="how-to-selectively-clean-history-in-google-chrome.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-09-25
 chromium
 			--> </div>
@@ -952,7 +974,7 @@ chromium
 			<p class="intro">We have one now</p>
 			<p class="readmore"><a href="printer.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-09-18
 Life
 			--> </div>
@@ -968,7 +990,7 @@ Life
 			<p class="intro">How to generate them, so you could store them in your head</p>
 			<p class="readmore"><a href="passwords.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-06-20
 security links
 			--> </div>
@@ -984,7 +1006,7 @@ security links
 			<p class="intro">Compatibility patch</p>
 			<p class="readmore"><a href="hackers-keyboard-for-n-05e.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-05-20
 Android
 			--> </div>
@@ -1000,7 +1022,7 @@ Android
 			<p class="intro">Github user with a bunch of interesting Javascript projects/repos</p>
 			<p class="readmore"><a href="bevacqua.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-06-29
 links
 			--> </div>
@@ -1016,7 +1038,7 @@ links
 			<p class="intro">Map of all cell towers in Norway</p>
 			<p class="readmore"><a href="finnsender.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-05-03
 Norway links
 			--> </div>
@@ -1032,7 +1054,7 @@ Norway links
 			<p class="intro">A CSS-only version of fancy 2D background gradient</p>
 			<p class="readmore"><a href="colors2.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-06-29
 css
 			--> </div>
@@ -1048,7 +1070,7 @@ css
 			<p class="intro">RIP Douglas Engelbart, the person who shaped the modern computing. Oh, and a computer mouse.</p>
 			<p class="readmore"><a href="the-mother-of-all-demos.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2013-07-02
 History links
 			--> </div>
@@ -1064,7 +1086,7 @@ History links
 			<p class="intro">Note that to get command line on iPhone, you need to jailbreak it first.</p>
 			<p class="readmore"><a href="how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-11-29
 bash android
 			--> </div>
@@ -1080,7 +1102,7 @@ bash android
 			<p class="intro">Helping you to get many big images from flickr to your xscreensaver</p>
 			<p class="readmore"><a href="flickr-feed-generator-for-xscreensaver.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-11-01
 bash net linux
 			--> </div>
@@ -1096,7 +1118,7 @@ bash net linux
 			<p class="intro">A Linux.com article I totally agree with</p>
 			<p class="readmore"><a href="browser-security-on-linux.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-05-10
 Linux security
 			--> </div>
@@ -1112,7 +1134,7 @@ Linux security
 			<p class="intro">When SSH is your poor man's VPN</p>
 			<p class="readmore"><a href="forward-smb-via-ssh-tunnel.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-04-30
 bash windows linux
 			--> </div>
@@ -1128,7 +1150,7 @@ bash windows linux
 			<p class="intro">Also known for "First actual case of bug being found" note</p>
 			<p class="readmore"><a href="grace-hopper-grandma-cobol.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-09-09
 History
 			--> </div>
@@ -1144,7 +1166,7 @@ History
 			<p class="intro">You brought technology closer to people</p>
 			<p class="readmore"><a href="rip-steve-jobs.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2011-10-05
 History
 			--> </div>
@@ -1160,7 +1182,7 @@ History
 			<p class="intro">deb packages for all versions starting with 3.5</p>
 			<p class="readmore"><a href="download-old-firefox-build.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-04-28
 Firefox links
 			--> </div>
@@ -1176,7 +1198,7 @@ Firefox links
 			<p class="intro">Good library for those willing to implement TeX formulas in their blogs</p>
 			<p class="readmore"><a href="katex.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-04-09
 Javascript links
 			--> </div>
@@ -1192,7 +1214,7 @@ Javascript links
 			<p class="intro">All these /bin /usr /local etc...</p>
 			<p class="readmore"><a href="linux-file-hierarchy.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-09-02
 links
 			--> </div>
@@ -1208,7 +1230,7 @@ links
 			<p class="intro">A funny video about Norway and norwegians</p>
 			<p class="readmore"><a href="this-is-norway.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2011-10-31
 Norway fun
 			--> </div>
@@ -1224,7 +1246,7 @@ Norway fun
 			<p class="intro">Good monologue about modern technology and our reaction on it</p>
 			<p class="readmore"><a href="everything-is-amazing-and-nobody-is-happy.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-10-04
 fun
 			--> </div>
@@ -1240,7 +1262,7 @@ fun
 			<p class="intro">One of creators of C programming language passed away today</p>
 			<p class="readmore"><a href="rip-dennis-ritchie.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2011-10-12
 History
 			--> </div>
@@ -1256,7 +1278,7 @@ History
 			<p class="intro">Changing the engine</p>
 			<p class="readmore"><a href="space-5-back-to-square-one.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-04-17
 Space
 			--> </div>
@@ -1272,7 +1294,7 @@ Space
 			<p class="intro">Let's build a real ship</p>
 			<p class="readmore"><a href="space-4-a-ship.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-04-16
 Space
 			--> </div>
@@ -1288,7 +1310,7 @@ Space
 			<p class="intro">Now we want to have a character (a pilot) to walk on the ship.</p>
 			<p class="readmore"><a href="space-3-person-on-the-ship.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-04-15
 Space
 			--> </div>
@@ -1304,7 +1326,7 @@ Space
 			<p class="intro">Let's put a camera onto the ship, to get some FPV experience</p>
 			<p class="readmore"><a href="space-2-camera-on-the-ship.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-04-14
 Space
 			--> </div>
@@ -1320,7 +1342,7 @@ Space
 			<p class="intro">First step is moving the ship</p>
 			<p class="readmore"><a href="space-1-movement.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-04-13
 Space
 			--> </div>
@@ -1336,7 +1358,7 @@ Space
 			<p class="intro">What I want to create and what to base on</p>
 			<p class="readmore"><a href="space-0-idea.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-04-12
 Space
 			--> </div>
@@ -1352,7 +1374,7 @@ Space
 			<p class="intro">Maybe agent's IP is not among allowed ones?</p>
 			<p class="readmore"><a href="cfengine-failed-to-establish-tls-connection-bootstrap-error.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-03-22
 CFEngine
 			--> </div>
@@ -1368,7 +1390,7 @@ CFEngine
 			<p class="intro">That was a google query I struggled to find answer to</p>
 			<p class="readmore"><a href="cfengine-master-policy-framework-where-to-put-files.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-02-09
 CFEngine
 			--> </div>
@@ -1384,7 +1406,7 @@ CFEngine
 			<p class="intro">vim plugin for easy commenting</p>
 			<p class="readmore"><a href="tcomment.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-02-10
 vim links
 			--> </div>
@@ -1400,7 +1422,7 @@ vim links
 			<p class="intro">Soon after change of owner in Opera, just another round of layoffs rolled through the company, this time affecting also me.</p>
 			<p class="readmore"><a href="how-i-started-working-at-cfengine.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2017-02-01
 life CFEngine
 			--> </div>
@@ -1416,7 +1438,7 @@ life CFEngine
 			<p class="intro">I had a dream. A nightmare, actually.</p>
 			<p class="readmore"><a href="security-dream.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-01-28
 security life
 			--> </div>
@@ -1432,7 +1454,7 @@ security life
 			<p class="intro">Today I've accompanied my old friend on his last journey.</p>
 			<p class="readmore"><a href="burying-an-old-friend.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-06-25
 life
 			--> </div>
@@ -1448,7 +1470,7 @@ life
 			<p class="intro"></p>
 			<p class="readmore"><a href="cloud-videos.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-06-22
 life
 			--> </div>
@@ -1464,7 +1486,7 @@ life
 			<p class="intro">My first experience in getting a job</p>
 			<p class="readmore"><a href="how-i-started-working-for-opera-software.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2011-11-01
 opera life
 			--> </div>
@@ -1480,7 +1502,7 @@ opera life
 			<p class="intro">Currently (Opera 15-18), when you start Opera on Windows, it spawns itself again and terminates the process you started — so you can't easily wait until the Opera you've started quit. Or can you?</p>
 			<p class="readmore"><a href="check-for-running-opera-on-windows.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2013-09-23
 opera python windows
 			--> </div>
@@ -1496,7 +1518,7 @@ opera python windows
 			<p class="intro">one-line bash function to draw a nice progress bar</p>
 			<p class="readmore"><a href="bash-progress-bar.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-04-07
 bash
 			--> </div>
@@ -1512,7 +1534,7 @@ bash
 			<p class="intro">Classic which can never be forgotten is just few clicks away.</p>
 			<p class="readmore"><a href="dos-games-in-your-browser.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-01-03
 games
 			--> </div>
@@ -1528,7 +1550,7 @@ games
 			<p class="intro">If you have a domain and don't want to be blocked for sending spam.</p>
 			<p class="readmore"><a href="block-spam-from-subdomains.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-10-13
 e-mail
 			--> </div>
@@ -1544,7 +1566,7 @@ e-mail
 			<p class="intro">What do I think about it and how I'd like it to be.</p>
 			<p class="readmore"><a href="adjusting-time.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-10-25
 politics
 			--> </div>
@@ -1560,7 +1582,7 @@ politics
 			<p class="intro">So they weren't rejected by dnsbl spam filter</p>
 			<p class="readmore"><a href="whitelisting-emails-with-sendmail.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-10-27
 e-mail
 			--> </div>
@@ -1576,7 +1598,7 @@ e-mail
 			<p class="intro">For example, to delete browsing history of a website</p>
 			<p class="readmore"><a href="how-to-selectively-clean-history-in-opera-browser.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-08-23
 opera
 			--> </div>
@@ -1592,7 +1614,7 @@ opera
 			<p class="intro">EuroEnglish - Ze drem vil finali kum tru!</p>
 			<p class="readmore"><a href="ze-drem.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2009-09-26
 fun
 			--> </div>
@@ -1608,7 +1630,7 @@ fun
 			<p class="intro">Greately inspired by $if(...) conditions in Winamp Advanced Title Formatting, I wanted to add something like this to Python.</p>
 			<p class="readmore"><a href="conditional-formatting-in-python.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-02-01
 python
 			--> </div>
@@ -1624,7 +1646,7 @@ python
 			<p class="intro">TL;DR: --totals --file=/dev/null | grep 'Total bytes written'</p>
 			<p class="readmore"><a href="finding-tar-archive-size.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-07-21
 bash
 			--> </div>
@@ -1640,7 +1662,7 @@ bash
 			<p class="intro">TL;DR: 3> >(command)</p>
 			<p class="readmore"><a href="redirecting-custom-file-descriptor-to-subprocess.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-09-19
 bash
 			--> </div>
@@ -1656,7 +1678,7 @@ bash
 			<p class="intro">An interesting article on how to save space and bandwidth</p>
 			<p class="readmore"><a href="reducing-jpg-file-size.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-05-04
 net links
 			--> </div>
@@ -1672,7 +1694,7 @@ net links
 			<p class="intro">A helpful guide to a simple programming language I still don't comprehend</p>
 			<p class="readmore"><a href="sed-cheatsheet.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-10-30
 bash
 			--> </div>
@@ -1688,7 +1710,7 @@ bash
 			<p class="intro">probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf</p>
 			<p class="readmore"><a href="minicodeeditor-jsfiddle-in-as-few-bytes-as-possible.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-01-22
 javascript
 			--> </div>
@@ -1704,7 +1726,7 @@ javascript
 			<p class="intro">How to disable mail receiving by local users without deleting their accounts</p>
 			<p class="readmore"><a href="block-users-in-sendmail.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-09-13
 e-mail
 			--> </div>
@@ -1720,7 +1742,7 @@ e-mail
 			<p class="intro">A FUSE module that shows a list of files as one big file.</p>
 			<p class="readmore"><a href="catfs.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-09-25
 bash
 			--> </div>
@@ -1736,7 +1758,7 @@ bash
 			<p class="intro">How I organised backups of my machine</p>
 			<p class="readmore"><a href="incremental-backups.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-06-17
 bash
 			--> </div>
@@ -1752,7 +1774,7 @@ bash
 			<p class="intro">FanlessTech.com – a website about fanless computers</p>
 			<p class="readmore"><a href="fanlesstech.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-05-30
 links
 			--> </div>
@@ -1768,7 +1790,7 @@ links
 			<p class="intro">Experience after playing a flash game</p>
 			<p class="readmore"><a href="world-domination.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-06-21
 fun games politics
 			--> </div>
@@ -1784,7 +1806,7 @@ fun games politics
 			<p class="intro">A webpage with a list of free games for Windows</p>
 			<p class="readmore"><a href="xp-games.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-08-18
 links games windows
 			--> </div>
@@ -1800,7 +1822,7 @@ links games windows
 			<p class="intro">Short memo about a good program</p>
 			<p class="readmore"><a href="why-isnt-psrexe-well-known.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-12-07
 windows
 			--> </div>
@@ -1816,7 +1838,7 @@ windows
 			<p class="intro">An interesting article at imgur.net</p>
 			<p class="readmore"><a href="how-to-win-at-monopoly-and-lose-all-your-friends.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2016-01-17
 links
 			--> </div>
@@ -1832,7 +1854,7 @@ links
 			<p class="intro">These are the guys who are spamming me the most.</p>
 			<p class="readmore"><a href="careceo.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-10-23
 e-mail
 			--> </div>
@@ -1848,7 +1870,7 @@ e-mail
 			<p class="intro">Star Wars in ASCII art</p>
 			<p class="readmore"><a href="asciimation.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-10-28
 fun links
 			--> </div>
@@ -1864,7 +1886,7 @@ fun links
 			<p class="intro">Started using new programming language, I feel irritated and want to blog about it :)</p>
 			<p class="readmore"><a href="bash-on-bash.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-03-22
 bash
 			--> </div>
@@ -1880,7 +1902,7 @@ bash
 			<p class="intro">How to change it, if it matters</p>
 			<p class="readmore"><a href="dovecot-default-email-order.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-08-27
 e-mail
 			--> </div>
@@ -1896,7 +1918,7 @@ e-mail
 			<p class="intro">How to automate it if you host your mail yourself</p>
 			<p class="readmore"><a href="sorting-sent-email.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-11-01
 e-mail
 			--> </div>
@@ -1912,7 +1934,7 @@ e-mail
 			<p class="intro">I'd like to add "...and live in it", but it's only a game, so it's more like "...and dream of it"</p>
 			<p class="readmore"><a href="nationstates---make-a-country-of-your-dreams.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2015-11-01
 politics links
 			--> </div>
@@ -1928,7 +1950,7 @@ politics links
 			<p class="intro">A website with a provoking name features funny games</p>
 			<p class="readmore"><a href="strange-games.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-09-20
 games
 			--> </div>
@@ -1944,7 +1966,7 @@ games
 			<p class="intro">How much can you tease your brain?</p>
 			<p class="readmore"><a href="the-flat-earth-society.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-08-18
 fun links
 			--> </div>
@@ -1960,7 +1982,7 @@ fun links
 			<p class="intro">HTML parody of an OS which was popular when we were young and Internet was new.</p>
 			<p class="readmore"><a href="windows-93.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-10-28
 fun links windows
 			--> </div>
@@ -1976,7 +1998,7 @@ fun links windows
 			<p class="intro">If you know what line to delete...</p>
 			<p class="readmore"><a href="how-to-delete-a-line-from-a-file.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-12-15
 bash vim
 			--> </div>
@@ -1992,7 +2014,7 @@ bash vim
 			<p class="intro">Explore data about all countries in the world since 1800</p>
 			<p class="readmore"><a href="gapminder.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2013-11-27
 links
 			--> </div>
@@ -2008,7 +2030,7 @@ links
 			<p class="intro">Signing sendmail messages with DKIM using OpenDKIM is easier then you think!</p>
 			<p class="readmore"><a href="sendmail-dkim.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-07-06
 e-mail
 			--> </div>
@@ -2024,7 +2046,7 @@ e-mail
 			<p class="intro"></p>
 			<p class="readmore"><a href="smtp-authentication-in-sendmail.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-08-25
 e-mail
 			--> </div>
@@ -2040,7 +2062,7 @@ e-mail
 			<p class="intro">Bashblog uses Markdown, so it's better to save this page for myself</p>
 			<p class="readmore"><a href="markdown.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2014-04-01
 net
 			--> </div>
@@ -2056,7 +2078,7 @@ net
 			<p class="intro">A small language session</p>
 			<p class="readmore"><a href="hottentotten.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2011-10-04
 fun
 			--> </div>
@@ -2072,7 +2094,7 @@ fun
 			<p class="intro">How to copy-paste text from one place to another, replacing what's already there</p>
 			<p class="readmore"><a href="paste-and-replace-in-vim.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2013-01-16
 vim
 			--> </div>
@@ -2088,7 +2110,7 @@ vim
 			<p class="intro"><div id="excerpt">...then you're doing it wrong.</div></p>
 			<p class="readmore"><a href="if-youre-trying-to-learn-vim.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2013-01-11
 vim
 			--> </div>
@@ -2104,7 +2126,7 @@ vim
 			<p class="intro"><div id="excerpt">You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?</div></p>
 			<p class="readmore"><a href="macro-to-excange-two-values-in-vim.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2013-01-09
 vim
 			--> </div>
@@ -2120,7 +2142,7 @@ vim
 			<p class="intro"><div id="excerpt">An idea for an evil prank on your Vim-loving friend. Hint: in most other editors same effect is achieved by &lt;Ctrl+A&gt; &lt;Del&gt; &lt;Ctrl+S&gt; &lt;Alt+F4&gt;</div></p>
 			<p class="readmore"><a href="vim-prank.html">Read more...</a></p>
 			<!-- begin index only -->
-			<div class="data"> <!-- same data to be accessible by scripts
+			<div> <!-- for scripts
 2012-12-02
 vim fun
 			--> </div>
@@ -2130,7 +2152,7 @@ vim fun
 	</div>
 	<!-- begin index only -->
 	<script src="../index.js"></script>
-	<script>document.getElementsByTagName('style')[0].innerHTML=''</script>
+	<script>document.getElementById('hideall').innerHTML=''</script>
 	<!-- end index only -->
 	<div id="footer">
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

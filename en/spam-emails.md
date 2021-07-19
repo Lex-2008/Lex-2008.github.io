@@ -21,7 +21,7 @@ If you received an email **from** one of these addresses or asking you to write 
 Messages from the addresses below were rejected by my [spam filter][].
 <p id="stat"></p>
 
-[spam filter]: whitelisting-emails-with-sendmail.html
+[spam filter]: reasonable-spam-filter-in-postfix.html
 
 <div>
 <table id="auto">
@@ -61,6 +61,7 @@ document.body.onload=function(){
 Messages from the addresses below managed to avoid my [spam filter][]:
 
 [c]: # (new things go here)
+* "Ms. Kristalina Georgieva" westafricanationallotterry@gmail.com banqueatlantiquetogobranch@gmail.com
 * Re : DELIVERY ORDER SENT FROM DHL.,LTD mj\_trd@hotmail.com 
 * "William Olivia" ezenwasunshine2@gmail.com Annagray465@gmail.com
 * "danielle l" danielleetguy@hotmail.be
