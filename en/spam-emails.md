@@ -61,6 +61,7 @@ document.body.onload=function(){
 Messages from the addresses below managed to avoid my [spam filter][]:
 
 [c]: # (new things go here)
+* "Jose" controladoria@gov.br jossewailims@gmail.com
 * "Ms. Kristalina Georgieva" westafricanationallotterry@gmail.com banqueatlantiquetogobranch@gmail.com
 * Re : DELIVERY ORDER SENT FROM DHL.,LTD mj\_trd@hotmail.com 
 * "William Olivia" ezenwasunshine2@gmail.com Annagray465@gmail.com
