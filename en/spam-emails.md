@@ -61,6 +61,7 @@ document.body.onload=function(){
 Messages from the addresses below managed to avoid my [spam filter][]:
 
 [c]: # (new things go here)
+* Уведомление production@prize-geth.ru
 * "George Lawson" info.eubureau@gmail.com lglcabinet@outlook.com
 * "Jose" controladoria@gov.br jossewailims@gmail.com
 * "Ms. Kristalina Georgieva" westafricanationallotterry@gmail.com banqueatlantiquetogobranch@gmail.com
