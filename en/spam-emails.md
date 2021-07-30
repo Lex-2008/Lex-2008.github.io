@@ -61,6 +61,7 @@ document.body.onload=function(){
 Messages from the addresses below managed to avoid my [spam filter][]:
 
 [c]: # (new things go here)
+* Любимые Игрушки osputbc@bitonserl.es
 * Чистый дом и офис amvevrb@bitonserl.es rocotell.ru
 * Уведомление production@prize-geth.ru
 * "George Lawson" info.eubureau@gmail.com lglcabinet@outlook.com

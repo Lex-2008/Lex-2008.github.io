@@ -1,11 +1,8 @@
 unlisted
-*.html.gz
+*.gz
 BingSiteAuth.xml
 google*.html
 MJ12_*.txt
 wmail_*.html
 yandex_*.html
 en/hackers-keyboard-for-n-05e.apk
-index.js.gz
-microlight.js.gz
-style2.css.gz
