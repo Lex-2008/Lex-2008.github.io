@@ -61,6 +61,7 @@ document.body.onload=function(){
 Messages from the addresses below managed to avoid my [spam filter][]:
 
 [c]: # (new things go here)
+* Участок без сорняков amtenhk@bitonserl.es sales@selant.ru
 * Любимые Игрушки osputbc@bitonserl.es
 * Чистый дом и офис amvevrb@bitonserl.es rocotell.ru
 * Уведомление production@prize-geth.ru
