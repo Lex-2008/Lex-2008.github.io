@@ -25,15 +25,17 @@
 		<div class="post">
 			<h2><a href="reasonable-spam-filter-in-postfix.html" class="title">Reasonable spam filter in Postfix</a></h2>
 			<p class="trivia">
-				Created: 2021-07-19 &mdash; modified: 2021-07-19 &mdash; tags: linux e-mail
+				Created: 2021-07-19 &mdash; modified: 2021-07-31 &mdash; tags: linux e-mail
 			</p>
 			<p class="intro">One of reasons why people switch from sendmail to postfix is ease of configuration.</p>
 			<p>In my case, for <a href="whitelisting-emails-with-sendmail.html">sendmail</a> I had a spam filter like this:</p>
 
 <blockquote>
-  <p>messages from contacts in my address book should go to inbox, <br />
-other messages should go to the spamfilter
-(and if they pass it - to trash)</p>
+  <ul>
+<li><p>messages from contacts in my address book should go to inbox,  </p></li>
+<li><p>other messages should go to the spamfilter</p></li>
+<li><p>(and if they pass it - to trash)</p></li>
+</ul>
 </blockquote>
 
 <p>However, I wanted to add an extra exclusion for sites where I registered with email like <code>user+tag@example.com</code>.
@@ -48,10 +50,12 @@ so now I can register as <code>user-tag@example.com</code> on websites which don
 <p>As a result, my current spam filter looks like this:</p>
 
 <blockquote>
-  <p>messages from contacts in my address book and those sent to emails containing "plus" or "minus" should be excluded from spamfilter,
-other messages should be checked against DNSBL.
-Messages from contacts in my address book should go to inbox, <br />
-other messages (which passed or were excluded from spamfilter) should go to trash.</p>
+  <ul>
+<li><p>messages from contacts in my address book and those sent to emails containing "plus" or "minus" should be excluded from spamfilter,</p></li>
+<li><p>other messages should be checked against DNSBL.</p></li>
+<li><p>Messages from contacts in my address book should go to inbox,  </p></li>
+<li><p>other messages (which passed or were excluded from spamfilter) should go to trash.</p></li>
+</ul>
 </blockquote>
 
 <p>And it was done with this rather readable postfix config <a href="https://github.com/Lex-2008/containers/blob/master/postfix.cont/data/conf/main.cf#:~:text=smtpd_recipient_restrictions">entry</a>:</p>
