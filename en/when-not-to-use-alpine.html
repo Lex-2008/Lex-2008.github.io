@@ -25,7 +25,7 @@
 		<div class="post">
 			<h2><a href="when-not-to-use-alpine.html" class="title">When not to use Alpine</a></h2>
 			<p class="trivia">
-				Created: 2021-07-11 &mdash; modified: 2021-07-11 &mdash; tags: bash linux python
+				Created: 2021-07-11 &mdash; modified: 2021-08-01 &mdash; tags: bash linux python
 			</p>
 			<p class="intro">When you use scripting languages and want to squeeze some performance.</p>
 			<h2>Intro</h2>
@@ -49,7 +49,7 @@ various OSes, webservers, etc.</p>
 <p>Test bench contains of two PHP services:</p>
 
 <ul>
-<li><p><a href="http://squirrelmail.org/">SquirrelMail</a> webmail (latest stable version snapshots (1.4.23-svn)) under php7.4 with <a href="https://github.com/Lex-2008/abook_carddav">abook_carddav</a> plugin, using one of these:</p>
+<li><p><a href="http://squirrelmail.org/">SquirrelMail</a> webmail (latest stable version snapshot (1.4.23-svn)) under php7.4 with <a href="https://github.com/Lex-2008/abook_carddav">abook_carddav</a> plugin, using one of these:</p>
 
 <ul>
 <li><p>Either Lighttpd webserver under Alpine - <a href="https://github.com/Lex-2008/containers/blob/46f32475ae9887a88685d4c548c2712c036dfefa/squirrelmail.cont/build/Dockerfile">dockerfile</a></p></li>
@@ -67,7 +67,7 @@ various OSes, webservers, etc.</p>
 
 <p>I was loading main SquirrelMail addressbook page
 (<code>…/src/addressbook.php</code>)
-which was fething all contacts from CardDav address book,
+which was fetching all contacts from CardDav address book,
 reloading that page 11 times and recording maximum, minimum, and median values.</p>
 
 <h2>Results</h2>
@@ -85,17 +85,17 @@ and about ⅓ difference between median values on first and last rows (702 vs 44
 
 <h2>Conclusions</h2>
 
-<p>Indeed, subjectively, with PHP servers running under Debain, websites feel more responsive.</p>
+<p>Indeed, subjectively, with PHP servers running under Debain, SquirrelMail feels more responsive.</p>
 
 <p>One might notice many shortcomings in my testing method:
 changing not only OS, but also webserver and sometimes even PHP version,
 using a VPS for performance testing,
 and testing over network.</p>
 
-<p>But such critics are welcome to repeat this testing themselves -
+<p>But you are welcome to repeat this testing themselves -
 I <strong>will</strong> include a link to your results on this page,
 also if they don't agree with mine.
-Moreover, I'm probably more interested in results which are different than mine!</p>
+Moreover, I'm probably more interested in results which differ from what I got!</p>
 
 <p>Some more links:</p>
 

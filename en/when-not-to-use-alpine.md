@@ -30,7 +30,7 @@ various OSes, webservers, etc.
 
 Test bench contains of two PHP services:
 
-* [SquirrelMail][] webmail (latest stable version snapshots (1.4.23-svn)) under php7.4 with [abook_carddav][ab] plugin, using one of these:
+* [SquirrelMail][] webmail (latest stable version snapshot (1.4.23-svn)) under php7.4 with [abook_carddav][ab] plugin, using one of these:
 
 	* Either Lighttpd webserver under Alpine - [dockerfile][sq1]
 
@@ -57,7 +57,7 @@ In both cases, SquirrelMail was running behind reverse nginx proxy.
 
 I was loading main SquirrelMail addressbook page
 (`…/src/addressbook.php`)
-which was fething all contacts from CardDav address book,
+which was fetching all contacts from CardDav address book,
 reloading that page 11 times and recording maximum, minimum, and median values.
 
 Results
@@ -77,17 +77,17 @@ and about ⅓ difference between median values on first and last rows (702 vs 44
 Conclusions
 -----------
 
-Indeed, subjectively, with PHP servers running under Debain, websites feel more responsive.
+Indeed, subjectively, with PHP servers running under Debain, SquirrelMail feels more responsive.
 
 One might notice many shortcomings in my testing method:
 changing not only OS, but also webserver and sometimes even PHP version,
 using a VPS for performance testing,
 and testing over network.
 
-But such critics are welcome to repeat this testing themselves -
+But you are welcome to repeat this testing themselves -
 I **will** include a link to your results on this page,
 also if they don't agree with mine.
-Moreover, I'm probably more interested in results which are different than mine!
+Moreover, I'm probably more interested in results which differ from what I got!
 
 Some more links:
 
