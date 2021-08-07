@@ -14,19 +14,19 @@ Bad thing is that if the paper is stolen, then all your passwords are in danger 
 Another idea is to use _pass**phrase**_ instead of _pass**word**_, because it's easier to remember (consists of words) and harder to crack (has more combinations even when using a small subset of words).
 There are ongoing arguments on how "strong" such passwords are comparing to "normal" ones, and [lightbluetouchpaper.org][] [(archived)](http://archive.is/pFkNU) tries to give the most scientific-based approach to it.
 
-To generate them you can use, once again, a website: for example, [preshing.com][] [(cached version)][preshing-c] (it also has an [xkcd][] comic on the subject), or, if you're a lucky Linux user, a [simple bash script][bash] [(archived)](http://archive.is/wSFtt) (this page also has one more explanation of difference between password and passphrase).
+To generate them you can use, once again, a website: for example, [preshing.com][] (it also has an [xkcd][] comic on the subject), or, if you're a lucky Linux user, a [simple bash script][bash] [(archived)](http://archive.is/wSFtt) (this page also has one more explanation of difference between password and passphrase).
 
 [duckduckgo.com]: https://duckduckgo.com/?q=password
 [phtree.org]: https://pthree.org/2014/03/19/creating-strong-passwords-without-a-computer-part-iii-off-the-grid/
 [lightbluetouchpaper.org]: https://www.lightbluetouchpaper.org/2012/03/07/some-evidence-on-multi-word-passphrases/
 
 [preshing.com]: http://preshing.com/20110811/xkcd-password-generator/
-[preshing-c]: /cache/xkcd-password-generator/
 [xkcd]: http://xkcd.com/936/
 [bash]: http://blog.0x10.co.uk/2013/04/passphrase-generators-part-ii.html
 
-**Update from 2017-09-05**: there is an interesting passphrase generator from [Aaron Toponce][phtree.org]: [blog post][], [github][], [generator itself][], offering a choice of several dictionaries to choose from, with my favourite being "Simpsons" one from "Alternate" section, generating easy-to-remeber passwords like "_steal french members motion stupid stand_".
+**Update from 2017-09-05**: there is an interesting passphrase generator from [Aaron Toponce][phtree.org]: [blog post][], [github][], [generator itself][] [(cached version)][c] offering a choice of several dictionaries to choose from, with my favourite being "Simpsons" one from "Alternate" section, generating easy-to-remeber passwords like "_steal french members motion stupid stand_".
 
 [blog post]: https://pthree.org/2017/09/04/a-practical-and-secure-password-and-passphrase-generator/
 [github]: https://github.com/atoponce/webpassgen
 [generator itself]: https://ae7.st/g/
+[c]: /cache/webpassgen/

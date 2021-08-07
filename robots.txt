@@ -3,8 +3,9 @@ disallow: /en/markdown.
 disallow: /cache
 disallow: /photos
 disallow: /private
-disallow: /unlisted/photos
+disallow: /unlisted
 
+# leftovers from prev blog engine
 disallow: /Visiglyphs/
 disallow: /map.php
 disallow: /news.php
@@ -20,6 +21,7 @@ disallow: /soft
 disallow: /stories
 disallow: /video
 
+# leftovers from bashblog
 disallow: /en/tag_
 disallow: /ru/tag_
 disallow: /photos/tag_
