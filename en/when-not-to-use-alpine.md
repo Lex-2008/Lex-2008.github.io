@@ -96,3 +96,20 @@ Some more links:
 * [Performance issues with php:7*-alpine containers](https://github.com/docker-library/php/issues/592)
 
 * [Why is the Alpine Docker image over 50% slower than the Ubuntu image?](https://superuser.com/questions/1219609/why-is-the-alpine-docker-image-over-50-slower-than-the-ubuntu-image) - also linked at the top of this article
+
+
+Update from 2021-09-21
+----------------------
+
+Also, note that musl library [does not not support][musl-dns-o-tls] DNS-over-TLS.
+
+It means that if a DNS response doesn't fit into a single UDP packet - musl library users won't able to read it.
+
+Musl author says that they should use more advanced dedicated DNS libraries for that.
+
+But if your app developer doesn't agree - then you're out of luck.
+
+_It looks like_ that's what happened to me with [Alpine opendkim container][alpine-opendkim].
+
+[musl-dns-o-tls]: https://twitter.com/RichFelker/status/994629795551031296
+[alpine-opendkim]: https://pkgs.alpinelinux.org/package/edge/community/x86/opendkim

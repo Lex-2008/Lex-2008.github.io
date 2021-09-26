@@ -25,7 +25,7 @@
 		<div class="post">
 			<h2><a href="when-not-to-use-alpine.html" class="title">When not to use Alpine</a></h2>
 			<p class="trivia">
-				Created: 2021-07-11 &mdash; modified: 2021-08-01 &mdash; tags: bash linux python
+				Created: 2021-07-11 &mdash; modified: 2021-09-26 &mdash; tags: bash linux python
 			</p>
 			<p class="intro">When you use scripting languages and want to squeeze some performance.</p>
 			<h2>Intro</h2>
@@ -104,6 +104,18 @@ Moreover, I'm probably more interested in results which differ from what I got!<
 <li><p><a href="https://github.com/docker-library/php/issues/592">Performance issues with php:7*-alpine containers</a></p></li>
 <li><p><a href="https://superuser.com/questions/1219609/why-is-the-alpine-docker-image-over-50-slower-than-the-ubuntu-image">Why is the Alpine Docker image over 50% slower than the Ubuntu image?</a> - also linked at the top of this article</p></li>
 </ul>
+
+<h2>Update from 2021-09-21</h2>
+
+<p>Also, note that musl library <a href="https://twitter.com/RichFelker/status/994629795551031296">does not not support</a> DNS-over-TLS.</p>
+
+<p>It means that if a DNS response doesn't fit into a single UDP packet - musl library users won't able to read it.</p>
+
+<p>Musl author says that they should use more advanced dedicated DNS libraries for that.</p>
+
+<p>But if your app developer doesn't agree - then you're out of luck.</p>
+
+<p><em>It looks like</em> that's what happened to me with <a href="https://pkgs.alpinelinux.org/package/edge/community/x86/opendkim">Alpine opendkim container</a>.</p>
 		</div>
 		<!-- end when-not-to-use-alpine -->
 	</div>
