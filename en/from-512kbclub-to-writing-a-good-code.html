@@ -1,0 +1,163 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css">
+<title>From 512kb.club to writing a good code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="<a class='kb-club' target='_blank' href='https://512kb.club/#:~:text=alexey.shpakovsky.ru' title='a proud member of the 512KB Club Green Team'><span class='kb-club-no-bg'>512KB Club</span><span class='kb-club-bg'>Green Team</span></a> How reading one habr.com blog post caused chain of events leading up to me writing a good documentation for a pet project">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/from-512kbclub-to-writing-a-good-code.html">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/en.html">Photos</a></li>
+		<li><a href="../private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin from-512kbclub-to-writing-a-good-code -->
+		<div class="post">
+			<h2><a href="from-512kbclub-to-writing-a-good-code.html" class="title">From 512kb.club to writing a good code</a></h2>
+			<p class="trivia">
+				Created: 2021-07-16 &mdash; modified: 2021-09-26 &mdash; tags: life
+			</p>
+			<p class="intro"><a class='kb-club' target='_blank' href='https://512kb.club/#:~:text=alexey.shpakovsky.ru' title='a proud member of the 512KB Club Green Team'><span class='kb-club-no-bg'>512KB Club</span><span class='kb-club-bg'>Green Team</span></a> How reading one habr.com blog post caused chain of events leading up to me writing a good documentation for a pet project</p>
+			<h2>512kb.club</h2>
+
+<p>Via a <a href="https://habr.com/ru/company/ruvds/blog/566186/">habr.com blog post</a> (ru) I've learned about a number of websites which aim to promote caring about <em>size</em> of websites by listing / praising those which fit within some limit (2Mb, 1Mb, 512kb, 128kb, etc).
+The most appropriate for my blog site was <a href="https://512kb.club/">512kb.club</a>, which listed sites where <em>uncompressed</em> size of <em>main page</em> together with all assets fits within 512kb, with further separation into "teams" of sites under 100kb, 250kb, and 512kb.</p>
+
+<h2>Lazier lazyblog</h2>
+
+<p>At that time, main page of this website was <em>just a bit</em> over 100kb, which pushed me into <em>orange team</em> instead of a (slightly) more prestigious green team.
+Hence, the time had come for some optimisation.</p>
+
+<p>Worth mentioning that initially lazyblog was designed with <em>performance</em> in mind, not <em>size</em>.
+One of optimisations which sacrificed page size (made it bigger) in favour of performance (made it faster) was storing data for each blog (title, intro, dates) <strong>twice</strong> in the index page.
+Reason for this was that back in Dec 2016 I <a href="https://github.com/Lex-2008/lazyblog/blob/ff8b6fc841677033f230ffe00b0cfae5ac527e69/script.js.bak">found out</a> that the fastest way to get information about each blog post by javascript (for the purpose of tags, search and sorting) was by splitting a single string with all this data into parts, like this:</p>
+
+<pre><code>var object=document.querySelector('…');
+var string=object.innerHTML;
+var data=string.split('\n');
+</code></pre>
+
+<p>instead of any other method which was parsing HTML one way or another (worth noting that picking title, description, tags, dates with individual <code>document.querySelector('…')</code> calls was the slowest one in my test).</p>
+
+<p>At the same time I didn't want to lose compatibility with javascript-disabled visitors, so had to keep all same data in HTML code.
+Moreover, worth noting that this optimisation came rather late in lazyblog development - otherwise I would probably done it differently (maybe with a single <code>&lt;script&gt;</code> tag with one big JSON with data for all blog posts).</p>
+
+<p>However, after several years of using the website, I realised that data which is needed <em>only</em> for search is <em>not</em> needed until search is <em>actually performed</em>. :)
+Moreover, search is usually performed not that often, and almost never - during initial load.</p>
+
+<p>Hence, a proper way of loading data is:</p>
+
+<blockquote>
+  <ul>
+<li><p>Only data which is needed for initial page rendering (tags and created date) is loaded as-fast-as-possible during first load</p></li>
+<li><p>Data which is needed for search (titles and descriptions) is loaded later.
+Moreover, since it doesn't block initial page load, it can be loaded using a slower method.</p></li>
+</ul>
+</blockquote>
+
+<p>This way lazyblog became even <em>more lazy</em> - now it doesn't load search data until it's really necessary!</p>
+
+<p>If interested, you can see commits to the <a href="https://github.com/Lex-2008/lazyblog/commit/3ede4928a00790d361aff1915da2143016d2a9f9">lazyblog</a> and <a href="https://github.com/Lex-2008/Lex-2008.github.io/commit/4af108aeef0fc54d4c08f569524dd3c9b9bb7e41">this blog</a> repos.</p>
+
+<h2>Site size checker script</h2>
+
+<p>On the 512kb.club's F.A.Q. page and in their issue tracker on GitHub they've mentioned that's it's rather hard for them to periodically recheck sizes of all sites.</p>
+
+<p>Having some experience with Webdriver, I naturally decided to help.</p>
+
+<p><a href="https://github.com/kevquirk/512kb.club/issues/386#issuecomment-886794495">First version</a> of my script was starting Google Chrome, opening website in it, and measuring total uncompressed size of all received resources (note that <em>uncompressed</em> here means only un-gzip-ping, and <strong>not</strong> decoding JPEGs to BMPs).</p>
+
+<p>However, the values generated by it for various websites didn't always match to those measured by <a href="https://gtmetrix.com/">GTmetrix</a> website, which was used by 512kb.club as a reference.
+And after few ~~hours~~ <em>days</em> of debugging, it turned out that it was quite hard to match them exactly.
+As a minimum, one should:</p>
+
+<ul>
+<li><p>disable system-wide adblocker</p></li>
+<li><p>use same size of browser window (because some images might get loaded only when they are close to the visible area of the page, some CSS styles are loaded only on specific page widths, etc)</p></li>
+<li><p>restart browser between testing each site in order to avoid reusing cached resources</p></li>
+</ul>
+
+<p>Hence, a [different script][script2] was written, which used GTmetrix API.
+Basically, instead of measuring site size itself, it asked GTmetrix to do it, and just presented the number.
+Nothing really fancy.</p>
+
+<p>[script2]: in the repo</p>
+
+<h2>GTmetrix API library</h2>
+
+<p>When writing that script, I used the <a href="...">Python GTmetrix API library</a>, but didn't really like it.
+First, it didn't approve my email address, which was perfectly valid for GTmetrix API themselves.
+Second, it <strong>hang</strong> when asked to test a non-existing website
+(or, rather, any webpage which ended up with error in GTmetrix).
+And lastly, it looked unmaintained - at least, none of my PRs got any reaction.</p>
+
+<p>Hence, a <a href="...">new library</a> was born.
+It also became an implementation of my long-planned idea to make a <em>good code</em> project -
+unlike my previous hobby projects, where I tried to add new features as fast as possible,
+without thinking of making code look good or wasting time on refactoring.
+Here I don't hesitate to stop, rethink, refactor, or even rename some public classes
+(I can afford that while library is not used by anyone else).</p>
+
+<p>First goal of <em>"good code"</em> project (and first attribute of a good code) was 100% code coverage.
+To achieve this in <em>API library</em> we need, well, to mock the API.
+For that, an <a href="...">http...</a> library comes useful -
+basically, it's a <em>fixture</em> for <a href="...">pytest</a>,
+which spawns a helper HTTP server, and lets you specify what <em>requests</em> this server should <em>expect</em>,
+and what <em>responses</em> it should reply with.
+Exactly what we need for testing the API!</p>
+
+<p>By the way, it's called <em>dependency injection</em> -
+I don't actually expect someone else reimplementing GTmetrix API,
+but for the purpose of testing, API endpoint is passed as optional argument to the library constructor -
+normal users will just ignore it and use official API endpoint,
+and unit tests can use mock HTTP server instead.
+Same with <code>time.sleep</code> function:
+where real users will <em>wait</em> for a few seconds between retrying request
+(for example, while waiting for a test to be completed),
+unittests can just log that Python was instructed to sleep for N seconds and keep running at maximum speed.
+To make things easier, this "logging" is currently implemented by sending HTTP requests to the same mock server.</p>
+
+<p>Worth noting that having 100% code coverage (measured by lines) in <em>unit</em> tests doesn't protect you from all bugs.
+First, there are various code coverage metrics (line coverage, branch coverage, expression coverage, etc).
+Second, passing unit tests only mean that code of your program matches expectations in your unit tests, but it doesn't guarantee that it matches reality.
+For example, I once misspelled name of GTmetrix API endpoint: I wrote "report" (singular) instead of "reports" (plural).
+I did it <em>both</em> in program code (which made requests to "report" endpoint) and in tests (which expected to receive requests to "report" endpoint).
+Hence, tests were passing, but when I tried to use this library with real API - server responded with "you made a wrong request" error code.
+Hence, another kind of test is needed - <em>integration</em> tests.</p>
+
+<p>Second goal of <em>"good code"</em> project is error checking.
+Unlike my other hobby projects,
+which say "garbage in - garbage out"
+and may produce unexpected results or crash in unexpected ways when met with unexpected inputs,
+this library carefully checks all data received from GTmetrix API and raises an exception explaining what went unexpected.</p>
+
+<p>And lastly, third goal is good documentation.
+I'm trying to keep as much of documentation as possible in <em>docstrings</em>
+(part of source code), hoping that it never gets out-of sync with actual implementation,
+and use some <a href="...">sphinx</a> magic to convert them to a <a href="...">nice website</a>.</p>
+
+<h2>Conclusion</h2>
+
+<p>That's a weird sequence of events which led from a random habr.com blog post to me writing a Python library and registering at pypi and readthedocs websites.
+Wonder if it ends here or there will be something more?</p>
+		</div>
+		<!-- end from-512kbclub-to-writing-a-good-code -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>
