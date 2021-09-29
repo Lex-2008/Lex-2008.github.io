@@ -2,8 +2,6 @@ title=World domination
 intro=Experience after playing a flash game
 tags=fun games politics
 created=2014-06-21
-modified=2016-09-06
-modified_now=1
 
 
 So I was playing [this game][] recently (URL says it all).
@@ -45,7 +43,7 @@ Total time spent: 2 hours.
 <script>
 function a(q){
 	if(q.country=='RU'){
-		document.querySelector('.content').innerHTML=document.querySelector('#ban').innerHTML;
+		document.querySelector('#content').innerHTML=document.querySelector('#ban').innerHTML;
 	}
 }
 </script>

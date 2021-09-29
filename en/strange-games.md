@@ -2,8 +2,6 @@ title=Strange games
 intro=A website with a provoking name features funny games
 tags=games
 created=2014-09-20
-modified=2015-01-16
-modified_now=1
 
 
 Link: [stabyourself.net][].
@@ -46,7 +44,7 @@ Other
 <script>
 function a(q){
 	if(q.country=='RU'){
-		document.querySelector('.content').innerHTML=document.querySelector('#ban').innerHTML;
+		document.querySelector('#content').innerHTML=document.querySelector('#ban').innerHTML;
 	}
 }
 </script>
