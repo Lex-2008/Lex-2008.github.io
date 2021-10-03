@@ -1,6 +1,6 @@
 title=Space 3: person on the ship
 intro=Now we want to have a character (a pilot) to walk on the ship.
-tags=Space
+tags=Space3D
 created=2017-04-15
 
 To achieve this, we'll use reworked [PointerLockControls.js][] from three.js.

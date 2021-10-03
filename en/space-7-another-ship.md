@@ -1,6 +1,6 @@
 title=Space 7: another ship
 intro=Let's have something to look at!
-tags=Space
+tags=Space3D
 created=2017-10-02
 
 The idea for ship generator taken from [this post][hs] about making if Heat Signature game.

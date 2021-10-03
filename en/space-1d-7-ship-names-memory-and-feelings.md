@@ -1,6 +1,6 @@
 title=space 1d 7: Ship names, memory, and feelings
 intro=Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior
-tags=space
+tags=space1d
 created=2021-02-21
 
 In this update, instead of generating a new random ship for every encounter, the game keeps a list of them and picks a random one for every encounter.

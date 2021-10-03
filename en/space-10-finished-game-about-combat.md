@@ -1,6 +1,6 @@
 title=Space 10: Finished game about combat
 intro=My first (almost) finished game
-tags=Space
+tags=Space3D
 created=2018-06-15
 
 

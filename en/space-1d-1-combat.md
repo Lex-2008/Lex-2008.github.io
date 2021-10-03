@@ -1,6 +1,6 @@
 title=space 1d 1: combat
 intro=Adding some action to the simple game prototype.
-tags=space
+tags=space1d
 created=2018-04-02
 
 Moving on with the [game I talked previously][game] about, let's add some simple combat.

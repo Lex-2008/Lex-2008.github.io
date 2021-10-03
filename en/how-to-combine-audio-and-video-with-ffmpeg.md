@@ -1,6 +1,6 @@
 title=How to combine audio and video with ffmpeg
 intro=When you downloaded them separately
-tags=Bash Linux
+tags=Linux
 created=2020-05-10
 
 Sometimes, download managers offer two options when downloading videos from a video-hosting websites: either you can download high-resolution video, or a video with audio.

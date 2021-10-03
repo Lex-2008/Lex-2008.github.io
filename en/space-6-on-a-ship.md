@@ -1,6 +1,6 @@
 title=Space 6: on a ship
 intro=FPV mode, so we can walk on the ship
-tags=Space
+tags=Space3D
 created=2017-10-01
 
 So I'm back, and here's a new step: now we can walk on the ship, too!

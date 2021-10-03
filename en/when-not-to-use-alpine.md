@@ -1,6 +1,6 @@
 title=When not to use Alpine
 intro=When you use scripting languages and want to squeeze some performance.
-tags=bash linux python
+tags=linux python
 created=2021-07-11
 
 Intro

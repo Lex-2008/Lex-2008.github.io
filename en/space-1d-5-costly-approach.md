@@ -1,6 +1,6 @@
 title=space 1d 5: Costly approach
 intro=Changes in physics
-tags=space links
+tags=space1d links
 created=2020-05-21
 
 A new type of component (and cargo) added: Defense Grid (which uses Defense Ammo).

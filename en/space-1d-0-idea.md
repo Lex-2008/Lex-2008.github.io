@@ -1,6 +1,6 @@
 title=space 1d 0: idea
 intro=Game about space which will be more fun to make than to play.
-tags=space
+tags=space1d
 created=2018-04-01
 
 Being inspired by UI of [game about paperclips][p], story behind [Dwarf Fortress][df], and warm memories of playing [Space Trader][st],

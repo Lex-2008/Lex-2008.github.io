@@ -1,6 +1,6 @@
 title=space 2d 1: a game which plays by itself
 intro=a humble beginning
-tags=space
+tags=space2d
 created=2021-04-11
 
 So I have a [three-dimensional space _shooter_ game][3d], a [one-dimensional space _adventure_ game][2d], so now it's time for a two-dimensional space _strategy_ game.

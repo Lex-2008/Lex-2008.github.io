@@ -1,6 +1,6 @@
 title=Space 5: back to square one
 intro=Changing the engine
-tags=Space
+tags=Space3D
 created=2017-04-17
 
 Researching proper ways of combining meshes to make collision detection for a ship,

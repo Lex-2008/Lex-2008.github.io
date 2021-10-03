@@ -25,15 +25,18 @@
 		<div class="post">
 			<h2><a href="different-keyboard-layouts-for-different-keyboards.html" class="title">Different keyboard layouts for different keyboards</a></h2>
 			<p class="trivia">
-				Created: 2017-03-14 &mdash; modified: 2018-02-23 &mdash; tags: Linux
+				Created: 2017-03-14 &mdash; modified: 2021-10-03 &mdash; tags: Linux
 			</p>
 			<p class="intro">On Linux, you can have different keyboard layouts for different physical keyboards. How? Easy!</p>
 			<p>Just add a line like this:</p>
 
-<pre><code>SUBSYSTEM=="input", ACTION=="add", ENV{ID_SERIAL}=="046a_0011", ENV{XKBLAYOUT}="us,ru", ENV{XKBVARIANT}=",winkeys", ENV{XKBOPTIONS}="grp:lalt_lshift_toggle,grp_led:caps,caps:escape,nbsp:level2,terminate:ctrl_alt_bksp"
+<pre><code>SUBSYSTEM=="input", ACTION=="add", ENV{ID_SERIAL}=="046a_0011", ENV{XKBLAYOUT}="us,ru", ENV{XKBVARIANT}=",winkeys", ENV{XKBOPTIONS}="grp:shift_caps_switch,grp_led:caps,terminate:ctrl_alt_bksp"
 </code></pre>
 
 <p>to your <code>/etc/udev/rules.d/zz-local.rules</code> file (create it if it doesn't exist).</p>
+
+<p>Note that I haven't tested it under SystemD or Wayland.
+Sway, <a href="https://wiki.archlinux.org/title/Sway#Keymap">it seems</a>, supports it natively!</p>
 		</div>
 		<!-- end different-keyboard-layouts-for-different-keyboards -->
 	</div>

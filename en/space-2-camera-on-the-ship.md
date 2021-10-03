@@ -1,6 +1,6 @@
 title=Space 2: Camera on the ship
 intro=Let's put a camera onto the ship, to get some FPV experience
-tags=Space
+tags=Space3D
 created=2017-04-14
 
 Controls here are like before, but now you can also look around using press-and-hold mouse.

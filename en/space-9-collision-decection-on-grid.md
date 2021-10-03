@@ -1,6 +1,6 @@
 title=Space 9: collision decection on grid
 intro=Unlike sector-based one, this uses more complex logic, but simpler maps
-tags=Space
+tags=Space3D
 created=2017-11-21
 
 <div>

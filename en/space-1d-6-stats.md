@@ -1,6 +1,6 @@
 title=space 1d 6: Stats
 intro=One step forward, one step back
-tags=space
+tags=space1d
 created=2021-02-13
 
 I actually didn't like [previous version][5], and found myself playing [the one before that][4] more.

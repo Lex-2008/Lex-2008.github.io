@@ -1,6 +1,6 @@
 title=Space 8: collision detection
 intro=Now you can't go outside the ship
-tags=Space
+tags=Space3D
 created=2017-11-06
 
 Collision detection inside the ship - how hard can it be?

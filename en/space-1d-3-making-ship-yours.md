@@ -1,6 +1,6 @@
 title=space 1d 3: Making ship yours
 intro=The game is playable now!
-tags=space
+tags=space1d
 created=2020-05-16
 
 My original plan to make a game which [will be more fun to make than to play][l1] failed: the game feels rather fun.

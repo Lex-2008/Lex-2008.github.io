@@ -1,6 +1,6 @@
 title=space 1d 4: Trading and bluffing
 intro=more choices
-tags=space
+tags=space1d
 created=2020-05-17
 
 The game is getting harder now.

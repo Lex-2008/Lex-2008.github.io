@@ -1,6 +1,6 @@
 title=space 1d 2: more ships
 intro=Moving forward with a simple game.
-tags=space
+tags=space1d
 created=2020-05-10
 
 It's been a while since I've been in 1-d [space][]. Time to do something!

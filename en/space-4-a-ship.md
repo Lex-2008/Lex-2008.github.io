@@ -1,6 +1,6 @@
 title=Space 4: a ship
 intro=Let's build a real ship
-tags=Space
+tags=Space3D
 created=2017-04-16
 
 In this demo you can walk inside your ship and explore a colorful sphere.

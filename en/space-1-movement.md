@@ -1,6 +1,6 @@
 title=Space 1: Movement
 intro=First step is moving the ship
-tags=Space
+tags=Space3D
 created=2017-04-13
 
 Ok, first let's figure out how to move the ship.

@@ -1,7 +1,7 @@
 title=Space 0: Idea
 intro=What I want to create and what to base on
 created=2017-04-12
-tags=Space
+tags=Space3D
 
 There is a game I want to create.
 Idea is heavily borrowed from [Rodina][] game

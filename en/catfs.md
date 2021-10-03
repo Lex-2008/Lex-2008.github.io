@@ -1,9 +1,7 @@
 title=catfs
 intro=A FUSE module that shows a list of files as one big file.
-tags=bash
+tags=Linux
 created=2016-09-25
-modified=2016-09-28
-modified_now=1
 
 
 **Imaginary usecase**:

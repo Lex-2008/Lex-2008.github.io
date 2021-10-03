@@ -1,6 +1,6 @@
 title=space 2d 2: first UI with a view on horribly unbalanced economy
 intro=It's playable now… if you can call it that :-)
-tags=space
+tags=space2d
 created=2021-05-03
 
 Continuation of my [previous] game about 2-dimentional space with trading, buildings, and empires.
