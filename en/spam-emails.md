@@ -1,6 +1,6 @@
 title=This is spam
 intro=These are e-mail addresses that sent spam/scam/phishing emails to me.
-tags=e-mail
+tags=e-mail logs
 created=2014-05-13
 
 <div>

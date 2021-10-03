@@ -1,9 +1,11 @@
 title=Login attempts
 intro=These are logins and passwords of last 10k login attempts into my server.
-tags=e-mail
+tags=e-mail logs
 created=2021-07-09
 
 All of them failed, because there is no imap/pop/smtp login option on this server at all.
+
+<p id="stat"></p>
 
 <div>
 <style>
@@ -28,3 +30,13 @@ Where auth.log.gz taken from [nginx][ng].
 
 [sc]: https://github.com/Lex-2008/containers/blob/master/logshow.cont/data/html/login-attempts.sh
 [ng]: https://github.com/Lex-2008/containers/blob/master/nginx.cont/data/conf/nginx.conf#:~:text=access_log%20/data/logs/-,auth.log.gz,-auth%20gzip%20flush
+
+<script>
+document.body.onload=function(){
+	t=window.performance.timing;
+	document.getElementById('stat').innerHTML='Page received in <b>'+
+		(t.responseEnd-t.requestStart)+  '</b>ms, plus <b>'+
+		(t.domComplete-t.navigationStart-(t.responseEnd-t.requestStart))+
+		'</b>ms overhead (reported by your browser).';
+}
+</script>

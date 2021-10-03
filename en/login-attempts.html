@@ -25,10 +25,12 @@
 		<div class="post">
 			<h2><a href="login-attempts.html" class="title">Login attempts</a></h2>
 			<p class="trivia">
-				Created: 2021-07-09 &mdash; modified: 2021-07-18 &mdash; tags: e-mail
+				Created: 2021-07-09 &mdash; modified: 2021-10-03 &mdash; tags: e-mail logs
 			</p>
 			<p class="intro">These are logins and passwords of last 10k login attempts into my server.</p>
 			<p>All of them failed, because there is no imap/pop/smtp login option on this server at all.</p>
+
+<p id="stat"></p>
 
 <div>
 <style>
@@ -51,6 +53,16 @@ zcat /path/to/auth.log.gz | tail -n10000 | tac | cut -d' ' -f1,3,6,7,9 | sed 's_
 </code></pre>
 
 <p>Where auth.log.gz taken from <a href="https://github.com/Lex-2008/containers/blob/master/nginx.cont/data/conf/nginx.conf#:~:text=access_log%20/data/logs/-,auth.log.gz,-auth%20gzip%20flush">nginx</a>.</p>
+
+<script>
+document.body.onload=function(){
+    t=window.performance.timing;
+    document.getElementById('stat').innerHTML='Page received in <b>'+
+        (t.responseEnd-t.requestStart)+  '</b>ms, plus <b>'+
+        (t.domComplete-t.navigationStart-(t.responseEnd-t.requestStart))+
+        '</b>ms overhead (reported by your browser).';
+}
+</script>
 		</div>
 		<!-- end login-attempts -->
 	</div>
