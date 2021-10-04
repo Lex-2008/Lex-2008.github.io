@@ -1,7 +1,6 @@
 user-agent: *
 disallow: /en/markdown.
 disallow: /cache
-disallow: /photos
 disallow: /private
 disallow: /unlisted
 
