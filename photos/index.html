@@ -14,9 +14,9 @@ div {margin:auto;
 <table><tr><td><div>
 				<script>
 					if((navigator.language||navigator.userLanguage).slice(0,2)=='ru')
-						location = 'ru.html';
+						location = 'ru.html'+location.hash;
 					else
-						location = 'en.html';
+						location = 'en.html'+location.hash;
 				</script>
 				Для полной функциональности этого <a href="ru.html">фотоальбома</a> необходимо включить JavaScript.
 				Вот <a href="https://www.enable-javascript.com/ru/">
