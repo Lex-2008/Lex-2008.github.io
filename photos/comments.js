@@ -1632,7 +1632,7 @@ comments={ //you can edit comments below, but please don't change this line
                  'ru':''},
 'DSC_0215.JPG': {'en':'Getting closer to civilisation',
                  'ru':'Возвращаюсь к цивилизации'},
-'DSC_0216.JPG': {'en':'A fdrm. Not sure if I can go there. Will go home.',
+'DSC_0216.JPG': {'en':'A farm. Not sure if I can go there. Will go home.',
                  'ru':'Ферма. Непонятно, можно туда или нельзя. Поеду дальше.'},
 'DSC_0217.JPG': {'en':'',
                  'ru':''},
