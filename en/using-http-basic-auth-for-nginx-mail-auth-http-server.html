@@ -1,0 +1,138 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css">
+<title>Using HTTP Basic auth for nginx mail auth http server</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How hard can it be? Using only nginx itself!">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/using-http-basic-auth-for-nginx-mail-auth-http-server.html">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/en.html">Photos</a></li>
+		<li><a href="../private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin using-http-basic-auth-for-nginx-mail-auth-http-server -->
+		<div class="post">
+			<h2><a href="using-http-basic-auth-for-nginx-mail-auth-http-server.html" class="title">Using HTTP Basic auth for nginx mail auth http server</a></h2>
+			<p class="trivia">
+				Created: 2021-10-23 &mdash; modified: 2021-10-23 &mdash; tags: nginx net
+			</p>
+			<p class="intro">How hard can it be? Using only nginx itself!</p>
+			<p>When proxying mail connections (SMTP, IMAP, POP3) to backend, nginx uses <a href="http://nginx.org/en/docs/mail/ngx_mail_auth_http_module.html">mail_auth_http</a> module,
+which verifies passwords using HTTP connection to a (potentially external) <em>auth server</em>.</p>
+
+<p>In simplest case, without password verification, this server can be implemented in nginx itself and look like this
+(example from <a href="https://serverfault.com/a/610481">serverfault</a>):</p>
+
+<pre><code>    server {
+            listen 127.0.0.1:2580;
+            location = /auth {
+                    add_header Auth-Status OK;
+                    add_header Auth-Server 127.0.0.1;  # backend ip
+                    add_header Auth-Port   2525;       # backend port
+                    return 200;
+            }
+    }
+</code></pre>
+
+<p>Overall it's nice, since it allows you to control access to your mail server <em>before</em> connection reaches the mail server itself.</p>
+
+<p>But, if you're already using <a href="http://nginx.org/en/docs/http/ngx_http_auth_basic_module.html">http_auth_basic</a> module to control who can access your <em>webmail interface</em>,
+you might be wondering: why does mail_auth_http use a different scheme for password verification
+and shouldn't it be possible to use existing http_auth_basic infrastructure for mail_auth_http server?</p>
+
+<p>While I don't know <em>why</em> it was implemented that way, I can tell you <em>how</em> to workaround it :)</p>
+
+<p>First, the mail_auth_http server receives username and password in <code>Auth-User</code> and <code>Auth-Pass</code> headers,
+while http_auth_basic expects to see them <em>base64</em>-encoded in Authorization header.</p>
+
+<p>To convert from one format to another, we first use <a href="https://github.com/openresty/set-misc-nginx-module">set_misc</a> nginx module
+which has a base64 encode function, and then set an Authorization header when performing a <a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html">proxy_pass</a> <em>sub</em>-request:</p>
+
+<pre><code>load_module modules/ndk_http_module.so; # required for set_misc_module
+load_module modules/ngx_http_set_misc_module.so;
+
+http {
+    server {
+        listen 127.0.0.1:14380;
+        location /check    {
+            set $auth         "$http_auth_user:$http_auth_pass";
+            set_encode_base64 $auth; # uses set_misc_module
+            set $auth_header  "Basic $auth";
+            proxy_pass        http://127.0.0.1:14380/auth;
+            proxy_set_header  Authorization $auth_header;
+        }
+    }
+}
+</code></pre>
+
+<p>To follow the mail_auth_http protocol, this subrequest must (after verifying username and password)
+return one of two sets of headers, both with return code 200.
+The simplest way I managed to do this in nginx was to make this subrequest an http_auth_basic-protected proxy_pass
+(this way authorised requests will go into the third level, which will return proper headers for the "authorised" case),
+and rewrite the "401 Unauthorized" error response to custom "unauthorized" level,
+which will return proper headers for the "unauthorized" case together with a 200 response code.</p>
+
+<pre><code>location /auth     {
+    # 2nd level - performs HTTP basic auth check and forwards either to /pass or /fail
+    auth_basic "imap";
+    auth_basic_user_file /data/passwd/mail.txt;
+    proxy_pass http://127.0.0.1:14380/pass;
+    error_page 401 =200 /fail;
+}
+location /pass     {
+    # this sits behind HTTP basic auth above. If request came here - it's authorised.
+    add_header Auth-Status OK;
+    add_header Auth-Server 127.0.0.1;  # backend ip
+    add_header Auth-Port   1433;       # backend port
+    return 200;
+}
+location = /fail   {
+    # unauthourised requests end up here.
+    add_header Auth-Status "try again with a different username and password";
+    add_header Auth-Wait 3;
+    return 200;
+}
+</code></pre>
+
+<p>Note that in this example I used simple auth_basic_user_file directive to fetch valid username/password pairs from a file,
+but you can also use <a href="https://nginx.org/en/docs/http/ngx_http_auth_request_module.html">auth_request</a> here, ref <a href="https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-subrequest-authentication/">relevant guide</a>.</p>
+
+<p>Relevant mail part of nginx config:</p>
+
+<pre><code>load_module modules/ngx_mail_module.so;
+mail {
+    server {
+        listen     143;
+        protocol   imap;
+        auth_http  127.0.0.1:14380/check;
+    }
+}
+</code></pre>
+
+<p>Note that this example assumes unencrypted connections only,
+and you likely don't want to have it like this in production.
+Enabling ssl for connections is left as exercise for the reader :)</p>
+
+<p>Full working example you can find on my <a href="https://github.com/Lex-2008/containers/blob/master/nginx.cont/data/conf/nginx.conf">github</a>.</p>
+		</div>
+		<!-- end using-http-basic-auth-for-nginx-mail-auth-http-server -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>
