@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css">
+<title>DynDNS DIY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Why use someone else's Dynamic DNS server, if you can <i>easily</i> run your own?">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/dyndns-diy.html">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/en.html">Photos</a></li>
+		<li><a href="../private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin dyndns-diy -->
+		<div class="post">
+			<h2><a href="dyndns-diy.html" class="title">DynDNS DIY</a></h2>
+			<p class="trivia">
+				Created: 2021-10-10 &mdash; modified: 2021-10-24 &mdash; tags: net bind
+			</p>
+			<p class="intro">Why use someone else's Dynamic DNS server, if you can <i>easily</i> run your own?</p>
+			<p>Over the time, I grew dissatisfied with free DynDNS services:</p>
+
+<ul>
+<li><p>Some of them wanted money</p></li>
+<li><p>Some of them didn't support IPv6</p></li>
+<li><p>Some of them wanted me to verify my account every few months</p></li>
+<li><p>Some of them had more than one drawback from above three</p></li>
+</ul>
+
+<p>Best of all is <a href="https://freedns.afraid.org/">freedns.afraid.org</a>, which asked me to confirm my account only once so far.</p>
+
+<p>But I still wandered how hard is it to implement that.
+Turns out, not at all!
+Basically, you need to have a bind server running as an <em>authoritative</em> server for a zone,
+tell it to accept commands to change it,
+and give proper commands to <code>nsupdate</code> utility.</p>
+
+<p>All the changes lives basically it two files:</p>
+
+<ul>
+<li><p><a href="https://github.com/Lex-2008/containers/blob/master/bind.cont/data/named.conf">named.conf</a> -
+the bind configuration, where the only relevant change is this line inside a zone:</p>
+
+<pre><code>update-policy { grant ddns-key zonesub ANY; };
+</code></pre></li>
+<li><p><a href="https://github.com/Lex-2008/containers/blob/master/dyndns.cont/data/dyndns.sh">this script</a>
+which gives the proper commands to <code>nsupdate</code> utility, like this:</p>
+
+<pre><code>echo "
+del $host A
+add $host 1 A $ip
+send" | nsupdate -k /key.conf
+</code></pre></li>
+</ul>
+
+<p>Note that currently this script is tightly coupled with my containers infrastructure:
+it expects to be located behind an nginx reverse-proxy which checks authentification and
+sets proper headers with username (which becomes subdomain) and remote IP address.
+Also note the location of key.conf file which is expected to be shared between
+"bind" and "dyndns" containers.</p>
+
+<p><a href="https://github.com/Lex-2008/containers/blob/master/dyndns.cont/README.md">Installation</a>
+is pretty easy, and the result lives at <em>dyn.shpakovsky.ru</em>.</p>
+		</div>
+		<!-- end dyndns-diy -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>
