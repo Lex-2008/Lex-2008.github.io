@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css">
+<title>13th container</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="With <a href='https://github.com/Lex-2008/containers/tree/master/dehydrated.cont'>dehydrated</a> being 12th container to be added to my infra, this is 13th.">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/13th-container.html">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/en.html">Photos</a></li>
+		<li><a href="../private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin 13th-container -->
+		<div class="post">
+			<h2><a href="13th-container.html" class="title">13th container</a></h2>
+			<p class="trivia">
+				Created: 2021-11-14 &mdash; modified: 2021-11-27 &mdash; tags: postfix
+			</p>
+			<p class="intro">With <a href='https://github.com/Lex-2008/containers/tree/master/dehydrated.cont'>dehydrated</a> being 12th container to be added to my infra, this is 13th.</p>
+			<h2>Why</h2>
+
+<p>So I have a friend, who is unlucky enough to use mail server and client which both
+don't validate sender of incoming messages themselves and
+don't provide enough information for the user to do this:
+even if sending server has strict DMARC and SPF records,
+their server is happy to accept incoming messages from strangers and blindly trust the sender whoever they claim to be.
+And client does the same, slapping contact's photo from address book on top of the message.
+Moreover, the friend is in danger of being a victim of mail spoofing attack, for some reason.</p>
+
+<p>However, their mail client supports checking S/MIME signatures,
+so they convince all their friends, me included, to sign all outgoing messages with it.
+Messages with valid S/MIME signatures get a happy green padlock (or is it a checkmark?),
+verifying that it's indeed the correct sender and not a spoofer.</p>
+
+<p>Sadly, my mail client doesn't support adding these signatures.
+So what can be a solution here?</p>
+
+<h2>How</h2>
+
+<p>After researching possibility of using s/mime milters,
+I found a <a href="http://www.postfix.org/postconf.5.html#transport_maps"><code>transport_maps</code></a> Postfix option.
+It lets you configure what SMTP servers to use when sending messages to specific recipients.
+For example, I can configure Postfix in such a way that when it wants to send a message to this particular recipient,
+it should use a special dedicated SMTP server.
+And for the purpose of S/MIME signing, we can write a simple Python SMTP server
+that will receive messages from Postfix via SMTP
+(thanks to <a href="https://stackoverflow.com/a/2691249">this Stack Overflow answer</a> for providing an example Python SMTP server),
+add S/MIME signature
+(using smail python library and <a href="https://pypi.org/project/python-smail/#signing">example</a> from it),
+and send it to upstream SMTP server
+(using Python smtplib and <a href="https://docs.python.org/3/library/smtplib.html#smtp-example">example</a>).</p>
+
+<p>Installation and usage is described in <a href="https://github.com/Lex-2008/containers/blob/master/padlock.cont/README.md#installation">relevant README</a>.</p>
+
+<h2>Notes</h2>
+
+<p>Note that at the moment, only a single upstream server is supported, which is currently hardcoded to be gmail MX server, so as of writing it's useful only for messages sent to a <code>@gmail.com</code> address. That's fine for me, but <a href="https://github.com/Lex-2008/containers/edit/master/padlock.cont/data/serv.py">PR</a>s fixing this are welcome!</p>
+
+<p>Also note that since signing key is stored on the server, this does <strong>not</strong> add any extra security compared to DKIM signature.
+As said before, the only purpose of this server is to satisfy those email clients/servers/users who can't/don't check/show DKIM signatures, but have an option to check/show S/MIME ones.</p>
+		</div>
+		<!-- end 13th-container -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>

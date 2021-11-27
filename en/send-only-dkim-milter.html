@@ -1,0 +1,93 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css">
+<title>Send-only DKIM milter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How to configure Postfix to skip milter for incoming messages">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/send-only-dkim-milter.html">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/en.html">Photos</a></li>
+		<li><a href="../private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin send-only-dkim-milter -->
+		<div class="post">
+			<h2><a href="send-only-dkim-milter.html" class="title">Send-only DKIM milter</a></h2>
+			<p class="trivia">
+				Created: 2021-11-20 &mdash; modified: 2021-11-27 &mdash; tags: postfix
+			</p>
+			<p class="intro">How to configure Postfix to skip milter for incoming messages</p>
+			<h2>Why</h2>
+
+<p>Those who are interested in adding DKIM singatures to <em>outgoing</em> email messages (in order to increase deliverability),
+but not in verifying singatures of <em>incoming</em> messages,
+might want to configure their email system in such a way that <strong>only</strong> <em>outgoing</em> email messages pass through OpenDKIM milter.
+Moreover, this gives you an option to set <code>milter_default_action = reject</code>,
+which means that if your OpenDKIM milter is down or failed to sign your message for any reason,
+it will be reject by SMTP server, and you will get a (not so nice) error message in yor mail client
+(this part worth testing, though).</p>
+
+<h2>How</h2>
+
+<p>To do this, you just need to configure Postfix mail server to listen on two ports:
+one for incoming messages, and one for outgoing ones.
+Actually, developers of <a href="https://pypi.org/project/dkimpy-milter/">dkimpy-milter</a> recommend exactly this way of setting up postfix.</p>
+
+<p>To achieve this, you can for example duplicate the "inet smtp" line in your postfix master.cf file,
+adding extra parameters to it like this:</p>
+
+<pre><code>postconf -M smtp/inet | sed 's/^smtp/26/;s/$/ -o smtpd_milters=/' &gt;&gt;/etc/postfix/master.cf
+</code></pre>
+
+<p>Then, you can configure smtpd_milters in postconf main.cf as before
+(they will be used for incoming connections to port 25),
+and connections to port 26 will be configured to not use any milters at all.</p>
+
+<p>After that, you need to configure one port to be available for outside world on port 25,
+and another one - to be available only for your smtp clients.
+This depends on your setup, but in my case - running everything in containers -
+I just configured incoming connections to port 25 to be routed to port 26 of the postfix container,
+and kept webmail client configured to use port 25.</p>
+
+<h2>Notes</h2>
+
+<p>Actually, it's a bit more complex: nginx running in "host networking" container world-listens on port 25,
+handles STARTTLS, stops auth attempts, waits for "MAIL FROM" and "RCPT TO" messages from remote client
+and forwards "clean" connections together with XCLIENT info about remote server to localhost:2525 -
+which is listend on by Docker daemon which forwards the connection to port 26 of the postfix container.
+This is done primarily to keep postfix logs clear from portscan noise and to handle all SSL stuff -
+both HTTPS and STARTTLS - in one place.
+Also note that postfix container runs in "default" network,
+which doesn't allow direct connections from nginx container running in "host networking" mode,
+thus requiring usage of localhost port 2525.</p>
+
+<p>Also note that Postfix has built-in feature for this, called <a href="http://www.postfix.org/postconf.5.html#smtpd_milter_maps"><code>milter_maps</code></a>, but we can't use it here,
+again due to containers: issue is that milter_maps is checked during initial connection, <em>before</em> XCLIENT command is received,
+so it's checked against IP address of Docker daemon proxy, which is in same network as other containers.
+Theoretically <a href="https://github.com/moby/moby/issues/17305">it can even change</a>, so it's better not to expect it to always be "172.17.42.1",
+and instead use other ways to distinguish "incoming" and "outgoing" messages - like different port numbers.</p>
+
+<p>Also note that <a href="using-http-basic-auth-for-nginx-mail-auth-http-server.html">external mail clients</a> don't have access to "sending" port 25 of the postfix container.
+Sending email from external mail applications is simply not supported at all.</p>
+		</div>
+		<!-- end send-only-dkim-milter -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>
