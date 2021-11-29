@@ -1,0 +1,61 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css">
+<title>Дефрагментация SSD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Как дефрагментировать диск, если система считает его SSD">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/ru/дефрагментация-ssd.html">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/ru.html">Фото</a></li>
+		<li><a href="../private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href="http://alexey.shpakovsky.ru/ru/">Заметки</a></h1>
+		<p>Записи о разном</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin дефрагментация-ssd -->
+		<div class="post">
+			<h2><a href="дефрагментация-ssd.html" class="title">Дефрагментация SSD</a></h2>
+			<p class="trivia">
+				Создано: 2021-11-27 &mdash; изменено: 2021-11-29 &mdash; метки: программы
+			</p>
+			<p class="intro">Как дефрагментировать диск, если система считает его SSD</p>
+			<h2>Проблема</h2>
+
+<p>Я хочу дефрагментировать диск,
+но Windows говорит, что это SSD,
+и поэтому дефрагментировать его не нужно и даже вредно.</p>
+
+<p>Но я-то знаю, что этот Windows установлен в <a href="https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B0">виртуальную машину</a>,
+и что когда VMware говорит ему, что это SSD диск - то он ошибается
+(дело в том, что если на "хостовой" системе есть <em>хотя бы один</em> SSD-диск,
+то VMware <a href="https://docs.vmware.com/en/VMware-Workstation-Player-for-Linux/16.0/com.vmware.player.linux.using.doc/GUID-3FBBB031-D8BA-4D02-99C2-282F806F47E8.html">сообщает</a> гостевой системе, что <em>все</em> её диски являются SSD,
+независимо от того, на каком диске на самом деле расположен файл образа её диска).</p>
+
+<h2>Решение</h2>
+
+<p>Использовать программу дефрагментации, написанную <strong>до</strong> повсеместного распространения SSD-дисков.
+Например, JkDefrag: <a href="https://www.kessels.com/JkDefrag/">официальный сайт</a>, <a href="../unlisted/JkDefrag.exe">ссылка на скачивание</a>.</p>
+
+<hr />
+
+<p>Enlish version of this post: <a href="../en/defrag-ssd-in-vm-on-hdd.html">Defrag SSD in VM on HDD</a></p>
+		</div>
+		<!-- end дефрагментация-ssd -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Алексей Шпаковский</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(щелкните чтобы увидеть адрес)</a>
+	</div>
+</div>
+</body></html>

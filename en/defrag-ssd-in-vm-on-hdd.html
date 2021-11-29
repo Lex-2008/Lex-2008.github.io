@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../style2.css">
+<title>Defrag SSD in VM on HDD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Even if OS sees a storage device as SSD and refuses to defrag it - you might know better">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/defrag-ssd-in-vm-on-hdd.html">
+</head><body>
+<div id="menu">
+	<ul>
+		<li><a href="../ru/">Русский</a></li>
+		<li><a href="../en/">English</a></li>
+		<li><a href="../photos/en.html">Photos</a></li>
+		<li><a href="../private/">Private</a></li>
+	</ul>
+</div>
+<div id="wrap">
+	<div id="header">
+		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
+		<p>Notes about different stuff</p>
+	</div>
+	<div id="content">
+		<!-- put contents below -->
+		<!-- begin defrag-ssd-in-vm-on-hdd -->
+		<div class="post">
+			<h2><a href="defrag-ssd-in-vm-on-hdd.html" class="title">Defrag SSD in VM on HDD</a></h2>
+			<p class="trivia">
+				Created: 2021-11-27 &mdash; modified: 2021-11-29 &mdash; tags: windows
+			</p>
+			<p class="intro">Even if OS sees a storage device as SSD and refuses to defrag it - you might know better</p>
+			<h2>Why</h2>
+
+<p>When host OS has <em>at least one</em> SSD disk,
+VMware <a href="https://docs.vmware.com/en/VMware-Workstation-Player-for-Linux/16.0/com.vmware.player.linux.using.doc/GUID-3FBBB031-D8BA-4D02-99C2-282F806F47E8.html">reports</a> all disks as SSD to guest OS,
+even if its disk image file is actually located on HDD.</p>
+
+<h2>How</h2>
+
+<p>Solution is to use a program released <strong>before</strong> SSD disks became widespread -
+for example, JkDefrad: <a href="https://www.kessels.com/JkDefrag/">official website</a>, <a href="../unlisted/JkDefrag.exe">download link</a>.</p>
+
+<hr />
+
+<p>Русская версия этой заметки: <a href="../ru/%D0%B4%D0%B5%D1%84%D1%80%D0%B0%D0%B3%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F-ssd.html">Дефрагментация SSD</a></p>
+		</div>
+		<!-- end defrag-ssd-in-vm-on-hdd -->
+	</div>
+	<div id="footer">
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
+			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
+			(click to see e-mail)</a>
+	</div>
+</div>
+</body></html>
