@@ -1,9 +1,9 @@
 title=Vim prank
-intro=<div id="excerpt">An idea for an evil prank on your Vim-loving friend. Hint: in most other editors same effect is achieved by &lt;Ctrl+A&gt; &lt;Del&gt; &lt;Ctrl+S&gt; &lt;Alt+F4&gt;</div>
+intro=An idea for an evil prank on your Vim-loving friend.
 tags=vim fun
 created=2012-12-02
-modified=2012-12-02
-modified_now=1
+
+**TL;DR:** in most other editors same effect is achieved by the following sequence: `Ctrl+A` `Del` `Ctrl+S` `Alt+F4`.
 
 <div>
 

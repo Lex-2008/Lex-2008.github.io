@@ -1,9 +1,7 @@
 title=Macro to excange two values in Vim
-intro=<div id="excerpt">You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?</div>
+intro=You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?
 tags=vim
 created=2013-01-09
-modified=2013-01-09
-modified_now=1
 
 <div>
 
