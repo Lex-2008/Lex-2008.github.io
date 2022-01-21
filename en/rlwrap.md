@@ -3,7 +3,7 @@ intro=Short memo about a good program
 tags=Linux
 created=2021-09-10
 
-Thanks to my dear friend [Craig Comstock][c], today I've leraned about [rlwrap][] -
+Thanks to my dear friend [Craig Comstock][c], today I've learned about [rlwrap][] -
 a _readline wrapper_ program for Linux.
 Basically, it gives any program you like the power of [readline][].
 
