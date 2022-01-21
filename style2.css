@@ -23,7 +23,7 @@ body{font-family:Georgia,"Times New Roman",Times,serif}
 #footer{text-align:center;font-size:small;font-family:"Courier New","Courier",monospace;}
 
 /*colors and borders*/
-body {background-color:#F3F3F3}
+body {background-color:#F3F3F3; color: black}
 #wrap, #menu > ul > li {border:solid 1px #ccc;background-color:#fff}
 #header {background-color:#f9f9f9}
 #header, #controls {border-bottom:solid 1px #ccc}
