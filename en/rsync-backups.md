@@ -737,8 +737,21 @@ To be informed on updates, please write me
 (email address at the bottom of this page)
 a short free-form message.
 
-<script src="/microlight.js"></script>
-
+<div>
+<script src="../microlight.js"></script>
+<style>
+.toc {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: calc((100% - 874px - 24px)/2);
+}
+.toc > h2 {font-size: 1em;}
+.toc > a {
+	display: block;
+	 margin-bottom: 1ex;
+}
+</style>
 <script>
 function mktoc(){
 	var toc="<div class='toc'>";
@@ -752,3 +765,4 @@ function mktoc(){
 	}
 setTimeout('mktoc()',100);
 </script>
+</div>

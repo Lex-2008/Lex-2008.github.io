@@ -67,12 +67,12 @@
                 multichar,
                 node,
 
-                // calculating the colors for the style templates
-                colorArr = /(\d*\, \d*\, \d*)(, ([.\d]*))?/g.exec(
-                    _window.getComputedStyle(el).color
-                ),
-                pxColor = 'px rgba('+colorArr[1]+',',
-                alpha = colorArr[3]||1;
+                // // calculating the colors for the style templates
+                // colorArr = /(\d*\, \d*\, \d*)(, ([.\d]*))?/g.exec(
+                //     _window.getComputedStyle(el).color
+                // ),
+                // pxColor = 'px rgba('+colorArr[1]+',',
+                // alpha = colorArr[3]||1;
 
             // running through characters and highlighting
             while (prev2 = prev1,
@@ -186,6 +186,15 @@
                 token += chr;
             }
         }
+	var styleNode = document.createElement("style");
+	styleNode.innerHTML = [
+		".keyword, .punctuation {font-weight:bold}",
+		".comment {font-variant: italic; opacity: 0.65}",
+		".string {color: navy}",
+		"@media (prefers-color-scheme: dark) {",
+		".string {color: #0ff}",
+		"}"].join('\n');
+	document.body.appendChild(styleNode);
     }
 
     exports.reset = reset;

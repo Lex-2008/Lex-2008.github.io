@@ -59,32 +59,15 @@ blockquote > iframe{margin:12px 0px;}
 pre {display: inline-block; margin: 0px; min-width: 100%;padding: 1ex}
 pre, tt, code {border: 1px solid gray;background: lightgray;}
 pre > code {border:none}
-/*microlight*/
-.keyword, .punctuation {font-weight:bold}
-.comment {font-variant: italic; opacity: 0.65}
-.string {color: navy}
 
 @media (prefers-color-scheme: dark) {
 	blockquote{background-color:#333}
 	pre, tt, code {background: #333}
-	.string {color: #0ff}
 }
 
 /*cache links*/
 a[href^="/cache/"], a[href^="http://archive.is/"], a[href^="http://archive.li/"], a[href^="http://archive.vn/"]
 {font-size: x-small;vertical-align: sub;}
-
-.toc {
-	position: fixed;
-	top: 0px;
-	right: 0px;
-	width: calc((100% - 874px - 24px)/2);
-}
-.toc > h2 {font-size: 1em;}
-.toc > a {
-	display: block;
-	margin-bottom: 1ex;
-}
 
 /* 512KB Club */
 .kb-club {
