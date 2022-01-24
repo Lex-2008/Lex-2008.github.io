@@ -2,6 +2,7 @@ title=space 1d 2: more ships
 intro=Moving forward with a simple game.
 tags=space1d
 created=2020-05-10
+style=iframe {width: 700px; height: 700px; background: white}
 
 It's been a while since I've been in 1-d [space][]. Time to do something!
 This time I've introduced a "main game loop" in a form of _Finite State Machine_.
@@ -61,10 +62,5 @@ Next step is to improve above two points and maybe add some trading?
 
 [space]: space-1d-1-combat.html
 
-<div>
-<style>
-iframe {width: 100%; height: 500px; background: white}
-</style>
-<iframe src="space-1d-2-more-ships.htm">
-</div>
+<iframe src="space-1d-2-more-ships.htm"></iframe>
 

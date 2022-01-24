@@ -2,6 +2,7 @@ title=Flickr background for a webpage
 intro=Another attempt to add something nice to this blog
 tags=Javascript
 created=2017-06-17
+style=body > * {background: rgba(255,255,255,0.6); padding: 1ex}
 
 Having [nice background][rss] on a lock screen,
 why not add a similar to the website?
@@ -15,7 +16,7 @@ It's easy to achive just by using this code:
 
 <script id="a1">
 var xmlhttp = new XMLHttpRequest();
-xmlhttp.open('GET', '/upload/flickr.rss', false);
+xmlhttp.open('GET', '/unlisted/flickr.rss', false);
 xmlhttp.send(null);
 if(xmlhttp.status == 200) {
   link=xmlhttp.responseText.match(/https:[^"]*/)[0];
@@ -31,10 +32,6 @@ if(xmlhttp.status == 200) {
 
 <script src="/microlight.js"></script>
 <script>microlight.reset('pre')</script>
-<style>
-#wrap, #menu {background-color: rgba(255,255,255,0.7);}
-#header {background-color: rgba(249,249,249,0.9);}
-</style>
 </div>
 
 It just takes the first link from a generated rss feed and sets it as background.

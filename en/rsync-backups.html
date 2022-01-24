@@ -1,34 +1,32 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Rsync backups</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="How I organized backups of my files">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/rsync-backups.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://archive."] {font-size:x-small; vertical-align:sub} 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin rsync-backups -->
-		<div class="post">
-			<h2><a href="rsync-backups.html" class="title">Rsync backups</a></h2>
-			<p class="trivia">
-				Created: 2016-04-03 &mdash; modified: 2022-01-21 &mdash; tags: bash
-			</p>
-			<p class="intro">How I organized backups of my files</p>
-			<p><strong>Update</strong>: since January 2019, I've moved to a new backup system,
+<header>
+	<h1>Rsync backups</h1>
+	<small>
+		Created: <time>2016-04-03</time> &mdash; modified: <time>2022-01-21</time> &mdash;
+		tags: <a href="./#tag:bash">bash</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">How I organized backups of my files</p>
+<p><strong>Update</strong>: since January 2019, I've moved to a new backup system,
 which is hosted on <a href="https://github.com/Lex-2008/backup3">GitHub</a>.
 I believe it's better for numerous reasons,
 so please use that!</p>
@@ -771,14 +769,14 @@ function mktoc(){
 setTimeout('mktoc()',100);
 </script>
 </div>
-		</div>
-		<!-- end rsync-backups -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

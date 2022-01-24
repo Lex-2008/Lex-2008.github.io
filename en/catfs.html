@@ -1,34 +1,36 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>catfs</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A FUSE module that shows a list of files as one big file.">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/catfs.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+img {display:block; margin:auto; max-width:100%}
+{display:block;
+{display:block;
+{display:block;
+{display:block; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin catfs -->
-		<div class="post">
-			<h2><a href="catfs.html" class="title">catfs</a></h2>
-			<p class="trivia">
-				Created: 2016-09-25 &mdash; modified: 2021-10-03 &mdash; tags: Linux
-			</p>
-			<p class="intro">A FUSE module that shows a list of files as one big file.</p>
-			<p><strong>Imaginary usecase</strong>:
+<header>
+	<h1>catfs</h1>
+	<small>
+		Created: <time>2016-09-25</time> &mdash; modified: <time>2021-10-03</time> &mdash;
+		tags: <a href="./#tag:linux">linux</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">A FUSE module that shows a list of files as one big file.</p>
+<p><strong>Imaginary usecase</strong>:
 Imagine that you have a 100Gb hard disk, where you have 75Gb of interesting files.
 And someone asks you to send all of them as a single archive.
 This archive will be about 75Gb also, and
@@ -154,14 +156,14 @@ Send an email - address at the very bottom of this page.</p>
 
 <p><a href="http://www.maastaar.net/fuse/linux/filesystem/c/2016/05/21/writing-a-simple-filesystem-using-fuse/">SSFS by MaaSTaaR</a> was the tutorial that convinced me that
 writing my own file system is very easy :)</p>
-		</div>
-		<!-- end catfs -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

@@ -1,34 +1,33 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Transferring huge sparse files</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/transferring-huge-sparse-files.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
+{font-size:x-small; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin transferring-huge-sparse-files -->
-		<div class="post">
-			<h2><a href="transferring-huge-sparse-files.html" class="title">Transferring huge sparse files</a></h2>
-			<p class="trivia">
-				Created: 2020-01-24 &mdash; modified: 2020-03-01 &mdash; tags: Linux bash python
-			</p>
-			<p class="intro">How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another</p>
-			<p>Imagine that you've just created a huge filesystem image, for example like this:</p>
+<header>
+	<h1>Transferring huge sparse files</h1>
+	<small>
+		Created: <time>2020-01-24</time> &mdash; modified: <time>2020-03-01</time> &mdash;
+		tags: <a href="./#tag:linux">linux</a> <a href="./#tag:bash">bash</a> <a href="./#tag:python">python</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another</p>
+<p>Imagine that you've just created a huge filesystem image, for example like this:</p>
 
 <pre><code>$ dd if=/dev/zero of=f count=0 bs=1M seek=1M 2&gt;/dev/null
 $ mkfs.ext4 f &gt;/dev/null
@@ -115,14 +114,14 @@ $ du --human-readable g
 </code></pre>
 
 <script src="/microlight.js"></script>
-		</div>
-		<!-- end transferring-huge-sparse-files -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

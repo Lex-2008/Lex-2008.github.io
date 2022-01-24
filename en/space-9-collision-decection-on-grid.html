@@ -1,39 +1,31 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Space 9: collision decection on grid</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Unlike sector-based one, this uses more complex logic, but simpler maps">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/space-9-collision-decection-on-grid.html">
-</head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin space-9-collision-decection-on-grid -->
-		<div class="post">
-			<h2><a href="space-9-collision-decection-on-grid.html" class="title">Space 9: collision decection on grid</a></h2>
-			<p class="trivia">
-				Created: 2017-11-21 &mdash; modified: 2021-10-03 &mdash; tags: Space3D
-			</p>
-			<p class="intro">Unlike sector-based one, this uses more complex logic, but simpler maps</p>
-			<div>
 <style>
-img {width: 50%; margin-left: 20%;}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+img {display:block; margin:auto; max-width:100%} img {width: 50%}
 </style>
-</div>
-
+</head><body>
+<header>
+	<h1>Space 9: collision decection on grid</h1>
+	<small>
+		Created: <time>2017-11-21</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		tags: <a href="./#tag:space3d">space3d</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Unlike sector-based one, this uses more complex logic, but simpler maps</p>
 <p>Given that walls can be placed only on sides of a square grid, let's have a look at sample collision situation:</p>
 
 <p><img src="space-9-collision-decection-on-grid/2.svg" alt="Circle ramming a line segment" title="" /></p>
@@ -165,14 +157,14 @@ so you can chose them randomly :)</p></li>
 </code></pre>
 
 <p>Illustrations drawn using <a href="http://www.drawsvg.org/drawsvg.html">drawsvg</a>.</p>
-		</div>
-		<!-- end space-9-collision-decection-on-grid -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

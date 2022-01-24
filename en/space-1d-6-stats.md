@@ -2,6 +2,7 @@ title=space 1d 6: Stats
 intro=One step forward, one step back
 tags=space1d
 created=2021-02-13
+style=iframe {width: 700px; height: 700px; background: white}
 
 I actually didn't like [previous version][5], and found myself playing [the one before that][4] more.
 Speaking of which, did you notice that when you switch from one version to another, your ship comes with you?
@@ -26,9 +27,4 @@ and other data.
 So yeah, now you can say that this website _tracks_ you.
 Should I be concerned regarding GDPR? :D
 
-<div>
-<style>
-iframe {width: 100%; height: 600px; background: white}
-</style>
 <iframe src="space-1d-6-stats.htm"></iframe>
-</div>

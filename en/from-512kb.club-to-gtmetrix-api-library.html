@@ -1,34 +1,38 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css?1">
 <title>From 512kb.club to GTmetrix API library</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="<a class='kb-club' target='_blank' href='https://512kb.club/#:~:text=alexey.shpakovsky.ru' title='a proud member of the 512KB Club Green Team'><span class='kb-club-no-bg'>512KB Club</span><span class='kb-club-bg'>Green Team</span></a> How reading one habr.com blog post caused chain of events leading up to me writing a good documentation for a pet project">
+<meta name="description" content="How reading one habr.com blog post caused a chain of events leading up to me writing a good documentation for a pet project">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/from-512kb.club-to-gtmetrix-api-library.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="/a[href^="/a[href^="/a[href^="/a[href^="/cache/"] {font-size:x-small; vertical-align:sub}/"]
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small; body > * {background: rgba(255,255,255,0.6); padding: 1ex}
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin from-512kb.club-to-gtmetrix-api-library -->
-		<div class="post">
-			<h2><a href="from-512kb.club-to-gtmetrix-api-library.html" class="title">From 512kb.club to GTmetrix API library</a></h2>
-			<p class="trivia">
-				Created: 2021-07-16 &mdash; modified: 2021-09-26 &mdash; tags: life
-			</p>
-			<p class="intro"><a class='kb-club' target='_blank' href='https://512kb.club/#:~:text=alexey.shpakovsky.ru' title='a proud member of the 512KB Club Green Team'><span class='kb-club-no-bg'>512KB Club</span><span class='kb-club-bg'>Green Team</span></a> How reading one habr.com blog post caused chain of events leading up to me writing a good documentation for a pet project</p>
-			<h2>512kb.club</h2>
+<header>
+	<h1>From 512kb.club to GTmetrix API library</h1>
+	<small>
+		Created: <time>2021-07-16</time> &mdash; modified: <time>2022-01-23</time> &mdash;
+		tags: <a href="./#tag:life">life</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">How reading one habr.com blog post caused a chain of events leading up to me writing a good documentation for a pet project</p>
+<p><a class='kb-club' target='_blank' href='https://512kb.club/#:~:text=alexey.shpakovsky.ru' title='a proud member of the 512KB Club Green Team'><span class='kb-club-no-bg'>512KB Club</span><span class='kb-club-bg'>Green Team</span></a></p>
+
+<h2>512kb.club</h2>
 
 <p>Via a <a href="https://habr.com/ru/company/ruvds/blog/566186/">habr.com blog post</a> (ru) I've learned about a number of websites which aim to promote caring about <em>size</em> of websites by listing / praising those which fit within some limit (2Mb, 1Mb, 512kb, 128kb, etc).
 The most appropriate for my blog site was <a href="https://512kb.club/">512kb.club</a>, which listed sites where <em>uncompressed</em> size of <em>main page</em> together with all assets fits within 512kb, with further separation into "teams" of sites under 100kb, 250kb, and 512kb.</p>
@@ -57,13 +61,11 @@ Moreover, search is usually performed not that often, and almost never - during 
 
 <p>Hence, a proper way of loading data is:</p>
 
-<blockquote>
-  <ul>
+<ul>
 <li><p>Only data which is needed for initial page rendering (tags and created date) is loaded as-fast-as-possible during first load</p></li>
 <li><p>Data which is needed for search (titles and descriptions) is loaded later.
 Moreover, since it doesn't block initial page load, it can be loaded using a slower method.</p></li>
 </ul>
-</blockquote>
 
 <p>This way lazyblog became even <em>more lazy</em> - now it doesn't load search data until it's really necessary!</p>
 
@@ -148,14 +150,44 @@ and use some <a href="https://www.sphinx-doc.org/en/master/usage/extensions/auto
 
 <p>That's a weird sequence of events which led from a random habr.com blog post to me writing a Python library and registering at pypi and readthedocs websites.
 Wonder if it ends here or there will be something more?</p>
-		</div>
-		<!-- end from-512kb.club-to-gtmetrix-api-library -->
-	</div>
-	<div id="footer">
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
+
+<div>
+<style>
+.kb-club {
+    float:right;
+    margin: 1ex;
+    text-decoration: none;
+    color: #212121;
+    font-weight: bold;
+    font-family: sans-serif;
+    transition: background, color .4s;
+}
+.kb-club:hover { background: rgb(200, 230, 201); }
+.kb-club-bg,
+.kb-club-no-bg {
+    border: 2px solid #4caf50;
+    padding: .25rem .5rem;
+}
+.kb-club-bg {
+    background: #4caf50;
+    color: #212121;
+}
+/*
+@media (prefers-color-scheme: dark) {
+    .kb-club { color: #ddd; }
+    .kb-club:hover { color: black }
+}
+*/
+</style>
 </div>
+</main>
+<footer>
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

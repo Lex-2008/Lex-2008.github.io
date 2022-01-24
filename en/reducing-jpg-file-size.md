@@ -1,6 +1,7 @@
 title=Reducing JPG File size
 intro=An interesting article on how to save space and bandwidth
 tags=net links
+styles=archive
 created=2016-05-04
 modified=2016-06-30
 modified_now=1

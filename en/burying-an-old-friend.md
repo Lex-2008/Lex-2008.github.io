@@ -1,6 +1,7 @@
 title=Burying an old friend
 intro=Today I've accompanied my old friend on his last journey.
 tags=life
+styles=archive
 created=2016-06-25
 modified=2016-12-14
 modified_now=1

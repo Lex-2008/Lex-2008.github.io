@@ -1,14 +1,14 @@
 title=Why isn’t PSR.exe well known?
 intro=Short memo about a good program
+styles=img
+style=a[href^="https://web.archive.org"] {font-size:x-small; vertical-align:sub}
 tags=windows
 created=2014-12-07
-modified=2016-09-06
-modified_now=1
 
 
 ![Screenshot of the program](why-isnt-psrexe-well-known.png)
 
-An article at dipanmpatel.com (the site is gone) told me about a useful Windows program.
+An article at dipanmpatel.com [cached version](https://web.archive.org/web/20150210111848/http://dipanmpatel.com/2012/11/18/why-isnt-psr-exe-well-known/) (the site is gone) told me about a useful Windows program.
 
 [dipanmpatel.com]: http://dipanmpatel.com/2012/11/18/why-isnt-psr-exe-well-known/
 

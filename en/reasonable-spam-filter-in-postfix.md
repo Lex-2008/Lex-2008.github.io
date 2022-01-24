@@ -7,11 +7,11 @@ In my case, for [sendmail][sm] I had a spam filter like this:
 
 [sm]: whitelisting-emails-with-sendmail.html
 
-> * messages from contacts in my address book should go to inbox,  
->
-> * other messages should go to the spamfilter
->
-> * (and if they pass it - to trash)
+* messages from contacts in my address book should go to inbox,  
+
+* other messages should go to the spamfilter
+
+* (and if they pass it - to trash)
 
 However, I wanted to add an extra exclusion for sites where I registered with email like `user+tag@example.com`.
 That was pretty hard to achieve with sendmail (and what's worse, I didn't completely understand what I was doing),
@@ -26,13 +26,13 @@ so now I can register as `user-tag@example.com` on websites which don't allow "p
 
 As a result, my current spam filter looks like this:
 
-> * messages from contacts in my address book and those sent to emails containing "plus" or "minus" should be excluded from spamfilter,
->
-> * other messages should be checked against DNSBL.
->
-> * Messages from contacts in my address book should go to inbox,  
->
-> * other messages (which passed or were excluded from spamfilter) should go to trash.
+* messages from contacts in my address book and those sent to emails containing "plus" or "minus" should be excluded from spamfilter,
+
+* other messages should be checked against DNSBL.
+
+* Messages from contacts in my address book should go to inbox,  
+
+* other messages (which passed or were excluded from spamfilter) should go to trash.
 
 And it was done with this rather readable postfix config [entry][e]:
 

@@ -2,6 +2,7 @@ title=Hacker Typer on TV
 intro=A quick note about a funny site and a video featuring it.
 tags=fun
 created=2014-01-26
+styles=img
 
 Hacker Typer website, if you haven't heard about it: <https://hackertyper.net/>.
 Just open this site and smash buttons - and look like a real hacker!

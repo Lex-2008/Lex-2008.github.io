@@ -1,19 +1,18 @@
 title=Browser security on Linux
-intro=A Linux.com article I totally agree with
+intro=A good article that summarizes my own thoughts on hardening browser on Linux
 tags=Linux security
 created=2017-05-10
-
-A good article that summarizes my own thoughts on hardening browser on Linux:
+styles=cache
 
 [4 Best Practices for Web Browser Security on Your Linux Workstation](https://www.linux.com/news/linux-workstation-security/2017/5/4-best-practices-web-browser-security-your-linux-workstation) [(archived copy)](/cache/browser-security-on-linux.html).
 
 tl;dr version is like this:
 
-> 1. Use different browsers for "trusted" websites and "rest of the world"
-> 
-> 2. Use [firejail][]
-> 
-> 3. Isolate "trusted" and "others" graphic environments from each other.
+1. Use different browsers for "trusted" websites and "rest of the world"
+
+2. Use [firejail][]
+
+3. Isolate "trusted" and "others" graphic environments from each other
 
 [firejail]: https://firejail.wordpress.com/
 

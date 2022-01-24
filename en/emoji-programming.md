@@ -2,6 +2,7 @@ title=Emoji programming
 intro=How would it look
 tags=Fun
 created=2017-11-18
+styles=img
 
 Via [Reddit][r].
 

@@ -1,7 +1,9 @@
 title=From 512kb.club to GTmetrix API library
-intro=<a class='kb-club' target='_blank' href='https://512kb.club/#:~:text=alexey.shpakovsky.ru' title='a proud member of the 512KB Club Green Team'><span class='kb-club-no-bg'>512KB Club</span><span class='kb-club-bg'>Green Team</span></a> How reading one habr.com blog post caused chain of events leading up to me writing a good documentation for a pet project
+intro=How reading one habr.com blog post caused a chain of events leading up to me writing a good documentation for a pet project
 tags=life
 created=2021-07-16
+
+<a class='kb-club' target='_blank' href='https://512kb.club/#:~:text=alexey.shpakovsky.ru' title='a proud member of the 512KB Club Green Team'><span class='kb-club-no-bg'>512KB Club</span><span class='kb-club-bg'>Green Team</span></a>
 
 512kb.club
 ----------
@@ -37,10 +39,10 @@ Moreover, search is usually performed not that often, and almost never - during 
 
 Hence, a proper way of loading data is:
 
-> * Only data which is needed for initial page rendering (tags and created date) is loaded as-fast-as-possible during first load
->
-> * Data which is needed for search (titles and descriptions) is loaded later.
->   Moreover, since it doesn't block initial page load, it can be loaded using a slower method.
+* Only data which is needed for initial page rendering (tags and created date) is loaded as-fast-as-possible during first load
+
+* Data which is needed for search (titles and descriptions) is loaded later.
+  Moreover, since it doesn't block initial page load, it can be loaded using a slower method.
 
 This way lazyblog became even _more lazy_ - now it doesn't load search data until it's really necessary!
 
@@ -144,3 +146,34 @@ Conclusion
 
 That's a weird sequence of events which led from a random habr.com blog post to me writing a Python library and registering at pypi and readthedocs websites.
 Wonder if it ends here or there will be something more?
+
+<div>
+<style>
+.kb-club {
+	float:right;
+	margin: 1ex;
+	text-decoration: none;
+	color: #212121;
+	font-weight: bold;
+	font-family: sans-serif;
+	transition: background, color .4s;
+}
+.kb-club:hover { background: rgb(200, 230, 201); }
+.kb-club-bg,
+.kb-club-no-bg {
+	border: 2px solid #4caf50;
+	padding: .25rem .5rem;
+}
+.kb-club-bg {
+	background: #4caf50;
+	color: #212121;
+}
+/*
+@media (prefers-color-scheme: dark) {
+	.kb-club { color: #ddd; }
+	.kb-club:hover { color: black }
+}
+*/
+</style>
+</div>
+

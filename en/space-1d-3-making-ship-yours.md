@@ -2,6 +2,7 @@ title=space 1d 3: Making ship yours
 intro=The game is playable now!
 tags=space1d
 created=2020-05-16
+style=iframe {width: 100%; height: 600px; background: white}
 
 My original plan to make a game which [will be more fun to make than to play][l1] failed: the game feels rather fun.
 
@@ -18,12 +19,7 @@ Also, AI became smarter and attacks player only if it has more guns.
 To help progressing faster, most of questions have an answer marked as default.
 This way, just by repeatedly hitting the `<space>` key on your keyboard (pun intended), you can progress faster.
 
-<div>
-<style>
-iframe {width: 100%; height: 500px; background: white}
-</style>
-<iframe src="space-1d-3-making-ship-yours.htm">
-</div>
+<iframe src="space-1d-3-making-ship-yours.htm"></iframe>
 
 [l1]: space-1d-0-idea.html
 

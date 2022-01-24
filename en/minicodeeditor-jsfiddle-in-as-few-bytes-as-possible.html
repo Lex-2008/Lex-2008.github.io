@@ -1,34 +1,33 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>MiniCodeEditor: jsFiddle in as few bytes as possible</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/minicodeeditor-jsfiddle-in-as-few-bytes-as-possible.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
+{font-size:x-small; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin minicodeeditor-jsfiddle-in-as-few-bytes-as-possible -->
-		<div class="post">
-			<h2><a href="minicodeeditor-jsfiddle-in-as-few-bytes-as-possible.html" class="title">MiniCodeEditor: jsFiddle in as few bytes as possible</a></h2>
-			<p class="trivia">
-				Created: 2014-01-22 &mdash; modified: 2014-01-22 &mdash; tags: javascript
-			</p>
-			<p class="intro">probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf</p>
-			<div>
+<header>
+	<h1>MiniCodeEditor: jsFiddle in as few bytes as possible</h1>
+	<small>
+		Created: <time>2014-01-22</time> &mdash; modified: <time>2014-01-22</time> &mdash;
+		tags: <a href="./#tag:javascript">javascript</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf</p>
+<div>
 Let's start with "minimal" version presented on <a href="http://xem.github.io/miniCodeEditor/">their site</a> (168 bytes):
 <pre>data:text/html,&lt;body oninput='e.firstChild.srcdoc=t2[v="value"]+"&lt;script&gt;"+t0[v]+"&lt;/script&gt;&lt;style&gt;"+t1[v]'onload='for(i=3;i--;)e.innerHTML+="&lt;textarea id=t"+i+" rows=9&gt;"'id=e&gt;&lt;iframe&gt;</pre>
 
@@ -67,14 +66,14 @@ Note: to try them out, just copy-paste above data: URLs to your browser's addres
 <script src="/microlight.js"></script>
 <script>microlight.reset('pre')</script>
 </div>
-		</div>
-		<!-- end minicodeeditor-jsfiddle-in-as-few-bytes-as-possible -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

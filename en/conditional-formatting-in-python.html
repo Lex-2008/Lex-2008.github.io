@@ -1,34 +1,35 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Conditional formatting in Python</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Greately inspired by $if(...) conditions in Winamp Advanced Title Formatting, I wanted to add something like this to Python.">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/conditional-formatting-in-python.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin conditional-formatting-in-python -->
-		<div class="post">
-			<h2><a href="conditional-formatting-in-python.html" class="title">Conditional formatting in Python</a></h2>
-			<p class="trivia">
-				Created: 2014-02-01 &mdash; modified: 2016-06-16 &mdash; tags: python
-			</p>
-			<p class="intro">Greately inspired by $if(...) conditions in Winamp Advanced Title Formatting, I wanted to add something like this to Python.</p>
-			<p>Script uses quite a lot of regexps, but looks right. Nested conditions are not supported, though. Also note that about half of the code is comments :-)</p>
+<header>
+	<h1>Conditional formatting in Python</h1>
+	<small>
+		Created: <time>2014-02-01</time> &mdash; modified: <time>2016-06-16</time> &mdash;
+		tags: <a href="./#tag:python">python</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Greately inspired by $if(...) conditions in Winamp Advanced Title Formatting, I wanted to add something like this to Python.</p>
+<p>Script uses quite a lot of regexps, but looks right. Nested conditions are not supported, though. Also note that about half of the code is comments :-)</p>
 
 <pre><code>from collections import defaultdict
 from string import Formatter
@@ -134,14 +135,14 @@ if __name__ == "__main__":
 </code></pre>
 
 <script src="/microlight.js"></script>
-		</div>
-		<!-- end conditional-formatting-in-python -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

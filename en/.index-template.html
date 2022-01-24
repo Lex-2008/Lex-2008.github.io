@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<title>$BLOG_TITLE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="$BLOG_INTRO">
+<link rel="canonical" href="$BLOG_URL/">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a.title {font-weight: bolder}
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid lightgray;">
+		$BLOG_TITLE
+		<small style="font: initial;margin-left: 3em">
+			$BLOG_INTRO
+		</small>
+	</h1>
+	<nav>
+		You may also like my:
+		<a href="../ru/">Russian blog</a>,
+		<a href="../photos/en.html">Photo Archive</a>,
+		<a href="https://github.com/Lex-2008/">GitHub</a>
+	</nav>
+	<!--
+	<hr>
+	<p>Filter posts by tags:<br><span id="tags"></span><p>
+	<a id="showall" style="float:right" href="#">(show all ? posts)</a>
+	<p><label>Filter posts by search:
+	<input type="search" id="search" placeholder="Type to search">
+	</label></p>
+	-->
+	<hr>
+</header>
+<main>
+<ol>
+	<!-- put contents below -->
+	<!-- begin $name -->
+	<li>
+		<a href="$name.html" class="title">$title</a>
+		<br>
+		<small>
+			Created: <time>$created</time> &mdash; modified: <time>$modified</time> &mdash;
+			tags: $htmltags
+		</small>
+		<p>
+			<span class="intro">$intro</span>
+			&mdash;
+			<a href="$name.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+$created
+$tags
+		--> </div>
+	</li>
+	<!-- end $name -->
+</ol>
+</main>
+<script>
+	document.getElementsByTagName('header')[0].innerHTML=
+	document.getElementsByTagName('header')[0].innerHTML.replace(/<!--|-->/g,'');
+	document.getElementById('search').focus();
+</script>
+<script src="../index2.js"></script>
+<footer>
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

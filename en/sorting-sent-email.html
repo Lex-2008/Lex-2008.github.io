@@ -1,34 +1,32 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Sorting sent email</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="How to automate it if you host your mail yourself">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/sorting-sent-email.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+ 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin sorting-sent-email -->
-		<div class="post">
-			<h2><a href="sorting-sent-email.html" class="title">Sorting sent email</a></h2>
-			<p class="trivia">
-				Created: 2014-11-01 &mdash; modified: 2016-06-16 &mdash; tags: e-mail
-			</p>
-			<p class="intro">How to automate it if you host your mail yourself</p>
-			<p>There are numerous ways of sorting incoming mail into folders (personally I use procmail),
+<header>
+	<h1>Sorting sent email</h1>
+	<small>
+		Created: <time>2014-11-01</time> &mdash; modified: <time>2016-06-16</time> &mdash;
+		tags: <a href="./#tag:e-mail">e-mail</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">How to automate it if you host your mail yourself</p>
+<p>There are numerous ways of sorting incoming mail into folders (personally I use procmail),
 but not enough ways of sorting <em>sent</em> mail.
 SquirrelMail has <a href="http://squirrelmail.org/plugin_view.php?id=281">Per Recipient Sent Folders</a> plugin, but that's sorting on the client-side.
 Most email clients have an option to save sent mail to "Sent" folder, but quite few of them can save it to other folders.</p>
@@ -62,14 +60,14 @@ done;
 </code></pre>
 
 <script src="/microlight.js"></script>
-		</div>
-		<!-- end sorting-sent-email -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

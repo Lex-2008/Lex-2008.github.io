@@ -2,6 +2,8 @@ title=space 1d 7: Ship names, memory, and feelings
 intro=Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior
 tags=space1d
 created=2021-02-21
+styles=img
+style=iframe {width: 700px; height: 700px; background: white}
 
 In this update, instead of generating a new random ship for every encounter, the game keeps a list of them and picks a random one for every encounter.
 Ship names were taken from [donjon SciFi Name Generator][g].
@@ -45,13 +47,7 @@ For a modest price of number of cargo items equal to number of your ship compone
 you can reset your karma (your rating among other ships, both good and bad) and your ship name at the same time!
 By the way, did you know that the name of your ship from the very beginning was literally "_Your Ship_"?!
 
-<div>
-<style>
-img {max-width:100%; background: white}
-iframe {width: 100%; height: 600px; background: white}
-</style>
 <iframe src="space-1d-7-ship-names-memory-and-feelings.htm"></iframe>
-</div>
 
 Also, trying to better comprehend the game states, I made a state diagram in [plantuml][p].
 The [final version][f] turned out to be pretty clear.

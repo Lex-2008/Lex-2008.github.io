@@ -1,34 +1,32 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>space 1d 7: Ship names, memory, and feelings</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/space-1d-7-ship-names-memory-and-feelings.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+img {display:block; margin:auto; max-width:100%} iframe {width: 700px; height: 700px; background: white}
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin space-1d-7-ship-names-memory-and-feelings -->
-		<div class="post">
-			<h2><a href="space-1d-7-ship-names-memory-and-feelings.html" class="title">space 1d 7: Ship names, memory, and feelings</a></h2>
-			<p class="trivia">
-				Created: 2021-02-21 &mdash; modified: 2021-10-03 &mdash; tags: space1d
-			</p>
-			<p class="intro">Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior</p>
-			<p>In this update, instead of generating a new random ship for every encounter, the game keeps a list of them and picks a random one for every encounter.
+<header>
+	<h1>space 1d 7: Ship names, memory, and feelings</h1>
+	<small>
+		Created: <time>2021-02-21</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		tags: <a href="./#tag:space1d">space1d</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior</p>
+<p>In this update, instead of generating a new random ship for every encounter, the game keeps a list of them and picks a random one for every encounter.
 Ship names were taken from <a href="https://donjon.bin.sh/scifi/name/#type=sx;sx=spaceship">donjon SciFi Name Generator</a>.
 Apart from name, each ship keeps track of player "rating" - how good player was towards this particular ship, and AI bases its decisions on this value.
 For example, if a ship offered player to trade, but player attacked instead - next time same ship meets player, it's more likely to attack than to offer to trade.</p>
@@ -68,13 +66,7 @@ For a modest price of number of cargo items equal to number of your ship compone
 you can reset your karma (your rating among other ships, both good and bad) and your ship name at the same time!
 By the way, did you know that the name of your ship from the very beginning was literally "<em>Your Ship</em>"?!</p>
 
-<div>
-<style>
-img {max-width:100%; background: white}
-iframe {width: 100%; height: 600px; background: white}
-</style>
 <iframe src="space-1d-7-ship-names-memory-and-feelings.htm"></iframe>
-</div>
 
 <p>Also, trying to better comprehend the game states, I made a state diagram in <a href="https://plantuml.com/">plantuml</a>.
 The <a href="http://www.plantuml.com/plantuml/uml/RLHDZ-Cs3BthLx2-zAF8ODfJ4GJ15YWAx6KFtHww60m6d9Y9YJYM836J2GRzxqjRKMH1FjbyfAJt7Ybz2e9UpgVUTDmIqCd95LeAEyzEs0x6FFto3Aij37Hv2HqxatvW3PkTFJdq16yS-9LxbkisvrUwolLu9VyIY4APG8wW2O92yphuk67Dds-MsmOmWEE4_UknfOZ9lKu4TyS8OYuat7KH5Bp3dm-3zPHWJiU_msP3GxlTcZcJDJJVx1dq7n16wW_mMQ2r58OVPOAlzjoKI-0fqdc6fuchVYSTp_Eow0tMaDGGc_-JIyZ9eLevOcqHIcqbye93AAvoACAf6hD3o4dg1XbQsd5B8SDJTx4CfGndalxcGoVmaGNkH-357ZE2ayXGJCeo6CxUAqVo8Q-kiFrTIMOXesNmCO-KGX7cLLEyLlywki851m6ny7g-mdyfXKCBWVf-70_urYJuwI_2NkVXYuLs_3Ffe3Ny-Xju51uECsnpicy4E_G7UpjqSYyLLD3xVMq1gaY7i8PLEYA6HUyKqIMbNHdCFJ5EPbpXx4RfZufM6yfjdX7rF_EP9LXtunYy6sCGbtP6XEZqTFq0dVDMXvP2p8p-uk7WAGH-e_xQA5nSmQz9phF1AAUSdnATgpSenT5ZemE8ZJgQcAxlUhmzUjgaCruid1kG4se0yks9QRdL9sMAyslJQ3mUOe-w7yTbQfMJoQlVwouWfh7STJQGSlPDX9SjSHBbbvvak3R5oKJvYnNWGKYD5sgdCnBJ-7_lgkhNqKjSDQw73sLn_52M1b1HdiqojFOoHFanOps48xifWfjXimtc7ULGPWvst50iH1-Q8hjiuAoYzh7ELdRcrqqzQV64X_IMJHItHK7iR0p7oV-XATAB17C1LBDV99VlG8HgZiYHNrsG6ric8u5yOfMi-cygFaiFH5KKEGWUAQItiwg1LR_QxdKo1Yi4VkmHs7syayrN7Py6EdIEXW2NZWQZPiEkPxLTEjAdNiGEngC67lOO17wwi7Gyc3yU7q_XvmVu9vBa07g2KKCyOQ0MU02jKs8QFHWbC-R9c4BvydYN9JeCgZ0ARCeSJD8-QN0-zTy1">final version</a> turned out to be pretty clear.</p>
@@ -113,14 +105,14 @@ That's somewhat dishonest towards AI players :)</p>
 
 <p>Okay, here I must give credit to <a href="https://plantuml.com/">plantuml</a> which shuffled states around, but still.
 It's a mess!</p>
-		</div>
-		<!-- end space-1d-7-ship-names-memory-and-feelings -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

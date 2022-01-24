@@ -1,34 +1,37 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>CFEngine Failed to establish TLS connection bootstrap error</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Maybe agent's IP is not among allowed ones?">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/cfengine-failed-to-establish-tls-connection-bootstrap-error.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin cfengine-failed-to-establish-tls-connection-bootstrap-error -->
-		<div class="post">
-			<h2><a href="cfengine-failed-to-establish-tls-connection-bootstrap-error.html" class="title">CFEngine Failed to establish TLS connection bootstrap error</a></h2>
-			<p class="trivia">
-				Created: 2017-03-22 &mdash; modified: 2017-04-15 &mdash; tags: CFEngine
-			</p>
-			<p class="intro">Maybe agent's IP is not among allowed ones?</p>
-			<p>If bootstrapping of CFEngine agent fails with a cryptic error about TLS connection like this:</p>
+<header>
+	<h1>CFEngine Failed to establish TLS connection bootstrap error</h1>
+	<small>
+		Created: <time>2017-03-22</time> &mdash; modified: <time>2017-04-15</time> &mdash;
+		tags: <a href="./#tag:cfengine">cfengine</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Maybe agent's IP is not among allowed ones?</p>
+<p>If bootstrapping of CFEngine agent fails with a cryptic error about TLS connection like this:</p>
 
 <pre><code>cf-agent -B 138.68.252.222
 notice: Bootstrap mode: implicitly trusting server, use --trust-server=no if server trust is already established
@@ -45,14 +48,14 @@ error: Bootstrapping failed, no input file at '/var/cfengine/inputs/promises.cf'
 </code></pre>
 
 <p>check if you've added agent's IP to the ACL in def.cf</p>
-		</div>
-		<!-- end cfengine-failed-to-establish-tls-connection-bootstrap-error -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

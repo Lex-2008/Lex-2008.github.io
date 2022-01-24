@@ -1,6 +1,7 @@
 title=World domination
 intro=Experience after playing a flash game
 tags=fun games politics
+styles=img
 created=2014-06-21
 
 

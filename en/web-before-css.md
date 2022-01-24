@@ -1,6 +1,7 @@
 title=Web before CSS
 intro=A brief dive into a history of early web
 tags=css history links
+styles=archive
 created=2016-06-29
 
 

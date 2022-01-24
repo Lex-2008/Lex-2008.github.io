@@ -1,34 +1,35 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Using true instead of echo to debug bash scripts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="<b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/using-true-instead-of-echo-to-debug-bash-scripts.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin using-true-instead-of-echo-to-debug-bash-scripts -->
-		<div class="post">
-			<h2><a href="using-true-instead-of-echo-to-debug-bash-scripts.html" class="title">Using true instead of echo to debug bash scripts</a></h2>
-			<p class="trivia">
-				Created: 2019-01-09 &mdash; modified: 2020-03-01 &mdash; tags: Bash
-			</p>
-			<p class="intro"><b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output</p>
-			<p>Sometimes we use <code>echo</code> to debug bash scripts, like this:</p>
+<header>
+	<h1>Using true instead of echo to debug bash scripts</h1>
+	<small>
+		Created: <time>2019-01-09</time> &mdash; modified: <time>2020-03-01</time> &mdash;
+		tags: <a href="./#tag:bash">bash</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro"><b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output</p>
+<p>Sometimes we use <code>echo</code> to debug bash scripts, like this:</p>
 
 <pre><code>echo Beginning computation...
 some_commands
@@ -88,14 +89,14 @@ $ bash -x sctipt.sh
 <p>Thanks <a href="https://github.com/vpodzime">Vratislav</a> for this trick!</p>
 
 <script src="/microlight.js"></script>
-		</div>
-		<!-- end using-true-instead-of-echo-to-debug-bash-scripts -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

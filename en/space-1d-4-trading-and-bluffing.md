@@ -2,6 +2,7 @@ title=space 1d 4: Trading and bluffing
 intro=more choices
 tags=space1d
 created=2020-05-17
+style=iframe {width: 100%; height: 600px; background: white}
 
 The game is getting harder now.
 When seeing a ship from a distance, instead of just two "approach" and "ignore" buttons,
@@ -19,10 +20,5 @@ You can accept their offer completely or partially.
 
 It would be interesting to have few more types of cargo, but I'm not sure which.
 
-<div>
-<style>
-iframe {width: 100%; height: 500px; background: white}
-</style>
-<iframe src="space-1d-4-trading-and-bluffing.htm">
-</div>
+<iframe src="space-1d-4-trading-and-bluffing.htm"></iframe>
 

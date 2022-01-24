@@ -1,6 +1,7 @@
 title=microlight.js
 intro=a 2.2k library to hilight any code
 tags=javascript
+styles=archive
 created=2016-06-16
 modified=2016-06-30
 modified_now=1

@@ -1,6 +1,7 @@
 title=Block users in sendmail
 intro=How to disable mail receiving by local users without deleting their accounts
 tags=e-mail
+styles=archive
 created=2014-09-13
 modified=2016-06-24
 modified_now=1

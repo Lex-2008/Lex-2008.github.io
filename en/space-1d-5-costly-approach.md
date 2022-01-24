@@ -2,6 +2,7 @@ title=space 1d 5: Costly approach
 intro=Changes in physics
 tags=space1d links
 created=2020-05-21
+style=iframe {width: 100%; height: 700px; background: white}
 
 A new type of component (and cargo) added: Defense Grid (which uses Defense Ammo).
 Engines and fuel are now used for different purpose: now they are used for approach.
@@ -27,9 +28,4 @@ Second approach is heavier on calculations, but doesn't require storing position
 
 Due to above changes, currently there is no trading and ability to use engines to avoid rockets - these features are likely to return in future updates.
 
-<div>
-<style>
-iframe {width: 100%; height: 500px; background: white}
-</style>
-<iframe src="space-1d-5-costly-approach.htm">
-</div>
+<iframe src="space-1d-5-costly-approach.htm"></iframe>

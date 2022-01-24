@@ -1,6 +1,7 @@
 title=Why SQLite succeeded as a database
 intro=Interview (with a transcript) with its creator.
 tags=history links
+styles=archive
 created=2016-04-30
 
 Link: <https://changelog.com/podcast/201> [(cached version)](http://archive.is/6VR8o)

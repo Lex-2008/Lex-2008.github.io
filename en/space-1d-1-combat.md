@@ -2,6 +2,7 @@ title=space 1d 1: combat
 intro=Adding some action to the simple game prototype.
 tags=space1d
 created=2018-04-02
+style=iframe {width: 700px; height: 700px; background: white}
 
 Moving on with the [game I talked previously][game] about, let's add some simple combat.
 On the screen below you see your ship, your opponent, and a single action button.
@@ -18,12 +19,7 @@ Try imagining how result would look **before** hitting "attack" button! ;)
 
 [game]: space-1d-0-idea.html
 
-<div>
-<style>
-iframe {width: 100%; height: 500px; background: white}
-</style>
-<iframe src="space-1d-1-combat.htm">
-</div>
+<iframe src="space-1d-1-combat.htm"></iframe>
 
 Next step is to add more options beyond "attack" one (surrender, etc), and let opponent ships replace each other.
 

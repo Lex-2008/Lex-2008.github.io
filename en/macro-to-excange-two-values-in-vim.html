@@ -1,34 +1,41 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Macro to excange two values in Vim</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/macro-to-excange-two-values-in-vim.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+img {display:block; margin:auto; max-width:100%}
+{display:block;
+{display:block;
+{display:block;
+{display:block;
+{display:block;
+{display:block;
+{display:block;
+{display:block;
+{display:block; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin macro-to-excange-two-values-in-vim -->
-		<div class="post">
-			<h2><a href="macro-to-excange-two-values-in-vim.html" class="title">Macro to excange two values in Vim</a></h2>
-			<p class="trivia">
-				Created: 2013-01-09 &mdash; modified: 2021-12-14 &mdash; tags: vim
-			</p>
-			<p class="intro">You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?</p>
-			<div>
+<header>
+	<h1>Macro to excange two values in Vim</h1>
+	<small>
+		Created: <time>2013-01-09</time> &mdash; modified: <time>2021-12-14</time> &mdash;
+		tags: <a href="./#tag:vim">vim</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?</p>
+<div>
 
 <br>For example, you have two parameters:
 <br><pre>Parameter=Value
@@ -49,14 +56,14 @@ Another parameter=Value
 <li>Put cursor somewhere in the first line and execute macro stored in your register (<tt>@x</tt>)</li>
 </ol>As you probably know, Vim uses same registers both for copy-paste operations and for macros. Also it saves them between sessions in viminfo file, nice!
 </div>
-		</div>
-		<!-- end macro-to-excange-two-values-in-vim -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

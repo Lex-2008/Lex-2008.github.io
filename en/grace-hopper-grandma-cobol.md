@@ -2,19 +2,16 @@ title=Grace Hopper - Grandma COBOL
 intro=Also known for "First actual case of bug being found" note
 tags=History
 created=2015-09-09
-
-<div>
-<style>
-abbr{    border-bottom: dotted gray;     cursor: help;}
-</style>
-</div>
+style=abbr{border-bottom: dotted gray; cursor: help;}
 
 9th of September is considered to be the "<abbr title="Quality Assurance
 Engineer, i.e. Tester">QA</abbr> day" in Russia.  Why? Because of this
 anecdotical story mentined in [jargon file][] featuring Grace Hopper.
 
-> Technician solved a glitch in the Harvard Mark II machine by pulling an actual insect out from between the contacts of one of its relays.
-> The text of the log entry (from September 9, 1947), reads "First actual case of bug being found".
+> Technician solved a glitch in the Harvard Mark II machine by pulling an
+> actual insect out from between the contacts of one of its relays.  The text
+> of the log entry (from September 9, 1947), reads "First actual case of bug
+> being found".
 
 But if you read [Wikipedia article][] about her, you will learn that she is
 famous not only for this (note that it wasn't actually her who found the bug,

@@ -8,7 +8,7 @@ Then you just need to forward port 445 from remote. But there are few caveats.
 
 * First, you need to disable built-in SMB server on the Windows machine you're connecting from:
 
-	>		C:\>sc config "LanmanServer" start= disabled
+		C:\>sc config "LanmanServer" start= disabled
 
 	and restart the computer. Because otherwise you won't be able to bind to port 445 on the same machine,
 	and Windows doesn't allow you to use any other port to connect to remote file shares.

@@ -1,6 +1,7 @@
 title=Designing Windows 95
 intro=An interesting article about designing of common UI elements which we now are taking for granted.
 tags=History links
+styles=archive
 created=2018-02-03
 
 Link: <https://socket3.wordpress.com/2018/02/03/designing-windows-95s-user-interface/> [(cached version)](http://archive.is/tTMQc)

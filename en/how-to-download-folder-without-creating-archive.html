@@ -1,34 +1,43 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>How to download folder without creating archive</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="TL;DR: use tar and pipe to stdout!">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/how-to-download-folder-without-creating-archive.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin how-to-download-folder-without-creating-archive -->
-		<div class="post">
-			<h2><a href="how-to-download-folder-without-creating-archive.html" class="title">How to download folder without creating archive</a></h2>
-			<p class="trivia">
-				Created: 2018-06-22 &mdash; modified: 2018-06-22 &mdash; tags: bash
-			</p>
-			<p class="intro">TL;DR: use tar and pipe to stdout!</p>
-			<p>Imagine that you're making some sort of web-based file tree navigator and want to let users download and upload individual files and whole directories.
+<header>
+	<h1>How to download folder without creating archive</h1>
+	<small>
+		Created: <time>2018-06-22</time> &mdash; modified: <time>2018-06-22</time> &mdash;
+		tags: <a href="./#tag:bash">bash</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">TL;DR: use tar and pipe to stdout!</p>
+<p>Imagine that you're making some sort of web-based file tree navigator and want to let users download and upload individual files and whole directories.
 While downloading individual files is pretty easy (just send the whole file with <code>application/octet-stream</code> content-type),
 downloading directories gets more complicated, since there is no such option in HTTP protocol.
 Obvious solution here is to create a (zip) archive here first, but note that it might be quite a heavy task, especially on a slow device like a cheap Android phone.</p>
@@ -77,14 +86,14 @@ tar --create "$path"
 <p>To those unfamiliar with bash: part after <code>2&gt;&amp;1 |</code> is just a bash way to extract required number from the tar output, it may be different in your programming languages.</p>
 
 <p>Information about <code>--totals --file=/dev/null</code> trick was taken from <a href="https://lists.gnu.org/archive/html/bug-tar/2007-01/msg00013.html">this</a> message.</p>
-		</div>
-		<!-- end how-to-download-folder-without-creating-archive -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

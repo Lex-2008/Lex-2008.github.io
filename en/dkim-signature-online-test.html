@@ -1,34 +1,35 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>DKIM signature online test</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="If you ever wanted to see how validity of DKIM signature will be affected by changing email headers and / or message body">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/dkim-signature-online-test.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+img {display:block; margin:auto; max-width:100%}
+{display:block;
+{display:block;
+{display:block; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin dkim-signature-online-test -->
-		<div class="post">
-			<h2><a href="dkim-signature-online-test.html" class="title">DKIM signature online test</a></h2>
-			<p class="trivia">
-				Created: 2021-10-16 &mdash; modified: 2021-11-16 &mdash; tags: net e-mail
-			</p>
-			<p class="intro">If you ever wanted to see how validity of DKIM signature will be affected by changing email headers and / or message body</p>
-			<p>There's an easy online tool for that now!</p>
+<header>
+	<h1>DKIM signature online test</h1>
+	<small>
+		Created: <time>2021-10-16</time> &mdash; modified: <time>2021-11-16</time> &mdash;
+		tags: <a href="./#tag:net">net</a> <a href="./#tag:e-mail">e-mail</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">If you ever wanted to see how validity of DKIM signature will be affected by changing email headers and / or message body</p>
+<p>There's an easy online tool for that now!</p>
 
 <p>Well, as long as pasting text into a webform is easier for you than into a locally installed <code>opendkim-testmsg</code> CLI tool.</p>
 
@@ -36,14 +37,14 @@
 Possible uses include restoring messages mangled by mailing lists into their "original" state.</p>
 
 <p>Let me know if you find any use for it :)</p>
-		</div>
-		<!-- end dkim-signature-online-test -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

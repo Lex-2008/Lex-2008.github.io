@@ -1,6 +1,7 @@
 title=XP games
 intro=A webpage with a list of free games for Windows
 tags=links games windows
+styles=archive
 created=2014-08-18
 modified=2016-09-06
 modified_now=1

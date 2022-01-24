@@ -1,13 +1,9 @@
 title=Space 9: collision decection on grid
 intro=Unlike sector-based one, this uses more complex logic, but simpler maps
 tags=Space3D
+styles=img
+style=img {width: 50%}
 created=2017-11-21
-
-<div>
-<style>
-img {width: 50%; margin-left: 20%;}
-</style>
-</div>
 
 Given that walls can be placed only on sides of a square grid, let's have a look at sample collision situation:
 

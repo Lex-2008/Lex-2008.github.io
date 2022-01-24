@@ -1,21 +1,23 @@
 title=Colors 2
 intro=A CSS-only version of fancy 2D background gradient
 tags=css
+styles=archive
 created=2016-06-29
 
 
 <div>
 <style>
-	body {background: linear-gradient(
-			rgba(255,0,255,0.5),
-			rgba(255,255,0,0.5),
-			rgba(0,255,255,0.5),
-			rgba(255,0,255,0.5)),
-		linear-gradient(to right, #f00, #0f0, #00f);
-	}
-
-#wrap, #menu {background-color: rgba(255,255,255,0.7);}
-#header {background-color: rgba(249,249,249,0.9);}
+body {background: linear-gradient(
+		rgba(255,0,255,0.5),
+		rgba(255,255,0,0.5),
+		rgba(0,255,255,0.5),
+		rgba(255,0,255,0.5)),
+     linear-gradient(to right, #f00, #0f0, #00f);
+}
+body > * {
+	background: rgba(255,255,255,0.6);
+	padding: 1ex;
+}
 </style>
 </div>
 
@@ -27,10 +29,10 @@ In another cases one might as well consider this simple CSS style:
 
 	background:
 		linear-gradient(
-			rgba(255,0,255,128),
-			rgba(255,255,0,128),
-			rgba(0,255,255,128),
-			rgba(255,0,255,128)),
+			rgba(255,0,255,0.5),
+			rgba(255,255,0,0.5),
+			rgba(0,255,255,0.5),
+			rgba(255,0,255,0.5)),
 		linear-gradient(to right, #f00, #0f0, #00f);
 
 You can see it applied to `<body>` element on this very page.

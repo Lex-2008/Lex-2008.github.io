@@ -62,16 +62,24 @@ CanvasRenderingContext2D.prototype.draw_2d_gradient = function(top_color_list,
 </script>
 
 <style id="s1">
-body {position:relative;}
-#wrap, #menu {background-color: rgba(255,255,255,0.7);}
-#header {background-color: rgba(249,249,249,0.9);}
+body {
+	position:relative;
+	width:100%;
+}
+body > * {
+	width: 80ex;
+	margin: auto;
+	background: rgba(255,255,255,0.6);
+	padding: 1ex;
+}
 canvas{
-    width: 100%;
-    height: calc(100% + 48px);
-    position: absolute;
-    top: -24px;
-    left: 0px;
-    z-index: -1;
+	width: 100% !important;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 0px;
+	z-index: -1;
 }
 </style>
 

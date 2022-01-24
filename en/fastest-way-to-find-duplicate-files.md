@@ -1,6 +1,7 @@
 title=Fastest way to find duplicate files
 intro=TL;DR: it's an app called "dupd"
 tags=linux links
+styles=archive
 created=2015-02-19
 
 An interesting article from 2015 comparing performance of several utilities to find duplicate files:

@@ -1,6 +1,7 @@
 title=careceo
 intro=These are the guys who are spamming me the most.
 tags=e-mail
+styles=archive
 created=2014-10-23
 modified=2016-06-24
 modified_now=1

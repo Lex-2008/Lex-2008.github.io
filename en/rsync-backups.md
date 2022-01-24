@@ -1,6 +1,7 @@
 title=Rsync backups
 intro=How I organized backups of my files
 tags=bash
+styles=archive
 created=2016-04-03
 
 

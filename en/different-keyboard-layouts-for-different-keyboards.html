@@ -1,34 +1,37 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Different keyboard layouts for different keyboards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="On Linux, you can have different keyboard layouts for different physical keyboards. How? Easy!">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/different-keyboard-layouts-for-different-keyboards.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+img {display:block; margin:auto; max-width:100%}
+{display:block;
+{display:block;
+{display:block;
+{display:block;
+{display:block; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin different-keyboard-layouts-for-different-keyboards -->
-		<div class="post">
-			<h2><a href="different-keyboard-layouts-for-different-keyboards.html" class="title">Different keyboard layouts for different keyboards</a></h2>
-			<p class="trivia">
-				Created: 2017-03-14 &mdash; modified: 2021-10-03 &mdash; tags: Linux
-			</p>
-			<p class="intro">On Linux, you can have different keyboard layouts for different physical keyboards. How? Easy!</p>
-			<p>Just add a line like this:</p>
+<header>
+	<h1>Different keyboard layouts for different keyboards</h1>
+	<small>
+		Created: <time>2017-03-14</time> &mdash; modified: <time>2021-10-03</time> &mdash;
+		tags: <a href="./#tag:linux">linux</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">On Linux, you can have different keyboard layouts for different physical keyboards. How? Easy!</p>
+<p>Just add a line like this:</p>
 
 <pre><code>SUBSYSTEM=="input", ACTION=="add", ENV{ID_SERIAL}=="046a_0011", ENV{XKBLAYOUT}="us,ru", ENV{XKBVARIANT}=",winkeys", ENV{XKBOPTIONS}="grp:shift_caps_switch,grp_led:caps,terminate:ctrl_alt_bksp"
 </code></pre>
@@ -37,14 +40,14 @@
 
 <p>Note that I haven't tested it under SystemD or Wayland.
 Sway, <a href="https://wiki.archlinux.org/title/Sway#Keymap">it seems</a>, supports it natively!</p>
-		</div>
-		<!-- end different-keyboard-layouts-for-different-keyboards -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

@@ -1,45 +1,44 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Colors 2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A CSS-only version of fancy 2D background gradient">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/colors2.html">
-</head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin colors2 -->
-		<div class="post">
-			<h2><a href="colors2.html" class="title">Colors 2</a></h2>
-			<p class="trivia">
-				Created: 2016-06-29 &mdash; modified: 2017-06-17 &mdash; tags: css
-			</p>
-			<p class="intro">A CSS-only version of fancy 2D background gradient</p>
-			<div>
 <style>
-    body {background: linear-gradient(
-            rgba(255,0,255,0.5),
-            rgba(255,255,0,0.5),
-            rgba(0,255,255,0.5),
-            rgba(255,0,255,0.5)),
-        linear-gradient(to right, #f00, #0f0, #00f);
-    }
-
-#wrap, #menu {background-color: rgba(255,255,255,0.7);}
-#header {background-color: rgba(249,249,249,0.9);}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://archive."] {font-size:x-small; vertical-align:sub} body > * {background: rgba(255,255,255,0.6); padding: 1ex}
+</style>
+</head><body>
+<header>
+	<h1>Colors 2</h1>
+	<small>
+		Created: <time>2016-06-29</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		tags: <a href="./#tag:css">css</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">A CSS-only version of fancy 2D background gradient</p>
+<div>
+<style>
+body {background: linear-gradient(
+        rgba(255,0,255,0.5),
+        rgba(255,255,0,0.5),
+        rgba(0,255,255,0.5),
+        rgba(255,0,255,0.5)),
+     linear-gradient(to right, #f00, #0f0, #00f);
+}
+body > * {
+    background: rgba(255,255,255,0.6);
+    padding: 1ex;
+}
 </style>
 </div>
 
@@ -49,10 +48,10 @@ In another cases one might as well consider this simple CSS style:</p>
 
 <pre><code>background:
     linear-gradient(
-        rgba(255,0,255,128),
-        rgba(255,255,0,128),
-        rgba(0,255,255,128),
-        rgba(255,0,255,128)),
+        rgba(255,0,255,0.5),
+        rgba(255,255,0,0.5),
+        rgba(0,255,255,0.5),
+        rgba(255,0,255,0.5)),
     linear-gradient(to right, #f00, #0f0, #00f);
 </code></pre>
 
@@ -61,14 +60,14 @@ Maybe not as nice, but it definitely works!</p>
 
 <p>Inspired by <a href="http://rentafounder.com/textured-gradients-in-pure-css/">this</a> <a href="http://archive.is/4unnE">(archived)</a> article,
 but has next-to-nothing in common. (Although it worth reading, too!)</p>
-		</div>
-		<!-- end colors2 -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

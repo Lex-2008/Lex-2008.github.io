@@ -2,6 +2,7 @@ title=space 1d 8: Colors, stats, challenge mode
 intro=Ships now have colors and like you from the first encounter if your ships color is close to theirs. But still, to change it you need to decrease your karma below -1.
 tags=space1d
 created=2021-03-06
+style=iframe {width: 700px; height: 700px; background: white}
 
 Important information for newcomers to my blog:
 
@@ -70,13 +71,7 @@ it worth building a good ship first, and doing a karma reset before rushing down
 Also remember that you need both karma<-1, and required amount cargo in order to be qualified to enter paint shop.
 Good luck!
 
-<div>
-<style>
-img {max-width:100%; background: white}
-iframe {width: 100%; height: 700px; background: white}
-</style>
 <iframe src="space-1d-8-colors-stats-challenge-mode.htm"></iframe>
-</div>
 
 [p]: space-1d-8-colors-stats-challenge-mode.png
 [g]: space-1d-8-colors-stats-challenge-mode.htm

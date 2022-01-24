@@ -1,8 +1,8 @@
 title=Passwords
 intro=How to generate them, so you could store them in your head
 tags=security links
+styles=archive cache
 created=2014-06-20
-
 
 Simplest way to get a password is to use some online password generator service, for example [duckduckgo.com][] search engine. But such meaningless passwords are usually considered quite easy to crack, while quite hard to remember.
 

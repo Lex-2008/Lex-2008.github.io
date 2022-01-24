@@ -1,34 +1,42 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Check for running Opera on Windows</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Currently (Opera 15-18), when you start Opera on Windows, it spawns itself again and terminates the process you started — so you can't easily wait until the Opera you've started quit. Or can you?">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/check-for-running-opera-on-windows.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small; 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin check-for-running-opera-on-windows -->
-		<div class="post">
-			<h2><a href="check-for-running-opera-on-windows.html" class="title">Check for running Opera on Windows</a></h2>
-			<p class="trivia">
-				Created: 2013-09-23 &mdash; modified: 2013-09-23 &mdash; tags: opera python windows
-			</p>
-			<p class="intro">Currently (Opera 15-18), when you start Opera on Windows, it spawns itself again and terminates the process you started — so you can't easily wait until the Opera you've started quit. Or can you?</p>
-			<div>
+<header>
+	<h1>Check for running Opera on Windows</h1>
+	<small>
+		Created: <time>2013-09-23</time> &mdash; modified: <time>2013-09-23</time> &mdash;
+		tags: <a href="./#tag:opera">opera</a> <a href="./#tag:python">python</a> <a href="./#tag:windows">windows</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Currently (Opera 15-18), when you start Opera on Windows, it spawns itself again and terminates the process you started — so you can't easily wait until the Opera you've started quit. Or can you?</p>
+<div>
 
 <p>That's how we'll cheat the system: instead of watching after a process with given pid, we'll be watching after a process started from a given folder. And to do this, we'll use <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682629(v=vs.85).aspx">GetModuleFileNameEx function</a>. Sample python code (based on <a href="http://code.activestate.com/recipes/305279-getting-process-information-on-windows/">work by Eric Koome</a>):</p>
 
@@ -98,14 +106,14 @@ while True:
 <script src="/microlight.js"></script>
 <script>microlight.reset('pre')</script>
 </div>
-		</div>
-		<!-- end check-for-running-opera-on-windows -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

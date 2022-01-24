@@ -1,6 +1,7 @@
 title=FanlessTech
 intro=FanlessTech.com – a website about fanless computers
 tags=links
+styles=archive
 created=2014-05-30
 modified=2016-09-06
 modified_now=1

@@ -1,41 +1,46 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>Whitelisting emails with sendmail</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="So they weren't rejected by dnsbl spam filter">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/whitelisting-emails-with-sendmail.html">
+<style>
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+}
+footer {text-align: center}
+header a, footer a, small a {color: linktext !important}
+a[href^="/a[href^="/a[href^="/a[href^="/cache/"] {font-size:x-small; vertical-align:sub}/"]
+{font-size:x-small;
+{font-size:x-small;
+{font-size:x-small; body > * {background: rgba(255,255,255,0.6); padding: 1ex}
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/en.html">Photos</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/en/">Notes</a></h1>
-		<p>Notes about different stuff</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin whitelisting-emails-with-sendmail -->
-		<div class="post">
-			<h2><a href="whitelisting-emails-with-sendmail.html" class="title">Whitelisting emails with sendmail</a></h2>
-			<p class="trivia">
-				Created: 2015-10-27 &mdash; modified: 2016-12-11 &mdash; tags: e-mail
-			</p>
-			<p class="intro">So they weren't rejected by dnsbl spam filter</p>
-			<p>Recently I became annoyed by growing amount of spam messages I was receiving.</p>
+<header>
+	<h1>Whitelisting emails with sendmail</h1>
+	<small>
+		Created: <time>2015-10-27</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		tags: <a href="./#tag:e-mail">e-mail</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">So they weren't rejected by dnsbl spam filter</p>
+<blockquote>
+  <p><strong>Update:</strong> Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.</p>
+</blockquote>
+
+<p>Recently I became annoyed by growing amount of spam messages I was receiving.</p>
 
 <p>Previously I had a simple spam filter, which worked according to this logic:</p>
 
-<blockquote>
-  <p>messages from contacts in my address book should go to inbox, <br />
-other messages should go to trash</p>
-</blockquote>
+<ul>
+<li><p>messages from contacts in my address book should go to inbox,  </p></li>
+<li><p>other messages should go to trash</p></li>
+</ul>
 
 <p>I'm not very popular person in the Internet, so I am rarely contacted by someone
 I didn't contact before (actually, <strong>never</strong> during last year),
@@ -59,16 +64,16 @@ with other antispam technologies (word filters, signature checking, etc).</p>
 <p>I already had a nice-working spam-filtering logic, so wanted to combine it with
 the new one on the rules like this:</p>
 
-<blockquote>
-  <p>messages from contacts in my address book should go to inbox, <br />
-other messages should go to the spamfilter
-(and if they pass it - to trash)</p>
-</blockquote>
+<ul>
+<li><p>messages from contacts in my address book should go to inbox,  </p></li>
+<li><p>other messages should go to the spamfilter</p></li>
+<li><p>(and if they pass it - to trash)</p></li>
+</ul>
 
 <p>And, turns out, it's quite easy to do for those who keep address book on the mail server.
 All you need is to extract all addresses from your address book and add them to <code>/etc/mail/access</code> file.</p>
 
-<h1>Requirements</h1>
+<h2>Requirements</h2>
 
 <p>Below steps are for the following case:</p>
 
@@ -81,7 +86,7 @@ All you need is to extract all addresses from your address book and add them to 
 
 <p>For different cases steps should be adjusted more or less.</p>
 
-<h1>Steps</h1>
+<h2>Steps</h2>
 
 <ol>
 <li><p>Check that your <code>/etc/mail/sendmail.mc</code> has the following lines:</p>
@@ -109,7 +114,7 @@ makemap hash '/etc/mail/access' &lt; '/etc/mail/access'
 </code></pre></li>
 </ol>
 
-<h1>Result</h1>
+<h2>Result</h2>
 
 <p>Result was somewhat interesting:
 I'm now getting only one spam message per day (versus 50 before) -
@@ -138,14 +143,14 @@ and SquirrelMail for keeping my address book
 (note <code>$HOME/alexey.abook</code>).</p>
 
 <script src="/microlight.js"></script>
-		</div>
-		<!-- end whitelisting-emails-with-sendmail -->
-	</div>
-	<div id="footer">
+</main>
+<footer>
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Alexey Shpakovsky</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(click to see e-mail)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
 </body></html>

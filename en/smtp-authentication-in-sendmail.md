@@ -1,14 +1,9 @@
 title=SMTP authentication in sendmail
-intro=
+intro=By default sendmail is configured in such a way that any program running on localhost can send an email without password, and none from another computer can do that. But what if you want to change that?
 tags=e-mail
 created=2014-08-25
-modified=2014-09-04
-modified_now=1
 
-By default sendmail is configured in such a way that any program running on localhost can send an email without password,
-and none from another computer can do that.
-But what if you want to change that?
-* * *
+> **Update**: Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.
 
 This guide is inspired by [Chapter 12 of Linux Home Server HOWTO][sendmail-server] and [official sendmail documentation][sendmail-auth].
 Please read them if something's unclear.
@@ -17,7 +12,7 @@ Please read them if something's unclear.
 [sendmail-server]: http://www.brennan.id.au/12-Sendmail_Server.html
 
 Installation
-============
+------------
 
 On Ubuntu server 12.04 most required packages are already installed, and only authentication modules for SASL are missing (SASL is a library used to check username and password).
 To install them, just type:
@@ -27,7 +22,7 @@ To install them, just type:
 
 
 Configuration
-=============
+-------------
 
 First, to make sendmail use SASL, add this line somewhere in the middle of the `/etc/mail/sendmail.mc` file:
 
@@ -43,8 +38,7 @@ After editing `/etc/mail/sendmail.mc` file, rebuild sendmail config by issuing t
 
 	sendmailconfig
 
-Passwordless access from localhost
-----------------------------------
+### Passwordless access from localhost
 
 Now sendmail would relay (send email to foreign hosts) only when provided a password.
 If you want to return the ability to send email from localhost without a password, first edit `/etc/mail/access` file:
@@ -60,8 +54,7 @@ After that, add this line somewhere to `/etc/mail/sendmail.mc` file:
 And run `sendmailconfig` again.
 
 
-Files and settings
-------------------
+### Files and settings
 
 Settings are scattered in these files:
 
@@ -86,7 +79,7 @@ These settings can be changed, but that's out of scope of this article, sorry.
 
 
 Follow-up
-=========
+---------
 
 To better secure your email (and its password!), you probably want to setup SSL connections, too.
 To do that, you need an SSL certificate (you can get one from [Start SSL][ssl] for free) and just perform first three steps from [official guide][tls].

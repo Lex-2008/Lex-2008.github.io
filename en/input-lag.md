@@ -1,6 +1,7 @@
 title=Input lag
 intro=Interesting article about speed of modern computers
 tags=links
+styles=archive
 created=2017-12-24
 
 Interesting article which draws our attention to the fact that modern computers react to keyboard input slower than old ones

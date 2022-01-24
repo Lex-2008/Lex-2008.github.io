@@ -2,16 +2,16 @@ title=Whitelisting emails with sendmail
 intro=So they weren't rejected by dnsbl spam filter
 tags=e-mail
 created=2015-10-27
-modified=2016-12-11
-modified_now=1
 
+> **Update:** Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.
 
 Recently I became annoyed by growing amount of spam messages I was receiving.
 
 Previously I had a simple spam filter, which worked according to this logic:
 
-> messages from contacts in my address book should go to inbox,  
-> other messages should go to trash
+* messages from contacts in my address book should go to inbox,  
+
+* other messages should go to trash
 
 I'm not very popular person in the Internet, so I am rarely contacted by someone
 I didn't contact before (actually, **never** during last year),
@@ -37,9 +37,11 @@ with other antispam technologies (word filters, signature checking, etc).
 I already had a nice-working spam-filtering logic, so wanted to combine it with
 the new one on the rules like this:
 
-> messages from contacts in my address book should go to inbox,  
-> other messages should go to the spamfilter
-> (and if they pass it - to trash)
+* messages from contacts in my address book should go to inbox,  
+
+* other messages should go to the spamfilter
+
+* (and if they pass it - to trash)
 
 And, turns out, it's quite easy to do for those who keep address book on the mail server.
 All you need is to extract all addresses from your address book and add them to `/etc/mail/access` file.
@@ -47,7 +49,7 @@ All you need is to extract all addresses from your address book and add them to 
 
 
 Requirements
-============
+------------
 
 Below steps are for the following case:
 
@@ -63,7 +65,7 @@ For different cases steps should be adjusted more or less.
 
 
 Steps
-=====
+-----
 
 1. Check that your `/etc/mail/sendmail.mc` has the following lines:
 
@@ -90,7 +92,7 @@ Steps
 
 
 Result
-======
+------
 
 Result was somewhat interesting:
 I'm now getting only one spam message per day (versus 50 before) -

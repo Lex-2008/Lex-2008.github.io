@@ -1,6 +1,7 @@
 title=RIP Steve Jobs
 intro=You brought technology closer to people
 tags=History
+styles=archive
 created=2011-10-05
 
 You've built a company. Twice. Apple computers were always known for being the most user-friendly. Others copied and followed.
