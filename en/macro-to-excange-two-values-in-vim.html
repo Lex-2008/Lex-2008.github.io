@@ -12,23 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Macro to excange two values in Vim</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Macro to excange two values in Vim</h1>
 	<small>
 		Created: <time>2013-01-09</time> &mdash; modified: <time>2021-12-14</time> &mdash;
 		tags: <a href="./#tag:vim">vim</a>
@@ -59,7 +48,7 @@ Another parameter=Value
 </ol>As you probably know, Vim uses same registers both for copy-paste operations and for macros. Also it saves them between sessions in viminfo file, nice!
 </div>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

@@ -12,18 +12,14 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block; abbr{border-bottom: dotted gray; cursor: help;}
+header a, footer a, small a {color: inherit !important} /* linktext */
+a[href^="http://archive."] {font-size:x-small; vertical-align:sub} abbr{border-bottom: dotted gray; cursor: help;}
 </style>
 </head><body>
 <header>
-	<h1>Grace Hopper - Grandma COBOL</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Grace Hopper - Grandma COBOL</h1>
 	<small>
-		Created: <time>2015-09-09</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		Created: <time>2015-09-09</time> &mdash; modified: <time>2022-02-28</time> &mdash;
 		tags: <a href="./#tag:history">history</a>
 	</small>
 	<hr>
@@ -55,8 +51,12 @@ imagine it:</p>
 
 <p>So she is one of authors and promoters of <a href="https://en.wikipedia.org/wiki/COBOL">COBOL</a> programming language,
 which became quite popular back in 60s and is still used in old systems today.</p>
+
+<p>Worth noting that many think that computer issues are called "bugs" <em>because</em> of Grace Hopper's above quote.
+This is not correct - as the <a href="https://www.computerworld.com/article/2515435/moth-in-the-machine--debugging-the-origins-of--bug-.html">computersworld</a><a href="http://archive.is/e9rFH">(cached version)</a> article explains,
+this term was used as early as by Thomas Edison!</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

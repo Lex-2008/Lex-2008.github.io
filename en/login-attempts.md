@@ -10,10 +10,12 @@ All of them failed, because there is no imap/pop/smtp login option on this serve
 <div>
 <style>
 td,th {white-space: pre;}
+/*
 table { background-color: white; }
 @media (prefers-color-scheme: dark) {
 	table { background-color: black; }
 }
+*/
 </style>
 </div>
 

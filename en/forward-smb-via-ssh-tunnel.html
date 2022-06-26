@@ -12,15 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Forward SMB via SSH tunnel</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Forward SMB via SSH tunnel</h1>
 	<small>
 		Created: <time>2017-04-30</time> &mdash; modified: <time>2017-05-09</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a> <a href="./#tag:windows">windows</a> <a href="./#tag:linux">linux</a>
@@ -55,7 +52,7 @@ How to set this up is outside of scope of this article, but reverse-port-forward
 </ul></li>
 </ul>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

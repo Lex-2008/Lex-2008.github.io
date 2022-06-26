@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
+header a, footer a, small a {color: inherit !important} /* linktext */
 img {display:block; margin:auto; max-width:100%} 
 </style>
 </head><body>
 <header>
-	<h1>Google Translate</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Google Translate</h1>
 	<small>
 		Created: <time>2013-09-03</time> &mdash; modified: <time>2021-10-08</time> &mdash;
 		tags: <a href="./#tag:norway">norway</a> <a href="./#tag:fun">fun</a>
@@ -30,7 +28,7 @@ img {display:block; margin:auto; max-width:100%}
 	<p class="intro">Sometimes it's wrong... completely... sometimes...</p>
 <p><img src="google-translate.png" alt="translate mistakes" title="" /></p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

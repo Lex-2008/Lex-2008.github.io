@@ -12,15 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Transferring huge sparse files</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Transferring huge sparse files</h1>
 	<small>
 		Created: <time>2020-01-24</time> &mdash; modified: <time>2020-03-01</time> &mdash;
 		tags: <a href="./#tag:linux">linux</a> <a href="./#tag:bash">bash</a> <a href="./#tag:python">python</a>
@@ -117,7 +114,7 @@ $ du --human-readable g
 
 <script src="/microlight.js"></script>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

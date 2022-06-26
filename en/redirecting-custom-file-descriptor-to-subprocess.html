@@ -12,15 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Redirecting custom file descriptor to subprocess</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Redirecting custom file descriptor to subprocess</h1>
 	<small>
 		Created: <time>2016-09-19</time> &mdash; modified: <time>2016-09-21</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
@@ -74,7 +71,7 @@ first <code>&gt;</code> is redirection command, <br />
 then space to distinguish it from <code>&gt;&gt;</code> "append" redirect, <br />
 and <code>&gt;(</code> begins the process substitution.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

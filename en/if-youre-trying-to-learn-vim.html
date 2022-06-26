@@ -12,24 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>If you're trying to learn Vim...</h1>
+	<h1 style="border-bottom: 1px solid lightgray">If you're trying to learn Vim...</h1>
 	<small>
 		Created: <time>2013-01-11</time> &mdash; modified: <time>2021-12-14</time> &mdash;
 		tags: <a href="./#tag:vim">vim</a>
@@ -58,7 +46,7 @@ and look through Vim help — for same reason. If you want to do something, but 
 <br>
 </div>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

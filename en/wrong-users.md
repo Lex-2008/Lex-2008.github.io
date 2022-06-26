@@ -10,10 +10,12 @@ Hostname of this host is hidden from the logs in order to avoid spam.
 <div>
 <style>
 td,th {white-space: pre;}
+/*
 table { background-color: white; }
 @media (prefers-color-scheme: dark) {
     table { background-color: black; }
 }
+*/
 </style>
 </div>
 

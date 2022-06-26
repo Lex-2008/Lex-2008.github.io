@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
+header a, footer a, small a {color: inherit !important} /* linktext */
 img {display:block; margin:auto; max-width:100%} img {width: 50%}
 </style>
 </head><body>
 <header>
-	<h1>Space 9: collision decection on grid</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Space 9: collision decection on grid</h1>
 	<small>
 		Created: <time>2017-11-21</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 		tags: <a href="./#tag:space3d">space3d</a>
@@ -160,7 +158,7 @@ so you can chose them randomly :)</p></li>
 
 <p>Illustrations drawn using <a href="http://www.drawsvg.org/drawsvg.html">drawsvg</a>.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

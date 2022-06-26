@@ -12,10 +12,12 @@ All failed attempts (since logging started) are listed below.
 <div>
 <style>
 td,th {white-space: pre;}
+/*
 table { background-color: white; }
 @media (prefers-color-scheme: dark) {
     table { background-color: black; }
 }
+*/
 </style>
 </div>
 

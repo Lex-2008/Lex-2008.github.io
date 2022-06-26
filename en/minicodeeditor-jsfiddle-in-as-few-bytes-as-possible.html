@@ -12,15 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>MiniCodeEditor: jsFiddle in as few bytes as possible</h1>
+	<h1 style="border-bottom: 1px solid lightgray">MiniCodeEditor: jsFiddle in as few bytes as possible</h1>
 	<small>
 		Created: <time>2014-01-22</time> &mdash; modified: <time>2014-01-22</time> &mdash;
 		tags: <a href="./#tag:javascript">javascript</a>
@@ -69,7 +66,7 @@ Note: to try them out, just copy-paste above data: URLs to your browser's addres
 <script>microlight.reset('pre')</script>
 </div>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

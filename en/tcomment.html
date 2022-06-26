@@ -12,17 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>TComment</h1>
+	<h1 style="border-bottom: 1px solid lightgray">TComment</h1>
 	<small>
 		Created: <time>2017-02-10</time> &mdash; modified: <time>2017-02-10</time> &mdash;
 		tags: <a href="./#tag:vim">vim</a> <a href="./#tag:links">links</a>
@@ -69,7 +64,7 @@ fib(1000)
 
 <p>Links: <a href="http://www.vim.org/scripts/script.php?script_id=1173">vim.org</a>, <a href="https://github.com/tomtom/tcomment_vim">Github</a></p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

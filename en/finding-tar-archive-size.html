@@ -12,16 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small;
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Finding tar archive size without actually making it</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Finding tar archive size without actually making it</h1>
 	<small>
 		Created: <time>2016-07-21</time> &mdash; modified: <time>2016-10-31</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
@@ -87,7 +83,7 @@ It still needs to read all directories, however.</p>
 <p>Note that you probably must change both <code>tar</code> lines - the one which report the archive size and the one which makes the actual archive.
 If the size advertised in Content-Length header doesn't match the actual archive size - it's better not to have it at all!</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

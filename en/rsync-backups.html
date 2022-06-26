@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
+header a, footer a, small a {color: inherit !important} /* linktext */
 a[href^="http://archive."] {font-size:x-small; vertical-align:sub} 
 </style>
 </head><body>
 <header>
-	<h1>Rsync backups</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Rsync backups</h1>
 	<small>
 		Created: <time>2016-04-03</time> &mdash; modified: <time>2022-01-21</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
@@ -772,7 +770,7 @@ setTimeout('mktoc()',100);
 </script>
 </div>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

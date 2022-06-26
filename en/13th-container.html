@@ -12,19 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>13th container</h1>
+	<h1 style="border-bottom: 1px solid lightgray">13th container</h1>
 	<small>
 		Created: <time>2021-11-14</time> &mdash; modified: <time>2021-11-27</time> &mdash;
 		tags: <a href="./#tag:postfix">postfix</a>
@@ -75,7 +68,7 @@ and send it to upstream SMTP server
 <p>Also note that since signing key is stored on the server, this does <strong>not</strong> add any extra security compared to DKIM signature.
 As said before, the only purpose of this server is to satisfy those email clients/servers/users who can't/don't check/show DKIM signatures, but have an option to check/show S/MIME ones.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

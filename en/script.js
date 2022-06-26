@@ -46,6 +46,14 @@ function addTags(){
 	id('showall').innerHTML.replace('?', posts.length)
 }
 
+function searchTags(text){
+	id('tags').innerHTML=tags.filter(function(tag){
+		return tag.indexOf(text)>-1;
+	}).map(function(tag){
+		return '<a href="#tag:'+tag+'">'+tag.replace(text,'<mark>'+text+'</mark>')+'&nbsp;('+tags_count[tag]+')</a>';
+	}).join(' ');
+}
+
 function init(){
 	load();
 	posts.forEach(function(post){
@@ -58,6 +66,7 @@ function init(){
 		});
 	});
 	tags=Object.keys(tags_count).sort();
+	tag('header').innerHTML=tag('header').innerHTML.replace(/<!--|-->/g,'');
 	addTags();
 	id('search').oninput=function(){
 		if(this.value) {
@@ -68,6 +77,7 @@ function init(){
 			location.hash='';
 		}
 	}
+	id('search').focus();
 	window.onhashchange=function(){
 		var params=decodeURIComponent(location.hash).split(':');
 		//if(params.length!=2) return;
@@ -75,6 +85,7 @@ function init(){
 		if(marked_posts){
 			unmark_posts(marked_posts);
 			marked_posts=[];
+			addTags();
 		}
 		switch(params[0]){
 			case '#tag':
@@ -83,6 +94,7 @@ function init(){
 			case '#search':
 				id('search').value=params[1];
 				search(params[1]);
+				searchTags(params[1]);
 				user_input=false;
 			break;
 			default:

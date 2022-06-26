@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
+header a, footer a, small a {color: inherit !important} /* linktext */
 a[href^="http://archive."] {font-size:x-small; vertical-align:sub} 
 </style>
 </head><body>
 <header>
-	<h1>microlight.js</h1>
+	<h1 style="border-bottom: 1px solid lightgray">microlight.js</h1>
 	<small>
 		Created: <time>2016-06-16</time> &mdash; modified: <time>2016-06-30</time> &mdash;
 		tags: <a href="./#tag:javascript">javascript</a>
@@ -73,7 +71,7 @@ xmlhttp.send(null);
 <script id="a1"></script>
 </div>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

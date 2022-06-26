@@ -12,15 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>O RLY Book Cover Generator</h1>
+	<h1 style="border-bottom: 1px solid lightgray">O RLY Book Cover Generator</h1>
 	<small>
 		Created: <time>2017-07-03</time> &mdash; modified: <time>2020-07-26</time> &mdash;
 		tags: <a href="./#tag:fun">fun</a> <a href="./#tag:links">links</a>
@@ -37,7 +34,7 @@ img {display:block; margin:auto; max-width:100%}
 
 <p><img src="o-rly-book-cover-generator.png" alt="&quot;How to quit Vim&quot;" title="" /></p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

@@ -12,18 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>CFEngine Master Policy Framework where to put files</h1>
+	<h1 style="border-bottom: 1px solid lightgray">CFEngine Master Policy Framework where to put files</h1>
 	<small>
 		Created: <time>2017-02-09</time> &mdash; modified: <time>2017-03-08</time> &mdash;
 		tags: <a href="./#tag:cfengine">cfengine</a>
@@ -42,7 +36,7 @@ a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://
 <li><p>Save your custom policies as <code>services/autorun/*.cf</code></p></li>
 </ul>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

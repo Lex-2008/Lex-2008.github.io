@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
+header a, footer a, small a {color: inherit !important} /* linktext */
 a[href^="http://archive."] {font-size:x-small; vertical-align:sub} 
 </style>
 </head><body>
 <header>
-	<h1>Block users in sendmail</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Block users in sendmail</h1>
 	<small>
 		Created: <time>2014-09-13</time> &mdash; modified: <time>2016-06-24</time> &mdash;
 		tags: <a href="./#tag:e-mail">e-mail</a>
@@ -66,7 +64,7 @@ automated response from MAILER-DEMON :-)</p>
 <p>More information regarding anti-spam protection you can find
 <a href="http://www.sendmail.com/sm/open_source/docs/m4/anti_spam.html">in the official sendmail documentation</a> <a href="http://archive.is/mnRVL">(archived version)</a>.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

@@ -12,16 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>DynDNS DIY</h1>
+	<h1 style="border-bottom: 1px solid lightgray">DynDNS DIY</h1>
 	<small>
 		Created: <time>2021-10-10</time> &mdash; modified: <time>2021-10-24</time> &mdash;
 		tags: <a href="./#tag:net">net</a> <a href="./#tag:bind">bind</a>
@@ -74,7 +70,7 @@ Also note the location of key.conf file which is expected to be shared between
 <p><a href="https://github.com/Lex-2008/containers/blob/master/dyndns.cont/README.md">Installation</a>
 is pretty easy, and the result lives at <em>dyn.shpakovsky.ru</em>.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

@@ -12,18 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Send-only DKIM milter</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Send-only DKIM milter</h1>
 	<small>
 		Created: <time>2021-11-20</time> &mdash; modified: <time>2021-11-27</time> &mdash;
 		tags: <a href="./#tag:postfix">postfix</a>
@@ -85,7 +79,7 @@ and instead use other ways to distinguish "incoming" and "outgoing" messages - l
 <p>Also note that <a href="using-http-basic-auth-for-nginx-mail-auth-http-server.html">external mail clients</a> don't have access to "sending" port 25 of the postfix container.
 Sending email from external mail applications is simply not supported at all.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

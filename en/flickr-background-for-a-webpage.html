@@ -12,17 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block; body > * {background: rgba(255,255,255,0.6); padding: 1ex}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ body > * {background: rgba(255,255,255,0.6); padding: 1ex}
 </style>
 </head><body>
 <header>
-	<h1>Flickr background for a webpage</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Flickr background for a webpage</h1>
 	<small>
 		Created: <time>2017-06-17</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 		tags: <a href="./#tag:javascript">javascript</a>
@@ -65,7 +60,7 @@ if(xmlhttp.status == 200) {
 
 <p>Also note my previous experiments with the background: <a href="colors.html">Colors</a>, <a href="colors2.html">Colors 2</a>.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

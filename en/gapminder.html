@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
+header a, footer a, small a {color: inherit !important} /* linktext */
  
 </style>
 </head><body>
 <header>
-	<h1>Gapminder</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Gapminder</h1>
 	<small>
 		Created: <time>2013-11-27</time> &mdash; modified: <time>2014-10-26</time> &mdash;
 		tags: <a href="./#tag:links">links</a>
@@ -50,7 +48,7 @@ how we get here,
 and where we might be heading to,
 should definitely have a deep look at this website!</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

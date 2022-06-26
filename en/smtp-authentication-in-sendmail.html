@@ -12,15 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="/a[href^="/cache/"] {font-size:x-small; vertical-align:sub}/"]
-{font-size:x-small; body > * {background: rgba(255,255,255,0.6); padding: 1ex}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>SMTP authentication in sendmail</h1>
+	<h1 style="border-bottom: 1px solid lightgray">SMTP authentication in sendmail</h1>
 	<small>
 		Created: <time>2014-08-25</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 		tags: <a href="./#tag:e-mail">e-mail</a>
@@ -105,7 +102,7 @@ which means "use system method" (by default, username+password for local account
 <p>To better secure your email (and its password!), you probably want to setup SSL connections, too.
 To do that, you need an SSL certificate (you can get one from <a href="https://startssl.com/">Start SSL</a> for free) and just perform first three steps from <a href="http://www.sendmail.org/~ca/email/starttls.html">official guide</a>.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

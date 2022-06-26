@@ -12,21 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Reasonable spam filter in Postfix</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Reasonable spam filter in Postfix</h1>
 	<small>
 		Created: <time>2021-07-19</time> &mdash; modified: <time>2021-07-31</time> &mdash;
 		tags: <a href="./#tag:linux">linux</a> <a href="./#tag:e-mail">e-mail</a>
@@ -88,7 +79,7 @@ Feel free to let me know!
 Link to my email is at the bottom of this page
 (and now you know how to ensure it will pass my spam filter, he-he).</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

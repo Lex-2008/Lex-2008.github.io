@@ -12,17 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>DKIM signature online test</h1>
+	<h1 style="border-bottom: 1px solid lightgray">DKIM signature online test</h1>
 	<small>
 		Created: <time>2021-10-16</time> &mdash; modified: <time>2021-11-16</time> &mdash;
 		tags: <a href="./#tag:net">net</a> <a href="./#tag:e-mail">e-mail</a>
@@ -40,7 +35,7 @@ Possible uses include restoring messages mangled by mailing lists into their "or
 
 <p>Let me know if you find any use for it :)</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

@@ -12,22 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Vim prank</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Vim prank</h1>
 	<small>
 		Created: <time>2012-12-02</time> &mdash; modified: <time>2021-12-14</time> &mdash;
 		tags: <a href="./#tag:vim">vim</a> <a href="./#tag:fun">fun</a>
@@ -70,7 +60,7 @@ So next time your nerdy friend leaves Vim open and looks away for a few seconds 
 <p>Super-pro tip: if you're Pro Vim user having Vim newbie nearby, use <tt>ggg?G</tt> on him, optionally followed by <tt>ZZ</tt>. It's much less destructible — same command returns text back to readable form.<br>
 </div></p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

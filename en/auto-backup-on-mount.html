@@ -12,24 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Auto backup on mount</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Auto backup on mount</h1>
 	<small>
 		Created: <time>2018-01-22</time> &mdash; modified: <time>2018-02-03</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
@@ -69,7 +57,7 @@ Remember to remove <code>ALLOW_FIRST_RUN=1</code> when it's not needed anymore.<
 <li><p>During <strong>first</strong> backup to an <strong>empty</strong> disk, you can consider setting <code>FS_MOUNTOPTIONS="-fstype=ext4,barrier=0"</code> in the same file (thanks to <a href="https://structr.org/blog/neo4j-performance-on-ext4">this blog</a> for researching this). It will make write operation significantly faster, but with danger of losing data in case of power failure (or USB cable disconnect). So it's OK to do in absence of other valuable data on the disk, and makes most sence to do during first, usually longest, backup operation.</p></li>
 </ul>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

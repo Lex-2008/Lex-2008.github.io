@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://archive."] {font-size:x-small; vertical-align:sub} body > * {background: rgba(255,255,255,0.6); padding: 1ex}
+header a, footer a, small a {color: inherit !important} /* linktext */
+a[href^="http://archive."] {font-size:x-small; vertical-align:sub} 
 </style>
 </head><body>
 <header>
-	<h1>Colors 2</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Colors 2</h1>
 	<small>
 		Created: <time>2016-06-29</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 		tags: <a href="./#tag:css">css</a>
@@ -63,7 +61,7 @@ Maybe not as nice, but it definitely works!</p>
 <p>Inspired by <a href="http://rentafounder.com/textured-gradients-in-pure-css/">this</a> <a href="http://archive.is/4unnE">(archived)</a> article,
 but has next-to-nothing in common. (Although it worth reading, too!)</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

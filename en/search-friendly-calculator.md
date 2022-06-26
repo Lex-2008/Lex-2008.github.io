@@ -1,6 +1,6 @@
 title=Search-friendly calculator
 intro=a site with infinite number of pages
-tags=untagged
+tags=fun
 created=2021-12-05
 
 If your favourite search engine lacks a built-in calculator capability,

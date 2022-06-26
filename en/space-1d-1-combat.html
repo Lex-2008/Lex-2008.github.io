@@ -12,15 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block; iframe {width: 700px; height: 700px; background: white}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ iframe {width: 700px; height: 700px; background: white}
 </style>
 </head><body>
 <header>
-	<h1>space 1d 1: combat</h1>
+	<h1 style="border-bottom: 1px solid lightgray">space 1d 1: combat</h1>
 	<small>
 		Created: <time>2018-04-02</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 		tags: <a href="./#tag:space1d">space1d</a>
@@ -46,7 +43,7 @@ Try imagining how result would look <strong>before</strong> hitting "attack" but
 
 <p>Next step is to add more options beyond "attack" one (surrender, etc), and let opponent ships replace each other.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

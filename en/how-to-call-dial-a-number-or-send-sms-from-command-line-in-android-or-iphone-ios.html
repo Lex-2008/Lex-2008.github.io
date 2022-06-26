@@ -12,17 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a[href^="http://a[href^="http://a[href^="http://a[href^="http://archive."] {font-size:x-small; vertical-align:sub}."]
-{font-size:x-small;
-{font-size:x-small;
-{font-size:x-small; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>How to call (dial a number) or send SMS from command line in Android or iPhone (iOS)</h1>
+	<h1 style="border-bottom: 1px solid lightgray">How to call (dial a number) or send SMS from command line in Android or iPhone (iOS)</h1>
 	<small>
 		Created: <time>2014-11-29</time> &mdash; modified: <time>2017-06-14</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a> <a href="./#tag:android">android</a>
@@ -73,7 +68,7 @@ but it didn't even fill in the message.</p>
 <pre><code>dumpsys power | grep blanked | sed 's/.*=//'
 </code></pre>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

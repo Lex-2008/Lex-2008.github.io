@@ -12,15 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-a.title {font-weight: bolder}
-#showall {float:right; margin-left: 1ex}
+header a, footer a, small a {color: inherit !important} /* linktext */
+a.title {font-size:larger; font-weight: bolder}
 </style>
 </head><body>
 <header>
-	<h1>
+	<h1 style="border-bottom: 1px solid lightgray">
 		Notes
 		<small style="font: initial;margin-left: 3em">
 			Notes about different stuff
@@ -35,8 +32,8 @@ a.title {font-weight: bolder}
 	<!--
 	<hr>
 	<p>Filter posts by tags:<br><span id="tags"></span><p>
-	<a id="showall" href="#">(show all ? posts)</a>
-	<p><label>Filter posts by search:
+	<a id="showall" href="#" style="float:right;margin-left:1ex">(show all ? posts)</a>
+	<p><label>Filter posts and tags by search:
 	<input type="search" id="search" placeholder="Type to search">
 	</label></p>
 	-->
@@ -45,6 +42,120 @@ a.title {font-weight: bolder}
 <main>
 <ol>
 	<!-- put contents below -->
+	<!-- begin search-friendly-calculator -->
+	<li>
+		<a href="search-friendly-calculator.html" class="title">Search-friendly calculator</a>
+		<br>
+		<small>
+			Created: <time>2021-12-05</time> &mdash; modified: <time>2022-06-26</time> &mdash;
+			tags: <a href="./#tag:fun">fun</a>
+		</small>
+		<p>
+			<span class="intro">a site with infinite number of pages</span>
+			&mdash;
+			<a href="search-friendly-calculator.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-12-05
+fun
+		--> </div>
+	</li>
+	<!-- end search-friendly-calculator -->
+	<!-- begin spam-emails -->
+	<li>
+		<a href="spam-emails.html" class="title">This is spam</a>
+		<br>
+		<small>
+			Created: <time>2014-05-13</time> &mdash; modified: <time>2022-06-22</time> &mdash;
+			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
+		</small>
+		<p>
+			<span class="intro">These are e-mail addresses that sent spam/scam/phishing emails to me.</span>
+			&mdash;
+			<a href="spam-emails.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2014-05-13
+e-mail logs
+		--> </div>
+	</li>
+	<!-- end spam-emails -->
+	<!-- begin login-attempts -->
+	<li>
+		<a href="login-attempts.html" class="title">Login attempts</a>
+		<br>
+		<small>
+			Created: <time>2021-07-09</time> &mdash; modified: <time>2022-06-22</time> &mdash;
+			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
+		</small>
+		<p>
+			<span class="intro">These are logins and passwords of last 10k login attempts into my server.</span>
+			&mdash;
+			<a href="login-attempts.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-07-09
+e-mail logs
+		--> </div>
+	</li>
+	<!-- end login-attempts -->
+	<!-- begin relay-attempts -->
+	<li>
+		<a href="relay-attempts.html" class="title">Relay attempts</a>
+		<br>
+		<small>
+			Created: <time>2021-10-01</time> &mdash; modified: <time>2022-06-22</time> &mdash;
+			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
+		</small>
+		<p>
+			<span class="intro">These are spammers (or hackers) trying to send email <b>from</b> my server</span>
+			&mdash;
+			<a href="relay-attempts.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-10-01
+e-mail logs
+		--> </div>
+	</li>
+	<!-- end relay-attempts -->
+	<!-- begin wrong-users -->
+	<li>
+		<a href="wrong-users.html" class="title">Wrong users</a>
+		<br>
+		<small>
+			Created: <time>2021-10-03</time> &mdash; modified: <time>2022-06-22</time> &mdash;
+			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
+		</small>
+		<p>
+			<span class="intro">Here you can find attempts to send messages to users who do not exist on this server</span>
+			&mdash;
+			<a href="wrong-users.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-10-03
+e-mail logs
+		--> </div>
+	</li>
+	<!-- end wrong-users -->
+	<!-- begin grace-hopper-grandma-cobol -->
+	<li>
+		<a href="grace-hopper-grandma-cobol.html" class="title">Grace Hopper - Grandma COBOL</a>
+		<br>
+		<small>
+			Created: <time>2015-09-09</time> &mdash; modified: <time>2022-02-28</time> &mdash;
+			tags: <a href="./#tag:history">history</a>
+		</small>
+		<p>
+			<span class="intro">Also known for "First actual case of bug being found" note</span>
+			&mdash;
+			<a href="grace-hopper-grandma-cobol.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2015-09-09
+History
+		--> </div>
+	</li>
+	<!-- end grace-hopper-grandma-cobol -->
 	<!-- begin mirrors -->
 	<li>
 		<a href="mirrors.html" class="title">mirrors</a>
@@ -235,25 +346,6 @@ Javascript
 		--> </div>
 	</li>
 	<!-- end flickr-background-for-a-webpage -->
-	<!-- begin grace-hopper-grandma-cobol -->
-	<li>
-		<a href="grace-hopper-grandma-cobol.html" class="title">Grace Hopper - Grandma COBOL</a>
-		<br>
-		<small>
-			Created: <time>2015-09-09</time> &mdash; modified: <time>2022-01-22</time> &mdash;
-			tags: <a href="./#tag:history">history</a>
-		</small>
-		<p>
-			<span class="intro">Also known for "First actual case of bug being found" note</span>
-			&mdash;
-			<a href="grace-hopper-grandma-cobol.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2015-09-09
-History
-		--> </div>
-	</li>
-	<!-- end grace-hopper-grandma-cobol -->
 	<!-- begin space-1d-1-combat -->
 	<li>
 		<a href="space-1d-1-combat.html" class="title">space 1d 1: combat</a>
@@ -558,25 +650,6 @@ vim fun
 		--> </div>
 	</li>
 	<!-- end vim-prank -->
-	<!-- begin search-friendly-calculator -->
-	<li>
-		<a href="search-friendly-calculator.html" class="title">Search-friendly calculator</a>
-		<br>
-		<small>
-			Created: <time>2021-12-05</time> &mdash; modified: <time>2021-12-06</time> &mdash;
-			tags: <a href="./#tag:untagged">untagged</a>
-		</small>
-		<p>
-			<span class="intro">a site with infinite number of pages</span>
-			&mdash;
-			<a href="search-friendly-calculator.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-12-05
-untagged
-		--> </div>
-	</li>
-	<!-- end search-friendly-calculator -->
 	<!-- begin defrag-ssd-in-vm-on-hdd -->
 	<li>
 		<a href="defrag-ssd-in-vm-on-hdd.html" class="title">Defrag SSD in VM on HDD</a>
@@ -729,82 +802,6 @@ fun
 		--> </div>
 	</li>
 	<!-- end hacker-typer-on-tv -->
-	<!-- begin wrong-users -->
-	<li>
-		<a href="wrong-users.html" class="title">Wrong users</a>
-		<br>
-		<small>
-			Created: <time>2021-10-03</time> &mdash; modified: <time>2021-10-03</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
-		</small>
-		<p>
-			<span class="intro">Here you can find attempts to send messages to users who do not exist on this server</span>
-			&mdash;
-			<a href="wrong-users.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-10-03
-e-mail logs
-		--> </div>
-	</li>
-	<!-- end wrong-users -->
-	<!-- begin relay-attempts -->
-	<li>
-		<a href="relay-attempts.html" class="title">Relay attempts</a>
-		<br>
-		<small>
-			Created: <time>2021-10-01</time> &mdash; modified: <time>2021-10-03</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
-		</small>
-		<p>
-			<span class="intro">These are spammers (or hackers) trying to send email <b>from</b> my server</span>
-			&mdash;
-			<a href="relay-attempts.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-10-01
-e-mail logs
-		--> </div>
-	</li>
-	<!-- end relay-attempts -->
-	<!-- begin spam-emails -->
-	<li>
-		<a href="spam-emails.html" class="title">This is spam</a>
-		<br>
-		<small>
-			Created: <time>2014-05-13</time> &mdash; modified: <time>2021-10-03</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
-		</small>
-		<p>
-			<span class="intro">These are e-mail addresses that sent spam/scam/phishing emails to me.</span>
-			&mdash;
-			<a href="spam-emails.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-05-13
-e-mail logs
-		--> </div>
-	</li>
-	<!-- end spam-emails -->
-	<!-- begin login-attempts -->
-	<li>
-		<a href="login-attempts.html" class="title">Login attempts</a>
-		<br>
-		<small>
-			Created: <time>2021-07-09</time> &mdash; modified: <time>2021-10-03</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
-		</small>
-		<p>
-			<span class="intro">These are logins and passwords of last 10k login attempts into my server.</span>
-			&mdash;
-			<a href="login-attempts.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-07-09
-e-mail logs
-		--> </div>
-	</li>
-	<!-- end login-attempts -->
 	<!-- begin space-2d-1-a-game-which-plays-by-itself -->
 	<li>
 		<a href="space-2d-1-a-game-which-plays-by-itself.html" class="title">space 2d 1: a game which plays by itself</a>
@@ -2840,13 +2837,8 @@ vim
 	<!-- end paste-and-replace-in-vim -->
 </ol>
 </main>
-<script>
-	document.getElementsByTagName('header')[0].innerHTML=
-	document.getElementsByTagName('header')[0].innerHTML.replace(/<!--|-->/g,'');
-	document.getElementById('search').focus();
-</script>
 <script src="script.js"></script>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

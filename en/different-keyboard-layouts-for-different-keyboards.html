@@ -12,19 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
-img {display:block; margin:auto; max-width:100%}
-{display:block;
-{display:block;
-{display:block;
-{display:block;
-{display:block; 
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
 </style>
 </head><body>
 <header>
-	<h1>Different keyboard layouts for different keyboards</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Different keyboard layouts for different keyboards</h1>
 	<small>
 		Created: <time>2017-03-14</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 		tags: <a href="./#tag:linux">linux</a>
@@ -43,7 +36,7 @@ img {display:block; margin:auto; max-width:100%}
 <p>Note that I haven't tested it under SystemD or Wayland.
 Sway, <a href="https://wiki.archlinux.org/title/Sway#Keymap">it seems</a>, supports it natively!</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

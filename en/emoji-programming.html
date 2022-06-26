@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
+header a, footer a, small a {color: inherit !important} /* linktext */
 img {display:block; margin:auto; max-width:100%} 
 </style>
 </head><body>
 <header>
-	<h1>Emoji programming</h1>
+	<h1 style="border-bottom: 1px solid lightgray">Emoji programming</h1>
 	<small>
 		Created: <time>2017-11-18</time> &mdash; modified: <time>2020-07-26</time> &mdash;
 		tags: <a href="./#tag:fun">fun</a>
@@ -34,7 +32,7 @@ img {display:block; margin:auto; max-width:100%}
 
 <p>Also, <a href="https://www.emojicode.org/">emojicode</a>.</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>

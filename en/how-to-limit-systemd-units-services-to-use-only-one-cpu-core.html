@@ -12,14 +12,12 @@ body {
 	hyphens: auto;
 	padding: 1ex; /* for 📱 users*/
 }
-footer {text-align: center}
-header a, footer a, small a {color: linktext !important}
-h1 {border-bottom: 1px solid lightgray}
+header a, footer a, small a {color: inherit !important} /* linktext */
 a[href^="http://archive."] {font-size:x-small; vertical-align:sub} 
 </style>
 </head><body>
 <header>
-	<h1>How to limit SystemD units (services) to use only one CPU core</h1>
+	<h1 style="border-bottom: 1px solid lightgray">How to limit SystemD units (services) to use only one CPU core</h1>
 	<small>
 		Created: <time>2018-07-27</time> &mdash; modified: <time>2018-07-31</time> &mdash;
 		tags: <a href="./#tag:cfengine">cfengine</a> <a href="./#tag:linux">linux</a> <a href="./#tag:links">links</a>
@@ -30,7 +28,7 @@ a[href^="http://archive."] {font-size:x-small; vertical-align:sub}
 	<p class="intro">TL;DR: make a cgroup and assign processes into them, in the systemd .service file</p>
 <p>My colleague <a href="https://github.com/olehermanse">Ole Herman Schumacher Elgesem</a> wrote a nice <a href="https://oleherman.com/unix/systemd_dedicated_cpu/">article</a><a href="http://archive.li/7Ztya">(Cached version)</a> how to do it for CFEngine. Quite useful bit of knowledge! I wonder if you can limit your CPU- and memory-hungry browser in the same way :-)</p>
 </main>
-<footer>
+<footer style="text-align: center">
 	<hr>
 	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
