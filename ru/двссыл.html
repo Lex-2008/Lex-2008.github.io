@@ -1,34 +1,33 @@
 <!doctype html><html lang="ru"><head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../style2.css">
 <title>ДВССЫЛ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Заметка о полезной функции в Excel">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/ru/двссыл.html">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
 </head><body>
-<div id="menu">
-	<ul>
-		<li><a href="../ru/">Русский</a></li>
-		<li><a href="../en/">English</a></li>
-		<li><a href="../photos/ru.html">Фото</a></li>
-		<li><a href="../private/">Private</a></li>
-	</ul>
-</div>
-<div id="wrap">
-	<div id="header">
-		<h1><a href="http://alexey.shpakovsky.ru/ru/">Заметки</a></h1>
-		<p>Записи о разном</p>
-	</div>
-	<div id="content">
-		<!-- put contents below -->
-		<!-- begin двссыл -->
-		<div class="post">
-			<h2><a href="двссыл.html" class="title">ДВССЫЛ</a></h2>
-			<p class="trivia">
-				Создано: 2010-12-20 &mdash; изменено: 2014-06-27 &mdash; метки: office
-			</p>
-			<p class="intro">Заметка о полезной функции в Excel</p>
-			<p>Сегодня я узнал про ещё одну экселевскую функцию. По-русски она
+<header>
+	<h1 style="border-bottom: 1px solid lightgray">ДВССЫЛ</h1>
+	<small>
+		Создано: <time>2010-12-20</time> &mdash; изменено: <time>2014-06-27</time> &mdash;
+		теги: <a href="./#tag:office">office</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Заметка о полезной функции в Excel</p>
+<p>Сегодня я узнал про ещё одну экселевскую функцию. По-русски она
  называется ДВССЫЛ, по-англ - INDIRECT. Смысл - преобразует текст в
  ссылку на ячейку. Зачем - например, чтобы в одной ячейке хранить
  число (число каких-нибудь записей), а в другой - суммировать все
@@ -51,14 +50,14 @@
  равно!) <code>a1:a10</code>, <code>b1:b10</code>, и т.д., а в формуле - вот такое:
  <code>=КОРРЕЛ(ДВССЫЛ([левая ячейка]);ДВССЫЛ([правая ячейка]))</code>
  и растягиванием на всё поле получить таблицу корреляций.</p>
-		</div>
-		<!-- end двссыл -->
-	</div>
-	<div id="footer">
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
 		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
-		<a href="/">Алексей Шпаковский</a> &mdash; <a id="email"
-			href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">
-			(щелкните чтобы увидеть адрес)</a>
-	</div>
-</div>
+		<a href="http://alexey.shpakovsky.ru/">Алексей Шпаковский</a> &mdash;
+		<a href="./">показать все записи</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">показать e-mail</a>
+	</p>
+</footer>
 </body></html>
