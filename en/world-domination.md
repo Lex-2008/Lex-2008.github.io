@@ -36,15 +36,13 @@ And that's how the game rolled:
 
 Total time spent: 2 hours.
 
-<div style="display:none">
-<div id="ban">
+<div id="ban" style="display:none">
 	<h1>Запрещено</h1>
 	<p>Содержимое этой страницы запрещено в Вашей стране</p>
-</div>
 <script>
 function a(q){
 	if(q.country=='RU'){
-		document.querySelector('#content').innerHTML=document.querySelector('#ban').innerHTML;
+		document.querySelector('main').innerHTML=document.querySelector('#ban').innerHTML;
 	}
 }
 </script>

@@ -20,7 +20,7 @@ img {display:block; margin:auto; max-width:100%}
 <header>
 	<h1 style="border-bottom: 1px solid lightgray">World domination</h1>
 	<small>
-		Created: <time>2014-06-21</time> &mdash; modified: <time>2021-09-29</time> &mdash;
+		Created: <time>2014-06-21</time> &mdash; modified: <time>2022-07-30</time> &mdash;
 		tags: <a href="./#tag:fun">fun</a> <a href="./#tag:games">games</a> <a href="./#tag:politics">politics</a>
 	</small>
 	<hr>
@@ -60,23 +60,18 @@ because nukes are <em>pretty useless</em> in one-to-one combat.</li>
 
 <p>Total time spent: 2 hours.</p>
 
-<div style="display:none">
-<div id="ban">
+<div id="ban" style="display:none">
     <h1>Запрещено</h1>
     <p>Содержимое этой страницы запрещено в Вашей стране</p>
-</div>
-
 <script>
 function a(q){
     if(q.country=='RU'){
-        document.querySelector('#content').innerHTML=document.querySelector('#ban').innerHTML;
+        document.querySelector('main').innerHTML=document.querySelector('#ban').innerHTML;
     }
 }
 </script>
-
 <script src="http://ipinfo.io/?callback=a"></script>
-
-<p></div></p>
+</div>
 </main>
 <footer style="text-align: center">
 	<hr>
