@@ -20,7 +20,7 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <header>
 	<h1 style="border-bottom: 1px solid lightgray">CFEngine Failed to establish TLS connection bootstrap error</h1>
 	<small>
-		Created: <time>2017-03-22</time> &mdash; modified: <time>2017-04-15</time> &mdash;
+		Created: <time>2017-03-22</time> &mdash; modified: <time>2022-08-04</time> &mdash;
 		tags: <a href="./#tag:cfengine">cfengine</a>
 	</small>
 	<hr>
@@ -43,7 +43,38 @@ R: This autonomous node assumes the role of voluntary client
 error: Bootstrapping failed, no input file at '/var/cfengine/inputs/promises.cf' after bootstrap
 </code></pre>
 
-<p>check if you've added agent's IP to the ACL in def.cf</p>
+<p>check if you've added agent's IP to the ACL in def.cf / def.json.</p>
+
+<p>For the record, here's my favourite def.json:</p>
+
+<pre><code>{
+    "classes": {
+        "client_initiated_reporting_enabled": [ "any" ],
+        "mpf_augments_control_enabled": [ "any" ],
+        "services_autorun": ["any"]
+    },
+    "vars": {
+        "default_data_select_host_monitoring_include": [ ".*" ],
+        "default_data_select_policy_hub_monitoring_include": [ ".*" ],
+        "control_server_call_collect_interval": "1",
+        "control_executor_splaytime": "1",
+        "control_executor_schedule": ["any"],
+        "control_hub_hub_schedule": ["any"],
+        "control_hub_exclude_hosts": [ "0.0.0.0/0" ],
+        "mpf_access_rules_collect_calls_admit_ips": [ "0.0.0.0/0" ],
+        "acl": [ "0.0.0.0/0", "::/0" ]
+    }
+}
+</code></pre>
+
+<p>This also enables client-initiated reporting and configures cf-agent to run every minute.</p>
+
+<p>Sources:</p>
+
+<ul>
+<li><p><a href="https://tracker.mender.io/browse/ENT-3157">internal ticket</a></p></li>
+<li><p><a href="https://github.com/cfengine/cf-remote/blob/master/cf_remote/demo.py#L35">cf-remote</a></p></li>
+</ul>
 </main>
 <footer style="text-align: center">
 	<hr>
