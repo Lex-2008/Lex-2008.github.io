@@ -35,4 +35,9 @@ Worth noting that many think that computer issues are called "bugs" _because_ of
 This is not correct - as the [computersworld][][(cached version)](http://archive.is/e9rFH) article explains,
 this term was used as early as by Thomas Edison!
 
+Update: a longer article at [The Lunduke Journal of Technology][lunduke][(cached version)](https://archive.ph/W6otP)
+explains that it was even before that! You can also check what [Hacker News][hn] comments say about that.
+
 [computersworld]: https://www.computerworld.com/article/2515435/moth-in-the-machine--debugging-the-origins-of--bug-.html
+[lunduke]: https://lunduke.substack.com/p/the-story-of-the-first-computer-bug
+[hn]: https://news.ycombinator.com/item?id=32517566
