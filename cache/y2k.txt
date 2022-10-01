@@ -1,0 +1,143 @@
+forwarded 11/09/98 02:36:53 PM
+
+EXPERTS WARN OF THREAT FROM 100GB BUG
+
+Firebringer News Service (FBNS) - Experts warned today of a new and
+deadly threat to our beleaguered civilization: the 100GB Bug.
+
+As most people know, McDonald's restaurant signs show the number of
+hamburgers the giant chain has sold. That number now stands at 99
+billion burgers, or 99 Gigaburgers (GB).  Within months or even weeks,
+that number will roll over to 100GB.  McDonald's signs, however, were
+designed years ago, when the prospect of selling one hundred billion
+hamburgers seemed unthinkably remote. So the signs have only two
+decimal places.
+
+This means that, after the sale of the 100 billionth burger, McDonald's
+signs will read "00 Billion Burgers Sold."  This, experts predict, will
+convince the public that, in over thirty years, no McDonald's hamburgers
+have ever in fact been sold,  causing a complete collapse of consumer
+confidence in McDonald's products.
+
+The ensuing catastrophic drop in sales is seen as almost certain to
+force the already-troubled company into bankruptcy.  This, in turn,
+will push the teetering American economy over the brink,
+which, finally, will complete the total devastation of the global
+economy, ending civilization as we know it, and forcing us all to live
+on beetles.
+
+"The people who know -- the sign-makers -- are really scared of 100GB," one
+expert said. "I don't know about you, but I'm digging up a copy of THE
+FIELD GUIDE TO NORTH AMERICAN INSECTS and
+heading for the hills."
+Article 7649 of rice.comp.general:
+Path: rice!rice-gateway!mail2rnews
+Newsgroups: rice.comp.general
+From: Moshe Vardi <vardi@cs.rice.edu>
+Date: Tue, 16 Feb 1999 13:00:51 -0600 (CST)
+Message-ID: <199902161900.NAA21000@shalom.cs.rice.edu>
+X-To: msgs@cs.rice.edu
+Subject: Y2K
+Distribution: rice
+Lines: 35
+Xref: rice rice.comp.general:7649
+
+
+
+>Dear Boss:
+>
+>I hope that I haven't misunderstood your instructions.  Because to be
+>honest, none of this Y to K problem makes any sense to me.  At any rate
+>I have finished the conversion of all of the months on all the company
+>calendars for next year (year 2000).  The calendars have returned from
+>the printer and are ready to be distributed with the following new months:
+>
+>	Januark
+>	Februark
+>	Mak
+>	Julk
+>
+>I've also changed the following days:
+>
+>	Mondak
+>	Tuesdak
+>	Wednesdak
+>	Thursdak
+>	Fridak
+>	Saturdak
+>	Sundak
+>
+>In general, all references to "Day" were changed to "Dak" (e.g. 
+>"President's
+>Dak").  And all references to "Birthday" were changed to "Birthdak" (e.g.
+>"Washington's Birthdak").
+>
+>I had a hard time deciding about "New Year's Day", "Martin Luther King,
+>Jr. Day", "Yom Kippur", and "Hanukkah", but I finally changed them to "New
+>Kear's Dak", "Martin Luther Ying, Jr. Dak", "Kom Yippur", and "Hanuyyah".
+> 
+
+
+
+Date: Wed, 22 Apr 1998 12:27:25 -0700 (14:27 CDT)
+
+Two Digits for a Date
+(to the tune of "Gilligan's Island," more or less)
+Author Unknown
+
+Just sit right back and you'll hear a tale
+Of the doom that is our fate.
+That started when programmers used
+Two digits for a date.
+Two digits for a date.
+
+Main memory was smaller then;
+Hard disks were smaller, too.
+"Four digits are extravagant,
+So let's get by with two.
+So let's get by with two."
+
+"This works through 1999,"
+The programmers did say.
+"Unless we rewrite before that
+It all will go away.
+It all will go away."
+
+But Management had not a clue:
+"It works fine now, you bet!
+A rewrite is a straight expense;
+We won't do it just yet.
+We won't do it just yet."
+
+Now when 2000 rolls around
+It all goes straight to Hell,
+For zero's less than ninety-nine,
+As anyone can tell.
+As anyone can tell.
+
+The mail won't bring your pension check
+It won't be sent to you
+When you're no longer sixty-eight,
+But minus thirty-two.
+But minus thirty-two.
+
+The problems we're about to face
+Are frightening, for sure.
+And reading every line of code's
+The only certain cure.
+The only certain cure.
+
+[key change, big finish]
+
+There's not much time,
+There's too much code.
+(And Cobol-coders, few)
+When the century is finished with,
+We may be finished, too.
+We may be finished, too.
+
+Eight thousand years from now I hope
+That things weren't left too late,
+And people aren't then lamenting
+Four digits for a date.
+Four digits for a date.
