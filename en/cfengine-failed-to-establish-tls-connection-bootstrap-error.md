@@ -20,7 +20,9 @@ If bootstrapping of CFEngine agent fails with a cryptic error about TLS connecti
 
 check if you've added agent's IP to the ACL in def.cf / def.json.
 
-For the record, here's my favourite def.json:
+----
+
+**Update**: For the record, here's my favourite def.json:
 
 	{
 		"classes": {
