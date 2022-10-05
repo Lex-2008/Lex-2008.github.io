@@ -20,7 +20,7 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <header>
 	<h1 style="border-bottom: 1px solid lightgray">Busybox-only pstree</h1>
 	<small>
-		Created: <time>2020-01-31</time> &mdash; modified: <time>2020-12-07</time> &mdash;
+		Created: <time>2020-01-31</time> &mdash; modified: <time>2022-10-03</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
 	</small>
 	<hr>
@@ -37,11 +37,16 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 
 cd /tmp
 
+# Preserve ps output to show
+ps w &gt;ps.ps
 # Build list of 'parent child' pids
 grep 'PPid:' /proc/*/status | sed -r 's_/proc/([^/]*)/[^0-9]*([0-9]*)_\2 \1_' &gt;ppids.ps
 
-# Preserve ps output to show
-ps w &gt;ps.ps
+# # on platforms that have more advanced `ps`
+# # and lack human-readable /proc/$$/status,
+# # you can use these commands, instead
+# ps -e -o pid,ppid,stime,args &gt;ps.ps
+# awk '{ print $2 " " $1 }' ps.ps &gt;ppids.ps
 
 # own pid - we don't show own children because they're guaranteed
 # to change between above two calls

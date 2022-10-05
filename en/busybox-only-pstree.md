@@ -13,11 +13,16 @@ Just use this script:
 
 	cd /tmp
 
+	# Preserve ps output to show
+	ps w >ps.ps
 	# Build list of 'parent child' pids
 	grep 'PPid:' /proc/*/status | sed -r 's_/proc/([^/]*)/[^0-9]*([0-9]*)_\2 \1_' >ppids.ps
 
-	# Preserve ps output to show
-	ps w >ps.ps
+	# # on platforms that have more advanced `ps`
+	# # and lack human-readable /proc/$$/status,
+	# # you can use these commands, instead
+	# ps -e -o pid,ppid,stime,args >ps.ps
+	# awk '{ print $2 " " $1 }' ps.ps >ppids.ps
 
 	# own pid - we don't show own children because they're guaranteed
 	# to change between above two calls
