@@ -3,8 +3,6 @@ intro=a 2.2k library to hilight any code
 tags=javascript
 styles=archive
 created=2016-06-16
-modified=2016-06-30
-modified_now=1
 
 
 Today I learned about existence of [microlight.js][]
@@ -48,7 +46,7 @@ xmlhttp = new XMLHttpRequest();
 xmlhttp.open('GET', '/microlight.js', true);
 xmlhttp.onreadystatechange = function() {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		gebi('aa').innerHTML=xmlhttp.responseText;
+		gebi('aa').innerHTML=xmlhttp.responseText.replaceAll('<','&gt;');
 		gebi('a1').innerHTML=xmlhttp.responseText;
 	}
 };

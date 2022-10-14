@@ -14,13 +14,13 @@ body {
 	padding: 1ex; /* for 📱 users*/
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
-a[href^="http://archive."] {font-size:x-small; vertical-align:sub} 
+a[href^="http://archive."],a[href^="https://archive."] {font-size:x-small; vertical-align:sub} 
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid lightgray">microlight.js</h1>
 	<small>
-		Created: <time>2016-06-16</time> &mdash; modified: <time>2016-06-30</time> &mdash;
+		Created: <time>2016-06-16</time> &mdash; modified: <time>2022-10-13</time> &mdash;
 		tags: <a href="./#tag:javascript">javascript</a>
 	</small>
 	<hr>
@@ -63,7 +63,7 @@ xmlhttp = new XMLHttpRequest();
 xmlhttp.open('GET', '/microlight.js', true);
 xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        gebi('aa').innerHTML=xmlhttp.responseText;
+        gebi('aa').innerHTML=xmlhttp.responseText.replaceAll('<','&gt;');
         gebi('a1').innerHTML=xmlhttp.responseText;
     }
 };
