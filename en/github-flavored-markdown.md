@@ -1,9 +1,9 @@
 title=GitHub Flavored Markdown
 PROCESSOR=Markdown.pl
-intro=After some time of pondering, I switched to GitHub-Flavoured Markdown (GFM).
+intro=After some time of pondering, I switched to GitHub-Flavoured Markdown (GFM)
 tags=net
 style=
-styles=footnotes
+styles=footnotes hr
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 created=2022-10-15
 
