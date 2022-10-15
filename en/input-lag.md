@@ -1,4 +1,5 @@
 title=Input lag
+PROCESSOR=Markdown.pl
 intro=Interesting article about speed of modern computers
 tags=links
 styles=archive

@@ -1,4 +1,5 @@
 title=Download any Chromium build
+PROCESSOR=Markdown.pl
 intro=Is it hard to download any Chromium build?
 tags=python chromium
 created=2014-03-27

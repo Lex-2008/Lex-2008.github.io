@@ -1,4 +1,5 @@
 title=From 512kb.club to GTmetrix API library
+PROCESSOR=Markdown.pl
 intro=How reading one habr.com blog post caused a chain of events leading up to me writing a good documentation for a pet project
 tags=life
 created=2021-07-16

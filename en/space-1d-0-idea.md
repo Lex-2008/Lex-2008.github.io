@@ -1,4 +1,5 @@
 title=space 1d 0: idea
+PROCESSOR=Markdown.pl
 intro=Game about space which will be more fun to make than to play.
 tags=space1d
 created=2018-04-01

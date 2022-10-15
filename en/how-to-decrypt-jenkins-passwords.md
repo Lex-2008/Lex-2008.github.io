@@ -1,4 +1,5 @@
 title=How to decrypt Jenkins passwords
+PROCESSOR=Markdown.pl
 intro=with the help of script console
 tags=jenkins cfengine
 style=

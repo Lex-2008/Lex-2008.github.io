@@ -1,4 +1,5 @@
 title=FanlessTech
+PROCESSOR=Markdown.pl
 intro=FanlessTech.com – a website about fanless computers
 tags=links
 styles=archive

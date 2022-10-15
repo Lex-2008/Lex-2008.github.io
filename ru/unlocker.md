@@ -1,4 +1,5 @@
 title=Unlocker
+PROCESSOR=Markdown.pl
 intro=Разблоктровать доступ к файлам
 tags=программы
 created=2009-10-24

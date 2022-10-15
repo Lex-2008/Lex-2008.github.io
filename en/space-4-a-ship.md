@@ -1,4 +1,5 @@
 title=Space 4: a ship
+PROCESSOR=Markdown.pl
 intro=Let's build a real ship
 tags=Space3D
 created=2017-04-16

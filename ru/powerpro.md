@@ -1,4 +1,5 @@
 title=PowerPro
+PROCESSOR=Markdown.pl
 intro=<p>многофункциональная утилита для Windows</p>
 tags=программы
 created=2009-09-22

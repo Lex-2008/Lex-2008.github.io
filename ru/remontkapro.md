@@ -1,4 +1,5 @@
 title=remontka.pro
+PROCESSOR=Markdown.pl
 intro=Хороший сайт с полезными советами.
 tags=ссылки
 created=2014-08-18

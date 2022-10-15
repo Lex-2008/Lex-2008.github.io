@@ -1,4 +1,5 @@
 title=Wrong users
+PROCESSOR=Markdown.pl
 intro=Here you can find attempts to send messages to users who do not exist on this server
 tags=e-mail logs
 created=2021-10-03

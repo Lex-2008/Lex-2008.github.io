@@ -1,4 +1,5 @@
 title=Finding tar archive size without actually making it
+PROCESSOR=Markdown.pl
 intro=TL;DR: --totals --file=/dev/null | grep 'Total bytes written'
 tags=bash
 created=2016-07-21

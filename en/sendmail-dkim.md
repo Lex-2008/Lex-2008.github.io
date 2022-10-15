@@ -1,4 +1,5 @@
 title=Sendmail DKIM
+PROCESSOR=Markdown.pl
 intro=Signing sendmail messages with DKIM using OpenDKIM is easier then you think!
 tags=e-mail
 created=2014-07-06

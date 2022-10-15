@@ -1,4 +1,5 @@
 title=Scanner
+PROCESSOR=Markdown.pl
 intro=<p>Как узнать, куда делось место на диске</p>
 tags=программы
 created=2009-10-24

@@ -1,4 +1,5 @@
 title=Статьи про AI
+PROCESSOR=Markdown.pl
 intro=Как он (не) работает
 tags=ссылки
 created=2020-06-18

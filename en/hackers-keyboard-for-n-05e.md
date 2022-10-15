@@ -1,4 +1,5 @@
 title=Hacker's Keyboard for N-05e
+PROCESSOR=Markdown.pl
 intro=Compatibility patch
 tags=Android
 created=2017-05-20

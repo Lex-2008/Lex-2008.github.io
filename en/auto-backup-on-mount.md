@@ -1,4 +1,5 @@
 title=Auto backup on mount
+PROCESSOR=Markdown.pl
 intro=Automatically backup files on media mount, using usbmount
 tags=bash
 created=2018-01-22

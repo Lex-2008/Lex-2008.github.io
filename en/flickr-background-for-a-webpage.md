@@ -1,4 +1,5 @@
 title=Flickr background for a webpage
+PROCESSOR=Markdown.pl
 intro=Another attempt to add something nice to this blog
 tags=Javascript
 created=2017-06-17

@@ -1,4 +1,5 @@
 title=DynDNS DIY
+PROCESSOR=Markdown.pl
 intro=Why use someone else's Dynamic DNS server, if you can <i>easily</i> run your own?
 created=2021-10-10
 tags=net bind

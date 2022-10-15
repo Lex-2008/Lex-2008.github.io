@@ -1,4 +1,5 @@
 title=How I started working at CFEngine
+PROCESSOR=Markdown.pl
 intro=Soon after change of owner in Opera, just another round of layoffs rolled through the company, this time affecting also me.
 tags=life CFEngine
 created=2017-02-01

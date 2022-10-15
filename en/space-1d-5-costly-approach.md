@@ -1,4 +1,5 @@
 title=space 1d 5: Costly approach
+PROCESSOR=Markdown.pl
 intro=Changes in physics
 tags=space1d links
 created=2020-05-21

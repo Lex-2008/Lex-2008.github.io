@@ -1,4 +1,5 @@
 title=O RLY Book Cover Generator
+PROCESSOR=Markdown.pl
 intro=For all your slack needs
 tags=Fun Links
 created=2017-07-03

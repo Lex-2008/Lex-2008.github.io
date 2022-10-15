@@ -1,4 +1,5 @@
 title=TComment
+PROCESSOR=Markdown.pl
 intro=vim plugin for easy commenting
 tags=vim links
 created=2017-02-10

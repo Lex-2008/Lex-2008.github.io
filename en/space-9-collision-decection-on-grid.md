@@ -1,4 +1,5 @@
 title=Space 9: collision decection on grid
+PROCESSOR=Markdown.pl
 intro=Unlike sector-based one, this uses more complex logic, but simpler maps
 tags=Space3D
 styles=img

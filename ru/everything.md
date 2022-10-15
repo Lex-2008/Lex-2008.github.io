@@ -1,4 +1,5 @@
 title=Everything
+PROCESSOR=Markdown.pl
 intro=Моментальный поиск по диску
 tags=программы
 created=2009-11-28

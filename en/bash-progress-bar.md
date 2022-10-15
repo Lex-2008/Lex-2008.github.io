@@ -1,4 +1,5 @@
 title=Progress bar in bash
+PROCESSOR=Markdown.pl
 intro=one-line bash function to draw a nice progress bar
 tags=bash
 created=2016-04-07

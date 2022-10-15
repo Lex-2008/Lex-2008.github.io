@@ -1,4 +1,5 @@
 title=Bluetooth Pairing Keys Location
+PROCESSOR=Markdown.pl
 intro=In case you need to switch between various OSes (be it Windows and Linux, or just various Linux distros).
 tags=windows linux bluetooth
 created=2021-07-25

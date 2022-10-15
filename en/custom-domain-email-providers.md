@@ -1,4 +1,5 @@
 title=Custom domain email providers
+PROCESSOR=Markdown.pl
 intro=If you happen to own a domain name and want to have an email there – these guys are here to help you!
 tags=links e-mail
 created=2014-05-22

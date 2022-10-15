@@ -1,4 +1,5 @@
 title=Dynamic port forwarding в PuTTY
+PROCESSOR=Markdown.pl
 intro=Как запустить SOCKS5 прокси с помощью PuTTY
 tags=ссылки linux
 created=2014-05-13

@@ -1,4 +1,5 @@
 title=XP games
+PROCESSOR=Markdown.pl
 intro=A webpage with a list of free games for Windows
 tags=links games windows
 styles=archive

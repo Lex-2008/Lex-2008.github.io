@@ -1,4 +1,5 @@
 title=pfmap
+PROCESSOR=Markdown.pl
 intro=<p>Заходить в ISO-файлы и ZIP-архивы как в папки</p>
 tags=программы
 created=2009-09-22

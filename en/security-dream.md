@@ -1,4 +1,5 @@
 title=Security dream
+PROCESSOR=Markdown.pl
 intro=I had a dream. A nightmare, actually.
 tags=security life
 created=2015-01-28

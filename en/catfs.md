@@ -1,4 +1,5 @@
 title=catfs
+PROCESSOR=Markdown.pl
 intro=A FUSE module that shows a list of files as one big file.
 tags=Linux
 created=2016-09-25

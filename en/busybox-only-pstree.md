@@ -1,4 +1,5 @@
 title=Busybox-only pstree
+PROCESSOR=Markdown.pl
 intro=For when you're on limited environment but want to see a process tree
 tags=bash
 created=2020-01-31

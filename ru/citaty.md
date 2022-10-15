@@ -1,4 +1,5 @@
 title=Цитаты
+PROCESSOR=Markdown.pl
 intro=
 tags=юмор
 created=2010-04-07

@@ -1,4 +1,5 @@
 title=SMTP authentication in sendmail
+PROCESSOR=Markdown.pl
 intro=By default sendmail is configured in such a way that any program running on localhost can send an email without password, and none from another computer can do that. But what if you want to change that?
 tags=e-mail
 created=2014-08-25

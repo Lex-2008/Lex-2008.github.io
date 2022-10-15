@@ -1,4 +1,5 @@
 title=Send-only DKIM milter
+PROCESSOR=Markdown.pl
 intro=How to configure Postfix to skip milter for incoming messages
 tags=postfix
 created=2021-11-20

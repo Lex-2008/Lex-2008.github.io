@@ -1,4 +1,5 @@
 title=set -e inconsistency inside blocks
+PROCESSOR=Markdown.pl
 intro=<code>set -e</code> might work not as you expected inside (parentheses).
 tags=Bash
 created=2019-02-15

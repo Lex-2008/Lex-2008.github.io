@@ -1,4 +1,5 @@
 title=Space 3: person on the ship
+PROCESSOR=Markdown.pl
 intro=Now we want to have a character (a pilot) to walk on the ship.
 tags=Space3D
 created=2017-04-15

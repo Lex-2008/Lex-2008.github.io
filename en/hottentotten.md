@@ -1,4 +1,5 @@
 title=Hottentotten
+PROCESSOR=Markdown.pl
 intro=A small language session
 tags=fun
 created=2011-10-04

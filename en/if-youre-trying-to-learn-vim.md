@@ -1,4 +1,5 @@
 title=If you're trying to learn Vim...
+PROCESSOR=Markdown.pl
 intro=...then you're doing it wrong.
 tags=vim
 created=2013-01-11

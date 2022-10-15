@@ -1,4 +1,5 @@
 title=Дефрагментация SSD
+PROCESSOR=Markdown.pl
 created=2021-11-27
 intro=Как дефрагментировать диск, если система считает его SSD
 tags=программы

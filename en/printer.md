@@ -1,4 +1,5 @@
 title=Printer
+PROCESSOR=Markdown.pl
 intro=We have one now
 tags=Life
 created=2017-09-18

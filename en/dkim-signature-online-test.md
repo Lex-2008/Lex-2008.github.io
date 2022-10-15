@@ -1,4 +1,5 @@
 title=DKIM signature online test
+PROCESSOR=Markdown.pl
 intro=If you ever wanted to see how validity of DKIM signature will be affected by changing email headers and / or message body
 tags=net e-mail
 created=2021-10-16

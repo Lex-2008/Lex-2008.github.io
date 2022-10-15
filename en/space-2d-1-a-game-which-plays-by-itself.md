@@ -1,4 +1,5 @@
 title=space 2d 1: a game which plays by itself
+PROCESSOR=Markdown.pl
 intro=a humble beginning
 tags=space2d
 created=2021-04-11

@@ -1,4 +1,5 @@
 title=How to use parameters to set working directory in org mode code block
+PROCESSOR=Markdown.pl
 intro=For when you want working dorectory (:dir) be a parameter, just like variable (:var)
 tags=org
 created=2020-04-11

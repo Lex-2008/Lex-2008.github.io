@@ -1,4 +1,5 @@
 title=KaTeX
+PROCESSOR=Markdown.pl
 intro=Good library for those willing to implement TeX formulas in their blogs
 tags=Javascript links
 created=2015-04-09

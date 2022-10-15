@@ -1,4 +1,5 @@
 title=Emoji programming
+PROCESSOR=Markdown.pl
 intro=How would it look
 tags=Fun
 created=2017-11-18

@@ -1,4 +1,5 @@
 title=mirrors
+PROCESSOR=Markdown.pl
 intro=Primary location of my blog is
 tags=links
 style=

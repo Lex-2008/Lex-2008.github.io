@@ -1,4 +1,5 @@
 title=History of the browser user-agent string
+PROCESSOR=Markdown.pl
 intro=Interesting dive into how Internet became the mess that it is now
 tags=History links
 styles=archive

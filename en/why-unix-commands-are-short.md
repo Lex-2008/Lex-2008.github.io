@@ -1,4 +1,5 @@
 title=Why UNIX commands are short
+PROCESSOR=Markdown.pl
 intro=Because keyboards were hard
 tags=Linux history links
 created=2017-08-23

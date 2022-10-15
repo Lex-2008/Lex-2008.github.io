@@ -1,4 +1,5 @@
 title=Gapminder
+PROCESSOR=Markdown.pl
 intro=Explore data about all countries in the world since 1800
 tags=links
 created=2013-11-27

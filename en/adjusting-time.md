@@ -1,4 +1,5 @@
 title=Adjusting time
+PROCESSOR=Markdown.pl
 intro=What do I think about it and how I'd like it to be.
 tags=politics
 created=2015-10-25

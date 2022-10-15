@@ -1,4 +1,5 @@
 title=Brownies
+PROCESSOR=Markdown.pl
 intro=
 tags=рецепты
 created=2015-06-07

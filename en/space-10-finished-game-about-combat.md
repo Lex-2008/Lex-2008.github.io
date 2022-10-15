@@ -1,4 +1,5 @@
 title=Space 10: Finished game about combat
+PROCESSOR=Markdown.pl
 intro=My first (almost) finished game
 tags=Space3D
 created=2018-06-15

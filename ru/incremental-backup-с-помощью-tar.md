@@ -1,4 +1,5 @@
 title=Incremental backup с помощью TAR
+PROCESSOR=Markdown.pl
 intro=Как настроить автоматическую архивацию так, чтобы она занимала минимум времени
 tags=ссылки linux
 created=2014-02-12

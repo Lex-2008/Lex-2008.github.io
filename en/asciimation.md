@@ -1,4 +1,5 @@
 title=asciimation
+PROCESSOR=Markdown.pl
 intro=Star Wars in ASCII art
 tags=fun links
 created=2014-10-28

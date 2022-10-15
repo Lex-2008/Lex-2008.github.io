@@ -1,4 +1,5 @@
 title=Rsync backups
+PROCESSOR=Markdown.pl
 intro=How I organized backups of my files
 tags=bash
 styles=archive

@@ -1,4 +1,5 @@
 title=Space 8: collision detection
+PROCESSOR=Markdown.pl
 intro=Now you can't go outside the ship
 tags=Space3D
 created=2017-11-06

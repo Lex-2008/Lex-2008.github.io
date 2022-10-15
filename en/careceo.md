@@ -1,4 +1,5 @@
 title=careceo
+PROCESSOR=Markdown.pl
 intro=These are the guys who are spamming me the most.
 tags=e-mail
 styles=archive

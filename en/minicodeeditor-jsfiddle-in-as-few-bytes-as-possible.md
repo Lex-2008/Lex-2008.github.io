@@ -1,4 +1,5 @@
 title=MiniCodeEditor: jsFiddle in as few bytes as possible
+PROCESSOR=Markdown.pl
 intro=probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf
 tags=javascript
 created=2014-01-22

@@ -1,4 +1,5 @@
 title=Ze Drem
+PROCESSOR=Markdown.pl
 intro=EuroEnglish - Ze drem vil finali kum tru!
 tags=fun
 created=2009-09-26

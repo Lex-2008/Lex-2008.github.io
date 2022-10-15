@@ -1,4 +1,5 @@
 title=Incremental backups
+PROCESSOR=Markdown.pl
 intro=How I organised backups of my machine
 tags=bash
 created=2014-06-17

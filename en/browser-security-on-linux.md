@@ -1,4 +1,5 @@
 title=Browser security on Linux
+PROCESSOR=Markdown.pl
 intro=A good article that summarizes my own thoughts on hardening browser on Linux
 tags=Linux security
 created=2017-05-10

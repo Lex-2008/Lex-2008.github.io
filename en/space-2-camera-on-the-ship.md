@@ -1,4 +1,5 @@
 title=Space 2: Camera on the ship
+PROCESSOR=Markdown.pl
 intro=Let's put a camera onto the ship, to get some FPV experience
 tags=Space3D
 created=2017-04-14

@@ -1,4 +1,5 @@
 title=Block spam from subdomains
+PROCESSOR=Markdown.pl
 intro=If you have a domain and don't want to be blocked for sending spam.
 tags=e-mail
 created=2015-10-13

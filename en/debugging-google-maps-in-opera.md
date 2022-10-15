@@ -1,4 +1,5 @@
 title=Debugging Google Maps in Opera
+PROCESSOR=Markdown.pl
 intro=How it was done. 10 days of obfurscated Javascript.
 tags=Opera links
 created=2012-03-20

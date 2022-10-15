@@ -1,4 +1,5 @@
 title=2009 - Репино
+PROCESSOR=Markdown.pl
 intro=Рассказ про конференцию в Репино
 tags=юмор
 created=2009-11-23

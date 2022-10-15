@@ -1,4 +1,5 @@
 title=Javascript canvas drag-and-zoom library
+PROCESSOR=Markdown.pl
 intro=For those cases when you need to implement something GoogleMaps-like
 tags=javascript
 created=2012-07-01

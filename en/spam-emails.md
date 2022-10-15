@@ -1,4 +1,5 @@
 title=This is spam
+PROCESSOR=Markdown.pl
 intro=These are e-mail addresses that sent spam/scam/phishing emails to me.
 tags=e-mail logs
 created=2014-05-13

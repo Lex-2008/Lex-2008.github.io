@@ -1,4 +1,5 @@
 title=Using HTTP Basic auth for nginx mail auth http server
+PROCESSOR=Markdown.pl
 intro=How hard can it be? Using only nginx itself!
 tags=nginx net
 created=2021-10-23

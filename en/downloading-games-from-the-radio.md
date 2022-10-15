@@ -1,4 +1,5 @@
 title=Downloading games from… The radio!
+PROCESSOR=Markdown.pl
 intro=Interesting article about how software was distributed in old times.
 tags=history links
 styles=archive

@@ -1,4 +1,5 @@
 title=Office 2007/2013 выглядит как Office 2003/XP
+PROCESSOR=Markdown.pl
 intro=<p>Добавление &laquo;классической&raquo; панели инструментов (Office 2003/XP) в Office 2007</p>
 tags=office
 created=2009-09-22

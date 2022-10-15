@@ -1,4 +1,5 @@
 title=Linux file hierarchy
+PROCESSOR=Markdown.pl
 intro=All these /bin /usr /local etc...
 tags=links
 created=2014-09-02

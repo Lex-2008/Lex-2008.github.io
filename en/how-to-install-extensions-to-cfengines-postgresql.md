@@ -1,4 +1,5 @@
 title=How to install extensions to CFEngine's PostgreSQL
+PROCESSOR=Markdown.pl
 intro=TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.
 tags=CFEngine
 created=2018-02-07

@@ -1,4 +1,5 @@
 title=Bash on Bash
+PROCESSOR=Markdown.pl
 intro=Started using new programming language, I feel irritated and want to blog about it :)
 tags=bash
 created=2014-03-22

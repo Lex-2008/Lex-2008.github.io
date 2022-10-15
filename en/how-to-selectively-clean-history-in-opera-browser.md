@@ -1,4 +1,5 @@
 title=How to selectively clean history in Opera browser
+PROCESSOR=Markdown.pl
 intro=For example, to delete browsing history of a website
 tags=opera
 created=2016-08-23

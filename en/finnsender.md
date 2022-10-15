@@ -1,4 +1,5 @@
 title=finnsender
+PROCESSOR=Markdown.pl
 intro=Map of all cell towers in Norway
 tags=Norway links
 created=2017-05-03

@@ -1,4 +1,5 @@
 title=How to delete a line from a file
+PROCESSOR=Markdown.pl
 intro=If you know what line to delete...
 tags=bash vim
 created=2014-12-15

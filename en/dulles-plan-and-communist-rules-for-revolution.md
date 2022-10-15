@@ -1,4 +1,5 @@
 title="Dulles' Plan" and "Com&shy;mu&shy;nist Rules for Rev&shy;o&shy;lu&shy;tion"
+PROCESSOR=Markdown.pl
 intro=Mirror conspiracy theories
 tags=fun
 created=2022-07-26

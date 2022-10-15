@@ -1,4 +1,5 @@
 title=space 1d 6: Stats
+PROCESSOR=Markdown.pl
 intro=One step forward, one step back
 tags=space1d
 created=2021-02-13

@@ -1,4 +1,5 @@
 title=Search-friendly calculator
+PROCESSOR=Markdown.pl
 intro=a site with infinite number of pages
 tags=fun
 created=2021-12-05

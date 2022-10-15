@@ -1,4 +1,5 @@
 title=Designing Windows 95
+PROCESSOR=Markdown.pl
 intro=An interesting article about designing of common UI elements which we now are taking for granted.
 tags=History links
 styles=archive

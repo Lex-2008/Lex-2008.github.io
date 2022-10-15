@@ -1,4 +1,5 @@
 title=Patch for avfs to show "magic" dirs
+PROCESSOR=Markdown.pl
 intro=Suggestion to improve its usability
 tags=linux
 created=2020-03-21

@@ -1,4 +1,5 @@
 title=Fixing the y2k problem
+PROCESSOR=Markdown.pl
 intro=Or should I say "why-too-key" to raise more confusion?
 tags=fun
 style=

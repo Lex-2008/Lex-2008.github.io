@@ -1,4 +1,5 @@
 title=Minimizing size of browser profiles backups
+PROCESSOR=Markdown.pl
 intro=how to minimize them about 10-fold
 tags=bash chromium firefox windows
 style=

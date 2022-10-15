@@ -1,4 +1,5 @@
 title=sed cheatsheet
+PROCESSOR=Markdown.pl
 intro=A helpful guide to a simple programming language I still don't comprehend
 tags=bash
 created=2015-10-30

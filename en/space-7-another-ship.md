@@ -1,4 +1,5 @@
 title=Space 7: another ship
+PROCESSOR=Markdown.pl
 intro=Let's have something to look at!
 tags=Space3D
 created=2017-10-02

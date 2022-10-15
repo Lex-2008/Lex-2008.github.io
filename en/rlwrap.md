@@ -1,4 +1,5 @@
 title=rlwrap
+PROCESSOR=Markdown.pl
 intro=Short memo about a good program
 tags=Linux
 created=2021-09-10

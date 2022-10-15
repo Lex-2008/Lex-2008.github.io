@@ -1,4 +1,5 @@
 title=Billettkontroll
+PROCESSOR=Markdown.pl
 intro=Сегодня у меня проверили билет на автобус.
 tags=норвегия
 created=2016-02-19

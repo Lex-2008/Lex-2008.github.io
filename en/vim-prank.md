@@ -1,4 +1,5 @@
 title=Vim prank
+PROCESSOR=Markdown.pl
 intro=An idea for an evil prank on your Vim-loving friend.
 tags=vim fun
 created=2012-12-02

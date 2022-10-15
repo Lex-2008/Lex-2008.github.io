@@ -1,4 +1,5 @@
 title=Forward SMB via SSH tunnel
+PROCESSOR=Markdown.pl
 intro=When SSH is your poor man's VPN
 tags=bash windows linux
 created=2017-04-30

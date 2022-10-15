@@ -1,4 +1,5 @@
 title=Dovecot default email order
+PROCESSOR=Markdown.pl
 intro=How to change it, if it matters
 tags=e-mail
 created=2014-08-27

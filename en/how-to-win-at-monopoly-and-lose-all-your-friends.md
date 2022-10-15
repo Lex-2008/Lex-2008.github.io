@@ -1,4 +1,5 @@
 title=How to Win at Monopoly and Lose All Your Friends
+PROCESSOR=Markdown.pl
 intro=An interesting article at imgur.net
 tags=links
 created=2016-01-17

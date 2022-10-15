@@ -1,4 +1,5 @@
 title=Download old Firefox build
+PROCESSOR=Markdown.pl
 intro=deb packages for all versions starting with 3.5
 tags=Firefox links
 created=2017-04-28

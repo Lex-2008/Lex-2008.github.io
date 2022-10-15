@@ -1,4 +1,5 @@
 title=Cloud videos
+PROCESSOR=Markdown.pl
 intro=
 tags=life
 created=2015-06-22

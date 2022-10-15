@@ -1,4 +1,5 @@
 title=DOS games in your browser
+PROCESSOR=Markdown.pl
 intro=Classic which can never be forgotten is just few clicks away.
 tags=games
 created=2015-01-03

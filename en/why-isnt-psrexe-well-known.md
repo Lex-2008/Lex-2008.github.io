@@ -1,4 +1,5 @@
 title=Why isn’t PSR.exe well known?
+PROCESSOR=Markdown.pl
 intro=Short memo about a good program
 styles=img
 style=a[href^="https://web.archive.org"] {font-size:x-small; vertical-align:sub}

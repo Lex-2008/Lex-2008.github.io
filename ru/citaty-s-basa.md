@@ -1,4 +1,5 @@
 title=Цитаты с баша
+PROCESSOR=Markdown.pl
 intro=
 tags=юмор
 created=2010-04-04

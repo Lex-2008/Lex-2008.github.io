@@ -1,4 +1,5 @@
 title=Space 1: Movement
+PROCESSOR=Markdown.pl
 intro=First step is moving the ship
 tags=Space3D
 created=2017-04-13

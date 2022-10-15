@@ -1,4 +1,5 @@
 title=Markdown
+PROCESSOR=Markdown.pl
 intro=Bashblog uses Markdown, so it's better to save this page for myself
 tags=net
 created=2014-04-01

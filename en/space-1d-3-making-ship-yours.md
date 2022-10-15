@@ -1,4 +1,5 @@
 title=space 1d 3: Making ship yours
+PROCESSOR=Markdown.pl
 intro=The game is playable now!
 tags=space1d
 created=2020-05-16

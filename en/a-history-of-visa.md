@@ -1,4 +1,5 @@
 title=A history of VISA
+PROCESSOR=Markdown.pl
 intro=An interesting article showing how credit cards appeared
 tags=history links
 styles=archive

@@ -1,4 +1,5 @@
 title=space 1d 4: Trading and bluffing
+PROCESSOR=Markdown.pl
 intro=more choices
 tags=space1d
 created=2020-05-17

@@ -1,4 +1,5 @@
 title=Space 0: Idea
+PROCESSOR=Markdown.pl
 intro=What I want to create and what to base on
 created=2017-04-12
 tags=Space3D

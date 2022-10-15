@@ -1,4 +1,5 @@
 title=Passwords
+PROCESSOR=Markdown.pl
 intro=How to generate them, so you could store them in your head
 tags=security links
 styles=archive cache

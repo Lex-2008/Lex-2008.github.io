@@ -1,4 +1,5 @@
 title=How to selectively clean history in Google Chrome
+PROCESSOR=Markdown.pl
 intro=To remove, say, histroy of browing Facebook from work computer.
 tags=chromium
 created=2017-09-25

@@ -1,4 +1,5 @@
 title=CFEngine Master Policy Framework where to put files
+PROCESSOR=Markdown.pl
 intro=That was a google query I struggled to find answer to
 tags=CFEngine
 created=2017-02-09

@@ -1,4 +1,5 @@
 title=Windows 93
+PROCESSOR=Markdown.pl
 intro=HTML parody of an OS which was popular when we were young and Internet was new.
 tags=fun links windows
 created=2014-10-28

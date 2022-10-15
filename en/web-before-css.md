@@ -1,4 +1,5 @@
 title=Web before CSS
+PROCESSOR=Markdown.pl
 intro=A brief dive into a history of early web
 tags=css history links
 styles=archive

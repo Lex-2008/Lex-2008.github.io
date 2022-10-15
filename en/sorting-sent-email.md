@@ -1,4 +1,5 @@
 title=Sorting sent email
+PROCESSOR=Markdown.pl
 intro=How to automate it if you host your mail yourself
 tags=e-mail
 created=2014-11-01

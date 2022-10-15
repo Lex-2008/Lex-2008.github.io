@@ -1,4 +1,5 @@
 title=Block users in sendmail
+PROCESSOR=Markdown.pl
 intro=How to disable mail receiving by local users without deleting their accounts
 tags=e-mail
 styles=archive

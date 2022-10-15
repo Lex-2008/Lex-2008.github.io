@@ -1,4 +1,5 @@
 title=space 1d 2: more ships
+PROCESSOR=Markdown.pl
 intro=Moving forward with a simple game.
 tags=space1d
 created=2020-05-10

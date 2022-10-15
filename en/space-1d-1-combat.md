@@ -1,4 +1,5 @@
 title=space 1d 1: combat
+PROCESSOR=Markdown.pl
 intro=Adding some action to the simple game prototype.
 tags=space1d
 created=2018-04-02

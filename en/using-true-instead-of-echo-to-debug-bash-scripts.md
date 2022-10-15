@@ -1,4 +1,5 @@
 title=Using true instead of echo to debug bash scripts
+PROCESSOR=Markdown.pl
 intro=<b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output
 tags=Bash
 created=2019-01-09

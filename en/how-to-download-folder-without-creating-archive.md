@@ -1,4 +1,5 @@
 title=How to download folder without creating archive
+PROCESSOR=Markdown.pl
 intro=TL;DR: use tar and pipe to stdout!
 tags=bash
 created=2018-06-22

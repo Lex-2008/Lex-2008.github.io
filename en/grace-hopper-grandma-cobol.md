@@ -1,4 +1,5 @@
 title=Grace Hopper - Grandma COBOL 
+PROCESSOR=Markdown.pl
 intro=Also known for "First actual case of bug being found" note
 tags=History
 created=2015-09-09

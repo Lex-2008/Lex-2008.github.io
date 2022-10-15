@@ -1,4 +1,5 @@
 title=Whitelisting emails with sendmail
+PROCESSOR=Markdown.pl
 intro=So they weren't rejected by dnsbl spam filter
 tags=e-mail
 created=2015-10-27

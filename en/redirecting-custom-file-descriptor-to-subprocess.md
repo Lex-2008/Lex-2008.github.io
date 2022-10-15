@@ -1,4 +1,5 @@
 title=Redirecting custom file descriptor to subprocess
+PROCESSOR=Markdown.pl
 intro=TL;DR: 3> >(command)
 tags=bash
 created=2016-09-19

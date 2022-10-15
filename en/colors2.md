@@ -1,4 +1,5 @@
 title=Colors 2
+PROCESSOR=Markdown.pl
 intro=A CSS-only version of fancy 2D background gradient
 tags=css
 styles=archive

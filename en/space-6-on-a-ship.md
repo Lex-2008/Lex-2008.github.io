@@ -1,4 +1,5 @@
 title=Space 6: on a ship
+PROCESSOR=Markdown.pl
 intro=FPV mode, so we can walk on the ship
 tags=Space3D
 created=2017-10-01

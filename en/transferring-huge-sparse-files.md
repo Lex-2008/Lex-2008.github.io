@@ -1,4 +1,5 @@
 title=Transferring huge sparse files
+PROCESSOR=Markdown.pl
 intro=How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another
 tags=Linux bash python
 created=2020-01-24

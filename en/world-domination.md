@@ -1,4 +1,5 @@
 title=World domination
+PROCESSOR=Markdown.pl
 intro=Experience after playing a flash game
 tags=fun games politics
 styles=img

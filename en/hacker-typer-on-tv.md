@@ -1,4 +1,5 @@
 title=Hacker Typer on TV
+PROCESSOR=Markdown.pl
 intro=A quick note about a funny site and a video featuring it.
 tags=fun
 created=2014-01-26

@@ -1,4 +1,5 @@
 title=Space 5: back to square one
+PROCESSOR=Markdown.pl
 intro=Changing the engine
 tags=Space3D
 created=2017-04-17

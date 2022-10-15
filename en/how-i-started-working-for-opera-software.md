@@ -1,4 +1,5 @@
 title=How I started working for Opera Software
+PROCESSOR=Markdown.pl
 intro=My first experience in getting a job
 tags=opera life
 created=2011-11-01

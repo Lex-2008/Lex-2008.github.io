@@ -1,4 +1,5 @@
 title=Turbo Pascal speed
+PROCESSOR=Markdown.pl
 intro=It was the first programming language I was learning
 tags=links
 styles=archive

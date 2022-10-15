@@ -1,4 +1,5 @@
 title=Paste and replace in Vim
+PROCESSOR=Markdown.pl
 intro=How to copy-paste text from one place to another, replacing what's already there
 tags=vim
 created=2013-01-16

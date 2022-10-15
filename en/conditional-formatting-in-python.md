@@ -1,4 +1,5 @@
 title=Conditional formatting in Python
+PROCESSOR=Markdown.pl
 intro=Greately inspired by $if(...) conditions in Winamp Advanced Title Formatting, I wanted to add something like this to Python.
 tags=python
 created=2014-02-01

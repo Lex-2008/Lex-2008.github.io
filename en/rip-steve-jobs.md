@@ -1,4 +1,5 @@
 title=RIP Steve Jobs
+PROCESSOR=Markdown.pl
 intro=You brought technology closer to people
 tags=History
 styles=archive

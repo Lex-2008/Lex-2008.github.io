@@ -1,4 +1,5 @@
 title=calendar в Linux и русские даты
+PROCESSOR=Markdown.pl
 intro=Заметка об еще одной интересной, но забытой программе
 tags=linux
 created=2015-01-20

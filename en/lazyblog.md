@@ -1,4 +1,5 @@
 title=lazyblog
+PROCESSOR=Markdown.pl
 intro=a static blog generator which tries to do as little as possible on the server side
 tags=bash javascript
 created=2016-12-14

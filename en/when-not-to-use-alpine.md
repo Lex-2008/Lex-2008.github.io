@@ -1,4 +1,5 @@
 title=When not to use Alpine
+PROCESSOR=Markdown.pl
 intro=When you use scripting languages and want to squeeze some performance.
 tags=linux python
 created=2021-07-11

@@ -1,4 +1,5 @@
 title=Strange games
+PROCESSOR=Markdown.pl
 intro=A website with a provoking name features funny games
 tags=games
 created=2014-09-20

@@ -1,4 +1,5 @@
 title=How to configure access rules in CFEngine via json only
+PROCESSOR=Markdown.pl
 intro=A bit of policy magic to avoid writing policy
 tags=CFEngine links
 created=2018-07-19

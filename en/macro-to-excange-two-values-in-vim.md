@@ -1,4 +1,5 @@
 title=Macro to excange two values in Vim
+PROCESSOR=Markdown.pl
 intro=You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?
 tags=vim
 created=2013-01-09

@@ -1,4 +1,5 @@
 title=bevacqua
+PROCESSOR=Markdown.pl
 intro=Github user with a bunch of interesting Javascript projects/repos
 tags=links
 created=2017-06-29

@@ -1,4 +1,5 @@
 title=Dia
+PROCESSOR=Markdown.pl
 intro=<p>Dia - бесплатный аналог Microsoft Visio - программа для рисования диаграмм</p>
 tags=программы
 created=2009-10-07

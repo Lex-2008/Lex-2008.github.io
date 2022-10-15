@@ -1,4 +1,5 @@
 title=Colors
+PROCESSOR=Markdown.pl
 intro=Let's add a colorful background to this blog, hm?
 tags=javascript
 created=2014-09-03

@@ -1,4 +1,5 @@
 title=microlight.js
+PROCESSOR=Markdown.pl
 intro=a 2.2k library to hilight any code
 tags=javascript
 styles=archive

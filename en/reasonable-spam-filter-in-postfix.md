@@ -1,4 +1,5 @@
 title=Reasonable spam filter in Postfix
+PROCESSOR=Markdown.pl
 intro=One of reasons why people switch from sendmail to postfix is ease of configuration.
 tags=linux e-mail
 created=2021-07-19

@@ -1,4 +1,5 @@
 title=Burying an old friend
+PROCESSOR=Markdown.pl
 intro=Today I've accompanied my old friend on his last journey.
 tags=life
 styles=archive

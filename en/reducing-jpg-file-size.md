@@ -1,4 +1,5 @@
 title=Reducing JPG File size
+PROCESSOR=Markdown.pl
 intro=An interesting article on how to save space and bandwidth
 tags=net links
 styles=archive
