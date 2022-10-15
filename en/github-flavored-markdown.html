@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<title>GitHub Flavored Markdown</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="After some time of pondering, I switched to GitHub-Flavoured Markdown (GFM).">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/github-flavored-markdown.html">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+.footnotes {border-top: 1px solid lightgray;font-size:smaller} 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid lightgray">GitHub Flavored Markdown</h1>
+	<small>
+		Created: <time>2022-10-15</time> &mdash; modified: <time>2022-10-15</time> &mdash;
+		tags: <a href="./#tag:net">net</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">After some time of pondering, I switched to GitHub-Flavoured Markdown (GFM).</p>
+<p>Main thing that made me convert was that it's based on <a href="https://commonmark.org/">CommonMark</a>,
+which claims to be one of the fastest Markdown renderers.
+And indeed, in my limited testing, a file which Markdown.pl took 0.1 second to process,
+both <code>cmark</code> and <code>cmark-gfm</code> processed in 0.002s - at least 50 times faster!
+Also it supports all fancy features that I desired:</p>
+<ul>
+<li><input type="checkbox" checked="" disabled="" /> tables</li>
+<li><input type="checkbox" checked="" disabled="" /> tasklists (like this one)</li>
+<li><input type="checkbox" checked="" disabled="" /> <del>strikethrough</del> text</li>
+<li><input type="checkbox" checked="" disabled="" /> footnotes<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup></li>
+</ul>
+<p>Also, there are some features that I actually don't care that much about, so won't even mention them :)</p>
+<p>GitHub has a very wordy <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">introduction</a> into their version of Markdown,
+which also covers not only GFM, but also GitHub-specific features,
+like <code>@mentions</code>.
+Also they have more technically-worded <a href="https://github.github.com/gfm/">spec</a>, which is based on CommonMark's spec,
+thus being also very verbose.
+But at least they highlight GFM-specific features in a different color!</p>
+<hr />
+<p>I only need to be careful when converting old posts into new format.
+For example, this markdown source:</p>
+<pre><code>    First line
+    - second line
+    third line
+</code></pre>
+<p>gets treated differently by Markdown.pl and CommonMark / GFM!
+Markdown.pl sees it all as a single paragraph,
+while others - as a line and a bullet list, i.e.
+like this source:</p>
+<pre><code>    First line
+
+    * second line third line
+</code></pre>
+<p>That's because Markdown.pl requires an empty line before each list item.</p>
+<p>Oh well.</p>
+<hr />
+<p>But it means that I can't just replace call to <code>Markdown.pl</code> with a call to <code>cmark-gfm</code>!
+It should be configurable per-file.
+But actually it turned out to be pretty easy to achieve:
+Lazyblog already has <em>templating</em> which is configured with env variables,
+so it's trivial to add a new env variable
+(with default value of <code>Markdown.pl</code>),
+which can be overwritten by each file before it's processed by a markdown interpreter.
+Naturally, it also means that if a file sets this variable
+(called <code>PROCESSOR</code>)
+to value <code>cat</code> -
+then it's <strong>not</strong> processed, and thus can be written in plain HTML!
+Nice!</p>
+<p>Relevant commit in git repo: <a href="https://github.com/Lex-2008/lazyblog/commit/5bceafd4e1eb6e48e9a7fb1027712bb9fb4aea75">5bceaf</a>.</p>
+<section class="footnotes">
+<ol>
+<li id="fn1">
+<p>I actually didn't want footnotes <em>that</em> much, but they look nice and might be useful sometimes.
+Maybe? <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>
