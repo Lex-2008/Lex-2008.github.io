@@ -14,13 +14,13 @@ body {
 	padding: 1ex; /* for 📱 users*/
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
-a[href^="http://archive."],a[href^="https://archive."] {font-size:x-small; vertical-align:sub} 
+a[href^="http://archive."],a[href^="https://archive."],a[href^="https://web.archive.org"] {font-size:x-small; vertical-align:sub} html {color-scheme: light;}
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid #8888">Colors 2</h1>
 	<small>
-		Created: <time>2016-06-29</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		Created: <time>2016-06-29</time> &mdash; modified: <time>2022-10-22</time> &mdash;
 		tags: <a href="./#tag:css">css</a>
 	</small>
 	<hr>
@@ -30,35 +30,31 @@ a[href^="http://archive."],a[href^="https://archive."] {font-size:x-small; verti
 <div>
 <style>
 body {background: linear-gradient(
-        rgba(255,0,255,0.5),
-        rgba(255,255,0,0.5),
-        rgba(0,255,255,0.5),
-        rgba(255,0,255,0.5)),
+		rgba(255,0,255,0.5),
+		rgba(255,255,0,0.5),
+		rgba(0,255,255,0.5),
+		rgba(255,0,255,0.5)),
      linear-gradient(to right, #f00, #0f0, #00f);
 }
 body > * {
-    background: rgba(255,255,255,0.6);
-    padding: 1ex;
+	background: rgba(255,255,255,0.6);
+	padding: 1ex;
 }
 </style>
 </div>
-
 <p>I've <a href="colors.html">noted</a> before how to create a fancy 2D gradient using javascript.
 That's fancy. And a lot of code. And it makes sense in some cases.
 In another cases one might as well consider this simple CSS style:</p>
-
 <pre><code>background:
-    linear-gradient(
-        rgba(255,0,255,0.5),
-        rgba(255,255,0,0.5),
-        rgba(0,255,255,0.5),
-        rgba(255,0,255,0.5)),
-    linear-gradient(to right, #f00, #0f0, #00f);
+	linear-gradient(
+		rgba(255,0,255,0.5),
+		rgba(255,255,0,0.5),
+		rgba(0,255,255,0.5),
+		rgba(255,0,255,0.5)),
+	linear-gradient(to right, #f00, #0f0, #00f);
 </code></pre>
-
 <p>You can see it applied to <code>&lt;body&gt;</code> element on this very page.
 Maybe not as nice, but it definitely works!</p>
-
 <p>Inspired by <a href="http://rentafounder.com/textured-gradients-in-pure-css/">this</a> <a href="http://archive.is/4unnE">(archived)</a> article,
 but has next-to-nothing in common. (Although it worth reading, too!)</p>
 </main>

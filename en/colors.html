@@ -14,13 +14,13 @@ body {
 	padding: 1ex; /* for 📱 users*/
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
- 
+ html {color-scheme: light;}
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid #8888">Colors</h1>
 	<small>
-		Created: <time>2014-09-03</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		Created: <time>2014-09-03</time> &mdash; modified: <time>2022-10-22</time> &mdash;
 		tags: <a href="./#tag:javascript">javascript</a>
 	</small>
 	<hr>
@@ -86,24 +86,23 @@ CanvasRenderingContext2D.prototype.draw_2d_gradient = function(top_color_list,
 </script>
 
 <style id="s1">
-body {
-    position:relative;
-    width:100%;
-}
+/* position canvas as a background */
+html { position: relative; }
+canvas{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+	}
+/* make it look nice */
 body > * {
-    width: 80ex;
-    margin: auto;
-    background: rgba(255,255,255,0.6);
-    padding: 1ex;
+	background: rgba(255,255,255,0.6);
+	padding: 1ex;
 }
 canvas{
-    width: 100% !important;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    padding: 0px;
-    z-index: -1;
+	padding: 0 !important;
 }
 </style>
 
@@ -127,18 +126,20 @@ gebi('aa').innerHTML=gebi('a1').innerHTML+'\n\n'+gebi('a2').innerHTML;
 gebi('ss').innerHTML=gebi('s1').innerHTML;
 </script>
 <style>
+main a{white-space: nowrap;}  /* to keep github icons next to links */
+pre .string {color: navy} /* for when microlight.js thinks this page is in dark mode */
 .github::before, .Krebs::before {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    content: " ";
-    background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	content: " ";
+	background-repeat: no-repeat;
 }
 .github::before {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAPBQTFRFAAAAFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUW/////vV4UQAAAE50Uk5TAAALT6fh/B6X7R+0/grFdr7iz1EDFCIVqYkCiOo22Bj7Id72XKLySQwNSNLlqqbstjg5s+gGi2aFmiMy/YoXyWNFpYTd1yDkgz5yEXE9cKDDvgAAAAFiS0dET25mQUkAAAAJcEhZcwAAAEgAAABIAEbJaz4AAADXSURBVBjTNY7XcoJQFEXPtuBFQb2IYAgqthRCTCU9pmiqyf7/z8mNjOdtrZm95ogISuVK1bKqlXIJYhA1ZXNztqoBgnrDcQrhOI06xFVsttra83S71aRypWNT+d0gDIOur2h3pEfuRP8xQbRL9kQz7qMQ6MfUYnEw3LAxwwEtSahHWzHSTGTMyXQ7mU44lpmz5+0fRIB/mB6RM0mz4/nJ6RlwfmEevkwlv4qvb27vgPuYfHjMBYv50/OLCwQZk9eFqSFcrt7ejfjIPsOinn99r4H1z29u+A9TKhzHslwdpAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNC0xMS0wMlQxMzozMDo1MCswMTowMFqG0AoAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTMtMDQtMTVUMjI6NDk6MzArMDI6MDDPs7dCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAABJRU5ErkJggg==);
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAPBQTFRFAAAAFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUWFxUW/////vV4UQAAAE50Uk5TAAALT6fh/B6X7R+0/grFdr7iz1EDFCIVqYkCiOo22Bj7Id72XKLySQwNSNLlqqbstjg5s+gGi2aFmiMy/YoXyWNFpYTd1yDkgz5yEXE9cKDDvgAAAAFiS0dET25mQUkAAAAJcEhZcwAAAEgAAABIAEbJaz4AAADXSURBVBjTNY7XcoJQFEXPtuBFQb2IYAgqthRCTCU9pmiqyf7/z8mNjOdtrZm95ogISuVK1bKqlXIJYhA1ZXNztqoBgnrDcQrhOI06xFVsttra83S71aRypWNT+d0gDIOur2h3pEfuRP8xQbRL9kQz7qMQ6MfUYnEw3LAxwwEtSahHWzHSTGTMyXQ7mU44lpmz5+0fRIB/mB6RM0mz4/nJ6RlwfmEevkwlv4qvb27vgPuYfHjMBYv50/OLCwQZk9eFqSFcrt7ejfjIPsOinn99r4H1z29u+A9TKhzHslwdpAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNC0xMS0wMlQxMzozMDo1MCswMTowMFqG0AoAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTMtMDQtMTVUMjI6NDk6MzArMDI6MDDPs7dCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAABJRU5ErkJggg==);
 }
 .Krebs::before {
-    background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gOTAK/9sAQwADAgIDAgIDAwMDBAMDBAUIBQUEBAUKBwcGCAwKDAwLCgsLDQ4SEA0OEQ4LCxAWEBETFBUVFQwPFxgWFBgSFBUU/9sAQwEDBAQFBAUJBQUJFA0LDRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/8AAEQgAEAAQAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A4v4kfCFNI1Ww8K2Pn3PiHU4zIjRsBFaxZwZZGPTOGCgA5IrZ8P8AwHju0eyuZon1O2UNLbxyjfsP3XwcEA4I+oOOMV6N8OvDFv451e88bXyeIVuruMrJaQEG0iCHLJIA3muABlYwwBB6Nk1ynxGu9Iu7q61fwWPEWqa5pCIZNbjcSWsCZbzYzEHYou4j92AAACTkYr9f/tXEOoqUqln1fS/+R8V9Qpez5ox/zP/Z);
+	background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gOTAK/9sAQwADAgIDAgIDAwMDBAMDBAUIBQUEBAUKBwcGCAwKDAwLCgsLDQ4SEA0OEQ4LCxAWEBETFBUVFQwPFxgWFBgSFBUU/9sAQwEDBAQFBAUJBQUJFA0LDRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/8AAEQgAEAAQAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A4v4kfCFNI1Ww8K2Pn3PiHU4zIjRsBFaxZwZZGPTOGCgA5IrZ8P8AwHju0eyuZon1O2UNLbxyjfsP3XwcEA4I+oOOMV6N8OvDFv451e88bXyeIVuruMrJaQEG0iCHLJIA3muABlYwwBB6Nk1ynxGu9Iu7q61fwWPEWqa5pCIZNbjcSWsCZbzYzEHYou4j92AAACTkYr9f/tXEOoqUqln1fS/+R8V9Qpez5ox/zP/Z);
 }
 </style>
 

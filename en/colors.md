@@ -1,8 +1,9 @@
 title=Colors
-PROCESSOR=Markdown.pl
 intro=Let's add a colorful background to this blog, hm?
 tags=javascript
+style=html {color-scheme: light;}
 created=2014-09-03
+PROCESSOR=cat
 
 <div>
 Main function is blantly copy-pasted from an open source <a href="https://github.com/operasoftware/dragonfly/blob/master/src/lib/canvasrenderingcontext2dprototype.js" class="github">dragonfly</a> project.
@@ -63,24 +64,23 @@ CanvasRenderingContext2D.prototype.draw_2d_gradient = function(top_color_list,
 </script>
 
 <style id="s1">
-body {
-	position:relative;
-	width:100%;
-}
+/* position canvas as a background */
+html { position: relative; }
+canvas{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+	}
+/* make it look nice */
 body > * {
-	width: 80ex;
-	margin: auto;
 	background: rgba(255,255,255,0.6);
 	padding: 1ex;
 }
 canvas{
-	width: 100% !important;
-	height: 100%;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	padding: 0px;
-	z-index: -1;
+	padding: 0 !important;
 }
 </style>
 
@@ -104,6 +104,8 @@ gebi('aa').innerHTML=gebi('a1').innerHTML+'\n\n'+gebi('a2').innerHTML;
 gebi('ss').innerHTML=gebi('s1').innerHTML;
 </script>
 <style>
+main a{white-space: nowrap;}  /* to keep github icons next to links */
+pre .string {color: navy} /* for when microlight.js thinks this page is in dark mode */
 .github::before, .Krebs::before {
 	width: 16px;
 	height: 16px;

@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<title>Colors 3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A nicer version of CSS-only 2D background gradient">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/colors3.html">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ html {color-scheme: light;}
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">Colors 3</h1>
+	<small>
+		Created: <time>2022-10-22</time> &mdash; modified: <time>2022-10-22</time> &mdash;
+		tags: <a href="./#tag:css">css</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">A nicer version of CSS-only 2D background gradient</p>
+<div>
+<style>
+body {background: linear-gradient(
+		to bottom in hsl,
+		rgba(255,0,255,0.5),
+		rgba(255,255,0,0.5),
+		rgba(0,255,255,0.5),
+		rgba(255,0,255,0.5)),
+     linear-gradient(to right in hsl, #f00, #0f0, #00f);
+}
+body > * {
+	background: rgba(255,255,255,0.6);
+	padding: 1ex;
+}
+</style>
+</div>
+
+<p>Compare background of this page with the <a href="colors2.html">previous version</a> and enjoy the progress of CSS!</p>
+
+<pre>
+background:
+	linear-gradient(
+		to bottom in hsl,
+		rgba(255,0,255,0.5),
+		rgba(255,255,0,0.5),
+		rgba(0,255,255,0.5),
+		rgba(255,0,255,0.5)),
+     linear-gradient(to right in hsl, #f00, #0f0, #00f);
+</pre>
+
+<div id="no" style="display:none">
+This page demonstrates a CSS feature that is not supported by your browser.
+Please try a different browser.
+I was told that Safari Tech Preview with Gradient Interpolation Color Spaces enabled works on this page.
+Alternatively, you can <a href="https://web.dev/state-of-css-2022/#gradient-color-spaces">read more about it here</a>.
+<script>
+if(! CSS.supports("(background: linear-gradient(in hsl, black, white))")) {
+	document.body.parentNode.style.colorScheme='light dark';
+	document.querySelector('main').innerHTML=document.querySelector('#no').innerHTML;
+	}
+</script>
+</div>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

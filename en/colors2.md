@@ -1,9 +1,10 @@
 title=Colors 2
-PROCESSOR=Markdown.pl
 intro=A CSS-only version of fancy 2D background gradient
 tags=css
+style=html {color-scheme: light;}
 styles=archive
 created=2016-06-29
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 
 
 <div>
