@@ -61,7 +61,7 @@ This article in Russian: ["План Дал&shy;ле&shy;са" и "Ком&shy;м�
 	number 3932 in Federal List of Extremist Materials,
 	decision of the Asbest City Court of the Sverdlovsk Region of 04/07/2015 -
 	<a href="https://meduza.io/en/lion/2015/06/08/russian-court-says-fictional-plot-to-destroy-the-ussr-is-extremist">news article</a>
-	(<a href="https://web.archive.org/web/20170505172810/https://meduza.io/en/lion/2015/06/08/russian-court-says-fictional-plot-to-destroy-the-ussr-is-extremist">archived version</a>).
+	<a href="https://web.archive.org/web/20170505172810/https://meduza.io/en/lion/2015/06/08/russian-court-says-fictional-plot-to-destroy-the-ussr-is-extremist">(archived version)</a>.
 </p>
 <script>
 function a(q){
