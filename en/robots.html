@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/robots.html">
+<title>Robots only</title>
+<meta name="description" content="Access for robots only">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+img {display:block; margin:auto; max-width:100%} fieldset{text-align:center} #progress{transition: width 10s linear} input[type="number"]{width:5em}
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">Robots only</h1>
+	<small>
+		Created: <time>2023-04-01</time> &mdash; modified: <time>2022-11-02</time> &mdash;
+		tags: <a href="./#tag:fun">fun</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Access for robots only</p>
+<p>To prove that you're a robot, solve a simple task:</p>
+<fieldset><legend>CAP<s>T</s><i>M</i>CHA</legend>
+	<p>What two three-digit numbers, when multiplied, result in <b id="r1">the third</b>?
+	<br>You have 10 seconds to give the correct answer!</p>
+	<hr id="progress">
+	<form id="f">
+	<p>
+		<input type="number" required min=100 max=999 placeholder="a" id="a"> &times;
+		<input type="number" required min=100 max=999 placeholder="b" id="b"> =
+		<b id="r2">c</b>
+		&nbsp; <input type="submit" value="Answer">
+	</p>
+</fieldset>
+<p>Russian version: <a href="../ru/robots.html">Только роботы</a></p>
+
+<script>
+	function gebi(x){ return document.getElementById(x) };
+	function $(x){ return document.querySelector(x) };
+	function rand3(){
+			return 100+Math.floor(Math.random()*900);
+	}
+	function task(){
+		window.c=0;
+		while(window.c<100000 || window.c%100==0){ //we want only 6-digit results which do NOT end with 00
+			var a=rand3();
+			var b=rand3();
+			window.c=a*b;
+		}
+		gebi('r1').innerText=gebi('r2').innerText=window.c;
+		gebi('a').value=gebi('b').value='';
+		// restart animation, see https://stackoverflow.com/a/63561659 for details
+		gebi('progress').style.transition='none';
+		gebi('progress').style.width='100%';
+		gebi('progress').offsetWidth;
+		gebi('progress').style.transition='';
+		gebi('progress').style.width='0';
+	}
+	task();
+	window.t=setInterval(task, 10000);
+	function check(){
+		var a=gebi('a').value;
+		var b=gebi('b').value;
+		$('main').innerHTML=[
+			// https://codepen.io/tigt/post/optimizing-svgs-in-data-uris
+			"<h1 style='text-align:center'>Human access denied!</h1><img width=345 src=\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' width='600' height='600' version='1.0'%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath d='M0 0h5953v5953H0V0z'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url(%23a)' transform='matrix(.1 0 0 -.1 0 600)'%3E%3Cpath fill='red' d='M5950 2976a2973 2973 0 1 1-5946 0 2973 2973 0 0 1 5946 0'/%3E%3Cpath fill='none' stroke='red' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='500' stroke-width='7.1' d='M5950 2976a2973 2973 0 1 1-5946 0 2973 2973 0 0 1 5946 0z'/%3E%3Cpath fill='white' d='M4679 1537a2230 2230 0 0 1-3142 3142l3142-3142'/%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='500' stroke-width='7.1' d='M4679 1537a2230 2230 0 0 1-3142 3142l3142-3142z'/%3E%3Cpath fill='white' d='M4417 1274 1274 4416a2230 2230 0 0 1 3143-3142'/%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='500' stroke-width='7.1' d='M4417 1274 1274 4416a2230 2230 0 0 1 3143-3142z'/%3E%3Cpath d='M3191 4134c-40 65-96 118-162 155a287 287 0 0 1-351-57 707 707 0 0 1-186-478v-30l741-741v596l113-184v-525l174-174h81v772l-410 666'/%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='500' stroke-width='7.1' d='M3191 4134c-40 65-96 118-162 155a287 287 0 0 1-351-57 707 707 0 0 1-186-478v-30l741-741v596l113-184v-525l174-174h81v772l-410 666z'/%3E%3Cpath d='m2332 3359-364-433 196-162 328 396v-327l-430-1600 395-106 378 1407v-527l512-867 352 208-466 789v321l-901 901'/%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='500' stroke-width='7.1' d='m2332 3359-364-433 196-162 328 396v-327l-430-1600 395-106 378 1407v-527l512-867 352 208-466 789v321l-901 901z'/%3E%3Cpath d='M3133 4720a307 307 0 1 1-614 0 307 307 0 0 1 614 0'/%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='500' stroke-width='7.1' d='M3133 4720a307 307 0 1 1-614 0 307 307 0 0 1 614 0z'/%3E%3C/g%3E%3C/svg%3E\">Image from <a href=\"https://commons.wikimedia.org/wiki/File:NO_road_sign_306.7.svg\">wikipedia.org</a>",//false
+			atob("SGVsbG8sIGhhY2tlciEgSmF2YXNjcmlwdCDQvdC1INC90LUg0LzQvtC20LXRgiDQrtC90LjQutC+0LQg0LIgYmFzZTY0LCDQsCDQttCw0LvRjCF8PGgxIHN0eWxlPSd0ZXh0LWFsaWduOmNlbnRlcic+S2lsbCBhbGwgaHVtYW5zITwvaDE+PGltZyBzcmM9Imh0dHBzOi8vdGhlaW5mb3NwaGVyZS5vcmcvaW1hZ2VzLzQvNGYvS2lsbF9hbGxfaHVtYW5zLnBuZyI+SW1hZ2UgPGEgaHJlZj0iaHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LXNhLzMuMC8iPkNDIEJZIFNBPC9hPiA8YSBocmVmPSJodHRwczovL3RoZWluZm9zcGhlcmUub3JnL0ZpbGU6S2lsbF9hbGxfaHVtYW5zLnBuZyI+dGhlaW5mb3NwaGVyZS5vcmc8L2E+").split('|')[(0==0)+0],//true
+		][(a*b==window.c)-0];
+		clearInterval(window.t);
+		return false;
+	}
+	gebi('f').onsubmit=check;
+</script>
+
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

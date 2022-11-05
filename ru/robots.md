@@ -1,4 +1,4 @@
-title=Роботы
+title=Только роботы
 intro=Доступ только для роботов
 tags=Юмор тест
 style=fieldset{text-align:center} #progress{transition: width 10s linear} input[type="number"]{width:5em}
@@ -6,7 +6,7 @@ styles=img
 created=2023-04-01
 PROCESSOR=cat
 
-<p> Чтобы доказать что вы робот, решите простую задачку:</p>
+<p>Чтобы доказать что вы робот, решите простую задачку:</p>
 <fieldset><legend>CAP<s>T</s><i>M</i>CHA</legend>
 	<p>Какие два трёхзначных числа при перемножении дают <b id="r1">третье</b>?
 	<br>У вас есть 10 секунд, чтобы дать правильный ответ!</p>
@@ -19,6 +19,7 @@ PROCESSOR=cat
 		&nbsp; <input type="submit" value="Ответить">
 	</p>
 </fieldset>
+<p>Английская версия: <a href="../en/robots.html">Robots only</a></p>
 
 <script>
 	function gebi(x){ return document.getElementById(x) };
