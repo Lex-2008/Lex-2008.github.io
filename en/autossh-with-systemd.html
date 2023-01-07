@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/autossh-with-systemd.html">
+<title>AutoSSH with SystemD</title>
+<meta name="description" content="a simple unit file to keep a permanent SSH connection">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">AutoSSH with SystemD</h1>
+	<small>
+		Created: <time>2022-12-28</time> &mdash; modified: <time>2023-01-05</time> &mdash;
+		tags: <a href="./#tag:linux">linux</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">a simple unit file to keep a permanent SSH connection</p>
+<p>Save this file as <code>/etc/systemd/system/autossh.service</code>:</p>
+<pre><code>[Unit]
+Description=Keep SSH bridge
+
+[Service]
+Type=simple
+ExecStart=ssh -R *:2223:*:22 username@remote-server
+Restart=always
+RestartSec=3
+</code></pre>
+<p>Adjust ssh command to your liking (keepalives, timeouts, etc)</p>
+<p>After that, run <code>systemctl daemon-reload</code> and <code>systemctl enable --now autossh</code>, and enjoy!</p>
+<hr />
+<p>Comment from <a href="https://github.com/Vladimir-Kondratiev">Vladimir Kondratiev</a>:</p>
+<blockquote>
+<p>There are not enough keys in your connect command. For example, if you reinstall the server which you are connecting to (or change its real ip), then the MITM question will appear and will wait forever for the user's response. Therefore, this check must be disabled with two keys directly in the ssh command.</p>
+</blockquote>
+<blockquote>
+<p>It would also be nice to set in the ssh config to automatically disconnect from the server when the connection is broken - otherwise it will not be possible to ssh to it again for a long time. (I did this in the ssh config: every 30 seconds ssh sends a packet, if 3 packets did not pass (so in 90 seconds) - break the ssh connection, which will lead to a restart according to your SystemD.</p>
+</blockquote>
+<blockquote>
+<p>Since you have reverse ssh, instead of the ip of the user who will log in, it will always be 127.0.0.1 in the logs, in order to fix this, you need to patch ssh, otherwise the fail2ban will go blind. Or use fail2ban on the server which you connecting to with the -R key (which is not cool).</p>
+</blockquote>
+<blockquote>
+<p>I used iptables + ssh logs for a fail2ban (iptables shows all ip connections, and ssh log shows successful connections: if ip is in iptables and there is no successful login in ssh logs - then ban it). The fact is that ssh logs a) not all connections are logged in principle (the problem of the logging system itself - as I understand it, there is a limit at what speed to write to a file or there is a parallel recording, I didn’t investigate much) b) fail2ban does not see all the records of connection attempts - since each version of the ssh server adds new words to the logs, but a successful login always looks the same.</p>
+</blockquote>
+<p>My reply:</p>
+<blockquote>
+<p>That is true! But to be fair, I'm not using fail2ban.
+I haven't heard about anyone bruteforcing an SSH key, yet.
+So I believe that it's enough just to disable <em>password</em> SSH login to consider your SSH server secure.
+Other methods (like changing SSH port, or blocking IPs/subnets) are only for keeping logs clean from this noise.</p>
+</blockquote>
+<blockquote>
+<p>If anything, my personal preference is to block <strong>all</strong> IP addresses, <em>except</em> networks of those few ISPs I'm using (home, work, mobile, etc) - using <code>/etc/hosts.allow</code> and <code>/etc/hosts.deny</code> files.
+And hope that they all won't change at the same time! 🙈</p>
+</blockquote>
+<p>And his reply:</p>
+<blockquote>
+<p>Erm I'm using iptables + ssh logs plus my analyzer INSTEAD of fail2ban. So I need to teach iptables to log only the ssh port (so log will contain lines from which mac to which mac address that came and the corresponding ip), the ssh log is written by ssh itself. And I parse them with my analyzer.</p>
+</blockquote>
+<blockquote>
+<p>Plus, at the iptables level, it is limited to establishing new connections from 1 ip per minute to the ssh port. Iptables is faster than ssh (and doesn't know which version of ssh you have). This is without ssh settings yet.</p>
+</blockquote>
+<blockquote>
+<p>All the same, it is necessary to change the port and limits too - because after a year there will be 10s of gigabytes of these logs.</p>
+</blockquote>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>
