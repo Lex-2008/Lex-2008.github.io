@@ -1,11 +1,14 @@
 title=Sorting sent email
-PROCESSOR=Markdown.pl
+PROCESSOR1=Markdown.pl
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=How to automate it if you host your mail yourself
 tags=e-mail
 created=2014-11-01
-modified=2016-06-16
-modified_now=1
 
+**Update**:
+In 2021, I switched to using [sieve][s] scripts to sort incoming and outgoing emails.
+
+[s]: https://github.com/Lex-2008/containers/blob/master/dovecot.cont/data/conf/dovecot.conf#L35
 
 There are numerous ways of sorting incoming mail into folders (personally I use procmail),
 but not enough ways of sorting _sent_ mail.

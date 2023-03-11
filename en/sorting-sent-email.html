@@ -1,9 +1,8 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Sorting sent email</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="How to automate it if you host your mail yourself">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/sorting-sent-email.html">
+<title>Sorting sent email</title>
+<meta name="description" content="How to automate it if you host your mail yourself">
 <style>
 html {color-scheme: light dark}
 body {
@@ -20,46 +19,43 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <header>
 	<h1 style="border-bottom: 1px solid #8888">Sorting sent email</h1>
 	<small>
-		Created: <time>2014-11-01</time> &mdash; modified: <time>2016-06-16</time> &mdash;
+		Created: <time>2014-11-01</time> &mdash; modified: <time>2023-03-08</time> &mdash;
 		tags: <a href="./#tag:e-mail">e-mail</a>
 	</small>
 	<hr>
 </header>
 <main>
 	<p class="intro">How to automate it if you host your mail yourself</p>
+<p><strong>Update</strong>:
+In 2021, I switched to using <a href="https://github.com/Lex-2008/containers/blob/master/dovecot.cont/data/conf/dovecot.conf#L35">sieve</a> scripts to sort incoming and outgoing emails.</p>
 <p>There are numerous ways of sorting incoming mail into folders (personally I use procmail),
 but not enough ways of sorting <em>sent</em> mail.
 SquirrelMail has <a href="http://squirrelmail.org/plugin_view.php?id=281">Per Recipient Sent Folders</a> plugin, but that's sorting on the client-side.
-Most email clients have an option to save sent mail to "Sent" folder, but quite few of them can save it to other folders.</p>
-
+Most email clients have an option to save sent mail to &quot;Sent&quot; folder, but quite few of them can save it to other folders.</p>
 <p>This script tries to solve this sorting problem.
-It runs on the server and monitors the "Sent" folder for new files (using <code>inotifywait</code>).
-When it finds one, it extracts an email address from its "To" header (using <code>mu view</code>, but you can also use grep, but be careful if the header wraps in two lines) and uses it to move file to an appropriate folder.</p>
-
+It runs on the server and monitors the &quot;Sent&quot; folder for new files (using <code>inotifywait</code>).
+When it finds one, it extracts an email address from its &quot;To&quot; header (using <code>mu view</code>, but you can also use grep, but be careful if the header wraps in two lines) and uses it to move file to an appropriate folder.</p>
 <p>Note that you need to know some shell scripting to adjust this script to suite your taste.
-<code>expr "$to"</code> lines are used to match only a part of email address (using RegExp),
-while email list inside the <code>case "$to"</code> is used when you want to match a full email address.</p>
-
+<code>expr &quot;$to&quot;</code> lines are used to match only a part of email address (using RegExp),
+while email list inside the <code>case &quot;$to&quot;</code> is used when you want to match a full email address.</p>
 <p>Also note that rules at the bottom of the script have priority (override) over those above them.</p>
-
 <pre><code>#!/bin/bash
 
 cd Maildir/.Sent/cur/
 
 inotifywait --quiet --monitor --format '%f' --event moved_to . | while read line; do
-    to="$(mu view --summary-len=1 "$line" | sed -n '/To:/{s/.*[ &lt;]\(.*@[^ &gt;]*\).*/\1/;p}')"
-    dest=''
-    # sorting begins here
-    case "$to" in
-        # compare whole addresses
-        ("friend@mail.ru") dest='.friend' ;;
-    esac
-    # compare partial addresses
-    expr "$to" : ".*@company.com" &gt;/dev/null &amp;&amp; dest='.work'
-    [ "$dest" ] &amp;&amp; mv "$line" "../../$dest/cur/"
+	to=&quot;$(mu view --summary-len=1 &quot;$line&quot; | sed -n '/To:/{s/.*[ &lt;]\(.*@[^ &gt;]*\).*/\1/;p}')&quot;
+	dest=''
+	# sorting begins here
+	case &quot;$to&quot; in
+		# compare whole addresses
+		(&quot;friend@mail.ru&quot;) dest='.friend' ;;
+	esac
+	# compare partial addresses
+	expr &quot;$to&quot; : &quot;.*@company.com&quot; &gt;/dev/null &amp;&amp; dest='.work'
+	[ &quot;$dest&quot; ] &amp;&amp; mv &quot;$line&quot; &quot;../../$dest/cur/&quot;
 done;
 </code></pre>
-
 <script src="/microlight.js"></script>
 </main>
 <footer style="text-align: center">
