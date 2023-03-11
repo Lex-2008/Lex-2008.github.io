@@ -1,9 +1,8 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Space 8: collision detection</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Now you can't go outside the ship">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/space-8-collision-detection.html">
+<title>Space 8: collision detection</title>
+<meta name="description" content="Now you can't go outside the ship">
 <style>
 html {color-scheme: light dark}
 body {
@@ -20,7 +19,7 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <header>
 	<h1 style="border-bottom: 1px solid #8888">Space 8: collision detection</h1>
 	<small>
-		Created: <time>2017-11-06</time> &mdash; modified: <time>2021-10-03</time> &mdash;
+		Created: <time>2017-11-06</time> &mdash; modified: <time>2023-03-08</time> &mdash;
 		tags: <a href="./#tag:space3d">space3d</a>
 	</small>
 	<hr>
@@ -48,7 +47,7 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, 686/460, 0.1, 1e6 );
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(  686, 460);
-document.querySelector('.post').appendChild( renderer.domElement );
+document.querySelector('main').appendChild( renderer.domElement );
 
 world = new CANNON.World();
 world.gravity.set(0,0,0);

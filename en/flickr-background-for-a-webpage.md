@@ -1,9 +1,9 @@
 title=Flickr background for a webpage
-PROCESSOR=Markdown.pl
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=Another attempt to add something nice to this blog
 tags=Javascript
 created=2017-06-17
-style=body > * {background: rgba(255,255,255,0.6); padding: 1ex}
+style=html {color-scheme: light} body > * {background: rgba(255,255,255,0.6); padding: 1ex}
 
 Having [nice background][rss] on a lock screen,
 why not add a similar to the website?
@@ -30,10 +30,6 @@ if(xmlhttp.status == 200) {
 	gebi=function(q){return document.getElementById(q)}
 	gebi('aa').innerHTML=gebi('a1').innerHTML;
 </script>
-
-<script src="/microlight.js"></script>
-<script>microlight.reset('pre')</script>
-</div>
 
 It just takes the first link from a generated rss feed and sets it as background.
 

@@ -26,23 +26,42 @@ function CanvasDragZoom(canvas, draw, initscale=1){
 	};
 	this.redraw();
 
-	canvas.addEventListener('mousewheel', (event)=>{
-		this.redraw(true);
-		var mousex = event.clientX - this.canvas.offsetLeft;
-		var mousey = event.clientY - this.canvas.offsetTop;
-		var wheel = event.wheelDelta/120;//n or -n
-		var zoom = 1 + wheel/2;
+	canvas.addEventListener('wheel', (event)=>{
+		event.preventDefault();
+	 	this.redraw(true);
+		// Get mouse offset.
+		const mousex = event.offsetX;
+		const mousey = event.offsetY;
+		// Normalize mouse wheel movement to +1 or -1 to avoid unusual jumps.
+		const wheel = event.deltaY < 0 ? 1 : -1;
+
+		// Compute zoom factor.
+		const zoom = 1+wheel/5; //Math.exp(wheel * zoomIntensity);
+
+		// Translate so the visible origin is at the context's origin.
 		this.ctx.translate(this.originx, this.originy);
-		this.ctx.scale(zoom,zoom);
-		this.ctx.translate(
-			-( mousex / this.scale + this.originx - mousex / ( this.scale * zoom ) ),
-			-( mousey / this.scale + this.originy - mousey / ( this.scale * zoom ) )
-		);
-		this.originx = ( mousex / this.scale + this.originx - mousex / ( this.scale * zoom ) );
-		this.originy = ( mousey / this.scale + this.originy - mousey / ( this.scale * zoom ) );
+
+		// Compute the new visible origin. Originally the mouse is at a
+		// distance mouse/scale from the corner, we want the point under
+		// the mouse to remain in the same place after the zoom, but this
+		// is at mouse/new_scale away from the corner. Therefore we need to
+		// shift the origin (coordinates of the corner) to account for this.
+		this.originx -= mousex/(this.scale*zoom) - mousex/this.scale;
+		this.originy -= mousey/(this.scale*zoom) - mousey/this.scale;
+
+		// Scale it (centered around the origin due to the translate above).
+		this.ctx.scale(zoom, zoom);
+		// Offset the visible origin to it's proper position.
+		this.ctx.translate(-this.originx, -this.originy);
+
+		// Update scale and others.
 		this.scale *= zoom;
-		this.redraw();
+		// visibleWidth = width / scale;
+		// visibleHeight = height / scale;
+	 	this.redraw();
+		console.log(zoom, mousex,mousey, this.originx, this.originy, this.scale);
 	});
+
 
 	canvas.addEventListener('mousedown', (event)=>{
 		var mousex = event.clientX - this.canvas.offsetLeft;
@@ -54,7 +73,6 @@ function CanvasDragZoom(canvas, draw, initscale=1){
 
 	canvas.addEventListener('mousemove', (event)=>{
 		if(!this.dragging) return;
-		//~ force_draw(true);
 		var mousex = event.clientX - this.canvas.offsetLeft;
 		var mousey = event.clientY - this.canvas.offsetTop;
 		var newX=mousex/this.scale;

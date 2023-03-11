@@ -1,5 +1,6 @@
 title=Space 8: collision detection
 PROCESSOR=Markdown.pl
+PROCESSOR1=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=Now you can't go outside the ship
 tags=Space3D
 created=2017-11-06
@@ -28,7 +29,7 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, 686/460, 0.1, 1e6 );
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(  686, 460);
-document.querySelector('.post').appendChild( renderer.domElement );
+document.querySelector('main').appendChild( renderer.domElement );
 
 world = new CANNON.World();
 world.gravity.set(0,0,0);

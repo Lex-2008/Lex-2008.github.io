@@ -1,17 +1,16 @@
 title=How I started working for Opera Software
-PROCESSOR=Markdown.pl
+PROCESSOR1=Markdown.pl
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=My first experience in getting a job
 tags=opera life
 created=2011-11-01
-modified=2016-12-14
-modified_now=1
+styles=cache
 
+The first idea of working for Opera Software came into my mind after watching the [famous YouTube video][yt][(local copy)][ytc] and looking through the [list of current job openings][list] on Opera website in the beginning of summer of 2010. Hmm, I noticed, that I mostly match requirements for some of engineering jobs! :)
 
-The first idea of working for Opera Software came into my mind after watching the [famous YouTube video][yt] and looking through the [list of current job openings][list] on Opera website in the beginning of summer of 2010. Hmm, I noticed, that I mostly match requirements for some of engineering jobs! :)
 [yt]: http://www.youtube.com/watch?v=rarTKLmfN4o
+[ytc]: ../cache/how-i-started-working-for-opera-software.mp4
 [list]: http://www.opera.com/company/jobs/list/
-
-
 
 And at the August of the same year I submitted my first resume to Opera Software. And it was quite swiftly rejected. My second attempt - in the beginning of 2011 - was also rejected. It was only after my third attempt, made in the May of 2011, when I received something looking like a positive feedback - a written test to answer.
 

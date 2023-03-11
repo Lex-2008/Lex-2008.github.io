@@ -1,5 +1,6 @@
 title=Javascript canvas drag-and-zoom library
-PROCESSOR=Markdown.pl
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
+style=code{tab-size:4}
 intro=For those cases when you need to implement something GoogleMaps-like
 tags=javascript
 created=2012-07-01
@@ -161,4 +162,4 @@ Acknowledgements
 
 Thanks to [this][] SO answer for original implementation.
 
-[this]: https://stackoverflow.com/questions/6775168/zooming-with-canvas/6776341#6776341
+[this]: https://stackoverflow.com/questions/2916081/zoom-in-on-a-point-using-scale-and-translate/3151987#3151987

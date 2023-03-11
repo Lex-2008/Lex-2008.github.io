@@ -1,9 +1,8 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Flickr background for a webpage</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Another attempt to add something nice to this blog">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/flickr-background-for-a-webpage.html">
+<title>Flickr background for a webpage</title>
+<meta name="description" content="Another attempt to add something nice to this blog">
 <style>
 html {color-scheme: light dark}
 body {
@@ -14,13 +13,13 @@ body {
 	padding: 1ex; /* for 📱 users*/
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
- body > * {background: rgba(255,255,255,0.6); padding: 1ex}
+ html {color-scheme: light} body > * {background: rgba(255,255,255,0.6); padding: 1ex}
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid #8888">Flickr background for a webpage</h1>
 	<small>
-		Created: <time>2017-06-17</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		Created: <time>2017-06-17</time> &mdash; modified: <time>2023-03-08</time> &mdash;
 		tags: <a href="./#tag:javascript">javascript</a>
 	</small>
 	<hr>
@@ -29,12 +28,9 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 	<p class="intro">Another attempt to add something nice to this blog</p>
 <p>Having <a href="flickr-feed-generator-for-xscreensaver.html">nice background</a> on a lock screen,
 why not add a similar to the website?</p>
-
 <p>It's easy to achive just by using this code:</p>
-
 <div>
 <pre id="aa"></pre>
-
 <script id="a1">
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.open('GET', '/unlisted/flickr.rss', false);
@@ -45,20 +41,12 @@ if(xmlhttp.status == 200) {
   document.body.style.backgroundSize='cover';
 }
 </script>
-
 <script>
-    gebi=function(q){return document.getElementById(q)}
-    gebi('aa').innerHTML=gebi('a1').innerHTML;
+	gebi=function(q){return document.getElementById(q)}
+	gebi('aa').innerHTML=gebi('a1').innerHTML;
 </script>
-
-<script src="/microlight.js"></script>
-<script>microlight.reset('pre')</script>
-</div>
-
 <p>It just takes the first link from a generated rss feed and sets it as background.</p>
-
 <p>So background of this page changes every 3 hours. Please come back in 3 hours! ;-)</p>
-
 <p>Also note my previous experiments with the background: <a href="colors.html">Colors</a>, <a href="colors2.html">Colors 2</a>.</p>
 </main>
 <footer style="text-align: center">
