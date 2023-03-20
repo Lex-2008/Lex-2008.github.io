@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>
+<div id="hints"></div>
+
+<script src="utils.js"></script>
+<script src="angle.js"></script>
+<script src="planets.js"></script>
+<script src="stars.js"></script>
+<script src="draw.js"></script>
+<script src="hints.js"></script>
+<script src="universe.js"></script>
+<script>
+
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+
+	var player_star=shown_star=new Star();
+
+	// create new stars around player_star
+	var a=randomInt(-179,180);
+	var b=a-randomInt(20,80);
+	player_star.link(new Star(), a);
+	player_star.link(new Star(), b);
+	var fromDirection=player_star.neighbours.directionOf(a);
+	var toDirection=player_star.neighbours.directionOf(b);
+	// while(fromDirection.angleTo(toDirection)>=100)
+	for(var _n=0;_n<10;_n++){
+		if(fromDirection.positiveAngleTo(toDirection)>=100) {
+			var newValue=randomInt(20,80);
+		} else {
+			var newValue=randomInt(20,60);
+		}
+		fromDirection=new Direction(fromDirection.add(newValue), player_star);
+		// player_star.neighbours.add(fromDirection);
+		player_star.link(new Star(), fromDirection.value);
+		if(fromDirection.positiveAngleTo(toDirection)<80) break;
+	}
+
+	// link new stars to each other
+	for(var d of player_star.neighbours){
+		var leftStar = d.target;
+		var rightStar = player_star.neighbours.right(d).target;
+		// console.log(leftStar.name,rightStar.name);
+		// if(star.neighbours.left(rightStar).target!=leftStar) [leftStar, rightStar] = [rightStar, leftStar];
+		var leftDirection = player_star.neighbours.directionOf(leftStar);
+		var rightDirection = player_star.neighbours.directionOf(rightStar);
+		// console.log(leftDirection.target.name,rightDirection.target.name);
+		if(leftDirection.target!=leftStar) console.error('e1');
+		if(rightDirection.target!=rightStar) console.error('e2');
+		var bisect = leftDirection.add(Math.round(leftDirection.angleTo(rightDirection)/2));
+		// console.log(leftDirection.value,rightDirection.value,bisect);
+		leftStar.link(rightStar, bisect-90);
+	}
+
+	// add new connections to each of them
+	for(var a_connection of player_star.neighbours){
+		var a_star=a_connection.target;
+		// add new (empty) connections
+		var fromDirection=a_star.neighbours.next(player_star);
+		var toDirection=a_star.neighbours.prev(player_star);
+		// while(fromDirection.angleTo(toDirection)>=100)
+		for(var _n=0;_n<10;_n++){
+			if(fromDirection.positiveAngleTo(toDirection)>=100) {
+				var newValue=randomInt(20,80);
+			} else {
+				var newValue=randomInt(20,60);
+			}
+			fromDirection=new Direction(fromDirection.add(newValue), a_star);
+			a_star.neighbours.add(fromDirection);
+			// a_star.link(new Star(), fromDirection.value);
+			if(fromDirection.positiveAngleTo(toDirection)<80) break;
+		}
+	}
+
+	draw_star(ctx,shown_star);
+	setupHints(shown_star,c,document.getElementById('hints'));
+
+function jump(){
+	moveToNewStar(shown_star,player_star);
+	player_star=shown_star;
+	draw_star(ctx,shown_star);
+	setupHints(shown_star,c,document.getElementById('hints'));
+}
+
+</script>
+
+</body>
+</html>
+

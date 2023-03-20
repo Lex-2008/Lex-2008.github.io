@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/space2d2-1-a-simple-game-about-flat-space.html">
+<title>space2d2 1: a simple game about flat space</title>
+<meta name="description" content="Making a properly balanced economy simulator is pretty hard, as it turns out. But can I make a simpler 2d game?">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">space2d2 1: a simple game about flat space</h1>
+	<small>
+		Created: <time>2023-03-12</time> &mdash; modified: <time>2023-03-15</time> &mdash;
+		tags: <a href="./#tag:space2d2">space2d2</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Making a properly balanced economy simulator is pretty hard, as it turns out. But can I make a simpler 2d game?</p>
+<p>Let's try this: you have a ship, and can travel between stars, and between planets of each star.
+Each planet buys or sells some kind of resource, and your ship can carry only one unit of cargo at a time.
+To keep things simple, there are four kinds of resources: water, iron, food, and radioactive materials.
+You just need to find pairs of nearby planets satisfying each other's supply-demand.
+Sounds simple?
+To make it even simpler, there's no &quot;prices&quot; or &quot;money&quot; in this game:
+when &quot;buying&quot; something, you don't &quot;spend&quot; anything,
+and when &quot;selling&quot; - all you get is &quot;+1&quot; in some kind of stats.
+You can imagine that all resources are sold for the same price,
+and are bought (by planets) for same price +1,
+and at the start of the game you have exactly this amount of money.
+Or that the planet where you (eventually) sell your cargo
+will wirelessly transfer costs to the planet which sold it to you.
+Whatever.</p>
+<p>But, to prevent you from looping through the same set of planets over and over again,
+there is a simple rule: you can visit each planet and each star only once.</p>
+<p>In advanced (&quot;hard&quot;) mode, you additionally can't cross your own path (where you've already been).
+This will make planning harder, since after crossing the star system once through center,
+you'll end up with two options where to continue your journey.
+Also, you will be limited by stars where you can travel <em>next</em>,
+since travelling to them is done through &quot;portals&quot;, and you must get to one in order to travel.</p>
+<p>In &quot;real&quot;(-time) mode, if we get to it, travelling between stars takes 10 hours of real time.
+By contrast, travelling through all planets of a single star takes a second of real time,
+so you can carefully lay plan of your trip (through a star system), before actually executing it.</p>
+<p>But that's all ideas.
+What currently implemented is only a &quot;random star generator&quot;,
+which you can see below.
+Reload this page to see a different star system below.
+Hover planets to read their description,
+and consider in which order you would visit them.
+Remember: your ship can carry only one item of cargo,
+and you can visit each planet only once.</p>
+<p>Good luck!</p>
+<div style="text-align:center">
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<div id="hints" style="height:4em">Hover an object on the map to see what it is</div>
+<script src="space2d2-1-a-simple-game-about-flat-space/utils.js"></script>
+<script src="space2d2-1-a-simple-game-about-flat-space/planets.js"></script>
+<script src="space2d2-1-a-simple-game-about-flat-space/stars.js"></script>
+<script src="space2d2-1-a-simple-game-about-flat-space/draw.js"></script>
+<script src="space2d2-1-a-simple-game-about-flat-space/hints.js"></script>
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var star=new Star();
+draw_star(ctx,star);
+setupHints(star,c,document.getElementById('hints'));
+</script>
+</div>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

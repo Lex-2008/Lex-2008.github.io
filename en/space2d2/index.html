@@ -1,0 +1,147 @@
+<!DOCTYPE html><html><head>
+<title>Space 2d2</title>
+<style>
+	html {color-scheme: light dark;}
+	fieldset {border-color: ButtonBorder;}
+	legend {white-space:nowrap}
+	#myFlightplan div {border:2px groove ButtonBorder;}
+	#myFlightplan div > * {display:block}
+	label:has(input:disabled) {color:gray}
+	/* .stats{display:none} */
+	/* input:checked ~ .stats{display:block} */
+</style>
+</head><body>
+<div style="display:flex;width:790px">
+<!--  style="display:inline&#45;block; width:500px; height: 600px; box&#45;sizing: border&#45;box;" -->
+<fieldset>
+	<legend id="mapTitle_player">Current system
+		(<a href="javascript:shown_star=player_star.neighbours[Symbol.iterator]().next().value.target;redraw();void 0">explore neighbours</a> /
+		<a href="javascript:document.getElementById('stats').showModal();void 0">show stats</a>)
+	</legend>
+	<legend id="mapTitle_neighbour">Exploring neighbour
+		<b id="mapTitle_neighbour_n"></b> of <b id="mapTitle_neighbour_total"></b>
+		(<a href="javascript:shown_star=player_star.neighbours.prev(shown_star).target;redraw();void 0">&circlearrowright; prev</a> |
+		<a href="javascript:shown_star=player_star.neighbours.next(shown_star).target;redraw();void 0">next &circlearrowleft;</a> |
+		<a href="javascript:shown_star=player_star;redraw();void 0">return to current</a>)
+	</legend>
+	<canvas id="myCanvas" width="500" height="500" style="border:2px groove ButtonBorder;"></canvas>
+	<div id="hints" style="height:5rem"></div>
+</fieldset>
+<fieldset style="width:225px;height:607px;overflow-y: auto;"><legend>Flight plan
+		(<b id="fp_jobs_done"></b> of <b id="fp_jobs_total"></b> jobs done)
+	</legend>
+	<div id="myFlightplan"></div>
+	<div id="fp_hint">&mldr;<br>
+		Click on a planet or portal to add it to the flight plan
+		<button id="fp_undo" onclick="flightplan.undo();redraw()">remove last step</button>
+	</div>
+	<!-- <div id="fp_jobs" style="white&#45;space:nowrap"> -->
+	<!-- 	Jobs: <b id="fp_jobs_done"></b> of <b id="fp_jobs_total"></b> complete (<b id="fp_jobs_prc"></b>%) -->
+	<!-- </div> -->
+	<div id="fp_jump">
+		<div id="fp_jump_ok">
+			Leave to <b id="fp_jump_ok_star"></b>
+			(it&nbsp;has <b id="fp_jump_ok_jobs"></b> jobs)
+			<button onclick="jump()">Execute flight plan and continue to this star</button>
+		</div>
+		<div id="fp_jump_no">
+			Can't fly to this star: <span id="fp_jump_no_reason"></span>
+		</div>
+	</div>
+</fieldset>
+</div>
+
+<dialog id="stats">
+	<div>Stars visited: <b id="stats_s"></b></div>
+	<div>Planets visited: <b id="stats_p"></b></div>
+	<div>Jobs seen: <b id="stats_js"></b></div>
+	<div>Jobs done: <b id="stats_jf"></b></div>
+	<hr>
+	<div>Jobs done per star: <b id="stats_jf_s"></b></div>
+	<div>Jobs done per planet: <b id="stats_jf_p"></b>%</div>
+	<div>Jobs done per seen: <b id="stats_jf_js"></b>%</div>
+	<!-- <div>Max ratio: <b id="stats_mr"></b>% -->
+	<!-- 	<span id="stats_mrc_show">(happened <b id="stats_mrc"></b> times)</span> -->
+	<!-- </div> -->
+	<form method="dialog"><button>OK</button></form>
+</dialog>
+
+<script src="utils.js"></script>
+<script src="angle.js"></script>
+<script src="planets.js"></script>
+<script src="stars.js"></script>
+<script src="draw.js"></script>
+<script src="hints.js"></script>
+<script src="universe.js"></script>
+<script src="geometry.js"></script>
+<script src="flightplan.js"></script>
+<script>
+
+	mode='hard';
+
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+
+	if(mode=='test') loadUniverse(JSON.parse(default_universe));
+	else loadUniverse(JSON.parse(localStorage['space2d2'+mode] || default_universe));
+
+	if(!check()) alert ('universe error, check console');
+
+	shown_star=player_star;
+
+function redraw(){
+	draw_star(ctx,shown_star);
+	setupHints(shown_star,c,document.getElementById('hints'));
+	redrawFlightplan();
+	document.getElementById('mapTitle_player').style.display=(shown_star==player_star)?'':'none';
+	document.getElementById('mapTitle_neighbour').style.display=(shown_star==player_star)?'none':'';
+	if(shown_star!=player_star){
+		document.getElementById('mapTitle_neighbour_n').innerText=player_star.neighbours.indexOf(shown_star)+1;
+		document.getElementById('mapTitle_neighbour_total').innerText=player_star.neighbours.count;
+	}
+	document.getElementById('stats_s').innerText=stats.s;
+	document.getElementById('stats_p').innerText=stats.p;
+	document.getElementById('stats_js').innerText=stats.js;
+	document.getElementById('stats_jf').innerText=stats.jf;
+	document.getElementById('stats_jf_s').innerText=Math.round(stats.jf/stats.s*100)/100;
+	document.getElementById('stats_jf_p').innerText=Math.round(stats.jf/stats.p*100);
+	document.getElementById('stats_jf_js').innerText=Math.round(stats.jf/stats.js*100);
+	// document.getElementById('stats_mr').innerText=stats.mr;
+	// document.getElementById('stats_mrc').innerText=stats.mrc;
+	// document.getElementById('stats_mrc_show').style.display=stats.mrc>1?'':'none';
+}
+
+redraw();
+
+function jump(){
+	if(shown_star==player_star) return;
+	if(shown_star.visited) return;
+	stats.s++;
+	stats.p+=flightplan.steps.length-1;
+	stats.jf+=flightplan.countJobs();
+	stats.js+=player_star.jobs;
+	const ratio=Math.round(flightplan.countJobs()/player_star.jobs*100);
+	// if(ratio>stats.mr){
+	// 	stats.mr=ratio;
+	// 	stats.mrc=1;
+	// }else if(ratio==stats.mr){
+	// 	stats.mrc++;
+	// }
+	console.clear();
+	moveToNewStar(shown_star,player_star);
+	var lastCargo=flightplan.steps.at(-1).cargo;
+	var direction=shown_star.neighbours.directionOf(player_star);
+	flightplan.init(direction.x,direction.y,lastCargo,document.getElementById('myFlightplan'));
+	player_star.visited=true;
+	player_star=shown_star;
+	localStorage['space2d2'+mode]=JSON.stringify(saveUniverse());
+	// location.reload();
+	redraw();
+	if(!check()) alert ('universe error, check console');
+}
+
+</script>
+
+</body>
+</html>
+
