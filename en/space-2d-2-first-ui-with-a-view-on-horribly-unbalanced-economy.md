@@ -1,10 +1,10 @@
 title=space 2d 2: first UI with a view on horribly unbalanced economy
-PROCESSOR=Markdown.pl
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=It's playable now… if you can call it that :-)
 tags=space2d
 created=2021-05-03
 
-Continuation of my [previous] game about 2-dimentional space with trading, buildings, and empires.
+Continuation of my [previous][prev] game about 2-dimensional space with trading, buildings, and empires.
 Worth checking above link first, if you haven't read it yet.
 
 [prev]: space-2d-1-a-game-which-plays-by-itself.html
@@ -26,9 +26,9 @@ Balance issues
 Currently, there are two main issues with game balance:
 
 First, often prices on neighbouring planets are insanely different, up to several thousand in local currency - thus giving you a multi-thousand profit per one trip.
-Although maybe it's not that bad by itself, it still looks rather crasy.
+Although maybe it's not that bad by itself, it still looks rather crazy.
 
-Second, planets don't ract when you dump lots of cargo on them (esp on those planets with insanely high prices - my favourite are border planets with 3,3,7 quality) - neither in prices, nor in what buildings they're building.
+Second, planets don't react when you dump lots of cargo on them (esp on those planets with insanely high prices - my favourite are border planets with 3,3,7 quality) - neither in prices, nor in what buildings they're building.
 
 This will be addressed in future updates.
 
