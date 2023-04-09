@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>Drop Box</title>
+<style>
+body{margin: auto; width: 70ex; text-align: center}
+</style>
+</head><body><h1>Drop Box</h1>
+
+<div id="start">
+	<!-- TODO: to allow multi-file upload, we need to rework UI -->
+	<p>Select a file to upload: <input type=file id=file><!-- and click: <input type=submit> --></p>
+</div>
+
+<div id="progress" style="display:none">
+	<p>Uploading file <b id=filename></b>...</p>
+	<p>Uploaded: <b id=loaded>0</b> of <b id="total">0</b> bytes (<b id="prc">0</b>%) <button>Cancel</button></p>
+	<progress style="width:100%">
+</div>
+
+<div id="complete" style="display:none">
+	<p id="success">File uploaded: <b></b></p>
+	<p id="failure">File upload error: <b></b></p>
+	<p>
+		Please let me know about it, because I don't have any sort of notifications here.
+		<button onclick="location.reload()">Upload another file</button>
+	</p>
+</div>
+
+<hr>
+
+<small>Note to self: files are <a href="files/">here</a></small>
+
+<script>
+	gebi=x=>document.getElementById(x);
+	$=x=>document.querySelector(x);
+
+	function XHRPutFile (url, file, onProgress) {
+			return new Promise((resolve) => {
+					const xhr = new XMLHttpRequest();
+					$('#progress button').onclick=x=>xhr.abort();
+					xhr.upload.onprogress = onProgress;
+					xhr.onloadend = () => resolve(xhr);
+					xhr.open('PUT', url, true);
+					xhr.setRequestHeader('Content-Type', file.type);
+					xhr.send(file);
+				});
+		}
+
+	function loadProgress(e){
+			// console.log(e);
+			gebi('loaded').innerText=e.loaded.toLocaleString();
+			gebi('prc').innerText=Math.round(e.loaded/e.total*10000)/100;
+			$('progress').value=e.loaded;
+		}
+
+	document.getElementById('file').onchange=async function(e){
+			var dir=(new Date()).toISOString();
+			for (file of e.target.files){
+					//name, size, type
+					// console.log(file);
+					gebi('start').style.display='none';
+					gebi('complete').style.display='none';
+					gebi('progress').style.display='';
+					gebi('filename').innerText=file.name;
+					gebi('total').innerText=file.size.toLocaleString();
+					$('progress').max=file.size;
+					// TODO: when uploading multiple files, upload them in dirs
+					var xhr = await XHRPutFile(`files/${file.name}`, file, loadProgress);
+					console.log(xhr);
+					gebi('progress').style.display='none';
+					gebi('complete').style.display='';
+					var ok = xhr.status >= 200 && xhr.status < 300;
+					if(ok){
+							gebi('success').style.display='';
+							gebi('failure').style.display='none';
+							$('#success b').innerText=file.name;
+						} else {
+								gebi('success').style.display='none';
+								gebi('failure').style.display='';
+								$('#failure b').innerText=`${xhr.status} ${xhr.statusText}`;
+							}
+				}
+		}
+</script>
+
+</body></html>

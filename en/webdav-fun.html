@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/webdav-fun.html">
+<title>Fun with webdav</title>
+<meta name="description" content="Playing with a fancy old technology">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">Fun with webdav</h1>
+	<small>
+		Created: <time>2022-12-20</time> &mdash; modified: <time>2023-04-08</time> &mdash;
+		tags: <a href="./#tag:nginx">nginx</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Playing with a fancy old technology</p>
+<p>Recently I learned about <a href="https://github.com/dom111/webdav-js">webdav-js</a> - a simple JS script,
+which can be used as a bookmark and turn any otherwise <a href="https://webdav.filestash.app/">boring-looking</a> HTML directory listing page
+into a nice file management web interface.
+Note that for that to work, web server needs to support webdav.</p>
+<p>And turns out, it's pretty easy to enable this support in most web server software!
+Here I'll focus on doing in with nginx, since it has this fancy feature of limiting <em>some</em> request <em>methods</em> to authorised-only users.</p>
+<p>For example, you can <em>allow</em> only <code>GET</code> requests to non-authorised anonymous users.
+This way users who have an account can share files with rest of the world.
+Even better, you can enable directory listing, or put custom <code>index.html</code> files to hide their contents!
+All without extra coding, from your browser, just by using webdav!</p>
+<p>Relevant part of the config:</p>
+<pre><code>server {
+	# listen, server_name, etc...
+
+	root                /var/www/files;
+	client_body_temp_path /var/www/.uploads/;
+	client_max_body_size 200g;
+	# Better to keep `client_body_temp_path` and `root` on the same partition.
+	# otherwise client_body_temp_path is on `/tmp` which might be too small
+	# for some of your files.
+
+	# tune to your liking
+	autoindex           on;
+	autoindex_exact_size off;
+	charset             UTF-8;
+
+	# enable dav
+	create_full_put_path on;
+	dav_methods         PUT DELETE MKCOL COPY MOVE;
+	dav_ext_methods     PROPFIND OPTIONS;
+
+	# If you don't want to appear in search results
+	location /robots.txt { return 200 &quot;User-agent: *\nDisallow: /&quot;; }
+
+	location /          {
+		# guests can only GET
+		limit_except GET {
+			auth_basic &quot;files&quot;;
+			auth_basic_user_file /path/to/passwd.txt;
+		}
+
+		# if desired, you can have custom index.html file on the root,
+		# which can't be changed by users
+		# location = / { index ../files.index.html; }
+	}
+}
+</code></pre>
+<p>This config enables WebDAV on &quot;otherwise boring-looking&quot; HTML directory listing site,
+which can be turned into a file manager either by using WebDAV-js bookmark or this simple js-HTML one-line page:</p>
+<pre><code>&lt;script&gt;[&quot;https://cdn.jsdelivr.net/gh/dom111/webdav-js/assets/css/style-min.css&quot;,&quot;https://cdn.jsdelivr.net/gh/dom111/webdav-js/src/webdav-min.js&quot;].forEach((function(e,s){/css$/.test(e)?((s=document.createElement(&quot;link&quot;)).href=e,s.rel=&quot;stylesheet&quot;):(s=document.createElement(&quot;script&quot;)).src=e,document.head.appendChild(s)}))&lt;/script&gt;
+</code></pre>
+<p>Which, basically, is the same bookmark, wrapped in <code>&lt;script&gt;</code> tags.</p>
+<hr />
+<p>But what if we allow other methods, but forbid <code>GET</code>?
+Then we can get... A server where anonymous users can <em>upload</em>, but <strong>not</strong> download files!
+So... A &quot;share files (securely) with me (site owner)&quot; service.</p>
+<p>Relevant part of the config then will be:</p>
+<pre><code>    location /files/          {
+	# enable dav only for this subdir
+            create_full_put_path on;
+            dav_methods         PUT DELETE MKCOL COPY MOVE;
+            dav_ext_methods     PROPFIND OPTIONS;
+
+	# inside this directory, guests can only upload (PUT) files
+            limit_except PUT {
+                    auth_basic &quot;files&quot;;
+		auth_basic_user_file /path/to/passwd.txt;
+            }
+
+            # some security to protect admins from user-uploaded files
+            index /admin.html;
+	# directory index file is outside of 
+            types { text/plain html htm shtml xhtml mml svg svgz; }
+    }
+</code></pre>
+<p>To upload files, you just need to issue a PUT request, using, for example, XMLHTTPRequest from a browser, like this:</p>
+<pre><code>function XHRPutFile (url, file, onProgress) {
+	return new Promise((resolve) =&gt; {
+			const xhr = new XMLHttpRequest();
+			$('#progress button').onclick=x=&gt;xhr.abort();
+			xhr.upload.onprogress = onProgress;
+			xhr.onloadend = () =&gt; resolve(xhr);
+			xhr.open('PUT', url, true);
+			xhr.setRequestHeader('Content-Type', file.type);
+			xhr.send(file);
+			});
+};
+
+document.getElementById('file').onchange=async function(e){
+	for (file of e.target.files){
+		var xhr = await XHRPutFile(`files/${file.name}`, file, loadProgress);
+	}};
+</code></pre>
+<p>Full example of webpage is available <a href="webdav-fun-drop.html">here</a>.
+Note that it doesn't work here, because this website doesn't have WebDAV enabled :)</p>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>
