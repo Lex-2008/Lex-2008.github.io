@@ -1,31 +1,31 @@
 <!DOCTYPE html><html><head><title>Drop Box</title>
 <style>
 body{margin: auto; width: 70ex; text-align: center}
+#success, #failure, #progress {white-space: nowrap;}
 </style>
 </head><body><h1>Drop Box</h1>
 
 <div id="start">
-	<!-- TODO: to allow multi-file upload, we need to rework UI -->
-	<p>Select a file to upload: <input type=file id=file><!-- and click: <input type=submit> --></p>
+	<p>Upload files: <input type=file id=file multiple></p>
 </div>
 
 <div id="progress" style="display:none">
-	<p>Uploading file <b id=filename></b>...</p>
+	<p>Uploading file <span id="multi_grp"><b id="multi_n"></b> of <b id="multi_total"></b>:</span> <b id=filename></b>...</p>
 	<p>Uploaded: <b id=loaded>0</b> of <b id="total">0</b> bytes (<b id="prc">0</b>%) <button>Cancel</button></p>
-	<progress style="width:100%">
+	<progress id="progress1" style="width:100%"></progress> <br>
+	<progress id="progress_total" style="width:100%"></progress>
 </div>
 
 <div id="complete" style="display:none">
-	<p id="success">File uploaded: <b></b></p>
+	<p id="success">File upload success: <b></b></p>
 	<p id="failure">File upload error: <b></b></p>
 	<p>
 		Please let me know about it, because I don't have any sort of notifications here.
-		<button onclick="location.reload()">Upload another file</button>
+		<button onclick="gebi('file').value='';location.reload()">Upload another file</button>
 	</p>
 </div>
 
 <hr>
-
 <small>Note to self: files are <a href="files/">here</a></small>
 
 <script>
@@ -44,40 +44,54 @@ body{margin: auto; width: 70ex; text-align: center}
 				});
 		}
 
+	var uploadedBeforeThisFile=0;
+
 	function loadProgress(e){
 			// console.log(e);
 			gebi('loaded').innerText=e.loaded.toLocaleString();
 			gebi('prc').innerText=Math.round(e.loaded/e.total*10000)/100;
-			$('progress').value=e.loaded;
+			gebi('progress1').value=e.loaded;
+			gebi('progress_total').value=uploadedBeforeThisFile+e.loaded;
 		}
 
 	document.getElementById('file').onchange=async function(e){
-			var dir=(new Date()).toISOString();
+			const dir=(new Date()).toISOString();
+			const multi=e.target.files.length>1;
+			gebi('start').style.display='none';
+			gebi('complete').style.display='none';
+			gebi('progress').style.display='';
+			gebi('multi_grp').style.display=gebi('progress_total').style.display=multi?'':'none';
+			var allFilesSize=0;
+			if(multi){
+					gebi('multi_total').innerText=e.target.files.length;
+					for (file of e.target.files){
+							allFilesSize+=file.size;
+						}
+					gebi('progress_total').max=allFilesSize;
+				}
+			var file_n=1;
 			for (file of e.target.files){
 					//name, size, type
 					// console.log(file);
-					gebi('start').style.display='none';
-					gebi('complete').style.display='none';
-					gebi('progress').style.display='';
+					gebi('multi_n').innerText=file_n++;
 					gebi('filename').innerText=file.name;
 					gebi('total').innerText=file.size.toLocaleString();
-					$('progress').max=file.size;
+					gebi('progress1').max=file.size;
 					// TODO: when uploading multiple files, upload them in dirs
-					var xhr = await XHRPutFile(`files/${file.name}`, file, loadProgress);
+					var url=multi?`files/${dir}/${file.name}`:`files/${file.name}`;
+					var xhr = await XHRPutFile(url, file, loadProgress);
 					console.log(xhr);
-					gebi('progress').style.display='none';
-					gebi('complete').style.display='';
+					uploadedBeforeThisFile+=file.size;
+
 					var ok = xhr.status >= 200 && xhr.status < 300;
-					if(ok){
-							gebi('success').style.display='';
-							gebi('failure').style.display='none';
-							$('#success b').innerText=file.name;
-						} else {
-								gebi('success').style.display='none';
-								gebi('failure').style.display='';
-								$('#failure b').innerText=`${xhr.status} ${xhr.statusText}`;
-							}
+					if(!ok) break;
 				}
+			gebi('progress').style.display='none';
+			gebi('complete').style.display='';
+			gebi('success').style.display=ok?'':'none';
+			gebi('failure').style.display=ok?'none':'';
+			$('#success b').innerText=multi?dir:file.name;
+			$('#failure b').innerText=`${xhr.status} ${xhr.statusText}`;
 		}
 </script>
 
