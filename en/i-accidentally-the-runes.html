@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/i-accidentally-the-runes.html">
+<title>How to add custom keyboard layout on Linux</title>
+<meta name="description" content="I accidentally ᚦᛖ᛫ᚱᚢᚾᛖᛋ">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+.footnotes {border-top: 1px solid #8888;font-size:smaller} 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">How to add custom keyboard layout on Linux</h1>
+	<small>
+		Created: <time>2023-05-12</time> &mdash; modified: <time>2023-05-13</time> &mdash;
+		tags: <a href="./#tag:linux">linux</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">I accidentally ᚦᛖ᛫ᚱᚢᚾᛖᛋ</p>
+<p>Recently on Fediverse I stumbled upon someone with <em>runic</em> username.
+Quick check - and, turns out, runes are part of Unicode <a href="https://en.wikipedia.org/wiki/Runic_(Unicode_block)">since 1999</a>!
+Also, Wikipedia has a <a href="https://en.wikipedia.org/wiki/Cirth#Runes_from_The_Hobbit">whole article</a> dedicated to runes in J.R.R. Tolkien's works,
+including a subsection about runes from &quot;The Hobbit&quot; -
+the ones that I learned by heart back in childhood<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup>.</p>
+<p>Could I add them as a custom keyboard layout to my Linux machine?</p>
+<p>Somewhere on Internet I've heard that it's quite easy!</p>
+<p>Just have a look at the file <code>/usr/share/X11/xkb/symbols/latin</code> -
+it has lines like this:</p>
+<pre><code>key &lt;AD01&gt;  { [         q,          Q,           at,  Greek_OMEGA ] };
+</code></pre>
+<p>They, basically, mean that pressing key <code>&lt;AD01&gt;</code> should produce lowercase <code>q</code> character,
+or uppercase <code>Q</code> character when pressed together with Shift key,
+or <code>@</code> symbol when pressed together with right Alt key,
+or Greek Omega character <code>Ω</code> when pressed together with both Shift and Alt keys<sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup>.
+Note that you can use <em>any</em> Unicode character there,
+just by typing <code>U1234</code>.</p>
+<p>Also note that <a href="http://who-t.blogspot.com/2021/02/a-pre-supplied-custom-keyboard-layout.html">on recent systems</a>,
+for your custom keyboard layout to be picked up by GUI tools,
+it's enough just to save it to the <code>/usr/share/X11/xkb/symbols/custom</code> file.</p>
+<h2>Result</h2>
+<p>And here is my layout:</p>
+<pre><code>default partial alphanumeric_keys
+xkb_symbols &quot;hobbitrunes&quot; {
+
+    name[Group1]=&quot;Hobbit runes&quot;;
+    include &quot;level3(ralt_switch)&quot;
+
+    key &lt;AD02&gt;  {[ U16B9 ]}; // w: ᚹ
+    key &lt;AD03&gt;  {[ U16D6, U16DF, U16DF ]}; // e: ᛖ; shift+e=alt+e=ee: ᛟ
+    key &lt;AD04&gt;  {[ U16B1 ]}; // r: ᚱ
+    key &lt;AD05&gt;  {[ U16CF, U16A6, U16E5 ]}; // t: ᛏ: shift+t=th: ᚦ; alt+t=st: ᛥ
+    key &lt;AD06&gt;  {[ U16A3 ]}; // y: ᚣ
+    key &lt;AD07&gt;  {[ U16A2 ]}; // u: ᚢ
+    key &lt;AD08&gt;  {[ U16C1 ]}; // i: ᛁ
+    key &lt;AD09&gt;  {[ U16A9, U16F3, U16C7 ]}; // o: ᚩ; shift+o=oo: ᛳ; alt+o=oe: ᛇ
+    key &lt;AD10&gt;  {[ U16C8 ]}; // p: ᛈ
+
+    key &lt;AC01&gt;  {[ U16AB, U16AA, U16E0 ]}; // a: ᚫ; shift+a=ae: ᚪ; alt+a=ea: ᛠ
+    key &lt;AC02&gt;  {[ U16CB, U16F2, U16E5 ]}; // s: ᛋ; shift+s=sh: ᛲ; alt+s=st: ᛥ
+    key &lt;AC03&gt;  {[ U16DE ]}; // d: ᛞ
+    key &lt;AC04&gt;  {[ U16A0 ]}; // f: ᚠ
+    key &lt;AC05&gt;  {[ U16B7, U16DD, U16DD ]}; // g: ᚷ; shift+g=alt+g=ng: ᛝ
+    key &lt;AC06&gt;  {[ U16BB ]}; // h: ᚻ
+    key &lt;AC07&gt;  {[ U16C1 ]}; // j: ᛁ
+    key &lt;AC08&gt;  {[ U16F1 ]}; // k: ᛱ
+    key &lt;AC09&gt;  {[ U16DA ]}; // l: ᛚ
+
+    key &lt;AB01&gt;  {[ U16E3 ]}; // z: ᛣ
+    key &lt;AB02&gt;  {[ U16C9 ]}; // x: ᛉ
+    key &lt;AB03&gt;  {[ U16B3 ]}; // c: ᚳ
+    key &lt;AB04&gt;  {[ U16A2 ]}; // v: ᚢ
+    key &lt;AB05&gt;  {[ U16D2 ]}; // b: ᛒ
+    key &lt;AB06&gt;  {[ U16BE, U16DD, U16DD ]}; // n: ᚾ; shift+n=alt+n=ng: ᛝ
+    key &lt;AB07&gt;  {[ U16D7 ]}; // m: ᛗ
+
+};
+</code></pre>
+<p>If your system is, like mine, rather recent and equipped with GUI keyboard layout configuration,
+then you just need to save this to the <code>/usr/share/X11/xkb/symbols/custom</code> file,
+and then choose &quot;A user-defined custom Layout&quot; in your input languages selector.</p>
+<p>Or, if you're using <code>setxkbmap</code> from the command line,
+then you can this to and (new) file inside the <code>/usr/share/X11/xkb/symbols/</code> dir
+(for example, you can call it <code>runes</code>),
+and then use this filename as a language code when configuring <code>setxkbmap</code> -
+for example, like this:</p>
+<pre><code>setxkbmap us,runes
+</code></pre>
+<hr />
+<p>And then you, like me,
+ᚹᛁᛚᛚ᛫ᛒᛖ᛫ᚫᛒᛚᛖ᛫ᛏᚩ᛫ᚹᚱᛁᛏᛖ᛫ᚢᛋᛁᛝ᛫ᚦᛖ᛫ᚱᚢᚾᛖᛋ᛫ᚠᚱᚩᛗ᛭ᚦᛖ᛫ᚻᚩᛒᛒᛁᛏ᛭</p>
+<p>Worth noting that these are likely not &quot;the right&quot; runes:
+these are not the ones which were used <em>historically</em>;
+they are not the ones used by (majority) of dwarfs in Middle earth.
+But they are the ones I learned back in childhood,
+so they're the ones I'm using.</p>
+<p>Also, there is <a href="https://github.com/osakared/futhorc-keyboard-linux">another keyboard layout</a>,
+which you might or might not like better,
+and an <a href="https://valhyr.com/pages/rune-translator">online translator</a>,
+which translates (most of) these runes back to latin (English) text.</p>
+<section class="footnotes">
+<ol>
+<li id="fn1">
+<p>Moreover, in 2007 three more runes were added to Unicode: &quot;k&quot; ᛱ, &quot;sh&quot; ᛲ, and &quot;oo&quot; ᛳ -
+not existing historically, but used by J.R.R. Tolkien. <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2">
+<p>Note that for this to work,
+your actually keyboard layout must also include this line:
+<code>include &quot;level3(ralt_switch)&quot;</code>. <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>
