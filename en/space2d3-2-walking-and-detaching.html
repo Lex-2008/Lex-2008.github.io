@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/space2d3-2-walking-and-detaching.html">
+<title>space2d3 2: walking and (de)taching</title>
+<meta name="description" content="Now you can walk on your ship... And others, too">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+  fieldset { border-color: ButtonBorder } .component>div { display: none; } .notransition { transition: none !important; }
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">space2d3 2: walking and (de)taching</h1>
+	<small>
+		Created: <time>2023-12-26</time> &mdash; modified: <time>2023-12-26</time> &mdash;
+		tags: <a href="./#tag:space2d3">space2d3</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Now you can walk on your ship... And others, too</p>
+<p>The window where you can see your ship became smaller,
+so now you have to <strong>walk</strong> around it
+in order to see the whole picture.
+To do this, use <code>WASD</code> keys (I'm assuming you're using desktop computer, not a mobile phone).
+If they don't work - focus the webpage, check your keyboard language and state of CapsLock key.</p>
+<p>Also, now you can check what's in those cargo containers all over your ship.
+Moreover, you can dock to other ships, and explore <em>their</em> containers, too!
+To undock from a ship, use &quot;Undock&quot; button available when you're in Airlock.
+You'll be automatically docked to a new random ship in 5 seconds.</p>
+<div>
+	<style id="currentComponent"></style>
+	<div style="display: flex;">
+		<fieldset style="width: 154px;">
+			<legend>Your Ship</legend>
+			<!-- <div style="text-align: center;">
+				<button id="save">Save Ship</button>
+				<button id="load">Load Ship</button>
+				<button id="random">Generate Random</button>
+			</div> -->
+			<div id="canvasBox" style="width: 200px; height: 200px; overflow: hidden; background: black; border: 2px groove ButtonBorder;">
+				<canvas id="myCanvas" style="position: relative; transition: all 0.166s cubic-bezier(0,.5,.8,.8) 0s; transition-property: top,left;"></canvas>
+			</div>
+		</fieldset>
+		<div>
+			<fieldset>
+				<legend>Status</legend>
+				<div id="status"></div>
+			</fieldset>
+			<fieldset class="component" style="width: 300px;">
+				<legend id="componentLegend"></legend>
+				<div id="CargoBay">Space to store come cargo. <div class="CargoBay_NonEmpty">It contains: <ul></ul>
+					</div>
+					<div class="CargoBay_Empty">It is empty</div>
+				</div>
+				<div id="Ballast">Dead weight added here to compensate <b></b> component on the other side</div>
+				<div id="Passage">Helps you walk around the ship. <br> Hint: use WASD to walk around. If it doesn't work - click here, change keyboard language to English or disable CapsLock</div>
+				<div id="Airlock">Lets you get from one ship to another. You can also <button id="Airlock_Detach">Detach</button> your ship from theirs. </div>
+			</fieldset>
+		</div>
+	</div>
+	<script src="space2d3-2-walking-and-detaching.js"></script>
+</div>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

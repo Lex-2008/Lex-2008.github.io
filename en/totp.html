@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/totp.html">
+<title>totp</title>
+<meta name="description" content="A small shell script to generate one-time passwords, in bash, using oathtool">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+.footnotes {border-top: 1px solid #8888;font-size:smaller} 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">totp</h1>
+	<small>
+		Created: <time>2022-09-05</time> &mdash; modified: <time>2023-09-30</time> &mdash;
+		tags: <a href="./#tag:bash">bash</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">A small shell script to generate one-time passwords, in bash, using oathtool</p>
+<p>First, save all your TOTP shared secrets in a file, formatted like this:</p>
+<pre><code>&lt;provider_name&gt;	&lt;secret&gt;
+&lt;another_provider&gt;	&lt;secret&gt;
+</code></pre>
+<p>i.e. one entry per line, provider name and relevant secret, separated by space or tab symbols;
+provider name should <strong>not</strong> contain spaces, for example like this:</p>
+<pre><code>Google  3TAPFH5S6QXRVAZZF5FUXUXXRZKWU74J
+Slack   4IGIS2QZGVQAKG4GFNMFE6ZMOR3JHJUQ
+GitHub  OUZKAXEKC44GPAPF6CTCCQFWCMC77KKJ
+</code></pre>
+<p>Extracting secrets from QR codes is left as exersise to a reader :)</p>
+<p>I recommend storing them in a password-protected area, encrypted by gpg or encfs, for example.
+Setting up such storage is left as exersise to a reader ;)</p>
+<p>Then, edit the following script, changing the first command to the one which decrypts the above file
+and prints out its (unencrypted) contents.
+For example, for GPG it will be something like <code>gpg --decrypt /path/to/file.gpg</code>,
+for encfs - <code>encfsctl cat /path/to/encfs/dir path/inside/encfs.txt</code>.
+In my case, I have encfs dir in my home dir (<code>~/secrets</code>),
+and file with totp secrets inside it is called <code>totp.tsv</code>:</p>
+<pre><code>#!/bin/bash
+times=&quot;$(seq 0 30 300)&quot;
+{
+	encfsctl cat ~/secrets totp.tsv | while read -r name key; do
+		echo -n &quot;$name&quot;
+		for n in $times; do
+			echo -n &quot; $(oathtool -b --totp &quot;$key&quot; -N &quot;$n&quot;sec)&quot;;
+		done
+		echo
+	done
+
+	startdate=$(( `date +%s` / 30*30 ))
+	echo -n 'valid_from:'
+	for n in $times; do
+		echo -n &quot; $(date +:%M:%S -d @&quot;$(( $startdate + $n ))&quot;)&quot;;
+	done
+	echo
+
+	echo -n 'valid_till:'
+	for n in $times; do
+		echo -n &quot; $(date +:%M:%S -d @&quot;$(( $startdate +30+ $n ))&quot;)&quot;;
+	done
+	echo
+
+} | column -t
+
+echo &quot;time left: $(( 30 - `date +%s` % 30 ))s until first column expires&quot;
+</code></pre>
+<p>After that, put your version of script somewhere in your <code>$PATH</code>
+(on many dostros, <code>$PATH</code> already contains something like <code>$HOME/bin</code> or <code>$HOME/.local/bin</code>,
+so you can use it), and run it like this:</p>
+<pre><code>$ totp
+EncFS Password: 
+Google       861915  884175  782047  363025  564419  385283  593464  678348  872068  302381  188625
+Slack        704518  285105  451670  516415  791460  963257  000631  457236  873156  305617  888663
+Github       473426  496830  638103  390175  242689  421850  929121  868693  287511  046614  269728
+valid_from:  :17:00  :17:30  :18:00  :18:30  :19:00  :19:30  :20:00  :20:30  :21:00  :21:30  :22:00
+valid_till:  :17:30  :18:00  :18:30  :19:00  :19:30  :20:00  :20:30  :21:00  :21:30  :22:00  :22:30
+time remains: 12s until first column expires
+</code></pre>
+<p>Assuming that current time is 16:17:18, output reads like this:</p>
+<ul>
+<li>
+<p>for every provider, you see several OTP values - for current 30-second interval<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup> and for few in the future</p>
+</li>
+<li>
+<p>after that, <code>valid_from</code> and <code>valid_till</code> lines show timeframe when codes in each column are valid. Note that time is shown is <em>minutes</em> and <em>seconds</em>.</p>
+</li>
+<li>
+<p>last line shows how many seconds you have until first column expires</p>
+</li>
+</ul>
+<p>Feel free to use and improve this script however you want!</p>
+<section class="footnotes">
+<ol>
+<li id="fn1">
+<p>I assume you know how TOTP works? <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

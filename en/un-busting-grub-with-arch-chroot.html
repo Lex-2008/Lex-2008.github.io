@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/un-busting-grub-with-arch-chroot.html">
+<title>Un-busting GRUB with arch-chroot</title>
+<meta name="description" content="properly this time">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">Un-busting GRUB with arch-chroot</h1>
+	<small>
+		Created: <time>2023-08-19</time> &mdash; modified: <time>2023-08-19</time> &mdash;
+		tags: <a href="./#tag:linux">linux</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">properly this time</p>
+<ol>
+<li>
+<p>Boot from <a href="https://archlinux.org/download/">archiso</a> CD/DVD/USB</p>
+</li>
+<li>
+<p>Prepare dir structire - in my case, it was:</p>
+<pre><code> mount /dev/nvme0n1p6 -o subvol=@ /mnt
+ mount /dev/nvme0n1p1 /mnt/boot/efi
+</code></pre>
+<p>Hint: to find out proper patition names, you can use <code>lsblk</code> and <code>lsblk -f</code> commands.</p>
+</li>
+<li>
+<p><code>chroot</code> to it</p>
+<pre><code> arch-chroot /mnt
+</code></pre>
+</li>
+<li>
+<p>Fix your problem!</p>
+<pre><code> grub-install
+</code></pre>
+</li>
+</ol>
+<p>Also see &quot;<a href="https://www.arcolinuxd.com/10-use-the-power-of-arch-chroot-when-your-computer-crashes/">10 use the power of arch-chroot when your computer crashes</a>&quot;.</p>
+<p>Remember the <code>-o subvol=@</code> thingy to mount the proper subvol!
+Otherwise, you'll have to <code>mount --bind /mnt/@ /mnt/@</code> before the second <code>mount</code> command
+(otherwise <code>grub-install</code> won't find root filesystem in <code>/dev</code>),
+and use proper path (<code>/mnt/@</code> instead of <code>/mnt</code>) in the following commands</p>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

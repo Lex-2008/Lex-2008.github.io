@@ -1,9 +1,8 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Space 9: collision decection on grid</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Unlike sector-based one, this uses more complex logic, but simpler maps">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/space-9-collision-decection-on-grid.html">
+<title>Space 9: collision decection on grid</title>
+<meta name="description" content="Unlike sector-based one, this uses more complex logic, but simpler maps">
 <style>
 html {color-scheme: light dark}
 body {
@@ -14,13 +13,13 @@ body {
 	padding: 1ex; /* for 📱 users*/
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
-img {display:block; margin:auto; max-width:100%} img {width: 50%}
+img {display:block; margin:auto; max-width:100%} img {width: 50%; background: white}
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid #8888">Space 9: collision decection on grid</h1>
 	<small>
-		Created: <time>2017-11-21</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		Created: <time>2017-11-21</time> &mdash; modified: <time>2024-01-21</time> &mdash;
 		tags: <a href="./#tag:space3d">space3d</a>
 	</small>
 	<hr>
@@ -28,135 +27,144 @@ img {display:block; margin:auto; max-width:100%} img {width: 50%}
 <main>
 	<p class="intro">Unlike sector-based one, this uses more complex logic, but simpler maps</p>
 <p>Given that walls can be placed only on sides of a square grid, let's have a look at sample collision situation:</p>
-
-<p><img src="space-9-collision-decection-on-grid/2.svg" alt="Circle ramming a line segment" title="" /></p>
-
+<p><img src="space-9-collision-decection-on-grid/2.svg" alt="Circle ramming a line segment" /></p>
 <p>To make calculations simpler, let's mark areas where center of character is allowed to be located.
 Also, let's make these areas orthogonal.
-So we see that due to non-zero character size, around each wall there is an area of "forbidden coordinates", where center of character is forbidden to be located.
+So we see that due to non-zero character size, around each wall there is an area of &quot;forbidden coordinates&quot;, where center of character is forbidden to be located.
 Adding wall width to that, let's reserve about ¼ of cell size around each wall.
 Looking at areas where walls <em>might</em> be, we can separates whole map into regions like this:</p>
-
-<p><img src="space-9-collision-decection-on-grid/3.svg" alt="Grid with each line surrounded by two dashed lines at 25% distance each. Label &quot;A&quot; at a middle of a grid cell, label &quot;B&quot; on a line segment, label &quot;C&quot; at a line cross" title="" /></p>
-
+<p><img src="space-9-collision-decection-on-grid/3.svg" alt="Grid with each line surrounded by two dashed lines at 25% distance each. Label &quot;A&quot; at a middle of a grid cell, label &quot;B&quot; on a line segment, label &quot;C&quot; at a line cross" /></p>
 <p>Here we mark three different types of regions:</p>
-
 <ul>
-<li><p><strong>a</strong> - where there are no walls around, so no problems walking;</p></li>
-<li><p><strong>b</strong> - where there might be a single wall - either "vertical" or "horizontal";</p></li>
-<li><p><strong>c</strong> - affected by several possible walls - it's the most complex case.</p></li>
+<li>
+<p><strong>a</strong> - where there are no walls around, so no problems walking;</p>
+</li>
+<li>
+<p><strong>b</strong> - where there might be a single wall - either &quot;vertical&quot; or &quot;horizontal&quot;;</p>
+</li>
+<li>
+<p><strong>c</strong> - affected by several possible walls - it's the most complex case.</p>
+</li>
 </ul>
-
 <p>First, how do you easily find out what region you're in?
 That's pretty easy, just look at this picture:</p>
-
-<p><img src="space-9-collision-decection-on-grid/4.svg" alt="Grid lines have numbers 1,2,3,etc. Multiplied by 2, grid lines become 2,4,6,etc, and spaces between them - 1,3,5,etc" title="" /></p>
-
+<p><img src="space-9-collision-decection-on-grid/4.svg" alt="Grid lines have numbers 1,2,3,etc. Multiplied by 2, grid lines become 2,4,6,etc, and spaces between them - 1,3,5,etc" /></p>
 <p>Given that walls can lay only on grid with integer numbers,
 it's enough just to multiply coordinates by 2, and round result to nearest integer:</p>
-
 <ul>
-<li><p>if this value is even - then we're on a wall;</p></li>
-<li><p>if both x and y are odd - we're in "<strong>a</strong>" region;</p></li>
-<li><p>if one of them is odd, and another is even - we're in "<strong>b</strong>" region;</p></li>
-<li><p>if both of them are even - we're in "<strong>c</strong>" region.</p></li>
+<li>
+<p>if this value is even - then we're on a wall;</p>
+</li>
+<li>
+<p>if both x and y are odd - we're in &quot;<strong>a</strong>&quot; region;</p>
+</li>
+<li>
+<p>if one of them is odd, and another is even - we're in &quot;<strong>b</strong>&quot; region;</p>
+</li>
+<li>
+<p>if both of them are even - we're in &quot;<strong>c</strong>&quot; region.</p>
+</li>
 </ul>
-
 <p>So given that a character wants to move from coordinates <em>(x0,y0)</em> to <em>(x1,y1)</em> coordinates,
 we first find out type of region for <em>(x1,y1)</em> coordinates according to the simple maths in above paragraph,
 and then:</p>
-
 <ul>
-<li><p>if it's region "<strong>a</strong>" - character can move there;</p></li>
-<li><p>if it's region "<strong>b</strong>" - if there is a wall there, character can move only along it;</p></li>
-<li><p>if it's region "<strong>c</strong>" - this needs more careful processing, see below.</p></li>
+<li>
+<p>if it's region &quot;<strong>a</strong>&quot; - character can move there;</p>
+</li>
+<li>
+<p>if it's region &quot;<strong>b</strong>&quot; - if there is a wall there, character can move only along it;</p>
+</li>
+<li>
+<p>if it's region &quot;<strong>c</strong>&quot; - this needs more careful processing, see below.</p>
+</li>
 </ul>
-
-<p>For region "<strong>c</strong>", if there is any of 4 adjacent walls, we need to check where the character was before (coordinates <em>(x0,y0)</em>):</p>
-
-<p><img src="space-9-collision-decection-on-grid/5.svg" alt="Cross of two black lines can be approached either horizontally or diagonally" title="" /></p>
-
+<p>For region &quot;<strong>c</strong>&quot;, if there is any of 4 adjacent walls, we need to check where the character was before (coordinates <em>(x0,y0)</em>):</p>
+<p><img src="space-9-collision-decection-on-grid/5.svg" alt="Cross of two black lines can be approached either horizontally or diagonally" /></p>
 <ul>
-<li><p>if in region "<strong>b</strong>" (obviously, there was no wall there) - character can move only in the direction opposite to that wall direction
-(if character moves from left, as on the picture, he is allowed to move only up or down);</p></li>
-<li><p>if in region "<strong>a</strong>", then it's a corner case, read further.</p></li>
+<li>
+<p>if in region &quot;<strong>b</strong>&quot; (obviously, there was no wall there) - character can move only in the direction opposite to that wall direction
+(if character moves from left, as on the picture, he is allowed to move only up or down);</p>
+</li>
+<li>
+<p>if in region &quot;<strong>a</strong>&quot;, then it's a corner case, read further.</p>
+</li>
 </ul>
-
-<p>When moving from region "<strong>a</strong>" to "<strong>c</strong>", then we need to check two nearest walls - </p>
-
+<p>When moving from region &quot;<strong>a</strong>&quot; to &quot;<strong>c</strong>&quot;, then we need to check two nearest walls -</p>
 <ul>
-<li><p>if any of them exist, we're forbidden to move in that direction;</p></li>
-<li><p>If, however, none of these walls is there - it means that some other of walls exist.
+<li>
+<p>if any of them exist, we're forbidden to move in that direction;</p>
+</li>
+<li>
+<p>If, however, none of these walls is there - it means that some other of walls exist.
 In this case we need to forbid moving in one of directions, and it doesn't really matter which,
-so you can chose them randomly :)</p></li>
+so you can chose them randomly :)</p>
+</li>
 </ul>
-
 <p>Sample code:</p>
-
 <pre><code>function pmove(old_x, old_y, new_x, new_y, walls_h, walls_v){
-    var new_x_2x=Math.round(new_x*2);
-    var new_y_2x=Math.round(new_y*2);
-    var on_v_wall=(new_x_2x % 2 == 0);
-    var on_h_wall=(new_y_2x % 2 == 0);
-    if(on_h_wall &amp;&amp; on_v_wall){
-        // we're moving into area "c" - hard case
-        if(walls_h[new_y_2x/2][(new_x_2x)/2] || walls_h[new_y_2x/2][(new_x_2x)/2-1] ||
-           walls_v[(new_y_2x)/2][new_x_2x/2] || walls_v[(new_y_2x)/2-1][new_x_2x/2]){
-            // and one of walls is here
-            var old_x_2x=Math.round(old_x*2);
-            var old_y_2x=Math.round(old_y*2);
-            if(old_y_2x % 2 == 0){
-                // we're moving from "b" area, horizontally
-                // hence, block horizontal movement - only vertical allowed
-                new_x=old_x;
-            } else if(old_x_2x % 2 == 0){
-                // same, but opposite
-                new_y=old_y;
-            } else {
-                // we're moving from "a" area - corner case
-                // new_x=old_x;
-                // new_y=old_y;
-                var changed=false;
-                if((walls_h[new_y_2x/2][(new_x_2x)/2] &amp;&amp; old_x_2x&gt;new_x_2x) ||
-                   (walls_h[new_y_2x/2][(new_x_2x)/2-1] &amp;&amp; old_x_2x&lt;new_x_2x)) {
-                    // nearest horizontal wall is here
-                    // forbid vertical movement
-                    new_y=old_y;
-                    changed=true;
-                }
-                if((walls_v[(new_y_2x)/2][new_x_2x/2] &amp;&amp; old_y_2x&gt;new_y_2x) ||
-                   (walls_v[(new_y_2x)/2-1][new_x_2x/2] &amp;&amp; old_y_2x&lt;new_y_2x)){
-                    // same, but opposite
-                    new_x=old_x;
-                    changed=true;
-                }
-                if(!changed){
-                    // we must change something to prevent walking into the wall
-                    if(Math.random()&lt;0.5){
-                        new_x=old_x;
-                    } else {
-                        new_y=old_y;
-                    }
-                }
-            }
-        }
-    } else if(on_h_wall){
-        // we're moving into area "b"
-        if(walls_h[new_y_2x/2][(new_x_2x-1)/2]){
-            // there's a  horizontal wall ahead
-            // forbid horizontal movement
-            new_y=old_y;
-        }
-    } else if(on_v_wall){
-        if(walls_v[(new_y_2x-1)/2][new_x_2x/2]){
-            // same, but opposite
-            new_x=old_x;
-        }
-    }
-    return [new_x, new_y];
+	var new_x_2x=Math.round(new_x*2);
+	var new_y_2x=Math.round(new_y*2);
+	var on_v_wall=(new_x_2x % 2 == 0);
+	var on_h_wall=(new_y_2x % 2 == 0);
+	if(on_h_wall &amp;&amp; on_v_wall){
+		// we're moving into area &quot;c&quot; - hard case
+		if(walls_h[new_y_2x/2][(new_x_2x)/2] || walls_h[new_y_2x/2][(new_x_2x)/2-1] ||
+		   walls_v[(new_y_2x)/2][new_x_2x/2] || walls_v[(new_y_2x)/2-1][new_x_2x/2]){
+			// and one of walls is here
+			var old_x_2x=Math.round(old_x*2);
+			var old_y_2x=Math.round(old_y*2);
+			if(old_y_2x % 2 == 0){
+				// we're moving from &quot;b&quot; area, horizontally
+				// hence, block horizontal movement - only vertical allowed
+				new_x=old_x;
+			} else if(old_x_2x % 2 == 0){
+				// same, but opposite
+				new_y=old_y;
+			} else {
+				// we're moving from &quot;a&quot; area - corner case
+				// new_x=old_x;
+				// new_y=old_y;
+				var changed=false;
+				if((walls_h[new_y_2x/2][(new_x_2x)/2] &amp;&amp; old_x_2x&gt;new_x_2x) ||
+				   (walls_h[new_y_2x/2][(new_x_2x)/2-1] &amp;&amp; old_x_2x&lt;new_x_2x)) {
+					// nearest horizontal wall is here
+					// forbid vertical movement
+					new_y=old_y;
+					changed=true;
+				}
+				if((walls_v[(new_y_2x)/2][new_x_2x/2] &amp;&amp; old_y_2x&gt;new_y_2x) ||
+				   (walls_v[(new_y_2x)/2-1][new_x_2x/2] &amp;&amp; old_y_2x&lt;new_y_2x)){
+					// same, but opposite
+					new_x=old_x;
+					changed=true;
+				}
+				if(!changed){
+					// we must change something to prevent walking into the wall
+					if(Math.random()&lt;0.5){
+						new_x=old_x;
+					} else {
+						new_y=old_y;
+					}
+				}
+			}
+		}
+	} else if(on_h_wall){
+		// we're moving into area &quot;b&quot;
+		if(walls_h[new_y_2x/2][(new_x_2x-1)/2]){
+			// there's a  horizontal wall ahead
+			// forbid horizontal movement
+			new_y=old_y;
+		}
+	} else if(on_v_wall){
+		if(walls_v[(new_y_2x-1)/2][new_x_2x/2]){
+			// same, but opposite
+			new_x=old_x;
+		}
+	}
+	return [new_x, new_y];
 }
 </code></pre>
-
 <p>Illustrations drawn using <a href="http://www.drawsvg.org/drawsvg.html">drawsvg</a>.</p>
 </main>
 <footer style="text-align: center">

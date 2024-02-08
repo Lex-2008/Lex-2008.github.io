@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/space2d3-1-a-bigger-game-about-flat-space.html">
+<title>space2d3 1: a bigger game about flat space</title>
+<meta name="description" content="Idea it to make a mix of space1d and space2d2 games (I'm not very good at naming things)">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+  fieldset { border-color: ButtonBorder }
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">space2d3 1: a bigger game about flat space</h1>
+	<small>
+		Created: <time>2023-12-25</time> &mdash; modified: <time>2023-12-25</time> &mdash;
+		tags: <a href="./#tag:space2d3">space2d3</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Idea it to make a mix of space1d and space2d2 games (I'm not very good at naming things)</p>
+<p>You will be able to travel from planet to planet, buy and sell stuff (or, rather, exchange / barter things) - like in <a href="http://alexey.shpakovsky.ru/en/#tag:space2d2">space2d2</a> game,
+but also have components and fight other ships - like in <a href="http://alexey.shpakovsky.ru/en/#tag:space1d">space1d</a> game!</p>
+<p>Biggest change will be probably ability to have a two-dimensional ship.
+But basically it's just several vertical &quot;rows&quot; of components,
+connected together by a single bridge called &quot;passage&quot;.</p>
+<p>Below you can have a look at some random ships,
+also save and load them to your localStorage.
+Each cell has coordinates, like <code>A1</code>,
+and can be either Cargo Bay (<code>C</code>),
+or a Ballast (<code>B</code>).
+Ballast is added automatically to counter-weight components on the other side of the ship
+(that's why ships look symmetrical and nice).</p>
+<div>
+	<fieldset>
+		<legend>Your Ship</legend>
+		<div>
+			<button id="save">Save Ship</button>
+			<button id="random">Generate Random Ship</button>
+			<button id="load">Load Ship</button>
+		</div>
+		<canvas id="myCanvas" width="500" height="500" style="background:black;border:2px groove ButtonBorder;"></canvas>
+	</fieldset>
+	<script src="space2d3-1-a-bigger-game-about-flat-space.js"></script>
+<div>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

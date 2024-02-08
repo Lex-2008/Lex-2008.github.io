@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/preserving-your-linux-laptop-battery-health.html">
+<title>Preserving your Linux laptop battery health</title>
+<meta name="description" content="by limiting its charge to 90%">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">Preserving your Linux laptop battery health</h1>
+	<small>
+		Created: <time>2023-11-05</time> &mdash; modified: <time>2023-11-05</time> &mdash;
+		tags: <a href="./#tag:linux">linux</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">by limiting its charge to 90%</p>
+<p>If you, like me, use KDE, then in System Settings -&gt; Power Management -&gt; Advanced Power Settings you might've noticed an option to stop charging your battery when it reaches some percentage (and also to start charging only once below some other percentage).
+Personally, I've set one of them to 90%, and another one - to 80%.</p>
+<p>However, you might've noticed that this setting, while working nicely, seems to be not preserved over reboots.
+There is a <a href="https://forum.manjaro.org/t/system-settings-advanced-power-settings-charge-limit-is-not-persisting-after-machine-is-shut-down/116560/12">closed discussion on Manjaro forums</a> and <a href="https://wiki.archlinux.org/title/Laptop/ASUS">an article on ArchWiki</a> about it.</p>
+<p>From there, you might find a workaround: just make a systemd service to set these settings for you after reboot!</p>
+<ol>
+<li>
+<p>Create a file <code>/etc/systemd/system/battery-charge-threshold.service</code> with content like this:</p>
+<pre><code> [Unit]
+ Description=Set the battery charge threshold
+ After=multi-user.target
+ StartLimitBurst=0
+
+ [Service]
+ Type=oneshot
+ Restart=on-failure
+ ExecStart=/bin/bash -c 'echo 90 &gt; /sys/class/power_supply/BAT0/charge_control_end_threshold &amp;&amp; echo 80 &gt; /sys/class/power_supply/BAT0/charge_control_start_threshold'
+
+ [Install]
+ WantedBy=multi-user.target
+</code></pre>
+</li>
+<li>
+<p>Run the following commands to enable it:</p>
+<pre><code> sudo chmod 644 /etc/systemd/system/battery-charge-threshold.service
+ sudo systemctl daemon-reload
+ sudo systemctl enable battery-charge-threshold.service
+</code></pre>
+</li>
+<li>
+<p>Enjoy extended life of your laptop battery... maybe... for the price of shorter &quot;laptop life from one charge&quot;, hehe</p>
+</li>
+</ol>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

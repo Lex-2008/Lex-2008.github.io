@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/space2d3-7-colors-and-interceptions.html">
+<title>space2d3 7: colors and interceptions</title>
+<meta name="description" content="Now you can intercept other ships! They can intercept you, and each others, too!">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">space2d3 7: colors and interceptions</h1>
+	<small>
+		Created: <time>2024-01-21</time> &mdash; modified: <time>2024-01-21</time> &mdash;
+		tags: <a href="./#tag:space2d3">space2d3</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Now you can intercept other ships! They can intercept you, and each others, too!</p>
+<p>You can also see <strong>names</strong> of all AI-controlled ships, and the main menu now also has an &quot;Acknowledgements&quot; section, which shows you where I got them from.</p>
+<p>All ships now also have <strong>colors</strong>, which is <em>outside</em> &quot;paint&quot; of each ship.
+<em>Inside</em> of the ship it's a shade of gray, which is at a distance of 50% luminosity in <em>L*a*b</em> space from &quot;main&quot; ship color.
+If main color is brighter than a 50% gray - then inside it's dark, and vice versa,
+but the brighter the outside color is - the brighter it is inside, too.
+You can see it by starting new game(s) -
+both your ship (if you're starting a hard mode)
+and base you're docked to (it's also kind of a ship)
+have &quot;primary&quot; and &quot;inside&quot; colors that somehow match.</p>
+<p>Aaand the next exciting feature - now both AI and player ships can intercept others!
+For now it's free, in future it will use fuel and require the ship to have a working engine(s).</p>
+<p>There is an exception, though - you can't intercept a ship which currently is moving to intercept another one.
+Original idea behind this is that for two ships to fight or trade,
+they need to align their speeds and travel in the same direction, in parallel, for some time.
+But in case of a fight, one of the ships might lose all its engines (or fuel),
+and won't be able to change its course after.
+It is kinda okay if both ships are moving towards a planet already
+(after all, ships can somehow move from one planet to another even without engines?),
+but such ship will be doomed if a fight happens when two ships are flying
+<em>towards</em> an interception point.</p>
+<p>But I now think that maybe it's not such a good idea:
+I don't like ships flying next to each other for extended period of time,
+so maybe after a fight one (intercepting) ship should plot a course to a random nearest planet, instead?</p>
+<p>Also, to make it easier to intercept other ships,
+I've (temporary) disabled radar limits -
+i.e. everyone can see anything. :)
+Also, AI ships are very eager to intercept others -
+this is <strong>very</strong> good for debugging purposes,
+but will be tuned down in future.</p>
+<p>I also changed &quot;human&quot; symbol from letter A
+(which after some time started looking like a fish head for me)
+to letter T
+(which is like a top-down view on a human with a very long nose).</p>
+<p>The localStorage slot where the game is auto-saved was also changed
+(I encountered some issues during development,
+and don't want to bother readers of my blog with debugging them).
+If you want to port your old savegame to the new one -
+execute the following command in your JS Console:</p>
+<pre><code>localStorage.space2d3_3=localStorage.space2d3_2
+</code></pre>
+<p>But don't hold me responsible for any issues it might cause :)
+And to clear localStorage - either use your browser tools, or the following command:</p>
+<pre><code>localStorage.clear()
+</code></pre>
+<p>To play the game in its current state, <a href="space2d3-7-colors-and-interceptions/">click this link</a> or look into the iframe below:</p>
+<div>
+<iframe src="space2d3-7-colors-and-interceptions/" width="682" height="500"></iframe>
+</div>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

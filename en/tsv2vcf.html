@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/tsv2vcf.html">
+<title>csv2vcf (or rather tsv2vcf)</title>
+<meta name="description" content="If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+.footnotes {border-top: 1px solid #8888;font-size:smaller} 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">csv2vcf (or rather tsv2vcf)</h1>
+	<small>
+		Created: <time>2022-06-20</time> &mdash; modified: <time>2023-09-27</time> &mdash;
+		tags: <a href="./#tag:bash">bash</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy</p>
+<p>First, export spreadsheet to a <em>tab-separated file</em> (TSV)<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup>.</p>
+<p>Second, decide what fields you are interested in.
+To make <code>sed</code> script easier, consider limiting yourself to only 9 fields in source table
+(you can juggle them as much as you want in the resulting VCF).</p>
+<p>Third, amend the following script:</p>
+<pre><code>#!/bin/sh
+
+sed='s|([^\t]*)\t([^\t]*)\t?([^\t]*)\t?([^\t]*)\t?([^\t]*)\t?([^\t]*)\t?([^\t]*)\t?([^\t]*)\t?([^\t]*)|\
+BEGIN:VCARD\
+VERSION:3.0\
+FN:\2 \1\
+N:\1;\2;;;\
+EMAIL;TYPE=INTERNET;TYPE=WORK:\3\
+ADR;TYPE=home:;;\4;;;;\
+TEL:\5\
+PHOTO;TYPE=JPEG;VALUE=URI:\6\
+BDAY:2023-\7-\8\
+EMAIL;TYPE=INTERNET;TYPE=HOME:\9\
+CATEGORIES:Northern.Tech\
+END:VCARD|
+s|: *|:|g
+s|TEL:00|TEL:+|
+s|TEL:([^+])|TEL:+\1|
+s|TEL:\+\(\+|TEL:(+|
+s|TEL:([^/\n]*) */[^\n]*|TEL:\1|
+s|BDAY:2023--\n||
+s|BDAY:2023-(.)-|BDAY:2023-0\1-|
+s|BDAY:2023-(..)-(.)\n|BDAY:2023-\1-0\2\n|
+s|ADR;TYPE=home:;;;;;;\n||
+s|TEL:.\n||
+s|PHOTO;TYPE=JPEG;VALUE=URI:\n||
+s|EMAIL;TYPE=INTERNET;TYPE=HOME:\n||
+'
+
+n=1
+rm -f path/to/addressbook/*.vcf
+sed '1d;2d' file.tsv | cut -f 1-5,18,26-28 | while read -r line; do
+	echo &quot;=====$n=====&quot;
+	echo &quot;$line&quot; | sed -r &quot;$sed&quot; | tee &quot;path/to/addressbook/$n.vcf&quot;
+	n=$((n+1))
+done
+</code></pre>
+<p>Note how sed script takes care of various phone number formattings, and removes empty fields!
+Remember to change path to file (<code>file.tsv</code>) and the place where you mounted your addressbook (read about it a bit later)! For example, in case of Baikal DAV server, it's something like <code>~/mountpoint/addressbooks/{user}/{addressbook}/</code>.
+Also note that the script deletes everything in the addressbook -
+it's good for updating the addressbook by re-running it from time to time,
+but remember not to store any other contacts in the same addressbook!</p>
+<p>Run it like this:</p>
+<pre><code>$ sudo mount.davfs https://dav.server/ ~/mountpoint
+$ sudo sh script.sh
+</code></pre>
+<p>In case of Baikal, <code>https://dav.server/</code> is <code>https://baikal.server/dav.php</code></p>
+<section class="footnotes">
+<ol>
+<li id="fn1">
+<p>TSV is like CSV (Comma-separated file), but easier - instead of using commas to separate values, it uses tab characters, so doesn't have a problem with escaping the separator character. <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

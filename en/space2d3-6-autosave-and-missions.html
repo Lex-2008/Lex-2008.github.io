@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/space2d3-6-autosave-and-missions.html">
+<title>space2d3 6: autosave and missions</title>
+<meta name="description" content="Now your game doesn't disappear as soon as you reload the page, and also you can complete missions!">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">space2d3 6: autosave and missions</h1>
+	<small>
+		Created: <time>2024-01-06</time> &mdash; modified: <time>2024-01-07</time> &mdash;
+		tags: <a href="./#tag:space2d3">space2d3</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Now your game doesn't disappear as soon as you reload the page, and also you can complete missions!</p>
+<p>On the first page load, you're presented with a choice:
+you can either start with a small ship with only one cargo bay,
+or with a bigger ship with 15 random components.</p>
+<p>After that, game autosaves into your browser localStorage each time you arrive at the station
+(including right from the start),
+and is automatically loaded each time you refresh or open the page anew.</p>
+<p>To start a new game, use the <em><a href="https://graphemica.com/%E2%98%B0">trigram for heaven</a></em>
+(also sometimes called &quot;hamburger&quot;) ☰ menu in top-left corner.</p>
+<p>Bases (stations) now also have a &quot;Mission Computer&quot; component, which offers you two kind of missions:
+either deliver &quot;mission boxes&quot; to a random planet in same star system,
+or buy a component for 20 units of planet's desired resource.</p>
+<p>So now you can build your ship as big as you want!
+Next step is to add a way to decrease your ship size,
+also known as &quot;fighting with other ships&quot; :-)</p>
+<p>There are some bugs, though: mission rewards are set randomly every time you arrive to a planet,
+but unfortunately it happens <em>after</em> the game is loaded, so they are not preserved between game loads.
+As a result, you can easily keep refreshing the page until you get the reward you wanted!
+That's unfortunate.</p>
+<p>To play the game in its current state, <a href="space2d3-6-autosave-and-missions/">click this link</a> or look into the iframe below:</p>
+<div>
+<iframe src="space2d3-6-autosave-and-missions/" width="682" height="500"></iframe>
+</div>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

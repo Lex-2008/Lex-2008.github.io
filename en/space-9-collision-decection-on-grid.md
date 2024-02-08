@@ -1,10 +1,10 @@
 title=Space 9: collision decection on grid
-PROCESSOR=Markdown.pl
 intro=Unlike sector-based one, this uses more complex logic, but simpler maps
 tags=Space3D
 styles=img
-style=img {width: 50%}
+style=img {width: 50%; background: white}
 created=2017-11-21
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 
 Given that walls can be placed only on sides of a square grid, let's have a look at sample collision situation:
 

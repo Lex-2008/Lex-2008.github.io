@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/expand-star-in-bash-prompt.html">
+<title>expand * in bash prompt</title>
+<meta name="description" content="TL;DR: ls &lt;Esc&gt;*">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">expand * in bash prompt</h1>
+	<small>
+		Created: <time>2024-01-19</time> &mdash; modified: <time>2024-01-19</time> &mdash;
+		tags: <a href="./#tag:bash">bash</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro"><b>TL;DR:</b> <code>ls &lt;Esc&gt;*</code></p>
+<p>A quick note: if you can't simply are too lazy to build proper expressions to include several files while excluding some others on the <em>interactive</em> command prompt, you can simply expand <code>*</code> online.
+For that, prefix it with <code>&lt;Esc&gt;</code> button press.
+Just note that it works only when prefixed with some command, for example <code>ls</code>, and not with an empty command prompt.
+It also works with prefixes, like this:</p>
+<pre><code>ls /b&lt;Esc&gt;* -&gt; ls /bin /boot
+</code></pre>
+<p>But I'm not sure how to make it work with suffixes, like <code>ls *.txt</code>.</p>
+<p>If someone can find where I've read about it, or some kind of documentation - I'll be happy to link it from here!</p>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>
