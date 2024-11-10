@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/change-konsole-theme-from-commandline.html">
+<title>Change Konsole theme from command-line</title>
+<meta name="description" content="If you happen to often switch KDE desktop themes and work in konsole (KDE terminal emulator) a lot, you might want to switch konsole color schemes, too. Instead of messing with Manage Profiles dialog and changing profile for each open konsole tab every time, you might want to automate it a bit">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">Change Konsole theme from command-line</h1>
+	<small>
+		Created: <time>2024-07-30</time> &mdash; modified: <time>2024-08-13</time> &mdash;
+		tags: <a href="./#tag:linux">linux</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">If you happen to often switch KDE desktop themes and work in konsole (KDE terminal emulator) a lot, you might want to switch konsole color schemes, too. Instead of messing with "Manage Profiles" dialog and changing profile for each open konsole tab every time, you might want to automate it a bit</p>
+<p>Unfortunately, it seems you can't easily change <em>color schemes</em> assigned to profiles,
+but you can switch entire profiles
+(color scheme is only a part of profile, other options that are stored in profile include size of scrollback, default shell, keybindings, and many others).
+That's better than nothing!</p>
+<p>One user recently <a href="https://discuss.kde.org/t/how-do-i-make-konsole-follow-system-theme/933/10">posted</a> a working script which automates switching active profile: both default profile which is active on new konsole tabs/windows, and walking through all open konsole tabs/windows and changing profile there, too.
+Nice!</p>
+<p>My (slightly modified) version is below:</p>
+<pre><code>#!/bin/sh
+# Change Konsole color scheme
+# from https://discuss.kde.org/t/how-do-i-make-konsole-follow-system-theme/933/10
+
+PROFILE_NAME=&quot;${1:-FALLBACK}&quot;
+
+## Change Konsole default profile color scheme
+kwriteconfig6 --file konsolerc --group &quot;Desktop Entry&quot; --key DefaultProfile &quot;$PROFILE_NAME.profile&quot;
+
+## slight delay to compensate for theme switching animation
+sleep 0.3
+
+## Apply the new Konsole profile to all open Konsole windows
+### Get list of all Konsole services
+KONSOLE_SERVICES=$(qdbus org.kde.konsole*)
+
+### Apply the new profile to all windows and their sessions/tabs
+for service in $KONSOLE_SERVICES; do
+	SESSIONS=$(qdbus $service | grep -oP '/Sessions/\d+')
+	for session in $SESSIONS; do
+		qdbus $service $session setProfile &quot;$PROFILE_NAME&quot;
+	done
+done
+</code></pre>
+<p>Run it, passing it a single argument: name of profile you want to use.
+Use Konsole &quot;Manage Profiles&quot; dialog to create new profiles.</p>
+<p>For example, save it in a <code>kterminal-profile-change</code> file somewhere on your <code>$PATH</code>,
+and
+create two profiles in konsole,
+call them &quot;light&quot; and &quot;dark&quot;,
+then
+install <a href="https://store.kde.org/p/1804745">Day/Night Switcher</a> applet,
+and paste the following commands to be executed on switching color schemes to bright and dark:</p>
+<pre><code>kterminal-profile-change light
+</code></pre>
+<pre><code>kterminal-profile-change dark
+</code></pre>
+<p>I also like changing icons to &quot;weather-clear&quot; and &quot;weather-clear-night&quot;,
+as suggested by one of <a href="https://store.kde.org/p/1804745#product-comments">comments</a>.</p>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

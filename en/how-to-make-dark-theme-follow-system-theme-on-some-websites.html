@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/how-to-make-dark-theme-follow-system-theme-on-some-websites.html">
+<title>How to make dark theme follow system theme on some websites</title>
+<meta name="description" content="If you happen to often switch between dark and light color themes on your system, you might be lucky enough that your browser picks it up properly and conveys to web sites">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">How to make dark theme follow system theme on some websites</h1>
+	<small>
+		Created: <time>2024-08-06</time> &mdash; modified: <time>2024-08-14</time> &mdash;
+		tags: <a href="./#tag:javascript">javascript</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">If you happen to often switch between "dark" and "light" color themes on your system, you might be lucky enough that your browser picks it up properly and conveys to web sites</p>
+<p>Some web sites (like for example this one, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">mdn</a> and many others) have &quot;light&quot; and &quot;dark&quot; color schemes and automatically change it as soon as broweser reports system color scheme change. Nice!</p>
+<p>Other web sites (like for example <a href="https://news.ycombinator.com/">Hacker News</a>, <a href="https://squirrelmail.org/">SquirrelMail</a>, <a href="https://cmake.org/cmake/help/latest/">CMake documentation</a>, and many others) don't have a dark theme at all.
+Boo!
+You might consider using <a href="https://darkreader.org/">Dark Reader</a> to give them a dark theme.</p>
+<p>But there is a third kind of web sites: which do have both &quot;light&quot; and &quot;dark&quot; themes, but don't switch them automatically.
+To help them, you usually can write some <a href="https://en.wikipedia.org/wiki/Userscript">userscript</a> which will automate theme switching.
+This page is a collection of such userscripts.
+To use them, simply install <a href="https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld">User JavaScript and CSS</a> extension for Chrome.
+You might also import <a href="how-to-make-dark-theme-follow-system-theme-on-some-websites.json">this file</a> which has all these userscripts enabled, into the extension.</p>
+<h2>Slack</h2>
+<p>Has an option for light/dark color scheme to follow system not on Linux.
+On Linux, you can use this script:</p>
+<pre><code>function setTheme(name) {
+	console.warn(name);
+	document.querySelector('button[data-qa=&quot;user-button&quot;]').click();
+	Array.from(document.querySelectorAll('button[data-qa=&quot;menu_item_button&quot;]')).at(-2).click();
+	setTimeout(() =&gt; {
+		document.getElementById('themes').click();
+		document.querySelector('input[name=&quot;theme-mode-radio&quot;][value=&quot;' + name + '&quot;]').click();
+		document.querySelector('button[data-qa=&quot;sk_close_modal_button&quot;]').click();
+	}, 0);
+}
+
+const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+
+const setColorScheme = (e) =&gt; {
+	console.warn('setColorScheme');
+	if (e.matches) {
+		setTheme('dark');
+	} else {
+		setTheme('light');
+	}
+};
+
+colorSchemeQueryList.addEventListener('change', setColorScheme);
+</code></pre>
+<h2>Google Search</h2>
+<p>Detects color scheme only on page load.
+Hence, reload the page on color scheme change:</p>
+<pre><code>const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+
+colorSchemeQueryList.addEventListener('change', () =&gt; {
+	location.reload();
+});
+</code></pre>
+<h2>Google Mail</h2>
+<pre><code>let items = [];
+function clickr(n) {
+	const item = document.querySelector(items[n]);
+	if (!item)
+		return setTimeout(() =&gt; {clickr(n);}, 10);
+	item.click();
+	if (n + 1 &lt; items.length) clickr(n + 1);
+}
+
+function setTheme(name) {
+	console.warn(name);
+	items = [
+		'a[aria-label=&quot;Settings&quot;]',
+		'button[aria-label=&quot;View all&quot;]',
+		'div[aria-label=&quot;' + name + '&quot;]',
+		'span[aria-label=&quot;Close&quot;]',
+	];
+	clickr(0);
+}
+
+const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+
+const setColorScheme = (e) =&gt; {
+	console.warn('setColorScheme');
+	if (e.matches) {
+		setTheme('Dark');
+	} else {
+		setTheme('Default');
+	}
+};
+
+colorSchemeQueryList.addEventListener('change', setColorScheme);
+</code></pre>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

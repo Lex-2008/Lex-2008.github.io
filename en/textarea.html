@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/textarea.html">
+<title>textarea</title>
+<meta name="description" content="If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching notepad.exe you might want to type data:text/html,&lt;textarea&gt; in the address bar">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ textarea{width:100%}
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">textarea</h1>
+	<small>
+		Created: <time>2024-08-13</time> &mdash; modified: <time>2024-08-14</time> &mdash;
+		tags: <a href="./#tag:html">html</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching <tt>notepad.exe</tt> you might want to type <tt style="white-space: nowrap">data:text/html,&lt;textarea&gt;</tt> in the address bar</p>
+<p>Alternatively, here's a slightly more advanced version:</p>
+<pre><code>data:text/html,&lt;style&gt;*{width:100%;height:100%;margin:0;color-scheme:light dark}&lt;/style&gt;&lt;textarea&gt;
+</code></pre>
+<p>It fills whole page and also supports dark mode.</p>
+<p>You can add this link to bookmarks (note that it won't open if you click it, so you need to be creative, for example drag-and-drop it to your bookmark bar): <a href="data:text/html,%3Cstyle%3E*%7Bwidth:100%;height:100%;margin:0;color-scheme:light%20dark%7D%3C/style%3E%3Ctextarea%3E">textarea</a></p>
+<p>Alternatively, you can as well simply use textarea on this page:</p>
+<p><textarea rows=25></textarea></p>
+<p>It totally doesn't send me everything you type, but do you trust me?</p>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

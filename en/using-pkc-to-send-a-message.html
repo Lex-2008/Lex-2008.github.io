@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/using-pkc-to-send-a-message.html">
+<title>using public key cryptography to send a message</title>
+<meta name="description" content="How to send a message to your friend over insecure lines and be sure that only they can read it">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">using public key cryptography to send a message</h1>
+	<small>
+		Created: <time>2024-10-29</time> &mdash; modified: <time>2024-11-08</time> &mdash;
+		tags: <a href="./#tag:security">security</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">How to send a message to your friend over insecure lines and be sure that only they can read it</p>
+<p>Very easy! If you both have Linux or Mac environment and can use command line:</p>
+<ol>
+<li>
+<p>The person <strong>receiving</strong> the message generates public and private keys, like this:</p>
+<pre><code> openssl genpkey -out key.priv -outpubkey key.pub -algorithm RSA
+</code></pre>
+<p>Then they send the <em>public</em> key (<code>key.pub</code>) to the person <strong>sending</strong> the message, and keep the <em>private</em> key (<code>key.priv</code>) to themselves for step 3.</p>
+</li>
+<li>
+<p>The person <strong>sending</strong> the message encrypts it like this:</p>
+<pre><code> openssl pkeyutl -encrypt -inkey key.pub -pubin -in file.txt -out file.rsa
+</code></pre>
+<p>Where <code>file.txt</code> contains the message you want to encrypt.
+If you omit the <code>-in file.txt</code> part, you can simply type the message in console.
+This command will create <code>file.rsa</code> file with encrypted message.
+Send it to the person <strong>receiving</strong> the message.</p>
+</li>
+<li>
+<p>The person <strong>receiving</strong> the message can decrypt it using the private key generated on step 1, like this:</p>
+<pre><code> openssl pkeyutl -decrypt -inkey key.priv -in file.rsa # -out file.txt
+</code></pre>
+<p>Note that if you add <code>-out file.txt</code> part, then the secret message will be saved in <code>file.txt</code>, otherwise you'll see it on screen.</p>
+</li>
+</ol>
+<p><a href="https://gist.github.com/thinkerbot/706137">Source</a> which uses older openssl commands</p>
+<hr />
+<p>Alternatively, if some of you don't have Linux or Mac, or are not very comfortable with command line, you could simply use a web browser: <a href="https://lex-2008.github.io/pkc/">https://lex-2008.github.io/pkc/</a></p>
+<hr />
+<p>Also note that it's best to avoid encrypting big files using asymmetric cyphers.
+If you need to transfer some big files - it's better to put them in a password-protected archive, and use asymmetric encryption to share only the password.</p>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/git-split-commit.html">
+<title>git split commit</title>
+<meta name="description" content="TL;DR: git rebase -i, edit, git reset HEAD~ and create new commits">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">git split commit</h1>
+	<small>
+		Created: <time>2024-06-25</time> &mdash; modified: <time>2024-06-26</time> &mdash;
+		tags: <a href="./#tag:git">git</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">TL;DR: <tt>git rebase -i</tt>, <tt>e</tt>dit, <tt>git reset HEAD~</tt> and create new commits</p>
+<p>When you squashed too much and want to split a git commit into several ones.
+More wordy explanation <a href="https://stackoverflow.com/questions/6217156/break-a-previous-commit-into-multiple-commits/6217314#6217314">on StackOverflow</a>, shorter version here:</p>
+<ol>
+<li>
+<p>Use <code>git rebase -i ...</code></p>
+</li>
+<li>
+<p>Mark desired commit to be <code>e</code>dited</p>
+</li>
+<li>
+<p>Rebase will now pause <em>after</em> this commit</p>
+</li>
+<li>
+<p>Run <code>git reset HEAD~</code> to cancel the commit</p>
+</li>
+<li>
+<p>Use your favourite tool(s) to create new commits</p>
+</li>
+<li>
+<p>When finished, run <code>git rebase --continue</code></p>
+</li>
+</ol>
+<p>Note that you should commit all changes!</p>
+<p>Also note that this approach deletes old commit and creates new ones, so date and author will be reset.</p>
+<hr />
+<p>Alternatively, to move a change from a commit <em>into a new</em> commit (for example, adding a sub-feature to a new feature), you can:</p>
+<ol>
+<li>
+<p>Use <code>git rebase -i ...</code></p>
+</li>
+<li>
+<p>Mark desired commit to be <code>e</code>dited</p>
+</li>
+<li>
+<p>Rebase will now pause <em>after</em> this commit</p>
+</li>
+<li>
+<p>Edit file(s) to <strong>reverse</strong> the change (in our example, remove the sub-feature)</p>
+</li>
+<li>
+<p>Create a (temporary) commit, call it &quot;reverse sub-feature&quot;, for example</p>
+</li>
+<li>
+<p>Immediately after that, run <code>git revert HEAD</code></p>
+</li>
+<li>
+<p>It will create a new commit, and call it &quot;Revert: reverse sub-feature&quot; - cancel the double-negative and reword it to &quot;add sub-feature&quot;</p>
+</li>
+<li>
+<p>Run <code>git rebase --continue</code> to finish the rebase</p>
+</li>
+<li>
+<p>Use <code>git rebase -i ...</code> <em>again</em>, to fixup your temporary commit (&quot;reverse sub-feature&quot; in our example) into the main commit</p>
+</li>
+</ol>
+<p>And then you'll have your main commit <em>without</em> the sub-feature, followed by a commit adding the sub-feature - exactly what you wanted!</p>
+<hr />
+<p>Also, as a bonus - one-liner to create individual commits for each modified file:</p>
+<pre><code>git status --porcelain | sed 's/^...//' | xargs -I% sh -c 'git add %; git commit -m &quot;cleanup %&quot; '
+</code></pre>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

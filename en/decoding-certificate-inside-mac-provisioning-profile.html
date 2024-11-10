@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/decoding-certificate-inside-mac-provisioning-profile.html">
+<title>Decoding certificate inside Mac provisioning profile</title>
+<meta name="description" content="Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile XXX doesn't include signing certificate YYY">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">Decoding certificate inside Mac provisioning profile</h1>
+	<small>
+		Created: <time>2024-10-18</time> &mdash; modified: <time>2024-10-21</time> &mdash;
+		tags: <a href="./#tag:mac">mac</a> <a href="./#tag:bash">bash</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile "XXX" doesn't include signing certificate "YYY"</p>
+<pre><code>test -z &quot;$1&quot; &amp;&amp; echo &quot;no filename?&quot; &amp;&amp; exit 1
+
+name=&quot;${1%.*}&quot;
+set -ex
+
+security cms -D -i &quot;$1&quot; -o &quot;$name.plist&quot;
+plutil -extract DeveloperCertificates xml1 -o - &quot;$name.plist&quot;
+plutil -extract DeveloperCertificates.0 raw -o - &quot;$name.plist&quot; | base64 -D &gt;&quot;$name.cert0.cer&quot;
+certtool d &quot;$name.cert0.cer&quot; &gt;&quot;$name.cert0.txt&quot;
+grep Common &quot;$name.cert0.txt&quot;
+</code></pre>
+<p>Pass it a path to <code>*.provisionprofile</code> file, and it will create some more files next to it, and print some info at the end.</p>
+<p>Note the blob of XML returned by <code>plutil -extract DeveloperCertificates xml1 ...</code> command - if it has more than one section
+(never happened to me) - you might need to edit rest of script to check other certificates, too, not only the first (0th) one.</p>
+<p>Also note that last <code>grep Common ...</code> command prints certificate names from trust chain, including your certificate name, too.
+This is the certificate name that is actually included in the provisioning profile</p>
+<p>Based on and more info: <a href="https://developer.apple.com/documentation/technotes/tn3125-inside-code-signing-provisioning-profiles">https://developer.apple.com/documentation/technotes/tn3125-inside-code-signing-provisioning-profiles</a> (<a href="https://archive.is/z0CUy">cached version</a>)</p>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>
