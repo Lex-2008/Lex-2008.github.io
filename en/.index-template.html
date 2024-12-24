@@ -5,6 +5,7 @@
 <meta name="description" content="$BLOG_INTRO">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -12,6 +13,7 @@ body {
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
 a.title {font-size:larger; font-weight: bolder}
+main small {display: block}
 </style>
 </head><body>
 <header>
@@ -42,13 +44,12 @@ a.title {font-size:larger; font-weight: bolder}
 	<!-- put contents below -->
 	<!-- begin $name -->
 	<li>
-		<a href="$name.html" class="title">$title</a>
-		<br>
-		<small>
+		<a href="$name.html" style="view-transition-name:$name-title" class="title">$title</a>
+		<small style="view-transition-name:$name-small">
 			Created: <time>$created</time> &mdash; modified: <time>$modified</time> &mdash;
 			tags: $htmltags
 		</small>
-		<p>
+		<p style="view-transition-name:$name-intro">
 			<span class="intro">$intro</span>
 			&mdash;
 			<a href="$name.html">read more</a>
