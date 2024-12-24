@@ -1,7 +1,8 @@
 title=Relay attempts
-PROCESSOR=Markdown.pl
+uuid=613a8612-21f3-4e56-a5b6-ad63787395c4
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=These are spammers (or hackers) trying to send email <b>from</b> my server
-tags=e-mail logs
+tags=logs
 created=2021-10-01
 
 But this is impossible, because it's [configured properly][conf].
