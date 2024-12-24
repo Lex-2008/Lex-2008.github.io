@@ -1,10 +1,11 @@
 title=Free Microsoft Windows IE/Edge VMs
-intro=If you missed missed them
+intro=If you missed them
 tags=links windows
 style=
 styles=
 created=2023-01-12
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
+uuid=22269ce7-2e09-43ea-9ce5-2e3a5db8c39e
 
 Until [Jan 2023][eol], Microsoft offered free virtual machines for testing your websites (and maybe software?)
 for compatibility with variuos versions of IE and Windows versions.
