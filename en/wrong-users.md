@@ -1,7 +1,8 @@
 title=Wrong users
-PROCESSOR=Markdown.pl
+uuid=cf0e6d85-6449-45ac-9b27-90630a38a5e7
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=Here you can find attempts to send messages to users who do not exist on this server
-tags=e-mail logs
+tags=logs
 created=2021-10-03
 
 Hostname of this host is hidden from the logs in order to avoid spam.
