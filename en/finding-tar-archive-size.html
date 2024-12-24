@@ -1,11 +1,11 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Finding tar archive size without actually making it</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TL;DR: --totals --file=/dev/null | grep 'Total bytes written'">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/finding-tar-archive-size.html">
+<title>Finding tar archive size without actually making it</title>
+<meta name="description" content="TL;DR: --totals --file=/dev/null | grep 'Total bytes written'">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -18,76 +18,56 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Finding tar archive size without actually making it</h1>
-	<small>
-		Created: <time>2016-07-21</time> &mdash; modified: <time>2016-10-31</time> &mdash;
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:macos-autologin-password-title">Finding tar archive size without actually making it</span></h1>
+	<small style="display:block; view-transition-name:finding-tar-archive-size-small">
+		Created: <time>2016-07-21</time> &mdash; modified: <time>2024-12-23</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">TL;DR: --totals --file=/dev/null | grep 'Total bytes written'</p>
-<hr />
-
+	<p class="intro" style="view-transition-name:finding-tar-archive-size-intro"><b>TL;DR:</b> <code>--totals --file=/dev/null | grep 'Total bytes written'</code></p>
 <p>Since tar doesn't do any compression, it's possible to know <strong>exact</strong> size of tar archive without reading the files - just by looking at their sizes.
 It's almost like arithmetical sum of all their sizes, but tar-specific - since tar also uses some blocks to encode file metadata and directory structure.</p>
-
 <p>This can be useful, for example, if you're making a website with some files
 and want to let users download whole folders as archives
 without actually storing these archives on disk.</p>
-
 <p>In that case you would probably use a script like this:</p>
-
 <pre><code>#!/bin/sh
-echo "HTTP/1.0 200 OK"
+echo &quot;HTTP/1.0 200 OK&quot;
 echo
-tar --create "path"
+tar --create &quot;path&quot;
 </code></pre>
-
 <p>Which makes a basic HTTP response and pipes output of tar command.</p>
-
 <p>But when downloading a file produced with such script you will notice absence of progress bar in your browser - because it doesn't know the size of the file it's downloading.
 To fix it, you want to supply Content-Length header, with the size of the file.
 And it must be <strong>exact</strong> size - otherwise browser will download incomplete file or report an error.</p>
-
 <p>Turns out, it's possible to find the size of the tar archive <strong>before</strong> making the actual archive, and answer is in <a href="https://lists.gnu.org/archive/html/bug-tar/2007-01/msg00013.html">this email</a> from 2007:
 you just need to add <code>--totals --file=/dev/null</code> to the arguments of your tar command and look at the line containing <code>Total bytes written</code> text.</p>
-
 <p>Like this:</p>
-
-<pre><code>echo -n "Content-Length: "
-tar --create "path" --totals --file=/dev/null * 2&gt;&amp;1 | sed '/Total bytes written/!d;s/.*: \([0-9]*\) (.*/\1/'
+<pre><code>echo -n &quot;Content-Length: &quot;
+tar --create &quot;path&quot; --totals --file=/dev/null * 2&gt;&amp;1 | sed '/Total bytes written/!d;s/.*: \([0-9]*\) (.*/\1/'
 </code></pre>
-
 <p>As it's said in the email, it will tell you the size of resulting archive without reading actual files - just by looking at their sizes.
 It still needs to read all directories, however.</p>
-
 <hr />
-
 <p>To make your download script produce files with nice names, you can use Content-Disposition header:</p>
-
-<pre><code>echo "Content-Disposition: filename=\"all.tar\""
+<pre><code>echo &quot;Content-Disposition: filename=\&quot;all.tar\&quot;&quot;
 </code></pre>
-
 <p>And if you want to have better control of tree structure inside your archive, you might want to <code>cd</code> to target directory first:</p>
-
-<pre><code>tar --create -C "path" '*'
+<pre><code>tar --create -C &quot;path&quot; '*'
 </code></pre>
-
 <p>or even</p>
-
-<pre><code>tar --create -C "path/.." "$(basename "$path")"
+<pre><code>tar --create -C &quot;path/..&quot; &quot;$(basename &quot;$path&quot;)&quot;
 </code></pre>
-
 <p>so your archive contained only one item in its root, matching the name of the dir you're archiving.</p>
-
 <p>Note that you probably must change both <code>tar</code> lines - the one which report the archive size and the one which makes the actual archive.
 If the size advertised in Content-Length header doesn't match the actual archive size - it's better not to have it at all!</p>
 </main>
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>

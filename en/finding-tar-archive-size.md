@@ -1,13 +1,9 @@
 title=Finding tar archive size without actually making it
-PROCESSOR=Markdown.pl
-intro=TL;DR: --totals --file=/dev/null | grep 'Total bytes written'
+intro=<b>TL;DR:</b> <code>--totals --file=/dev/null | grep 'Total bytes written'</code>
 tags=bash
 created=2016-07-21
-modified=2016-10-31
-modified_now=1
-
-
-* * *
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
+uuid=6e58203c-7861-4b05-8267-9507195492ec
 
 Since tar doesn't do any compression, it's possible to know **exact** size of tar archive without reading the files - just by looking at their sizes.
 It's almost like arithmetical sum of all their sizes, but tar-specific - since tar also uses some blocks to encode file metadata and directory structure.
