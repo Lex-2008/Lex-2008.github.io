@@ -5,6 +5,7 @@
 <meta name="description" content="Click this link to visit a random note">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">random</h1>
-	<small>
-		Created: <time>2023-03-08</time> &mdash; modified: <time>2023-04-08</time> &mdash;
-		tags: 
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:macos-autologin-password-title">random</span></h1>
+	<small style="display:block; view-transition-name:random-small">
+		Created: <time>2023-03-08</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+		tags: <a href="./#tag:meta">meta</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">Click this link to visit a random note</p>
+	<p class="intro" style="view-transition-name:random-intro">Click this link to visit a random note</p>
 <script>
 location.href='.#random'
 </script>
@@ -33,7 +34,7 @@ location.href='.#random'
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
