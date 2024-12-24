@@ -10,6 +10,7 @@ var search_loaded=false;
 var marked_posts=[];
 var user_input=false;
 var display_timer=0;
+var loading=true;
 
 function load(){
 	var objs=$$('main li');
@@ -26,6 +27,7 @@ function load(){
 function load_search(){
 	posts.forEach(function(post){
 		var matches=post.obj.innerHTML.match(/class="(title|intro)">.*/g);
+		if(!matches) console.log(post);
 		for(var i=0; i<matches.length; i++){
 			if(matches[i][7]=='t'){
 				post.title=matches[i].slice(14,-4);
@@ -47,10 +49,11 @@ function addTags(){
 }
 
 function searchTags(text){
-	id('tags').innerHTML=tags.filter(function(tag){
+	id('tags').innerHTML=tags./*filter(function(tag){
 		return tag.indexOf(text)>-1;
-	}).map(function(tag){
-		return '<a href="#tag:'+tag+'">'+tag.replace(text,'<mark>'+text+'</mark>')+'&nbsp;('+tags_count[tag]+')</a>';
+	}).*/map(function(tag){
+		const visibility=tag.indexOf(text)==-1?'style="visibility:hidden"':'';
+		return '<a href="#tag:'+tag+'" '+visibility+'>'+tag.replace(text,'<mark>'+text+'</mark>')+'&nbsp;('+tags_count[tag]+')</a>';
 	}).join(' ');
 }
 
@@ -103,6 +106,7 @@ function init(){
 			default:
 				show_sorted('created',-1,window.posts,10);
 		}
+		loading = false;
 	}
 	window.onhashchange();
 };
@@ -123,6 +127,15 @@ function init2(){
 }
 
 function display(posts, max, skip){
+	if(false && !loading && document.startViewTransition){
+		document.startViewTransition(() => x_display(posts, max, skip));
+	}
+	else {
+		x_display(posts, max, skip);
+	}
+}
+
+function x_display(posts, max, skip){
 	clearTimeout(display_timer);
 	var par=$('main ol');
 	var docFrag = document.createDocumentFragment();
@@ -193,3 +206,42 @@ function show_tag(text, posts=window.posts){
 
 init();
 setTimeout(init2,1100);
+
+/*
+ *
+// view transitions code from
+// https://developer.chrome.com/docs/web-platform/view-transitions/cross-document
+// licensed under the Apache 2.0 License.
+const setTemporaryViewTransitionNames = async (entries, vtPromise) => {
+	for (const [$el, name] of entries) $el.style.viewTransitionName = name;
+	await vtPromise;
+	for (const [$el, name] of entries) $el.style.viewTransitionName = '';
+}
+
+const animateTransition = async (url, e) => {
+	const title =Array.from(document.querySelectorAll('a.title')).find(a=>a.href==url);
+	if(!title) return;
+	const p = title.parentNode;
+
+	// Set view-transition-name values on the clicked row
+	// Clean up after the page got replaced
+	setTemporaryViewTransitionNames([
+			[p.querySelector('.title'), 'title'],
+			[p.querySelector('small'), 'small'],
+			[p.querySelector('.intro'), 'intro'],
+			], e.viewTransition.finished);
+}
+
+// OLD PAGE LOGIC
+window.addEventListener('pageswap', async (e) => {
+		if (!e.viewTransition) return;
+		animateTransition(e.activation.entry.url, e);
+		});
+
+// NEW PAGE LOGIC
+window.addEventListener('pagereveal', async (e) => {
+		if (!e.viewTransition) return;
+		animateTransition(navigation.activation.from.url, e);
+		});
+
+		*/
