@@ -1,10 +1,11 @@
 title=blog posts in grafana
 intro=in case you missed RSS, you might enjoy another way of reading blog posts
-tags=grafana fun
+tags=meta fun grafana
 style=
 styles=
 created=2024-11-08
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
+uuid=361cc49a-0ec0-413c-8385-dcdedef8cfd7
 
 Apparently, grafana includes [HTML parser][x].
 So I made a simple config to parse main page of this blog.
