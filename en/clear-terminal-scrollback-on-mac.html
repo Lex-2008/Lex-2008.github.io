@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/clear-terminal-scrollback-on-mac.html">
+<title>Clear terminal scrollback on mac</title>
+<meta name="description" content="TL;DR: printf 'e[3J'">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">Clear terminal scrollback on mac</h1>
+	<small>
+		Created: <time>2024-11-11</time> &mdash; modified: <time>2024-11-11</time> &mdash;
+		tags: <a href="./#tag:mac">mac</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">TL;DR: <tt>printf 'e[3J'</tt></p>
+<p>Depending on your terminal, simple <code>clear</code> might clean only the visible portion of the screen, leaving scrollback intact.
+Sometimes it might be not what you want, and then <code>printf '\e[3J'</code> might help you.
+Note that sometimes this command might clean <em>only</em> scrollback, and you might want to have both!</p>
+<p>Source: <a href="https://stackoverflow.com/questions/29887629/how-to-clear-terminal-mac-osx-scrollback">stackoverflow</a>.</p>
+<p>A good header for a script that produces a lot of output then looks like this:</p>
+<pre><code>clear
+printf '\e[3J'
+set -ex
+</code></pre>
+<p>It first clears visible screen and scrollback, and then enables failing on error and echoing lines to be executed</p>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/how-to-merge-subtitles.html">
+<title>How to merge subtitles</title>
+<meta name="description" content="for example, to see them both in original and in your native language">
+<style>
+html {color-scheme: light dark}
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+ 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888">How to merge subtitles</h1>
+	<small>
+		Created: <time>2024-07-03</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+		tags: <a href="./#tag:ffmpeg">ffmpeg</a> <a href="./#tag:links">links</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro">for example, to see them both in original and in your native language</p>
+<p>Usually video players allow you to chose a subtitle track to show, but only one.
+But what if you want to see <em>two</em> subtitle tracks at the same time?
+For example, when you're learning a foreign language,
+and want to see text both in original and your native languages at the same time.</p>
+<p>Easy!</p>
+<ol>
+<li>
+<p>Run <code>ffprobe Movie.mkv</code> to see what subtitles are available in the movie file.</p>
+</li>
+<li>
+<p>Find out their indexes - they're 0-based, and <strong>not</strong> the stream number that <code>ffprobe</code> shows you</p>
+</li>
+<li>
+<p>For each of subtitle tracks you want to extract, run the following command:</p>
+<pre><code> ffmpeg -i Movie.mkv -map 0:s:5 file.srt
+</code></pre>
+<p>where <code>5</code> is index of the stream, <code>file.srt</code> is the output file with subtitles, and <code>Movie.mkv</code> is, you guessed, the video file.
+More info about this command available <a href="https://superuser.com/questions/583393/how-to-extract-subtitle-from-video-using-ffmpeg">on stackoverflow</a></p>
+</li>
+<li>
+<p>After that, use this tool to merge files together: <a href="https://subtitletools.com/merge-subtitles-online">https://subtitletools.com/merge-subtitles-online</a></p>
+</li>
+</ol>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>
