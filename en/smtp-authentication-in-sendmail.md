@@ -1,7 +1,8 @@
 title=SMTP authentication in sendmail
-PROCESSOR=Markdown.pl
+uuid=d6f01305-fb57-4892-87d0-908190c94344
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=By default sendmail is configured in such a way that any program running on localhost can send an email without password, and none from another computer can do that. But what if you want to change that?
-tags=e-mail
+tags=sendmail
 created=2014-08-25
 
 > **Update**: Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.
@@ -83,7 +84,6 @@ Follow-up
 ---------
 
 To better secure your email (and its password!), you probably want to setup SSL connections, too.
-To do that, you need an SSL certificate (you can get one from [Start SSL][ssl] for free) and just perform first three steps from [official guide][tls].
+To do that, you need an SSL certificate and just perform first three steps from [official guide][tls].
 
-[ssl]: https://startssl.com/
 [tls]: http://www.sendmail.org/~ca/email/starttls.html

@@ -1,7 +1,8 @@
 title=Whitelisting emails with sendmail
-PROCESSOR=Markdown.pl
+uuid=6643e867-e3ed-4d03-87da-7be4155bb3b7
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=So they weren't rejected by dnsbl spam filter
-tags=e-mail
+tags=sendmail
 created=2015-10-27
 
 > **Update:** Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.
@@ -74,9 +75,9 @@ Steps
 		FEATURE(`access_db')dnl
 		FEATURE(`delay_checks')dnl
 
-  (first line enables dnsbl,
-  second enables email address check,
-  third delays dnsbl check until after email address check)
+   (first line enables dnsbl,
+   second enables email address check,
+   third delays dnsbl check until after email address check)
 
 2. Add this line at the bottom of `/etc/mail/access` file:
 
@@ -120,5 +121,3 @@ Note that it works for me because I'm using Maildir for storing email messages
 `procmail` for sorting it,
 and SquirrelMail for keeping my address book
 (note `$HOME/alexey.abook`).
-
-<script src="/microlight.js"></script>

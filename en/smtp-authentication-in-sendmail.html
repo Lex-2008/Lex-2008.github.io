@@ -1,9 +1,8 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>SMTP authentication in sendmail</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="By default sendmail is configured in such a way that any program running on localhost can send an email without password, and none from another computer can do that. But what if you want to change that?">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/smtp-authentication-in-sendmail.html">
+<title>SMTP authentication in sendmail</title>
+<meta name="description" content="By default sendmail is configured in such a way that any program running on localhost can send an email without password, and none from another computer can do that. But what if you want to change that?">
 <style>
 html {color-scheme: light dark}
 body {
@@ -20,88 +19,63 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <header>
 	<h1 style="border-bottom: 1px solid #8888">SMTP authentication in sendmail</h1>
 	<small>
-		Created: <time>2014-08-25</time> &mdash; modified: <time>2022-01-22</time> &mdash;
-		tags: <a href="./#tag:e-mail">e-mail</a>
+		Created: <time>2014-08-25</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+		tags: <a href="./#tag:sendmail">sendmail</a>
 	</small>
 	<hr>
 </header>
 <main>
 	<p class="intro">By default sendmail is configured in such a way that any program running on localhost can send an email without password, and none from another computer can do that. But what if you want to change that?</p>
 <blockquote>
-  <p><strong>Update</strong>: Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.</p>
+<p><strong>Update</strong>: Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.</p>
 </blockquote>
-
 <p>This guide is inspired by <a href="http://www.brennan.id.au/12-Sendmail_Server.html">Chapter 12 of Linux Home Server HOWTO</a> and <a href="http://www.sendmail.org/~ca/email/auth.html">official sendmail documentation</a>.
 Please read them if something's unclear.</p>
-
 <h2>Installation</h2>
-
 <p>On Ubuntu server 12.04 most required packages are already installed, and only authentication modules for SASL are missing (SASL is a library used to check username and password).
 To install them, just type:</p>
-
 <pre><code>apt-get install libsasl2-modules
 </code></pre>
-
 <h2>Configuration</h2>
-
 <p>First, to make sendmail use SASL, add this line somewhere in the middle of the <code>/etc/mail/sendmail.mc</code> file:</p>
-
 <pre><code>include(`/etc/mail/sasl/sasl.m4')dnl
 </code></pre>
-
-<p>Next, to allow incoming connections, remove <code>"Addr=127.0.0.1"</code> from <code>DAEMON_OPTIONS</code> lines in the same file, to make them look like this:</p>
-
+<p>Next, to allow incoming connections, remove <code>&quot;Addr=127.0.0.1&quot;</code> from <code>DAEMON_OPTIONS</code> lines in the same file, to make them look like this:</p>
 <pre><code>DAEMON_OPTIONS(`Family=inet,  Name=MTA-v4, Port=smtp')dnl
 DAEMON_OPTIONS(`Family=inet,  Name=MSP-v4, Port=submission, M=Ea')dnl
 </code></pre>
-
 <p>After editing <code>/etc/mail/sendmail.mc</code> file, rebuild sendmail config by issuing the following command:</p>
-
 <pre><code>sendmailconfig
 </code></pre>
-
 <h3>Passwordless access from localhost</h3>
-
 <p>Now sendmail would relay (send email to foreign hosts) only when provided a password.
 If you want to return the ability to send email from localhost without a password, first edit <code>/etc/mail/access</code> file:
 comment out everything but <code>localhost</code> and issue the following command to rebuild access database:</p>
-
 <pre><code>makemap hash access &lt; access
 </code></pre>
-
 <p>After that, add this line somewhere to <code>/etc/mail/sendmail.mc</code> file:</p>
-
 <pre><code>FEATURE(access_db)dnl
 </code></pre>
-
 <p>And run <code>sendmailconfig</code> again.</p>
-
 <h3>Files and settings</h3>
-
 <p>Settings are scattered in these files:</p>
-
 <p><code>/etc/mail/sasl/sasl.m4</code> defines how sendmail uses SASL library: settings
 <code>confAUTH_MECHANISMS</code> and <code>TRUST_AUTH_MECH</code>
 show what authentication methods are supported and authorize user, respectively
 (that's about methods to transfer password from e-mail client to sendmail).</p>
-
 <p><code>/usr/lib/sasl2/Sendmail.conf</code> shows how SASL checks if the password is correct.
 By default it says
 <code>pwcheck_method: saslauthd</code>
 what means that it uses SASL auth demon.</p>
-
 <p>Configuration for this demon is stored in
 <code>/etc/default/saslauthd</code>
 file, which by default has a line
-<code>MECHANISMS="pam"</code>
-which means "use system method" (by default, username+password for local account).</p>
-
+<code>MECHANISMS=&quot;pam&quot;</code>
+which means &quot;use system method&quot; (by default, username+password for local account).</p>
 <p>These settings can be changed, but that's out of scope of this article, sorry.</p>
-
 <h2>Follow-up</h2>
-
 <p>To better secure your email (and its password!), you probably want to setup SSL connections, too.
-To do that, you need an SSL certificate (you can get one from <a href="https://startssl.com/">Start SSL</a> for free) and just perform first three steps from <a href="http://www.sendmail.org/~ca/email/starttls.html">official guide</a>.</p>
+To do that, you need an SSL certificate and just perform first three steps from <a href="http://www.sendmail.org/~ca/email/starttls.html">official guide</a>.</p>
 </main>
 <footer style="text-align: center">
 	<hr>
