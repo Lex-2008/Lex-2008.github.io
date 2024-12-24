@@ -1,11 +1,12 @@
 title=Block users in sendmail
-PROCESSOR=Markdown.pl
+uuid=88abc25b-e421-41f2-bf85-5fa8febeca5d
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=How to disable mail receiving by local users without deleting their accounts
-tags=e-mail
+tags=sendmail
 styles=archive
 created=2014-09-13
-modified=2016-06-24
-modified_now=1
+
+> **Update**: Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.
 
 On my server, sendmail is configured to receive mail for all local users.
 And that includes "system" users, like `root`, `backup`, and `mail`.

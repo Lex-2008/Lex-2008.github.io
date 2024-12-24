@@ -1,9 +1,8 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Block users in sendmail</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="How to disable mail receiving by local users without deleting their accounts">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/block-users-in-sendmail.html">
+<title>Block users in sendmail</title>
+<meta name="description" content="How to disable mail receiving by local users without deleting their accounts">
 <style>
 html {color-scheme: light dark}
 body {
@@ -14,54 +13,44 @@ body {
 	padding: 1ex; /* for 📱 users*/
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
-a[href^="http://archive."],a[href^="https://archive."] {font-size:x-small; vertical-align:sub} 
+a[href^="http://archive."],a[href^="https://archive."],a[href^="https://web.archive.org"] {font-size:x-small; vertical-align:sub} 
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid #8888">Block users in sendmail</h1>
 	<small>
-		Created: <time>2014-09-13</time> &mdash; modified: <time>2016-06-24</time> &mdash;
-		tags: <a href="./#tag:e-mail">e-mail</a>
+		Created: <time>2014-09-13</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+		tags: <a href="./#tag:sendmail">sendmail</a>
 	</small>
 	<hr>
 </header>
 <main>
 	<p class="intro">How to disable mail receiving by local users without deleting their accounts</p>
+<blockquote>
+<p><strong>Update</strong>: Note that long after writing this guide, I've switched to Postfix as my mail server, so this guide was correct at the time of writing, it might be obsolete and/or incorrect at the time of reading.</p>
+</blockquote>
 <p>On my server, sendmail is configured to receive mail for all local users.
-And that includes "system" users, like <code>root</code>, <code>backup</code>, and <code>mail</code>.
+And that includes &quot;system&quot; users, like <code>root</code>, <code>backup</code>, and <code>mail</code>.
 So how can one forbid them to receive email, without deleting their accounts?
 That's actually quite easy.</p>
-
 <hr />
-
 <p>First, enable relevant sendmail feature: open the file <code>/etc/mail/sendmail.mc</code>
 and add this line somewhere in it:</p>
-
 <pre><code>FEATURE(`blacklist_recipients')
 </code></pre>
-
 <p>After that, rebuild the actual sendmail config and restart sendmail:</p>
-
 <pre><code>cd /etc/mail; make; service sendmail restart
 </code></pre>
-
 <hr />
-
 <p>Second, edit <code>/etc/mail/access</code> file and add <code>REJECT</code> rules for them, like this:</p>
-
-<pre><code>backup@shpakovsky.ru    REJECT
+<pre><code>backup@shpakovsky.ru	REJECT
 </code></pre>
-
 <p>After that, rebuild the actual database:</p>
-
 <pre><code>makemap hash /etc/mail/access &lt; /etc/mail/access
 </code></pre>
-
 <hr />
-
 <p>And last, test it: write an email to forbidden e-mail address and enjoy
 automated response from MAILER-DEMON :-)</p>
-
 <p>More information regarding anti-spam protection you can find
 <a href="http://www.sendmail.com/sm/open_source/docs/m4/anti_spam.html">in the official sendmail documentation</a> <a href="http://archive.is/mnRVL">(archived version)</a>.</p>
 </main>
