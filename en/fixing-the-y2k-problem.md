@@ -1,10 +1,11 @@
 title=Fixing the y2k problem
+uuid=135e0af4-9cc5-42c0-b1c4-b44768056a0b
 PROCESSOR=Markdown.pl
 intro=Or should I say "why-too-key" to raise more confusion?
 tags=fun
 style=
 styles=cache archive
-created=1999-12-32
+created=1999-12-31
 
 Text taken from [Dr. Prasad Bingi's page][1] [(cached version)](https://archive.ph/xCVyZ), which has the version I liked the most.
 [1]: https://users.pfw.edu/bingi/MIS/fixing_the_y2k_bug.htm
