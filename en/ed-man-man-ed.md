@@ -1,5 +1,6 @@
 title=Ed, man! !man ed
-intro=<tt>From: Patrick J. LoPresti<br>Subject: The True Path (long)</tt>
+uuid=4a1b7e76-0aec-4dae-8003-803200769203
+intro=<tt>From: Patrick J. LoPresti<br/>Subject: The True Path (long)</tt>
 tags=fun
 style=
 styles=
