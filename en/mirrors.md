@@ -1,10 +1,11 @@
 title=mirrors
-PROCESSOR=Markdown.pl
 intro=Primary location of my blog is
 tags=links
 style=
 styles=
 created=2022-01-23
+uuid=89f17d0b-6767-4d9b-be5b-5499a38e19e2
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 
 * <http://alexey.shpakovsky.ru/>
 
