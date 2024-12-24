@@ -1,11 +1,11 @@
 title=GitHub Flavored Markdown
-PROCESSOR=Markdown.pl
 intro=After some time of pondering, I switched to GitHub-Flavoured Markdown (GFM)
-tags=net
+tags=meta
 style=
 styles=footnotes hr
-PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 created=2022-10-15
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
+uuid=a76ed1e3-dcc1-48f0-876e-013a662884c3
 
 [cm]: https://commonmark.org/
 
