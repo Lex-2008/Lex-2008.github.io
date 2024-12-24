@@ -1,4 +1,5 @@
 title=2010 - Как я провел первое апреля и трех преподавателей
+uuid=5eabeb0c-5b06-433f-b7f6-3d6c5d6d8fbf
 PROCESSOR=Markdown.pl
 intro=Рассказ об удачной первоапрельской шутке
 tags=юмор

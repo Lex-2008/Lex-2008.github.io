@@ -1,4 +1,5 @@
 title=2009 - Репино
+uuid=5fd16c67-da85-4a38-81c1-7f2d0a323bba
 PROCESSOR=Markdown.pl
 intro=Рассказ про конференцию в Репино
 tags=юмор

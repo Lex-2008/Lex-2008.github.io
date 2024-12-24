@@ -1,4 +1,5 @@
 title=2008 - Бакалаврская защита
+uuid=f657d47b-e697-44e8-a450-1ec46a2ebf4a
 PROCESSOR=Markdown.pl
 intro=Рассказ о том, как я защищал бакалаврский диплом
 tags=юмор
