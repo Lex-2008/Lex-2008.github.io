@@ -1,10 +1,11 @@
 title="Dulles' Plan" and "Com&shy;mu&shy;nist Rules for Rev&shy;o&shy;lu&shy;tion"
-PROCESSOR=Markdown.pl
 intro=Mirror conspiracy theories
-tags=fun
+tags=fun politics
 created=2022-07-26
 styles=archive
 style=body{max-width:120ex}.col{width:50%}
+PROCESSOR=Markdown.pl
+uuid=5597531d-ba99-4a3b-bea4-0cfd7eb45dd5
 
 I think they deserve being side-by-side:
 
