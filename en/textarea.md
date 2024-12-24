@@ -1,5 +1,6 @@
 title=textarea
-intro=If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching <tt>notepad.exe</tt> you might want to type <tt style="white-space: nowrap">data:text/html,&lt;textarea&gt;</tt> in the address bar
+uuid=3ed270f2-d531-42a6-9a8b-aae655b2e9e9
+intro=If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching <tt>notepad.exe</tt> you might want to type <tt style="word-break:break-all">data:text/html,&lt;textarea&gt;</tt> in the address bar
 tags=html
 style=textarea{width:100%}
 styles=

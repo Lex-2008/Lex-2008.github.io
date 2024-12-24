@@ -2,9 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/textarea.html">
 <title>textarea</title>
-<meta name="description" content="If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching notepad.exe you might want to type data:text/html,&lt;textarea&gt; in the address bar">
+<meta name="description" content="If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching notepad.exe you might want to type data:text/html,textarea in the address bar">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">textarea</h1>
-	<small>
-		Created: <time>2024-08-13</time> &mdash; modified: <time>2024-08-14</time> &mdash;
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:macos-autologin-password-title">textarea</span></h1>
+	<small style="display:block; view-transition-name:textarea-small">
+		Created: <time>2024-08-13</time> &mdash; modified: <time>2024-12-23</time> &mdash;
 		tags: <a href="./#tag:html">html</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching <tt>notepad.exe</tt> you might want to type <tt style="white-space: nowrap">data:text/html,&lt;textarea&gt;</tt> in the address bar</p>
+	<p class="intro" style="view-transition-name:textarea-intro">If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching <tt>notepad.exe</tt> you might want to type <tt style="word-break:break-all">data:text/html,&lt;textarea&gt;</tt> in the address bar</p>
 <p>Alternatively, here's a slightly more advanced version:</p>
 <pre><code>data:text/html,&lt;style&gt;*{width:100%;height:100%;margin:0;color-scheme:light dark}&lt;/style&gt;&lt;textarea&gt;
 </code></pre>
@@ -38,7 +39,7 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
