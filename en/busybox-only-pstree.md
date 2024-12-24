@@ -1,5 +1,6 @@
 title=Busybox-only pstree
-PROCESSOR=Markdown.pl
+uuid=7d668355-2282-4933-88d3-5c38e71c0cd7
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=For when you're on limited environment but want to see a process tree
 tags=bash
 created=2020-01-31
@@ -40,12 +41,13 @@ Just use this script:
 		# don't print own children
 		test $1 == $self && return
 		# print children, adding two spaces to indent
-		for subpid in `grep "^$1 " ppids.ps | awk '{print $2}'`; do
+		for subpid in `grep "^ *$1 " ppids.ps | awk '{print $2}'`; do
 			showproc $subpid "  $2"
 		done
 	}
 
 	# start with root process (pid 1 by default)
 	showproc ${1:-1} ''
+
 
 <script src="/microlight.js"></script>

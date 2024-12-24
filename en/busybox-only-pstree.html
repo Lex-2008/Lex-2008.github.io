@@ -1,11 +1,11 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Busybox-only pstree</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="For when you're on limited environment but want to see a process tree">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/busybox-only-pstree.html">
+<title>Busybox-only pstree</title>
+<meta name="description" content="For when you're on limited environment but want to see a process tree">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -18,17 +18,16 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Busybox-only pstree</h1>
-	<small>
-		Created: <time>2020-01-31</time> &mdash; modified: <time>2022-10-03</time> &mdash;
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:macos-autologin-password-title">Busybox-only pstree</span></h1>
+	<small style="display:block; view-transition-name:busybox-only-pstree-small">
+		Created: <time>2020-01-31</time> &mdash; modified: <time>2024-12-25</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">For when you're on limited environment but want to see a process tree</p>
+	<p class="intro" style="view-transition-name:busybox-only-pstree-intro">For when you're on limited environment but want to see a process tree</p>
 <p>Just use this script:</p>
-
 <pre><code>#!/bin/busybox ash
 #
 # Script to show process tree.
@@ -46,7 +45,7 @@ grep 'PPid:' /proc/*/status | sed -r 's_/proc/([^/]*)/[^0-9]*([0-9]*)_\2 \1_' &g
 # # and lack human-readable /proc/$$/status,
 # # you can use these commands, instead
 # ps -e -o pid,ppid,stime,args &gt;ps.ps
-# awk '{ print $2 " " $1 }' ps.ps &gt;ppids.ps
+# awk '{ print $2 &quot; &quot; $1 }' ps.ps &gt;ppids.ps
 
 # own pid - we don't show own children because they're guaranteed
 # to change between above two calls
@@ -58,26 +57,25 @@ self=$$
 # * indent - string of spaces to print before current line
 showproc()
 {
-    # print current process
-    echo "$2$(grep "^ *$1 " ps.ps || echo "$1 ???")"
-    # don't print own children
-    test $1 == $self &amp;&amp; return
-    # print children, adding two spaces to indent
-    for subpid in `grep "^$1 " ppids.ps | awk '{print $2}'`; do
-        showproc $subpid "  $2"
-    done
+	# print current process
+	echo &quot;$2$(grep &quot;^ *$1 &quot; ps.ps || echo &quot;$1 ???&quot;)&quot;
+	# don't print own children
+	test $1 == $self &amp;&amp; return
+	# print children, adding two spaces to indent
+	for subpid in `grep &quot;^ *$1 &quot; ppids.ps | awk '{print $2}'`; do
+		showproc $subpid &quot;  $2&quot;
+	done
 }
 
 # start with root process (pid 1 by default)
 showproc ${1:-1} ''
 </code></pre>
-
 <script src="/microlight.js"></script>
 </main>
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
