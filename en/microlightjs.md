@@ -1,24 +1,24 @@
 title=microlight.js
-PROCESSOR=Markdown.pl
+uuid=bd26dd4f-ece1-40b2-be1a-309a8521265b
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=a 2.2k library to hilight any code
-tags=javascript
+tags=javascript links
 styles=archive
 created=2016-06-16
 
 
 Today I learned about existence of [microlight.js][]
-[(archived version)](http://archive.is/FhTPN)
-- a small library to hilight any code.
+[(archived version)](http://archive.is/FhTPN) -
+a small library to hilight any code.
 
-Of course, it has some bugs and incompatibilities with Bash
-- like, it has a list of keywords, among which is "from"
+Of course, it has some bugs and incompatibilities with Bash -
+like, it has a list of keywords, among which is "from"
 (it's a keyword in some languages),
 and it highlights it in `rsync --exclude-from=/file/name`.
 Or, it has a simple regexp detector, which considers everything
 between forward slashes to be an regexp.
-So if you put a UNIX path somewhere outside the quotes
-- then it will hilight it like an regexp, like this:
-`/usr/bin/bash`.
+So if you put a UNIX path somewhere outside the quotes -
+then it will hilight it like an regexp, like in the example above.
 
 But what did you expect from a 2.2k library?
 Language detection?!

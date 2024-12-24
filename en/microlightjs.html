@@ -1,9 +1,8 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>microlight.js</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="a 2.2k library to hilight any code">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/microlightjs.html">
+<title>microlight.js</title>
+<meta name="description" content="a 2.2k library to hilight any code">
 <style>
 html {color-scheme: light dark}
 body {
@@ -14,36 +13,32 @@ body {
 	padding: 1ex; /* for 📱 users*/
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
-a[href^="http://archive."],a[href^="https://archive."] {font-size:x-small; vertical-align:sub} 
+a[href^="http://archive."],a[href^="https://archive."],a[href^="https://web.archive.org"] {font-size:x-small; vertical-align:sub} 
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid #8888">microlight.js</h1>
 	<small>
-		Created: <time>2016-06-16</time> &mdash; modified: <time>2022-10-13</time> &mdash;
-		tags: <a href="./#tag:javascript">javascript</a>
+		Created: <time>2016-06-16</time> &mdash; modified: <time>2024-11-23</time> &mdash;
+		tags: <a href="./#tag:javascript">javascript</a> <a href="./#tag:links">links</a>
 	</small>
 	<hr>
 </header>
 <main>
 	<p class="intro">a 2.2k library to hilight any code</p>
 <p>Today I learned about existence of <a href="https://asvd.github.io/microlight/">microlight.js</a>
-<a href="http://archive.is/FhTPN">(archived version)</a>
-- a small library to hilight any code.</p>
-
-<p>Of course, it has some bugs and incompatibilities with Bash
-- like, it has a list of keywords, among which is "from"
+<a href="http://archive.is/FhTPN">(archived version)</a> -
+a small library to hilight any code.</p>
+<p>Of course, it has some bugs and incompatibilities with Bash -
+like, it has a list of keywords, among which is &quot;from&quot;
 (it's a keyword in some languages),
 and it highlights it in <code>rsync --exclude-from=/file/name</code>.
 Or, it has a simple regexp detector, which considers everything
 between forward slashes to be an regexp.
-So if you put a UNIX path somewhere outside the quotes
-- then it will hilight it like an regexp, like this:
-<code>/usr/bin/bash</code>.</p>
-
+So if you put a UNIX path somewhere outside the quotes -
+then it will hilight it like an regexp, like in the example above.</p>
 <p>But what did you expect from a 2.2k library?
 Language detection?!</p>
-
 <p>I'm actually using a modified version by <a href="https://github.com/WolfieZero/microlight">WolfieZero</a>,
 which adds classes instead of hardcoded styles
 (because I think that styles implemented by <a href="https://github.com/asvd/microlight">original author</a>
@@ -52,9 +47,7 @@ and modified it a bit further to use <code>querySelectorAll</code> function
 instead of <code>getElementsByClassName</code>
 and to act by default on all <code>&lt;code&gt;</code> elements
 (to make it out-of-the-box-compatible with markdown-generated markup)</p>
-
 <p>My modified version should appear below:</p>
-
 <div>
 <pre><code id="aa"></code></pre>
 <script>
@@ -62,10 +55,10 @@ gebi=function(q){return document.getElementById(q)}
 xmlhttp = new XMLHttpRequest();
 xmlhttp.open('GET', '/microlight.js', true);
 xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        gebi('aa').innerHTML=xmlhttp.responseText.replaceAll('<','&gt;');
-        gebi('a1').innerHTML=xmlhttp.responseText;
-    }
+	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		gebi('aa').innerHTML=xmlhttp.responseText.replaceAll('<','&gt;');
+		gebi('a1').innerHTML=xmlhttp.responseText;
+	}
 };
 xmlhttp.send(null);
 </script>
