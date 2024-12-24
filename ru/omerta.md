@@ -1,4 +1,5 @@
 title=omerta
+uuid=c9b6f968-b26c-4831-941e-57e59e2e9900
 PROCESSOR=Markdown.pl
 intro=Как иностранцы коверкают русские слова
 tags=юмор

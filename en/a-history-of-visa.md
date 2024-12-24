@@ -1,4 +1,5 @@
 title=A history of VISA
+uuid=a5a6878e-e55b-4365-a1c1-2bc5b21276c5
 PROCESSOR=Markdown.pl
 intro=An interesting article showing how credit cards appeared
 tags=history links

@@ -1,4 +1,5 @@
 title=Hacker's Keyboard for N-05e
+uuid=0db372d7-92db-4815-8d6a-1f5620b59992
 PROCESSOR=Markdown.pl
 intro=Compatibility patch
 tags=Android

@@ -1,4 +1,5 @@
 title=PowerPro
+uuid=514a224d-cff9-4f91-b502-32635b08973e
 PROCESSOR=Markdown.pl
 intro=<p>многофункциональная утилита для Windows</p>
 tags=программы

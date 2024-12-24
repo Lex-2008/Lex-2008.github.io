@@ -1,4 +1,5 @@
 title=Burying an old friend
+uuid=cc80b5b5-147d-4c0a-90d9-15d6aa0addad
 PROCESSOR=Markdown.pl
 intro=Today I've accompanied my old friend on his last journey.
 tags=life

@@ -1,4 +1,5 @@
 title=Strange games
+uuid=6f1887f9-daf4-42a5-82f9-bbbe3064c09c
 PROCESSOR=Markdown.pl
 intro=A website with a provoking name features funny games
 tags=games

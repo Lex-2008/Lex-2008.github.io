@@ -1,4 +1,5 @@
 title=How I started working at CFEngine
+uuid=16b61c38-269a-46b2-b8f8-cb52766a4e3b
 PROCESSOR=Markdown.pl
 intro=Soon after change of owner in Opera, just another round of layoffs rolled through the company, this time affecting also me.
 tags=life CFEngine

@@ -1,4 +1,5 @@
 title=Send-only DKIM milter
+uuid=a414a268-2507-424f-96ed-26c372fc6eb2
 PROCESSOR=Markdown.pl
 intro=How to configure Postfix to skip milter for incoming messages
 tags=postfix

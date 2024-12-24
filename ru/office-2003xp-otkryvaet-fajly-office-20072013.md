@@ -1,4 +1,5 @@
 title=Office 2003/XP открывает файлы Office 2007/2013
+uuid=cf8eafac-eed8-43ea-83a4-d51167fbcdd2
 PROCESSOR=Markdown.pl
 intro=Как открыть файлы новых форматов Office 2007 (*.docx, *.xlsx, *.pptx) в старом Office 2003/XP
 tags=office

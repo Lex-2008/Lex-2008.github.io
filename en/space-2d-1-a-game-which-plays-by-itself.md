@@ -1,4 +1,5 @@
 title=space 2d 1: a game which plays by itself
+uuid=4663d5a3-bf45-44ee-80c6-e2f65feab76b
 PROCESSOR=Markdown.pl
 intro=a humble beginning
 tags=space2d

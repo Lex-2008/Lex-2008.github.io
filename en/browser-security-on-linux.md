@@ -1,4 +1,5 @@
 title=Browser security on Linux
+uuid=c0ec9233-816f-4131-81d4-865d57934cc4
 PROCESSOR=Markdown.pl
 intro=A good article that summarizes my own thoughts on hardening browser on Linux
 tags=Linux security

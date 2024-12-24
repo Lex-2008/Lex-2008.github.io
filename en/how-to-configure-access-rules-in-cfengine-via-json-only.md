@@ -1,4 +1,5 @@
 title=How to configure access rules in CFEngine via json only
+uuid=194ba6c6-1a40-4d3e-b45c-77f232a05bed
 PROCESSOR=Markdown.pl
 intro=A bit of policy magic to avoid writing policy
 tags=CFEngine links

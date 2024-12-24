@@ -1,4 +1,5 @@
 title=Space 4: a ship
+uuid=192a38b8-f088-402f-aaa9-315e7ba4450e
 PROCESSOR=Markdown.pl
 intro=Let's build a real ship
 tags=Space3D

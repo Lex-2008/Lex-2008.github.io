@@ -1,4 +1,5 @@
 title=space 1d 3: Making ship yours
+uuid=9109f990-c419-4a29-ac32-07865e76d98b
 PROCESSOR=Markdown.pl
 intro=The game is playable now!
 tags=space1d

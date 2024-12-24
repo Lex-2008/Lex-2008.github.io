@@ -1,4 +1,5 @@
 title=space2d3 7: colors and interceptions
+uuid=36a1f8c7-8630-4cc2-bb4e-bfe9636b6da3
 intro=Now you can intercept other ships! They can intercept you, and each others, too!
 tags=space2d3
 style=

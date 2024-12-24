@@ -1,4 +1,5 @@
 title=KaTeX
+uuid=80bef6e5-d659-4eb7-86cb-a4cf2572ff1a
 PROCESSOR=Markdown.pl
 intro=Good library for those willing to implement TeX formulas in their blogs
 tags=Javascript links

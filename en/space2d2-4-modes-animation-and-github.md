@@ -1,4 +1,5 @@
 title=space2d2 4: modes, animation, and github
+uuid=7424e9ab-14c5-4628-8801-ede72ded2423
 intro=this game got its own (sub)domain!
 tags=space2d2
 style=

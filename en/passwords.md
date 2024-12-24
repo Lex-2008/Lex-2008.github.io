@@ -1,4 +1,5 @@
 title=Passwords
+uuid=1715cfaa-3d9b-4a82-ab64-302bb951d640
 PROCESSOR=Markdown.pl
 intro=How to generate them, so you could store them in your head
 tags=security links

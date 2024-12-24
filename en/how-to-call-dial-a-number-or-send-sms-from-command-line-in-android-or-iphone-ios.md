@@ -1,4 +1,5 @@
 title=How to call (dial a number) or send SMS from command line in Android or iPhone (iOS)
+uuid=6d4bef47-631a-425f-b2cf-e302a3b471fd
 PROCESSOR=Markdown.pl
 intro=Note that to get command line on iPhone, you need to jailbreak it first.
 tags=bash android

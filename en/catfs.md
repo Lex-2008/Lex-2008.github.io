@@ -1,4 +1,5 @@
 title=catfs
+uuid=2a4004a5-664d-4b51-bb8e-6ee73ade1735
 PROCESSOR=Markdown.pl
 intro=A FUSE module that shows a list of files as one big file.
 tags=Linux

@@ -1,4 +1,5 @@
 title=Auto backup on mount
+uuid=a73064f6-478d-4418-9d9b-c53006d5174e
 PROCESSOR=Markdown.pl
 intro=Automatically backup files on media mount, using usbmount
 tags=bash

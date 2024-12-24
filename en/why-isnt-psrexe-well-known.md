@@ -1,4 +1,5 @@
 title=Why isn’t PSR.exe well known?
+uuid=b481fc60-48b9-4333-a50a-cda7266fc1ed
 PROCESSOR=Markdown.pl
 intro=Short memo about a good program
 styles=img

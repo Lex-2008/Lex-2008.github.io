@@ -1,4 +1,5 @@
 title=totp
+uuid=cac6ee37-e458-490d-870b-0e4aa88ee923
 intro=A small shell script to generate one-time passwords, in bash, using oathtool
 tags=bash
 style=
@@ -18,10 +19,10 @@ provider name should **not** contain spaces, for example like this:
 	Slack   4IGIS2QZGVQAKG4GFNMFE6ZMOR3JHJUQ
 	GitHub  OUZKAXEKC44GPAPF6CTCCQFWCMC77KKJ
 
-Extracting secrets from QR codes is left as exersise to a reader :)
+Extracting secrets from QR codes is left as exercise to a reader :)
 
 I recommend storing them in a password-protected area, encrypted by gpg or encfs, for example.
-Setting up such storage is left as exersise to a reader ;)
+Setting up such storage is left as exercise to a reader ;)
 
 Then, edit the following script, changing the first command to the one which decrypts the above file
 and prints out its (unencrypted) contents.
@@ -61,7 +62,7 @@ echo "time left: $(( 30 - `date +%s` % 30 ))s until first column expires"
 ````
 
 After that, put your version of script somewhere in your `$PATH`
-(on many dostros, `$PATH` already contains something like `$HOME/bin` or `$HOME/.local/bin`,
+(on many distros, `$PATH` already contains something like `$HOME/bin` or `$HOME/.local/bin`,
 so you can use it), and run it like this:
 
 	$ totp

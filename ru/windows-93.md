@@ -1,4 +1,5 @@
 title=Windows 93
+uuid=8b1d16e2-b078-4624-afa1-48c96419e2b7
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=HTML-пародия на операционную систему, которая была популярна когда мы были молоды и Интернет был в новинку
 tags=юмор ссылки

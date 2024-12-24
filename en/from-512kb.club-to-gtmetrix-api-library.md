@@ -1,4 +1,5 @@
 title=From 512kb.club to GTmetrix API library
+uuid=1bcca6d0-9169-46c6-b5c8-923df8ddb89a
 PROCESSOR=Markdown.pl
 intro=How reading one habr.com blog post caused a chain of events leading up to me writing a good documentation for a pet project
 tags=life

@@ -1,4 +1,5 @@
 title=git split commit
+uuid=50cb3253-32bd-4e5c-bb19-33ea03581278
 intro=TL;DR: <tt>git rebase -i</tt>, <tt>e</tt>dit, <tt>git reset HEAD~</tt> and create new commits
 tags=git
 style=

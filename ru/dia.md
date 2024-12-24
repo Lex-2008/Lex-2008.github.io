@@ -1,4 +1,5 @@
 title=Dia
+uuid=7dc7708c-3b64-417a-a494-40e34096aeb3
 PROCESSOR=Markdown.pl
 intro=<p>Dia - бесплатный аналог Microsoft Visio - программа для рисования диаграмм</p>
 tags=программы

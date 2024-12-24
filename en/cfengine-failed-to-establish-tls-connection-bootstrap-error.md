@@ -1,4 +1,5 @@
 title=CFEngine Failed to establish TLS connection bootstrap error
+uuid=38dcad80-9c68-4040-b266-ecf9f439e4df
 PROCESSOR=Markdown.pl
 intro=Maybe agent's IP is not among allowed ones?
 created=2017-03-22

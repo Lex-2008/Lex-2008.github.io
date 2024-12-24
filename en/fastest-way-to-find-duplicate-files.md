@@ -1,4 +1,5 @@
 title=Fastest way to find duplicate files
+uuid=84e31431-b7dc-4135-8672-3fbf36704b62
 PROCESSOR=Markdown.pl
 intro=TL;DR: it's an app called "dupd"
 tags=linux links

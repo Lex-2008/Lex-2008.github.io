@@ -1,4 +1,5 @@
 title=How to delete a line from a file
+uuid=c04cacbc-74d4-478b-a131-b5a3da871aa6
 PROCESSOR=Markdown.pl
 intro=If you know what line to delete...
 tags=bash vim

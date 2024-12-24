@@ -1,4 +1,5 @@
 title=Defrag SSD in VM on HDD
+uuid=08e5aa18-e909-4b10-af3f-51427fcb9fa8
 PROCESSOR=Markdown.pl
 created=2021-11-27
 intro=Even if OS sees a storage device as SSD and refuses to defrag it - you might know better

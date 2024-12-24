@@ -1,4 +1,5 @@
 title=Space 3: person on the ship
+uuid=2a9a59ec-3f61-4cf6-834e-5ee13aa9f9c6
 PROCESSOR=Markdown.pl
 intro=Now we want to have a character (a pilot) to walk on the ship.
 tags=Space3D

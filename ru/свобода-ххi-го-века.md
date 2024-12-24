@@ -1,4 +1,5 @@
 title=СВОБОДА ххI-го ВЕКА
+uuid=c355a4f0-0138-401c-98f2-8dc30d728113
 PROCESSOR=Markdown.pl
 intro=— Пиццерия GOOGLе, добрый день, слушаю вас!
 tags=юмор

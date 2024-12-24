@@ -1,4 +1,5 @@
 title=Space 8: collision detection
+uuid=59cb3f13-d9fd-4459-b08c-e56124a3e95c
 PROCESSOR=Markdown.pl
 PROCESSOR1=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=Now you can't go outside the ship

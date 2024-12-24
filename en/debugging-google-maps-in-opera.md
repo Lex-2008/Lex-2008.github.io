@@ -1,4 +1,5 @@
 title=Debugging Google Maps in Opera
+uuid=157e4b54-87fa-45a8-a397-49155da0acb0
 PROCESSOR=Markdown.pl
 intro=How it was done. 10 days of obfurscated Javascript.
 tags=Opera links

@@ -1,4 +1,5 @@
 title=DynDNS DIY
+uuid=fdb36681-ed39-4014-9d3b-4bf94214ae2a
 PROCESSOR=Markdown.pl
 intro=Why use someone else's Dynamic DNS server, if you can <i>easily</i> run your own?
 created=2021-10-10

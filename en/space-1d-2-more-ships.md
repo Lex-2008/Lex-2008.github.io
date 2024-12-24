@@ -1,4 +1,5 @@
 title=space 1d 2: more ships
+uuid=799d5388-45e1-49ba-b413-b49efd89500b
 PROCESSOR=Markdown.pl
 intro=Moving forward with a simple game.
 tags=space1d

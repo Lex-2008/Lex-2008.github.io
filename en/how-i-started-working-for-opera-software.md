@@ -1,4 +1,5 @@
 title=How I started working for Opera Software
+uuid=dc71793d-7666-45a4-b821-8b41f73324d6
 PROCESSOR1=Markdown.pl
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=My first experience in getting a job

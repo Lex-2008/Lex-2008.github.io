@@ -1,4 +1,5 @@
 title=Hacker Typer on TV
+uuid=c2057275-d545-44c8-9f40-822438dd2884
 PROCESSOR=Markdown.pl
 intro=A quick note about a funny site and a video featuring it.
 tags=fun

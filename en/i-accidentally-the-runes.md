@@ -1,4 +1,5 @@
 title=How to add custom keyboard layout on Linux
+uuid=3437c515-a7ec-4314-b14a-d0324e3065dd
 intro=I accidentally ᚦᛖ᛫ᚱᚢᚾᛖᛋ
 tags=Linux
 style=

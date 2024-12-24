@@ -1,4 +1,5 @@
 title=Adjusting time
+uuid=a0b1470e-543e-4536-bfce-be5bdbd814f2
 PROCESSOR=Markdown.pl
 intro=What do I think about it and how I'd like it to be.
 tags=politics

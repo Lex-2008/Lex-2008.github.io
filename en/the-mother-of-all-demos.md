@@ -1,4 +1,5 @@
 title=The Mother of All Demos
+uuid=3aa84fd9-7ff9-45a9-9776-01e4e37c88b3
 PROCESSOR=Markdown.pl
 intro=RIP Douglas Engelbart, the person who shaped the modern computing. Oh, and a computer mouse.
 tags=History links

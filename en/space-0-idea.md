@@ -1,4 +1,5 @@
 title=Space 0: Idea
+uuid=1b788d1c-a4c9-421d-9cd8-d80a4328bf4b
 PROCESSOR=Markdown.pl
 intro=What I want to create and what to base on
 created=2017-04-12

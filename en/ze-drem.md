@@ -1,4 +1,5 @@
 title=Ze Drem
+uuid=e9373e81-3a9a-4b91-b0ba-05c96e3e72c7
 PROCESSOR=Markdown.pl
 intro=EuroEnglish - Ze drem vil finali kum tru!
 tags=fun

@@ -1,4 +1,5 @@
 title=How to decrypt Jenkins passwords
+uuid=829a3b0e-f81b-4b6d-aa49-ad41e780e6e9
 PROCESSOR=Markdown.pl
 intro=with the help of script console
 tags=jenkins cfengine

@@ -1,4 +1,5 @@
 title=DKIM signature online test
+uuid=d0463526-7180-47cb-a81c-d972faa8036e
 PROCESSOR=Markdown.pl
 intro=If you ever wanted to see how validity of DKIM signature will be affected by changing email headers and / or message body
 tags=net e-mail

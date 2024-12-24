@@ -1,4 +1,5 @@
 title=Sorting sent email
+uuid=35848f6d-1f3f-4b70-b23d-dffdd857c94a
 PROCESSOR1=Markdown.pl
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=How to automate it if you host your mail yourself

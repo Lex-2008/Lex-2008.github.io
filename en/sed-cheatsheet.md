@@ -1,4 +1,5 @@
 title=sed cheatsheet
+uuid=aa180e7a-a0d2-47eb-9174-a518f7f6829e
 PROCESSOR=Markdown.pl
 intro=A helpful guide to a simple programming language I still don't comprehend
 tags=bash

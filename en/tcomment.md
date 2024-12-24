@@ -1,4 +1,5 @@
 title=TComment
+uuid=f6c9cd2e-9575-45b8-8b43-a3cd17974879
 PROCESSOR=Markdown.pl
 intro=vim plugin for easy commenting
 tags=vim links

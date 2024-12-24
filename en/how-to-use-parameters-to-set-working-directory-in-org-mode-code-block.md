@@ -1,4 +1,5 @@
 title=How to use parameters to set working directory in org mode code block
+uuid=f14b34c8-5e1a-4375-a676-0efadd3fac03
 PROCESSOR=Markdown.pl
 intro=For when you want working dorectory (:dir) be a parameter, just like variable (:var)
 tags=org

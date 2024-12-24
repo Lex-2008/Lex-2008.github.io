@@ -1,4 +1,5 @@
 title=space2d2 3: the finished game
+uuid=e7a5ebff-9cbf-403f-93b5-dc7d6d8a8e3f
 intro=A space trading game without money
 tags=space2d2
 style=

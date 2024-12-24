@@ -1,4 +1,5 @@
 title=Decoding certificate inside Mac provisioning profile
+uuid=7dcaad6e-3ab2-4bb2-9d94-0136b91fc780
 intro=Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile "XXX" doesn't include signing certificate "YYY"
 tags=Mac bash
 style=

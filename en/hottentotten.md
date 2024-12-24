@@ -1,4 +1,5 @@
 title=Hottentotten
+uuid=d585e333-5e11-47fe-abc5-05ab1be9c74d
 PROCESSOR=Markdown.pl
 intro=A small language session
 tags=fun

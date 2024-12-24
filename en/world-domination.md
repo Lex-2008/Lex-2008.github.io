@@ -1,4 +1,5 @@
 title=World domination
+uuid=9252ce09-06e4-426e-be3e-ee0ea53065d1
 PROCESSOR=Markdown.pl
 intro=Experience after playing a flash game
 tags=fun games politics

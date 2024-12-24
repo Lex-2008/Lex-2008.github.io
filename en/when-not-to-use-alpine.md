@@ -1,4 +1,5 @@
 title=When not to use Alpine
+uuid=14833a5a-cdde-4a08-8245-ac86cef2b03e
 PROCESSOR=Markdown.pl
 intro=When you use scripting languages and want to squeeze some performance.
 tags=linux python

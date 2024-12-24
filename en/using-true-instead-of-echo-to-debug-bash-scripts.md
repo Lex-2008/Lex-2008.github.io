@@ -1,4 +1,5 @@
 title=Using true instead of echo to debug bash scripts
+uuid=00df3d65-d20e-4683-a7ef-9c0d1aeb93aa
 PROCESSOR=Markdown.pl
 intro=<b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output
 tags=Bash

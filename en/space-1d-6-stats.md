@@ -1,4 +1,5 @@
 title=space 1d 6: Stats
+uuid=cbe08365-42be-412b-9ec0-cb9865b7cd20
 PROCESSOR=Markdown.pl
 intro=One step forward, one step back
 tags=space1d

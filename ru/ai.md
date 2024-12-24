@@ -1,4 +1,5 @@
 title=Статьи про AI
+uuid=e1ad3e2d-81b0-4a27-8120-76d22421c4ac
 PROCESSOR=Markdown.pl
 intro=Как он (не) работает
 tags=ссылки

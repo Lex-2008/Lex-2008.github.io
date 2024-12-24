@@ -1,4 +1,5 @@
 title=Bluetooth Pairing Keys Location
+uuid=dcf6a137-997e-48ad-8536-a830716423e1
 PROCESSOR=Markdown.pl
 intro=In case you need to switch between various OSes (be it Windows and Linux, or just various Linux distros).
 tags=windows linux bluetooth

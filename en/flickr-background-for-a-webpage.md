@@ -1,4 +1,5 @@
 title=Flickr background for a webpage
+uuid=02b7f9ac-1977-482f-98d9-67f8fc75b21b
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=Another attempt to add something nice to this blog
 tags=Javascript

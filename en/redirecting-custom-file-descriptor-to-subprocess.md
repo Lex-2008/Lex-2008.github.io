@@ -1,4 +1,5 @@
 title=Redirecting custom file descriptor to subprocess
+uuid=d2f53879-374a-44ab-bcf4-bbae8894ffbb
 PROCESSOR=Markdown.pl
 intro=TL;DR: 3> >(command)
 tags=bash

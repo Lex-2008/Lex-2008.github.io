@@ -1,4 +1,5 @@
 title=Space 2: Camera on the ship
+uuid=2db5716a-ce78-4464-a58b-18d180ae7fdf
 PROCESSOR=Markdown.pl
 intro=Let's put a camera onto the ship, to get some FPV experience
 tags=Space3D

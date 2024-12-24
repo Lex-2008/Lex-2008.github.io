@@ -1,4 +1,5 @@
 title=Flickr feed generator for xscreensaver
+uuid=80395f90-a13e-416c-993c-c6edabbb0341
 PROCESSOR=Markdown.pl
 intro=Helping you to get many big images from flickr to your xscreensaver
 tags=bash net linux

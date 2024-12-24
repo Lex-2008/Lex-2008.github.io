@@ -1,4 +1,5 @@
 title=remontka.pro
+uuid=2bd1c960-c87f-4526-bb50-a09472685ffc
 PROCESSOR=Markdown.pl
 intro=Хороший сайт с полезными советами.
 tags=ссылки

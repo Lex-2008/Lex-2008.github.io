@@ -1,4 +1,5 @@
 title=Robots only
+uuid=690e6f87-7b51-4963-a3cd-14464b9b0cbe
 intro=Access for robots only
 tags=fun
 style=fieldset{text-align:center} #progress{transition: width 10s linear} input[type="number"]{width:5em}

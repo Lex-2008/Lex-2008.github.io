@@ -1,4 +1,5 @@
 title=Дефрагментация SSD
+uuid=40f6c90c-5cad-4aea-879d-7c38ed279c88
 PROCESSOR=Markdown.pl
 created=2021-11-27
 intro=Как дефрагментировать диск, если система считает его SSD

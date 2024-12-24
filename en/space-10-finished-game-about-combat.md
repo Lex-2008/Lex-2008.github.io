@@ -1,4 +1,5 @@
 title=Space 10: Finished game about combat
+uuid=ed12c109-c583-417f-a450-cd5396ae5422
 PROCESSOR=Markdown.pl
 intro=My first (almost) finished game
 tags=Space3D

@@ -1,4 +1,5 @@
 title=Patch for avfs to show "magic" dirs
+uuid=15d34095-355b-432b-844f-ca5206b715be
 PROCESSOR=Markdown.pl
 intro=Suggestion to improve its usability
 tags=linux

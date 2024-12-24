@@ -1,4 +1,5 @@
 title=Download any Chromium build
+uuid=a71120be-d9fd-4d18-b8df-0d8d0f2e680e
 PROCESSOR=Markdown.pl
 intro=Is it hard to download any Chromium build?
 tags=python chromium

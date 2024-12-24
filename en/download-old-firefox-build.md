@@ -1,4 +1,5 @@
 title=Download old Firefox build
+uuid=087cfa72-25bb-4543-8ba7-91fabafbd1e0
 PROCESSOR=Markdown.pl
 intro=deb packages for all versions starting with 3.5
 tags=Firefox links

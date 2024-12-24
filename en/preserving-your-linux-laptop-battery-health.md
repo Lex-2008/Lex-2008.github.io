@@ -1,4 +1,5 @@
 title=Preserving your Linux laptop battery health
+uuid=83979026-c380-4b0d-8298-b7f723d27e8a
 intro=by limiting its charge to 90%
 tags=Linux
 style=

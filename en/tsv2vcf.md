@@ -1,4 +1,5 @@
 title=csv2vcf (or rather tsv2vcf)
+uuid=38e1aa7f-3752-4919-bb0a-d22c0388e843
 intro=If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy
 tags=bash
 style=

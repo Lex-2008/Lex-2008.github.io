@@ -1,4 +1,5 @@
 title=Rsync backups
+uuid=f1f043c3-3ca0-465a-8dd4-21c14ab4c497
 PROCESSOR=Markdown.pl
 intro=How I organized backups of my files
 tags=bash

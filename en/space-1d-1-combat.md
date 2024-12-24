@@ -1,4 +1,5 @@
 title=space 1d 1: combat
+uuid=ac844426-4cbf-4205-9ab2-6418c2f58814
 PROCESSOR=Markdown.pl
 intro=Adding some action to the simple game prototype.
 tags=space1d

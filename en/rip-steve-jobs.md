@@ -1,4 +1,5 @@
 title=RIP Steve Jobs
+uuid=50c504c7-2da8-4351-9e34-20df5809ba69
 PROCESSOR=Markdown.pl
 intro=You brought technology closer to people
 tags=History

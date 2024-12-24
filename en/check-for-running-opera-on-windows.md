@@ -1,4 +1,5 @@
 title=Check for running Opera on Windows
+uuid=193d9b21-8396-4260-a107-0106b0e6ec35
 PROCESSOR=Markdown.pl
 intro=Currently (Opera 15-18), when you start Opera on Windows, it spawns itself again and terminates the process you started — so you can't easily wait until the Opera you've started quit. Or can you?
 tags=opera python windows

@@ -1,4 +1,5 @@
 title=Minimizing size of browser profiles backups
+uuid=723bb394-7142-4518-9ec3-5add18295b2e
 PROCESSOR=Markdown.pl
 intro=how to minimize them about 10-fold
 tags=bash chromium firefox windows

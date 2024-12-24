@@ -1,4 +1,5 @@
 title=space 1d 4: Trading and bluffing
+uuid=cf0f09b9-77fb-492c-aed7-4faf7a47dbb6
 PROCESSOR=Markdown.pl
 intro=more choices
 tags=space1d

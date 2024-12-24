@@ -1,4 +1,5 @@
 title=Colors 3
+uuid=cfda133a-8f58-4cd5-8aa6-7069d742f3ac
 intro=A nicer version of CSS-only 2D background gradient
 tags=css
 style=html {color-scheme: light;}

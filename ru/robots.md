@@ -1,4 +1,5 @@
 title=Только роботы
+uuid=607923de-dfa6-4b8e-ba97-58b44394fd8a
 intro=Доступ только для роботов
 tags=Юмор тест
 style=fieldset{text-align:center} #progress{transition: width 10s linear} input[type="number"]{width:5em}

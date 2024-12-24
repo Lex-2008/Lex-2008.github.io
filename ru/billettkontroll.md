@@ -1,4 +1,5 @@
 title=Billettkontroll
+uuid=6029621e-963f-4412-87d1-4c70557bc208
 PROCESSOR=Markdown.pl
 intro=Сегодня у меня проверили билет на автобус.
 tags=норвегия

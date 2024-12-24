@@ -1,4 +1,5 @@
 title=space 1d 7: Ship names, memory, and feelings
+uuid=48de3f16-525d-45d8-9934-7d2c3b1ab2c6
 PROCESSOR=Markdown.pl
 intro=Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior
 tags=space1d

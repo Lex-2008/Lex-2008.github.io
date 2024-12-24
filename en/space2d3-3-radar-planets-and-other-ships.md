@@ -1,4 +1,5 @@
 title=space2d3 3: radar, planets, and other ships
+uuid=7df2d6a1-1f4a-46bd-bac6-b19b3f98e1c5
 intro=Now your ship can have a "radar" component, where you can look at a star system
 tags=space2d3
 style= fieldset { border-color: ButtonBorder } .component>div { display: none; } .notransition { transition: none !important; }

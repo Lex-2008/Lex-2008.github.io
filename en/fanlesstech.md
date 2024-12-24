@@ -1,4 +1,5 @@
 title=FanlessTech
+uuid=ccbb5bdd-37fe-4c97-95bc-3feeceedcf41
 PROCESSOR=Markdown.pl
 intro=FanlessTech.com – a website about fanless computers
 tags=links

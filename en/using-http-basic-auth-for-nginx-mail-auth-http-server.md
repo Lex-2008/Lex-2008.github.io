@@ -1,4 +1,5 @@
 title=Using HTTP Basic auth for nginx mail auth http server
+uuid=a051acc1-0857-4347-a23a-49ea7adf1afb
 PROCESSOR=Markdown.pl
 intro=How hard can it be? Using only nginx itself!
 tags=nginx net

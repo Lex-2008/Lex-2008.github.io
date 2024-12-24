@@ -1,4 +1,5 @@
 title=calendar в Linux и русские даты
+uuid=e3936eca-a17b-4c44-ad32-d027baca9877
 PROCESSOR=Markdown.pl
 intro=Заметка об еще одной интересной, но забытой программе
 tags=linux

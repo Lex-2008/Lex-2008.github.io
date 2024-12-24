@@ -1,4 +1,5 @@
 title=space 1d 5: Costly approach
+uuid=f5409d31-6e2d-4fdd-98a2-bf22d45a3920
 PROCESSOR=Markdown.pl
 intro=Changes in physics
 tags=space1d links

@@ -1,4 +1,5 @@
 title=pfmap
+uuid=720bf1e5-d95e-4cff-9285-eaf70906f22f
 PROCESSOR=Markdown.pl
 intro=<p>Заходить в ISO-файлы и ZIP-архивы как в папки</p>
 tags=программы

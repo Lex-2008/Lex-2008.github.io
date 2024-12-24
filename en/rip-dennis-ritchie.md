@@ -1,4 +1,5 @@
 title=RIP Dennis Ritchie
+uuid=04e73e76-124c-4a6e-a3de-031ff5af1ac9
 PROCESSOR=Markdown.pl
 intro=One of creators of C programming language passed away today
 tags=History

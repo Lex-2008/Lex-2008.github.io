@@ -1,4 +1,5 @@
 title=How to download folder without creating archive
+uuid=bc1aacdc-120f-4ffb-b87a-cf0ecb5d7a20
 PROCESSOR=Markdown.pl
 intro=TL;DR: use tar and pipe to stdout!
 tags=bash

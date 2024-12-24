@@ -1,4 +1,5 @@
 title=space 2d 2: first UI with a view on horribly unbalanced economy
+uuid=af05e58a-8bbb-456e-a0e0-70b3b950af20
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=It's playable now… if you can call it that :-)
 tags=space2d

@@ -1,4 +1,5 @@
 title=space2d2 1: a simple game about flat space
+uuid=47691116-696c-4bd5-b256-be1df8d4dc53
 intro=Making a properly balanced economy simulator is pretty hard, as it turns out. But can I make a simpler 2d game?
 tags=space2d2
 style=

@@ -1,4 +1,5 @@
 title=Progress bar in bash
+uuid=434235ad-4cb0-45b1-95b9-197744330d3c
 PROCESSOR=Markdown.pl
 intro=one-line bash function to draw a nice progress bar
 tags=bash

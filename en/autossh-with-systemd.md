@@ -1,4 +1,5 @@
 title=AutoSSH with SystemD
+uuid=71203306-cf84-4116-8232-4382019cb586
 intro=a simple unit file to keep a permanent SSH connection
 tags=Linux
 style=

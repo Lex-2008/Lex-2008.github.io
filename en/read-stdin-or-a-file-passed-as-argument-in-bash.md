@@ -1,4 +1,5 @@
 title=Read stdin <b>OR</b> a file passed as argument in bash
+uuid=153fce0d-8473-4374-91e8-0abd9d04ef56
 intro=<b>TL;DR:</b> <code>cat "${1:-/dev/stdin}"</code>
 tags=bash
 style=

@@ -1,4 +1,5 @@
 title=Using hdparm to hide S.M.A.R.T. errors
+uuid=6b04d5f7-d557-4ce9-921a-8940e6a3809a
 PROCESSOR=Markdown.pl
 intro=TL;DR: <code>sudo hdparm --repair-sector <i>SECTOR</i> <i>/dev/sdx</i></code>
 tags=linux

@@ -1,4 +1,5 @@
 title=space2d3 6: autosave and missions
+uuid=793998ac-044a-4bc9-be70-c4e5be8940ab
 intro=Now your game doesn't disappear as soon as you reload the page, and also you can complete missions!
 tags=space2d3
 style=

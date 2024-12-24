@@ -1,4 +1,5 @@
 title=Space 7: another ship
+uuid=ed4698bd-fbd9-433f-87f9-f764f506b20f
 PROCESSOR=Markdown.pl
 intro=Let's have something to look at!
 tags=Space3D

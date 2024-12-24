@@ -1,4 +1,5 @@
 title=Conditional formatting in Python
+uuid=3099ed35-85f1-4586-b567-ee72b4a4b5db
 PROCESSOR=Markdown.pl
 intro=Greately inspired by $if(...) conditions in Winamp Advanced Title Formatting, I wanted to add something like this to Python.
 tags=python

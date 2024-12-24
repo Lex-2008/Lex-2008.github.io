@@ -1,4 +1,5 @@
 title=Everything
+uuid=ff2fff5f-74e7-430b-9292-8f9e6320d586
 PROCESSOR=Markdown.pl
 intro=Моментальный поиск по диску
 tags=программы

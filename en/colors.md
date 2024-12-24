@@ -1,4 +1,5 @@
 title=Colors
+uuid=81fd6323-74ed-4f83-a6af-1a7935dad091
 intro=Let's add a colorful background to this blog, hm?
 tags=javascript
 style=html {color-scheme: light;}

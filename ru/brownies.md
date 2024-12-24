@@ -1,4 +1,5 @@
 title=Brownies
+uuid=be28d659-9679-44b8-8e70-18d91329d0e7
 PROCESSOR=Markdown.pl
 intro=
 tags=рецепты

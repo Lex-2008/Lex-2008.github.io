@@ -1,4 +1,5 @@
 title=How to make dark theme follow system theme on some websites
+uuid=badeaf26-18cb-4ad1-a678-25a870c21296
 intro=If you happen to often switch between "dark" and "light" color themes on your system, you might be lucky enough that your browser picks it up properly and conveys to web sites
 tags=javascript
 style=

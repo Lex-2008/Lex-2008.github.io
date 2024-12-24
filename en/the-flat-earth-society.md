@@ -1,4 +1,5 @@
 title=The Flat Earth Society
+uuid=3e9fcf3d-51d6-459e-9f9d-c9845613dcd6
 PROCESSOR=Markdown.pl
 intro=How much can you tease your brain?
 tags=fun links

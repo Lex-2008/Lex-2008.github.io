@@ -1,4 +1,5 @@
 title=space2d3 5: Trading stuff
+uuid=fcb689de-a6b9-40cf-8cf1-a4c9d2a04dc8
 intro=Ok, it's actually barter, but now you have a reason to travel.
 tags=space2d3
 style= fieldset { border-color: ButtonBorder } .component>div { display: none; } .notransition { transition: none !important; } .hideChildDiv>div { display: none }

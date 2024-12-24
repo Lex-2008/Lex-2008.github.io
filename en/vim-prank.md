@@ -1,4 +1,5 @@
 title=Vim prank
+uuid=30c25128-48bd-4d40-a368-742367b2da77
 PROCESSOR=Markdown.pl
 intro=An idea for an evil prank on your Vim-loving friend.
 tags=vim fun

@@ -1,4 +1,5 @@
 title=Different keyboard layouts for different keyboards
+uuid=87ff8201-a28d-45fc-a894-6ca22e2259c9
 PROCESSOR=Markdown.pl
 intro=On Linux, you can have different keyboard layouts for different physical keyboards. How? Easy!
 tags=Linux

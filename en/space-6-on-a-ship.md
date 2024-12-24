@@ -1,4 +1,5 @@
 title=Space 6: on a ship
+uuid=49035403-146f-4954-af4e-74ff102e29b4
 PROCESSOR=Markdown.pl
 intro=FPV mode, so we can walk on the ship
 tags=Space3D

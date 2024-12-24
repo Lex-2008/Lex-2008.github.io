@@ -1,4 +1,5 @@
 title=How I started working at reMarkable
+uuid=50a92267-3d4c-4149-9ecd-eb48677b13dd
 intro=Due to reorganisation at my previous place of work, several people were offered to leave, including me.
 tags=life reMarkable
 style=

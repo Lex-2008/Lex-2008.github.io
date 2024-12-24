@@ -1,4 +1,5 @@
 title=XP games
+uuid=01788c87-f3ae-4bd3-a1f7-03d5c3dd6b8f
 PROCESSOR=Markdown.pl
 intro=A webpage with a list of free games for Windows
 tags=links games windows

@@ -1,4 +1,5 @@
 title=Javascript canvas drag-and-zoom library
+uuid=4a707274-caaa-4bad-a0ff-56af0af7b40d
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 style=code{tab-size:4}
 intro=For those cases when you need to implement something GoogleMaps-like

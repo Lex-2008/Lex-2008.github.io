@@ -1,4 +1,5 @@
 title=Unlocker
+uuid=af87b8a0-bcd6-480e-b507-8e44a2f8f4f9
 PROCESSOR=Markdown.pl
 intro=Разблоктровать доступ к файлам
 tags=программы

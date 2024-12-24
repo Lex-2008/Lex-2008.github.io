@@ -1,4 +1,5 @@
 title=Downloading games from… The radio!
+uuid=6438f6bd-afab-4195-83d8-db93f63ea76d
 PROCESSOR=Markdown.pl
 intro=Interesting article about how software was distributed in old times.
 tags=history links

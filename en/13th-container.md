@@ -1,4 +1,5 @@
 title=13th container
+uuid=5f2f50e9-7bd3-4c61-8f77-e14ecd6c7e63
 PROCESSOR=Markdown.pl
 tags=postfix
 intro=With <a href='https://github.com/Lex-2008/containers/tree/master/dehydrated.cont'>dehydrated</a> being 12th container to be added to my infra, this is 13th.

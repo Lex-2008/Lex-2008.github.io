@@ -1,4 +1,5 @@
 title=Bash on Bash
+uuid=81f722c7-ae8c-44ab-9f58-e03ea681984f
 PROCESSOR=Markdown.pl
 intro=Started using new programming language, I feel irritated and want to blog about it :)
 tags=bash

@@ -1,4 +1,5 @@
 title=Dovecot default email order
+uuid=bdf5f2d1-8302-43a3-a101-ce8fd635d22b
 PROCESSOR=Markdown.pl
 intro=How to change it, if it matters
 tags=e-mail

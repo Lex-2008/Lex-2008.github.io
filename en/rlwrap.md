@@ -1,4 +1,5 @@
 title=rlwrap
+uuid=eb3f199e-e84d-4594-bf81-4728dc63598d
 PROCESSOR=Markdown.pl
 intro=Short memo about a good program
 tags=Linux

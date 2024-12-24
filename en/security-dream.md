@@ -1,4 +1,5 @@
 title=Security dream
+uuid=edc1692a-0579-479c-b58f-7f1c1d04f66e
 PROCESSOR=Markdown.pl
 intro=I had a dream. A nightmare, actually.
 tags=security life

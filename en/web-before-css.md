@@ -1,4 +1,5 @@
 title=Web before CSS
+uuid=1857ece5-b494-4d51-a7de-088bbe590ae1
 PROCESSOR=Markdown.pl
 intro=A brief dive into a history of early web
 tags=css history links

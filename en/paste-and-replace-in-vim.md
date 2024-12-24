@@ -1,4 +1,5 @@
 title=Paste and replace in Vim
+uuid=178b034f-6f64-43a0-9284-9f194835ed7d
 PROCESSOR=Markdown.pl
 intro=How to copy-paste text from one place to another, replacing what's already there
 tags=vim

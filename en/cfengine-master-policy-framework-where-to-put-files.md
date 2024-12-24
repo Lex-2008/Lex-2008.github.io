@@ -1,4 +1,5 @@
 title=CFEngine Master Policy Framework where to put files
+uuid=78036abc-a7f2-4066-b6bc-82d83551ced5
 PROCESSOR=Markdown.pl
 intro=That was a google query I struggled to find answer to
 tags=CFEngine

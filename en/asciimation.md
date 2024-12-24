@@ -1,4 +1,5 @@
 title=asciimation
+uuid=aec759f4-7165-4b34-87c1-fa569d8de960
 PROCESSOR=Markdown.pl
 intro=Star Wars in ASCII art
 tags=fun links

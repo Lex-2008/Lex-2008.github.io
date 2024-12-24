@@ -1,4 +1,5 @@
 title=Forward SMB via SSH tunnel
+uuid=6a223167-b3bb-4794-937e-33033b01b99f
 PROCESSOR=Markdown.pl
 intro=When SSH is your poor man's VPN
 tags=bash windows linux

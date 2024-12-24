@@ -1,4 +1,5 @@
 title=Gapminder
+uuid=beb95c2d-b130-400c-bc57-6e08a7912fe5
 PROCESSOR=Markdown.pl
 intro=Explore data about all countries in the world since 1800
 tags=links

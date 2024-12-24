@@ -1,4 +1,5 @@
 title=careceo
+uuid=44b33b92-f11c-4884-8f6f-f70aadeff11b
 PROCESSOR=Markdown.pl
 intro=These are the guys who are spamming me the most.
 tags=e-mail

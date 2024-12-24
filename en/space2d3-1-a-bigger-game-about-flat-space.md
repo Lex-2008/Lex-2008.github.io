@@ -1,4 +1,5 @@
 title=space2d3 1: a bigger game about flat space
+uuid=0abbfc21-5579-48fc-b8cd-c10aadab5fe1
 intro=Idea it to make a mix of space1d and space2d2 games (I'm not very good at naming things)
 tags=space2d3
 style= fieldset { border-color: ButtonBorder }

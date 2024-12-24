@@ -1,4 +1,5 @@
 title=Change Konsole theme from command-line
+uuid=1cd3908c-fd05-4b61-bbfd-7bc6c0fdc581
 intro=If you happen to often switch KDE desktop themes and work in konsole (KDE terminal emulator) a lot, you might want to switch konsole color schemes, too. Instead of messing with "Manage Profiles" dialog and changing profile for each open konsole tab every time, you might want to automate it a bit
 tags=linux
 style=

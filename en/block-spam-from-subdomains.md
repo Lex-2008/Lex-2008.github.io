@@ -1,4 +1,5 @@
 title=Block spam from subdomains
+uuid=85ea0821-d178-4def-860d-4183b6cc2dd1
 PROCESSOR=Markdown.pl
 intro=If you have a domain and don't want to be blocked for sending spam.
 tags=e-mail

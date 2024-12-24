@@ -1,4 +1,5 @@
 title=Цитаты
+uuid=b277c7eb-1eb3-4cd1-b0d3-01a7585f8c5c
 PROCESSOR=Markdown.pl
 intro=
 tags=юмор

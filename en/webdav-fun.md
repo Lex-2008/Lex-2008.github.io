@@ -1,4 +1,5 @@
 title=Fun with webdav
+uuid=9730dd49-f28a-4066-813f-8b35ecebb0ac
 intro=Playing with a fancy old technology
 tags=nginx
 style=

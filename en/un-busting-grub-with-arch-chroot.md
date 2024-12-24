@@ -1,4 +1,5 @@
 title=Un-busting GRUB with arch-chroot
+uuid=ce500a8c-dbad-4aac-90a1-91bf310b7db6
 intro=properly this time
 tags=Linux
 style=

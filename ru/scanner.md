@@ -1,4 +1,5 @@
 title=Scanner
+uuid=76f2b004-a45a-42b0-b8c0-e3162b34f1be
 PROCESSOR=Markdown.pl
 intro=<p>Как узнать, куда делось место на диске</p>
 tags=программы

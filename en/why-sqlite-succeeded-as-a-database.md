@@ -1,4 +1,5 @@
 title=Why SQLite succeeded as a database
+uuid=60c3e3c7-70f7-4fea-a3b7-3a72a3998676
 PROCESSOR=Markdown.pl
 intro=Interview (with a transcript) with its creator.
 tags=history links

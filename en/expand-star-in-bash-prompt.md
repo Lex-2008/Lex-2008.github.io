@@ -1,4 +1,5 @@
 title=expand * in bash prompt
+uuid=c6543fb4-9079-45c3-a12e-e357e566b354
 intro=<b>TL;DR:</b> <code>ls &lt;Esc&gt;*</code>
 tags=bash
 style=

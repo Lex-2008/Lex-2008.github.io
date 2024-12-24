@@ -1,4 +1,5 @@
 title=DOS games in your browser
+uuid=62d30b81-63c1-4784-ba8b-6455e5f78add
 PROCESSOR=Markdown.pl
 intro=Classic which can never be forgotten is just few clicks away.
 tags=games

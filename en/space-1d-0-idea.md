@@ -1,4 +1,5 @@
 title=space 1d 0: idea
+uuid=73df977a-d405-4dee-a3e6-e9ca35fc0e0b
 PROCESSOR=Markdown.pl
 intro=Game about space which will be more fun to make than to play.
 tags=space1d

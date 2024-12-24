@@ -1,4 +1,5 @@
 title=Printer
+uuid=7eec03ce-e3a7-4032-aa07-b75dfb2f2d07
 PROCESSOR=Markdown.pl
 intro=We have one now
 tags=Life

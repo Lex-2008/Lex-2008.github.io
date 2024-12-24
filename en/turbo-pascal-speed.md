@@ -1,4 +1,5 @@
 title=Turbo Pascal speed
+uuid=2a6dc711-30e5-4b48-a80a-a8098e14b11e
 PROCESSOR=Markdown.pl
 intro=It was the first programming language I was learning
 tags=links

@@ -1,4 +1,5 @@
 title=Incremental backup с помощью TAR
+uuid=9201f126-7249-4e96-b4f4-b4fc47b9a20f
 PROCESSOR=Markdown.pl
 intro=Как настроить автоматическую архивацию так, чтобы она занимала минимум времени
 tags=ссылки linux

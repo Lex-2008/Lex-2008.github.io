@@ -1,4 +1,5 @@
 title=Reducing JPG File size
+uuid=9e5c709f-851a-4104-9de9-9bde5c3afc9e
 PROCESSOR=Markdown.pl
 intro=An interesting article on how to save space and bandwidth
 tags=net links

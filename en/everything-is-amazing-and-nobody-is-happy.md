@@ -1,4 +1,5 @@
 title=Everything Is Amazing And Nobody Is Happy
+uuid=7802e499-6945-49d2-a0ee-4c8b326d15ba
 PROCESSOR=Markdown.pl
 intro=Good monologue about modern technology and our reaction on it
 tags=fun

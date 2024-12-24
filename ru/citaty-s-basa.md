@@ -1,4 +1,5 @@
 title=Цитаты с баша
+uuid=d01b8922-bc62-46a8-af99-f4fb12e001f4
 PROCESSOR=Markdown.pl
 intro=
 tags=юмор

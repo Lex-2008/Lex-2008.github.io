@@ -1,4 +1,5 @@
 title=space 1d 8: Colors, stats, challenge mode
+uuid=8e6ae690-d383-4497-9c67-a7d1088104b8
 PROCESSOR=Markdown.pl
 intro=Ships now have colors and like you from the first encounter if your ships color is close to theirs. But still, to change it you need to decrease your karma below -1.
 tags=space1d

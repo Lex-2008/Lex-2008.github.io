@@ -1,4 +1,5 @@
 title=Designing Windows 95
+uuid=808834ae-0c16-4692-83bb-d81c38b717a5
 PROCESSOR=Markdown.pl
 intro=An interesting article about designing of common UI elements which we now are taking for granted.
 tags=History links

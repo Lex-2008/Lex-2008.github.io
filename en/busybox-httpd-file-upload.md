@@ -1,4 +1,5 @@
 title=busybox httpd file upload
+uuid=39e53a30-3009-44e3-967d-b2b45d17e588
 PROCESSOR=Markdown.pl
 intro=busybox has a nice http webserver module, even with cgi support - and you can use it to upload files, too
 tags=bash net linux

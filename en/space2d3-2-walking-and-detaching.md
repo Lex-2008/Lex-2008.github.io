@@ -1,4 +1,5 @@
 title=space2d3 2: walking and (de)taching
+uuid=6dbe6db0-f111-4d04-8292-ff81e19d91b2
 intro=Now you can walk on your ship... And others, too
 tags=space2d3
 style= fieldset { border-color: ButtonBorder } .component>div { display: none; } .notransition { transition: none !important; }
