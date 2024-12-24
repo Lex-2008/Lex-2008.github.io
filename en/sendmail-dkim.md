@@ -1,5 +1,6 @@
 title=Sendmail DKIM
-PROCESSOR=Markdown.pl
+uuid=82074da2-c3f0-4173-90c2-fd7bc8503ea9
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=Signing sendmail messages with DKIM using OpenDKIM is easier then you think!
 tags=e-mail
 created=2014-07-06
