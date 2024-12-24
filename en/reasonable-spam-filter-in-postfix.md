@@ -1,7 +1,8 @@
 title=Reasonable spam filter in Postfix
-PROCESSOR=Markdown.pl
+uuid=23427c49-1c67-4fbd-86a3-a5941398e0db
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=One of reasons why people switch from sendmail to postfix is ease of configuration.
-tags=linux e-mail
+tags=postfix
 created=2021-07-19
 
 In my case, for [sendmail][sm] I had a spam filter like this:

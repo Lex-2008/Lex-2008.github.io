@@ -1,9 +1,8 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Reasonable spam filter in Postfix</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="One of reasons why people switch from sendmail to postfix is ease of configuration.">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/reasonable-spam-filter-in-postfix.html">
+<title>Reasonable spam filter in Postfix</title>
+<meta name="description" content="One of reasons why people switch from sendmail to postfix is ease of configuration.">
 <style>
 html {color-scheme: light dark}
 body {
@@ -20,41 +19,48 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <header>
 	<h1 style="border-bottom: 1px solid #8888">Reasonable spam filter in Postfix</h1>
 	<small>
-		Created: <time>2021-07-19</time> &mdash; modified: <time>2021-07-31</time> &mdash;
-		tags: <a href="./#tag:linux">linux</a> <a href="./#tag:e-mail">e-mail</a>
+		Created: <time>2021-07-19</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+		tags: <a href="./#tag:postfix">postfix</a>
 	</small>
 	<hr>
 </header>
 <main>
 	<p class="intro">One of reasons why people switch from sendmail to postfix is ease of configuration.</p>
 <p>In my case, for <a href="whitelisting-emails-with-sendmail.html">sendmail</a> I had a spam filter like this:</p>
-
 <ul>
-<li><p>messages from contacts in my address book should go to inbox,  </p></li>
-<li><p>other messages should go to the spamfilter</p></li>
-<li><p>(and if they pass it - to trash)</p></li>
+<li>
+<p>messages from contacts in my address book should go to inbox,</p>
+</li>
+<li>
+<p>other messages should go to the spamfilter</p>
+</li>
+<li>
+<p>(and if they pass it - to trash)</p>
+</li>
 </ul>
-
 <p>However, I wanted to add an extra exclusion for sites where I registered with email like <code>user+tag@example.com</code>.
 That was pretty hard to achieve with sendmail (and what's worse, I didn't completely understand what I was doing),
 so together with <a href="https://github.com/Lex-2008/containers">containerisation</a> I decided to switch from sendmail to postfix.</p>
-
 <p>And it went well!
-Moreover, I could also configure it to use both "plus" and "minus" characters as <em>recepient delimiters</em>
-(symbols staying between "user" and "tag" in <code>user+tag@example.com</code>),
-so now I can register as <code>user-tag@example.com</code> on websites which don't allow "plus" characters in email.</p>
-
+Moreover, I could also configure it to use both &quot;plus&quot; and &quot;minus&quot; characters as <em>recepient delimiters</em>
+(symbols staying between &quot;user&quot; and &quot;tag&quot; in <code>user+tag@example.com</code>),
+so now I can register as <code>user-tag@example.com</code> on websites which don't allow &quot;plus&quot; characters in email.</p>
 <p>As a result, my current spam filter looks like this:</p>
-
 <ul>
-<li><p>messages from contacts in my address book and those sent to emails containing "plus" or "minus" should be excluded from spamfilter,</p></li>
-<li><p>other messages should be checked against DNSBL.</p></li>
-<li><p>Messages from contacts in my address book should go to inbox,  </p></li>
-<li><p>other messages (which passed or were excluded from spamfilter) should go to trash.</p></li>
+<li>
+<p>messages from contacts in my address book and those sent to emails containing &quot;plus&quot; or &quot;minus&quot; should be excluded from spamfilter,</p>
+</li>
+<li>
+<p>other messages should be checked against DNSBL.</p>
+</li>
+<li>
+<p>Messages from contacts in my address book should go to inbox,</p>
+</li>
+<li>
+<p>other messages (which passed or were excluded from spamfilter) should go to trash.</p>
+</li>
 </ul>
-
 <p>And it was done with this rather readable postfix config <a href="https://github.com/Lex-2008/containers/blob/master/postfix.cont/data/conf/main.cf#:~:text=smtpd_recipient_restrictions">entry</a>:</p>
-
 <pre><code>smtpd_recipient_restrictions = permit_mynetworks,      # allow mail sent from local addresses
   permit_sasl_authenticated,                           # allow mail sent by authenticated users
   unauth_destination,                                  # reject mail sent to other domains
@@ -64,14 +70,10 @@ so now I can register as <code>user-tag@example.com</code> on websites which don
   rbl_client rbl.rbldns.ru                             # check other messages against DNSBL
                                                        # allow messages which pass DNSBL check
 </code></pre>
-
-<p>Rules are processed from top to bottom, first matching rule "wins".</p>
-
+<p>Rules are processed from top to bottom, first matching rule &quot;wins&quot;.</p>
 <p>List of messages which didn't pass this filter you can find on <a href="spam-emails.html">separate page</a>.</p>
-
 <p>That's all about allowing or rejecting messages.
 For sorting messages to inbox or trash, I'm using Sieve plugin built into dovecot, but that's a different story.</p>
-
 <p>And how does <strong>your</strong> spam filter work?
 Are you sure it's not rejecting messages from your friends?
 Are you sure it will not reject a message from a website you're going to register at?
