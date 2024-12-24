@@ -36,9 +36,9 @@ provider name should <strong>not</strong> contain spaces, for example like this:
 Slack   4IGIS2QZGVQAKG4GFNMFE6ZMOR3JHJUQ
 GitHub  OUZKAXEKC44GPAPF6CTCCQFWCMC77KKJ
 </code></pre>
-<p>Extracting secrets from QR codes is left as exersise to a reader :)</p>
+<p>Extracting secrets from QR codes is left as exercise to a reader :)</p>
 <p>I recommend storing them in a password-protected area, encrypted by gpg or encfs, for example.
-Setting up such storage is left as exersise to a reader ;)</p>
+Setting up such storage is left as exercise to a reader ;)</p>
 <p>Then, edit the following script, changing the first command to the one which decrypts the above file
 and prints out its (unencrypted) contents.
 For example, for GPG it will be something like <code>gpg --decrypt /path/to/file.gpg</code>,
@@ -74,7 +74,7 @@ times=&quot;$(seq 0 30 300)&quot;
 echo &quot;time left: $(( 30 - `date +%s` % 30 ))s until first column expires&quot;
 </code></pre>
 <p>After that, put your version of script somewhere in your <code>$PATH</code>
-(on many dostros, <code>$PATH</code> already contains something like <code>$HOME/bin</code> or <code>$HOME/.local/bin</code>,
+(on many distros, <code>$PATH</code> already contains something like <code>$HOME/bin</code> or <code>$HOME/.local/bin</code>,
 so you can use it), and run it like this:</p>
 <pre><code>$ totp
 EncFS Password: 
