@@ -1,4 +1,5 @@
 title=NationStates - make a country of your dreams
+uuid=86bc46a5-1940-4bf8-a21f-053830680631
 PROCESSOR=Markdown.pl
 intro=I'd like to add "...and live in it", but it's only a game, so it's more like "...and dream of it"
 tags=politics links
