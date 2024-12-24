@@ -1,16 +1,9 @@
 title=Cloud videos
-PROCESSOR=Markdown.pl
-intro=
+intro=Let's see how recently released video "speed-up" and smoothing program Microsoft Hyperlapse can deal with my record of flying in clouds
 tags=life
 created=2015-06-22
-modified=2016-12-14
-modified_now=1
-
-Let's see how recently released video "speed-up" and smoothing program
-[Microsoft Hyperlapse][ms] can deal with my record of flying in clouds.
-
-[ms]: http://research.microsoft.com/en-us/um/redmond/projects/hyperlapseapps/
-
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
+uuid=59f1d19f-b896-4840-9c0a-e983a674ba73
 
 Circling in clouds
 ------
@@ -27,6 +20,10 @@ Landing
 	poster="//home.shpakovsky.ru/web/14-06-22-cloud-videos/landing.jpg"
 	src=   "//home.shpakovsky.ru/web/14-06-22-cloud-videos/landing.mp4"
 	style="width: 100%" controls></video>
+
+You can download the program from the following link:
+
+<http://research.microsoft.com/en-us/um/redmond/projects/hyperlapseapps/>
 
 Same article in [Russian][ru]
 
