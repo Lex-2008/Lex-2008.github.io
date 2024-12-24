@@ -1,7 +1,8 @@
 title=Login attempts
-PROCESSOR=Markdown.pl
+uuid=1823b261-579e-4acd-a4e6-044d43f0fa16
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=These are logins and passwords of last 10k login attempts into my server.
-tags=e-mail logs
+tags=logs
 created=2021-07-09
 
 All of them failed, because there is no imap/pop/smtp login option on this server at all.
