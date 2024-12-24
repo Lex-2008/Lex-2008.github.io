@@ -5,6 +5,7 @@
 <meta name="description" content="Notes about different stuff">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -12,6 +13,7 @@ body {
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
 a.title {font-size:larger; font-weight: bolder}
+main small {display: block}
 </style>
 </head><body>
 <header>
@@ -40,92 +42,15 @@ a.title {font-size:larger; font-weight: bolder}
 <main>
 <ol style="padding-left:0px">
 	<!-- put contents below -->
-	<!-- begin blog-posts-in-grafana -->
-	<li>
-		<a href="blog-posts-in-grafana.html" class="title">blog posts in grafana</a>
-		<br>
-		<small>
-			Created: <time>2024-11-08</time> &mdash; modified: <time>2024-11-08</time> &mdash;
-			tags: <a href="./#tag:grafana">grafana</a> <a href="./#tag:fun">fun</a>
-		</small>
-		<p>
-			<span class="intro">in case you missed RSS, you might enjoy another way of reading blog posts</span>
-			&mdash;
-			<a href="blog-posts-in-grafana.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-11-08
-grafana fun
-		--> </div>
-	</li>
-	<!-- end blog-posts-in-grafana -->
-	<!-- begin decoding-certificate-inside-mac-provisioning-profile -->
-	<li>
-		<a href="decoding-certificate-inside-mac-provisioning-profile.html" class="title">Decoding certificate inside Mac provisioning profile</a>
-		<br>
-		<small>
-			Created: <time>2024-10-18</time> &mdash; modified: <time>2024-10-21</time> &mdash;
-			tags: <a href="./#tag:mac">mac</a> <a href="./#tag:bash">bash</a>
-		</small>
-		<p>
-			<span class="intro">Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile "XXX" doesn't include signing certificate "YYY"</span>
-			&mdash;
-			<a href="decoding-certificate-inside-mac-provisioning-profile.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-10-18
-Mac bash
-		--> </div>
-	</li>
-	<!-- end decoding-certificate-inside-mac-provisioning-profile -->
-	<!-- begin using-pkc-to-send-a-message -->
-	<li>
-		<a href="using-pkc-to-send-a-message.html" class="title">using public key cryptography to send a message</a>
-		<br>
-		<small>
-			Created: <time>2024-10-29</time> &mdash; modified: <time>2024-11-08</time> &mdash;
-			tags: <a href="./#tag:security">security</a>
-		</small>
-		<p>
-			<span class="intro">How to send a message to your friend over insecure lines and be sure that only they can read it</span>
-			&mdash;
-			<a href="using-pkc-to-send-a-message.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-10-29
-security
-		--> </div>
-	</li>
-	<!-- end using-pkc-to-send-a-message -->
-	<!-- begin burying-an-old-friend -->
-	<li>
-		<a href="burying-an-old-friend.html" class="title">Burying an old friend</a>
-		<br>
-		<small>
-			Created: <time>2016-06-25</time> &mdash; modified: <time>2016-12-14</time> &mdash;
-			tags: <a href="./#tag:life">life</a>
-		</small>
-		<p>
-			<span class="intro">Today I've accompanied my old friend on his last journey.</span>
-			&mdash;
-			<a href="burying-an-old-friend.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2016-06-25
-life
-		--> </div>
-	</li>
-	<!-- end burying-an-old-friend -->
 	<!-- begin textarea -->
 	<li>
-		<a href="textarea.html" class="title">textarea</a>
-		<br>
-		<small>
-			Created: <time>2024-08-13</time> &mdash; modified: <time>2024-08-14</time> &mdash;
+		<a href="textarea.html" style="view-transition-name:textarea-title" class="title">textarea</a>
+		<small style="view-transition-name:textarea-small">
+			Created: <time>2024-08-13</time> &mdash; modified: <time>2024-12-23</time> &mdash;
 			tags: <a href="./#tag:html">html</a>
 		</small>
-		<p>
-			<span class="intro">If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching <tt>notepad.exe</tt> you might want to type <tt style="white-space: nowrap">data:text/html,&lt;textarea&gt;</tt> in the address bar</span>
+		<p style="view-transition-name:textarea-intro">
+			<span class="intro">If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching <tt>notepad.exe</tt> you might want to type <tt style="word-break:break-all">data:text/html,&lt;textarea&gt;</tt> in the address bar</span>
 			&mdash;
 			<a href="textarea.html">read more</a>
 		</p>
@@ -135,1098 +60,122 @@ html
 		--> </div>
 	</li>
 	<!-- end textarea -->
-	<!-- begin how-to-make-dark-theme-follow-system-theme-on-some-websites -->
-	<li>
-		<a href="how-to-make-dark-theme-follow-system-theme-on-some-websites.html" class="title">How to make dark theme follow system theme on some websites</a>
-		<br>
-		<small>
-			Created: <time>2024-08-06</time> &mdash; modified: <time>2024-08-14</time> &mdash;
-			tags: <a href="./#tag:javascript">javascript</a>
-		</small>
-		<p>
-			<span class="intro">If you happen to often switch between "dark" and "light" color themes on your system, you might be lucky enough that your browser picks it up properly and conveys to web sites</span>
-			&mdash;
-			<a href="how-to-make-dark-theme-follow-system-theme-on-some-websites.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-08-06
-javascript
-		--> </div>
-	</li>
-	<!-- end how-to-make-dark-theme-follow-system-theme-on-some-websites -->
-	<!-- begin change-konsole-theme-from-commandline -->
-	<li>
-		<a href="change-konsole-theme-from-commandline.html" class="title">Change Konsole theme from command-line</a>
-		<br>
-		<small>
-			Created: <time>2024-07-30</time> &mdash; modified: <time>2024-08-13</time> &mdash;
-			tags: <a href="./#tag:linux">linux</a>
-		</small>
-		<p>
-			<span class="intro">If you happen to often switch KDE desktop themes and work in konsole (KDE terminal emulator) a lot, you might want to switch konsole color schemes, too. Instead of messing with "Manage Profiles" dialog and changing profile for each open konsole tab every time, you might want to automate it a bit</span>
-			&mdash;
-			<a href="change-konsole-theme-from-commandline.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-07-30
-linux
-		--> </div>
-	</li>
-	<!-- end change-konsole-theme-from-commandline -->
-	<!-- begin free-microsoft-windows-ieedge-vms -->
-	<li>
-		<a href="free-microsoft-windows-ieedge-vms.html" class="title">Free Microsoft Windows IE/Edge VMs</a>
-		<br>
-		<small>
-			Created: <time>2023-01-12</time> &mdash; modified: <time>2024-07-15</time> &mdash;
-			tags: <a href="./#tag:links">links</a> <a href="./#tag:windows">windows</a>
-		</small>
-		<p>
-			<span class="intro">If you missed missed them</span>
-			&mdash;
-			<a href="free-microsoft-windows-ieedge-vms.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-01-12
-links windows
-		--> </div>
-	</li>
-	<!-- end free-microsoft-windows-ieedge-vms -->
-	<!-- begin git-split-commit -->
-	<li>
-		<a href="git-split-commit.html" class="title">git split commit</a>
-		<br>
-		<small>
-			Created: <time>2024-06-25</time> &mdash; modified: <time>2024-06-26</time> &mdash;
-			tags: <a href="./#tag:git">git</a>
-		</small>
-		<p>
-			<span class="intro">TL;DR: <tt>git rebase -i</tt>, <tt>e</tt>dit, <tt>git reset HEAD~</tt> and create new commits</span>
-			&mdash;
-			<a href="git-split-commit.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-06-25
-git
-		--> </div>
-	</li>
-	<!-- end git-split-commit -->
-	<!-- begin wrong-users -->
-	<li>
-		<a href="wrong-users.html" class="title">Wrong users</a>
-		<br>
-		<small>
-			Created: <time>2021-10-03</time> &mdash; modified: <time>2024-06-21</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
-		</small>
-		<p>
-			<span class="intro">Here you can find attempts to send messages to users who do not exist on this server</span>
-			&mdash;
-			<a href="wrong-users.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-10-03
-e-mail logs
-		--> </div>
-	</li>
-	<!-- end wrong-users -->
-	<!-- begin relay-attempts -->
-	<li>
-		<a href="relay-attempts.html" class="title">Relay attempts</a>
-		<br>
-		<small>
-			Created: <time>2021-10-01</time> &mdash; modified: <time>2024-06-21</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
-		</small>
-		<p>
-			<span class="intro">These are spammers (or hackers) trying to send email <b>from</b> my server</span>
-			&mdash;
-			<a href="relay-attempts.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-10-01
-e-mail logs
-		--> </div>
-	</li>
-	<!-- end relay-attempts -->
-	<!-- begin login-attempts -->
-	<li>
-		<a href="login-attempts.html" class="title">Login attempts</a>
-		<br>
-		<small>
-			Created: <time>2021-07-09</time> &mdash; modified: <time>2024-06-21</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
-		</small>
-		<p>
-			<span class="intro">These are logins and passwords of last 10k login attempts into my server.</span>
-			&mdash;
-			<a href="login-attempts.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-07-09
-e-mail logs
-		--> </div>
-	</li>
-	<!-- end login-attempts -->
-	<!-- begin spam-emails -->
-	<li>
-		<a href="spam-emails.html" class="title">This is spam</a>
-		<br>
-		<small>
-			Created: <time>2014-05-13</time> &mdash; modified: <time>2024-04-25</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a> <a href="./#tag:logs">logs</a>
-		</small>
-		<p>
-			<span class="intro">These are e-mail addresses that sent spam/scam/phishing emails to me.</span>
-			&mdash;
-			<a href="spam-emails.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-05-13
-e-mail logs
-		--> </div>
-	</li>
-	<!-- end spam-emails -->
-	<!-- begin space-9-collision-decection-on-grid -->
-	<li>
-		<a href="space-9-collision-decection-on-grid.html" class="title">Space 9: collision decection on grid</a>
-		<br>
-		<small>
-			Created: <time>2017-11-21</time> &mdash; modified: <time>2024-01-21</time> &mdash;
-			tags: <a href="./#tag:space3d">space3d</a>
-		</small>
-		<p>
-			<span class="intro">Unlike sector-based one, this uses more complex logic, but simpler maps</span>
-			&mdash;
-			<a href="space-9-collision-decection-on-grid.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2017-11-21
-Space3D
-		--> </div>
-	</li>
-	<!-- end space-9-collision-decection-on-grid -->
-	<!-- begin space2d3-7-colors-and-interceptions -->
-	<li>
-		<a href="space2d3-7-colors-and-interceptions.html" class="title">space2d3 7: colors and interceptions</a>
-		<br>
-		<small>
-			Created: <time>2024-01-21</time> &mdash; modified: <time>2024-01-21</time> &mdash;
-			tags: <a href="./#tag:space2d3">space2d3</a>
-		</small>
-		<p>
-			<span class="intro">Now you can intercept other ships! They can intercept you, and each others, too!</span>
-			&mdash;
-			<a href="space2d3-7-colors-and-interceptions.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-01-21
-space2d3
-		--> </div>
-	</li>
-	<!-- end space2d3-7-colors-and-interceptions -->
-	<!-- begin expand-star-in-bash-prompt -->
-	<li>
-		<a href="expand-star-in-bash-prompt.html" class="title">expand * in bash prompt</a>
-		<br>
-		<small>
-			Created: <time>2024-01-19</time> &mdash; modified: <time>2024-01-19</time> &mdash;
-			tags: <a href="./#tag:bash">bash</a>
-		</small>
-		<p>
-			<span class="intro"><b>TL;DR:</b> <code>ls &lt;Esc&gt;*</code></span>
-			&mdash;
-			<a href="expand-star-in-bash-prompt.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-01-19
-bash
-		--> </div>
-	</li>
-	<!-- end expand-star-in-bash-prompt -->
-	<!-- begin space2d3-6-autosave-and-missions -->
-	<li>
-		<a href="space2d3-6-autosave-and-missions.html" class="title">space2d3 6: autosave and missions</a>
-		<br>
-		<small>
-			Created: <time>2024-01-06</time> &mdash; modified: <time>2024-01-07</time> &mdash;
-			tags: <a href="./#tag:space2d3">space2d3</a>
-		</small>
-		<p>
-			<span class="intro">Now your game doesn't disappear as soon as you reload the page, and also you can complete missions!</span>
-			&mdash;
-			<a href="space2d3-6-autosave-and-missions.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-01-06
-space2d3
-		--> </div>
-	</li>
-	<!-- end space2d3-6-autosave-and-missions -->
-	<!-- begin space2d3-4-flying-from-planet-to-planet -->
-	<li>
-		<a href="space2d3-4-flying-from-planet-to-planet.html" class="title">space2d3 4: Flying from planet to planet</a>
-		<br>
-		<small>
-			Created: <time>2024-01-01</time> &mdash; modified: <time>2024-01-07</time> &mdash;
-			tags: <a href="./#tag:space2d3">space2d3</a>
-		</small>
-		<p>
-			<span class="intro">Now you can participate in "useless activity" together with outher ships</span>
-			&mdash;
-			<a href="space2d3-4-flying-from-planet-to-planet.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-01-01
-space2d3
-		--> </div>
-	</li>
-	<!-- end space2d3-4-flying-from-planet-to-planet -->
-	<!-- begin space2d3-5-trading-stuff -->
-	<li>
-		<a href="space2d3-5-trading-stuff.html" class="title">space2d3 5: Trading stuff</a>
-		<br>
-		<small>
-			Created: <time>2024-01-04</time> &mdash; modified: <time>2024-01-04</time> &mdash;
-			tags: <a href="./#tag:space2d3">space2d3</a>
-		</small>
-		<p>
-			<span class="intro">Ok, it's actually barter, but now you have a reason to travel.</span>
-			&mdash;
-			<a href="space2d3-5-trading-stuff.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2024-01-04
-space2d3
-		--> </div>
-	</li>
-	<!-- end space2d3-5-trading-stuff -->
-	<!-- begin space2d3-3-radar-planets-and-other-ships -->
-	<li>
-		<a href="space2d3-3-radar-planets-and-other-ships.html" class="title">space2d3 3: radar, planets, and other ships</a>
-		<br>
-		<small>
-			Created: <time>2023-12-30</time> &mdash; modified: <time>2023-12-31</time> &mdash;
-			tags: <a href="./#tag:space2d3">space2d3</a>
-		</small>
-		<p>
-			<span class="intro">Now your ship can have a "radar" component, where you can look at a star system</span>
-			&mdash;
-			<a href="space2d3-3-radar-planets-and-other-ships.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-12-30
-space2d3
-		--> </div>
-	</li>
-	<!-- end space2d3-3-radar-planets-and-other-ships -->
-	<!-- begin space2d3-2-walking-and-detaching -->
-	<li>
-		<a href="space2d3-2-walking-and-detaching.html" class="title">space2d3 2: walking and (de)taching</a>
-		<br>
-		<small>
-			Created: <time>2023-12-26</time> &mdash; modified: <time>2023-12-26</time> &mdash;
-			tags: <a href="./#tag:space2d3">space2d3</a>
-		</small>
-		<p>
-			<span class="intro">Now you can walk on your ship... And others, too</span>
-			&mdash;
-			<a href="space2d3-2-walking-and-detaching.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-12-26
-space2d3
-		--> </div>
-	</li>
-	<!-- end space2d3-2-walking-and-detaching -->
-	<!-- begin space2d3-1-a-bigger-game-about-flat-space -->
-	<li>
-		<a href="space2d3-1-a-bigger-game-about-flat-space.html" class="title">space2d3 1: a bigger game about flat space</a>
-		<br>
-		<small>
-			Created: <time>2023-12-25</time> &mdash; modified: <time>2023-12-25</time> &mdash;
-			tags: <a href="./#tag:space2d3">space2d3</a>
-		</small>
-		<p>
-			<span class="intro">Idea it to make a mix of space1d and space2d2 games (I'm not very good at naming things)</span>
-			&mdash;
-			<a href="space2d3-1-a-bigger-game-about-flat-space.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-12-25
-space2d3
-		--> </div>
-	</li>
-	<!-- end space2d3-1-a-bigger-game-about-flat-space -->
-	<!-- begin preserving-your-linux-laptop-battery-health -->
-	<li>
-		<a href="preserving-your-linux-laptop-battery-health.html" class="title">Preserving your Linux laptop battery health</a>
-		<br>
-		<small>
-			Created: <time>2023-11-05</time> &mdash; modified: <time>2023-11-05</time> &mdash;
-			tags: <a href="./#tag:linux">linux</a>
-		</small>
-		<p>
-			<span class="intro">by limiting its charge to 90%</span>
-			&mdash;
-			<a href="preserving-your-linux-laptop-battery-health.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-11-05
-Linux
-		--> </div>
-	</li>
-	<!-- end preserving-your-linux-laptop-battery-health -->
-	<!-- begin how-i-started-working-at-remarkable -->
-	<li>
-		<a href="how-i-started-working-at-remarkable.html" class="title">How I started working at reMarkable</a>
-		<br>
-		<small>
-			Created: <time>2023-10-05</time> &mdash; modified: <time>2023-10-09</time> &mdash;
-			tags: <a href="./#tag:life">life</a> <a href="./#tag:remarkable">remarkable</a>
-		</small>
-		<p>
-			<span class="intro">Due to reorganisation at my previous place of work, several people were offered to leave, including me.</span>
-			&mdash;
-			<a href="how-i-started-working-at-remarkable.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-10-05
-life reMarkable
-		--> </div>
-	</li>
-	<!-- end how-i-started-working-at-remarkable -->
-	<!-- begin totp -->
-	<li>
-		<a href="totp.html" class="title">totp</a>
-		<br>
-		<small>
-			Created: <time>2022-09-05</time> &mdash; modified: <time>2023-09-30</time> &mdash;
-			tags: <a href="./#tag:bash">bash</a>
-		</small>
-		<p>
-			<span class="intro">A small shell script to generate one-time passwords, in bash, using oathtool</span>
-			&mdash;
-			<a href="totp.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2022-09-05
-bash
-		--> </div>
-	</li>
-	<!-- end totp -->
-	<!-- begin tsv2vcf -->
-	<li>
-		<a href="tsv2vcf.html" class="title">csv2vcf (or rather tsv2vcf)</a>
-		<br>
-		<small>
-			Created: <time>2022-06-20</time> &mdash; modified: <time>2023-09-27</time> &mdash;
-			tags: <a href="./#tag:bash">bash</a>
-		</small>
-		<p>
-			<span class="intro">If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy</span>
-			&mdash;
-			<a href="tsv2vcf.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2022-06-20
-bash
-		--> </div>
-	</li>
-	<!-- end tsv2vcf -->
-	<!-- begin un-busting-grub-with-arch-chroot -->
-	<li>
-		<a href="un-busting-grub-with-arch-chroot.html" class="title">Un-busting GRUB with arch-chroot</a>
-		<br>
-		<small>
-			Created: <time>2023-08-19</time> &mdash; modified: <time>2023-08-19</time> &mdash;
-			tags: <a href="./#tag:linux">linux</a>
-		</small>
-		<p>
-			<span class="intro">properly this time</span>
-			&mdash;
-			<a href="un-busting-grub-with-arch-chroot.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-08-19
-Linux
-		--> </div>
-	</li>
-	<!-- end un-busting-grub-with-arch-chroot -->
-	<!-- begin webdav-fun -->
-	<li>
-		<a href="webdav-fun.html" class="title">Fun with webdav</a>
-		<br>
-		<small>
-			Created: <time>2022-12-20</time> &mdash; modified: <time>2023-04-08</time> &mdash;
-			tags: <a href="./#tag:nginx">nginx</a>
-		</small>
-		<p>
-			<span class="intro">Playing with a fancy old technology</span>
-			&mdash;
-			<a href="webdav-fun.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2022-12-20
-nginx
-		--> </div>
-	</li>
-	<!-- end webdav-fun -->
-	<!-- begin i-accidentally-the-runes -->
-	<li>
-		<a href="i-accidentally-the-runes.html" class="title">How to add custom keyboard layout on Linux</a>
-		<br>
-		<small>
-			Created: <time>2023-05-12</time> &mdash; modified: <time>2023-05-13</time> &mdash;
-			tags: <a href="./#tag:linux">linux</a>
-		</small>
-		<p>
-			<span class="intro">I accidentally ᚦᛖ᛫ᚱᚢᚾᛖᛋ</span>
-			&mdash;
-			<a href="i-accidentally-the-runes.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-05-12
-Linux
-		--> </div>
-	</li>
-	<!-- end i-accidentally-the-runes -->
 	<!-- begin dulles-plan-and-communist-rules-for-revolution -->
 	<li>
-		<a href="dulles-plan-and-communist-rules-for-revolution.html" class="title">"Dulles' Plan" and "Com&shy;mu&shy;nist Rules for Rev&shy;o&shy;lu&shy;tion"</a>
-		<br>
-		<small>
-			Created: <time>2022-07-26</time> &mdash; modified: <time>2023-04-10</time> &mdash;
-			tags: <a href="./#tag:fun">fun</a>
+		<a href="dulles-plan-and-communist-rules-for-revolution.html" style="view-transition-name:dulles-plan-and-communist-rules-for-revolution-title" class="title">"Dulles' Plan" and "Com&shy;mu&shy;nist Rules for Rev&shy;o&shy;lu&shy;tion"</a>
+		<small style="view-transition-name:dulles-plan-and-communist-rules-for-revolution-small">
+			Created: <time>2022-07-26</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:fun">fun</a> <a href="./#tag:politics">politics</a>
 		</small>
-		<p>
+		<p style="view-transition-name:dulles-plan-and-communist-rules-for-revolution-intro">
 			<span class="intro">Mirror conspiracy theories</span>
 			&mdash;
 			<a href="dulles-plan-and-communist-rules-for-revolution.html">read more</a>
 		</p>
 		<div> <!-- for scripts
 2022-07-26
-fun
+fun politics
 		--> </div>
 	</li>
 	<!-- end dulles-plan-and-communist-rules-for-revolution -->
-	<!-- begin windows-93 -->
-	<li>
-		<a href="windows-93.html" class="title">Windows 93</a>
-		<br>
-		<small>
-			Created: <time>2014-10-28</time> &mdash; modified: <time>2023-04-10</time> &mdash;
-			tags: <a href="./#tag:fun">fun</a> <a href="./#tag:links">links</a> <a href="./#tag:windows">windows</a>
-		</small>
-		<p>
-			<span class="intro">HTML parody of an OS which was popular when we were young and Internet was new</span>
-			&mdash;
-			<a href="windows-93.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-10-28
-fun links windows
-		--> </div>
-	</li>
-	<!-- end windows-93 -->
-	<!-- begin space2d2-4-modes-animation-and-github -->
-	<li>
-		<a href="space2d2-4-modes-animation-and-github.html" class="title">space2d2 4: modes, animation, and github</a>
-		<br>
-		<small>
-			Created: <time>2023-04-08</time> &mdash; modified: <time>2023-04-08</time> &mdash;
-			tags: <a href="./#tag:space2d2">space2d2</a>
-		</small>
-		<p>
-			<span class="intro">this game got its own (sub)domain!</span>
-			&mdash;
-			<a href="space2d2-4-modes-animation-and-github.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-04-08
-space2d2
-		--> </div>
-	</li>
-	<!-- end space2d2-4-modes-animation-and-github -->
 	<!-- begin random -->
 	<li>
-		<a href="random.html" class="title">random</a>
-		<br>
-		<small>
-			Created: <time>2023-03-08</time> &mdash; modified: <time>2023-04-08</time> &mdash;
-			tags: 
+		<a href="random.html" style="view-transition-name:random-title" class="title">random</a>
+		<small style="view-transition-name:random-small">
+			Created: <time>2023-03-08</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:meta">meta</a>
 		</small>
-		<p>
+		<p style="view-transition-name:random-intro">
 			<span class="intro">Click this link to visit a random note</span>
 			&mdash;
 			<a href="random.html">read more</a>
 		</p>
 		<div> <!-- for scripts
 2023-03-08
-
+meta
 		--> </div>
 	</li>
 	<!-- end random -->
-	<!-- begin space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy -->
+	<!-- begin linux-file-hierarchy -->
 	<li>
-		<a href="space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy.html" class="title">space 2d 2: first UI with a view on horribly unbalanced economy</a>
-		<br>
-		<small>
-			Created: <time>2021-05-03</time> &mdash; modified: <time>2023-03-20</time> &mdash;
-			tags: <a href="./#tag:space2d">space2d</a>
+		<a href="linux-file-hierarchy.html" style="view-transition-name:linux-file-hierarchy-title" class="title">Linux file hierarchy</a>
+		<small style="view-transition-name:linux-file-hierarchy-small">
+			Created: <time>2014-09-02</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:linux">linux</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
-			<span class="intro">It's playable now… if you can call it that :-)</span>
+		<p style="view-transition-name:linux-file-hierarchy-intro">
+			<span class="intro">All these <tt>/bin</tt>, <tt>/usr</tt>, <tt>/local</tt>, etc...</span>
 			&mdash;
-			<a href="space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy.html">read more</a>
+			<a href="linux-file-hierarchy.html">read more</a>
 		</p>
 		<div> <!-- for scripts
-2021-05-03
-space2d
+2014-09-02
+linux links
 		--> </div>
 	</li>
-	<!-- end space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy -->
-	<!-- begin space2d2-3-the-finished-game -->
+	<!-- end linux-file-hierarchy -->
+	<!-- begin cloud-videos -->
 	<li>
-		<a href="space2d2-3-the-finished-game.html" class="title">space2d2 3: the finished game</a>
-		<br>
-		<small>
-			Created: <time>2023-03-19</time> &mdash; modified: <time>2023-03-20</time> &mdash;
-			tags: <a href="./#tag:space2d2">space2d2</a>
+		<a href="cloud-videos.html" style="view-transition-name:cloud-videos-title" class="title">Cloud videos</a>
+		<small style="view-transition-name:cloud-videos-small">
+			Created: <time>2015-06-22</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:life">life</a>
 		</small>
-		<p>
-			<span class="intro">A space trading game without money</span>
+		<p style="view-transition-name:cloud-videos-intro">
+			<span class="intro">Let's see how recently released video "speed-up" and smoothing program Microsoft Hyperlapse can deal with my record of flying in clouds</span>
 			&mdash;
-			<a href="space2d2-3-the-finished-game.html">read more</a>
+			<a href="cloud-videos.html">read more</a>
 		</p>
 		<div> <!-- for scripts
-2023-03-19
-space2d2
+2015-06-22
+life
 		--> </div>
 	</li>
-	<!-- end space2d2-3-the-finished-game -->
-	<!-- begin space2d2-2-portals -->
+	<!-- end cloud-videos -->
+	<!-- begin finding-tar-archive-size -->
 	<li>
-		<a href="space2d2-2-portals.html" class="title">space2d2 2: Portals</a>
-		<br>
-		<small>
-			Created: <time>2023-03-15</time> &mdash; modified: <time>2023-03-16</time> &mdash;
-			tags: <a href="./#tag:space2d2">space2d2</a>
-		</small>
-		<p>
-			<span class="intro">One star is good, but more stars is better</span>
-			&mdash;
-			<a href="space2d2-2-portals.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-03-15
-space2d2
-		--> </div>
-	</li>
-	<!-- end space2d2-2-portals -->
-	<!-- begin space2d2-1-a-simple-game-about-flat-space -->
-	<li>
-		<a href="space2d2-1-a-simple-game-about-flat-space.html" class="title">space2d2 1: a simple game about flat space</a>
-		<br>
-		<small>
-			Created: <time>2023-03-12</time> &mdash; modified: <time>2023-03-15</time> &mdash;
-			tags: <a href="./#tag:space2d2">space2d2</a>
-		</small>
-		<p>
-			<span class="intro">Making a properly balanced economy simulator is pretty hard, as it turns out. But can I make a simpler 2d game?</span>
-			&mdash;
-			<a href="space2d2-1-a-simple-game-about-flat-space.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-03-12
-space2d2
-		--> </div>
-	</li>
-	<!-- end space2d2-1-a-simple-game-about-flat-space -->
-	<!-- begin flickr-background-for-a-webpage -->
-	<li>
-		<a href="flickr-background-for-a-webpage.html" class="title">Flickr background for a webpage</a>
-		<br>
-		<small>
-			Created: <time>2017-06-17</time> &mdash; modified: <time>2023-03-08</time> &mdash;
-			tags: <a href="./#tag:javascript">javascript</a>
-		</small>
-		<p>
-			<span class="intro">Another attempt to add something nice to this blog</span>
-			&mdash;
-			<a href="flickr-background-for-a-webpage.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2017-06-17
-Javascript
-		--> </div>
-	</li>
-	<!-- end flickr-background-for-a-webpage -->
-	<!-- begin defrag-ssd-in-vm-on-hdd -->
-	<li>
-		<a href="defrag-ssd-in-vm-on-hdd.html" class="title">Defrag SSD in VM on HDD</a>
-		<br>
-		<small>
-			Created: <time>2021-11-27</time> &mdash; modified: <time>2021-11-29</time> &mdash;
-			tags: <a href="./#tag:windows">windows</a>
-		</small>
-		<p>
-			<span class="intro">Even if OS sees a storage device as SSD and refuses to defrag it - you might know better</span>
-			&mdash;
-			<a href="defrag-ssd-in-vm-on-hdd.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-11-27
-windows
-		--> </div>
-	</li>
-	<!-- end defrag-ssd-in-vm-on-hdd -->
-	<!-- begin how-i-started-working-for-opera-software -->
-	<li>
-		<a href="how-i-started-working-for-opera-software.html" class="title">How I started working for Opera Software</a>
-		<br>
-		<small>
-			Created: <time>2011-11-01</time> &mdash; modified: <time>2023-03-08</time> &mdash;
-			tags: <a href="./#tag:opera">opera</a> <a href="./#tag:life">life</a>
-		</small>
-		<p>
-			<span class="intro">My first experience in getting a job</span>
-			&mdash;
-			<a href="how-i-started-working-for-opera-software.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2011-11-01
-opera life
-		--> </div>
-	</li>
-	<!-- end how-i-started-working-for-opera-software -->
-	<!-- begin sorting-sent-email -->
-	<li>
-		<a href="sorting-sent-email.html" class="title">Sorting sent email</a>
-		<br>
-		<small>
-			Created: <time>2014-11-01</time> &mdash; modified: <time>2023-03-08</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a>
-		</small>
-		<p>
-			<span class="intro">How to automate it if you host your mail yourself</span>
-			&mdash;
-			<a href="sorting-sent-email.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-11-01
-e-mail
-		--> </div>
-	</li>
-	<!-- end sorting-sent-email -->
-	<!-- begin space-8-collision-detection -->
-	<li>
-		<a href="space-8-collision-detection.html" class="title">Space 8: collision detection</a>
-		<br>
-		<small>
-			Created: <time>2017-11-06</time> &mdash; modified: <time>2023-03-08</time> &mdash;
-			tags: <a href="./#tag:space3d">space3d</a>
-		</small>
-		<p>
-			<span class="intro">Now you can't go outside the ship</span>
-			&mdash;
-			<a href="space-8-collision-detection.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2017-11-06
-Space3D
-		--> </div>
-	</li>
-	<!-- end space-8-collision-detection -->
-	<!-- begin javascript-canvas-drag-and-zoom-library -->
-	<li>
-		<a href="javascript-canvas-drag-and-zoom-library.html" class="title">Javascript canvas drag-and-zoom library</a>
-		<br>
-		<small>
-			Created: <time>2012-07-01</time> &mdash; modified: <time>2023-03-07</time> &mdash;
-			tags: <a href="./#tag:javascript">javascript</a>
-		</small>
-		<p>
-			<span class="intro">For those cases when you need to implement something GoogleMaps-like</span>
-			&mdash;
-			<a href="javascript-canvas-drag-and-zoom-library.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2012-07-01
-javascript
-		--> </div>
-	</li>
-	<!-- end javascript-canvas-drag-and-zoom-library -->
-	<!-- begin autossh-with-systemd -->
-	<li>
-		<a href="autossh-with-systemd.html" class="title">AutoSSH with SystemD</a>
-		<br>
-		<small>
-			Created: <time>2022-12-28</time> &mdash; modified: <time>2023-01-05</time> &mdash;
-			tags: <a href="./#tag:linux">linux</a>
-		</small>
-		<p>
-			<span class="intro">a simple unit file to keep a permanent SSH connection</span>
-			&mdash;
-			<a href="autossh-with-systemd.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2022-12-28
-Linux
-		--> </div>
-	</li>
-	<!-- end autossh-with-systemd -->
-	<!-- begin robots -->
-	<li>
-		<a href="robots.html" class="title">Robots only</a>
-		<br>
-		<small>
-			Created: <time>2023-04-01</time> &mdash; modified: <time>2022-11-02</time> &mdash;
-			tags: <a href="./#tag:fun">fun</a>
-		</small>
-		<p>
-			<span class="intro">Access for robots only</span>
-			&mdash;
-			<a href="robots.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2023-04-01
-fun
-		--> </div>
-	</li>
-	<!-- end robots -->
-	<!-- begin read-stdin-or-a-file-passed-as-argument-in-bash -->
-	<li>
-		<a href="read-stdin-or-a-file-passed-as-argument-in-bash.html" class="title">Read stdin <b>OR</b> a file passed as argument in bash</a>
-		<br>
-		<small>
-			Created: <time>2022-10-27</time> &mdash; modified: <time>2022-10-27</time> &mdash;
+		<a href="finding-tar-archive-size.html" style="view-transition-name:finding-tar-archive-size-title" class="title">Finding tar archive size without actually making it</a>
+		<small style="view-transition-name:finding-tar-archive-size-small">
+			Created: <time>2016-07-21</time> &mdash; modified: <time>2024-12-23</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
-			<span class="intro"><b>TL;DR:</b> <code>cat "${1:-/dev/stdin}"</code></span>
+		<p style="view-transition-name:finding-tar-archive-size-intro">
+			<span class="intro"><b>TL;DR:</b> <code>--totals --file=/dev/null | grep 'Total bytes written'</code></span>
 			&mdash;
-			<a href="read-stdin-or-a-file-passed-as-argument-in-bash.html">read more</a>
+			<a href="finding-tar-archive-size.html">read more</a>
 		</p>
 		<div> <!-- for scripts
-2022-10-27
+2016-07-21
 bash
 		--> </div>
 	</li>
-	<!-- end read-stdin-or-a-file-passed-as-argument-in-bash -->
-	<!-- begin fixing-the-y2k-problem -->
+	<!-- end finding-tar-archive-size -->
+	<!-- begin lazyblog -->
 	<li>
-		<a href="fixing-the-y2k-problem.html" class="title">Fixing the y2k problem</a>
-		<br>
-		<small>
-			Created: <time>1999-12-32</time> &mdash; modified: <time>2022-09-11</time> &mdash;
-			tags: <a href="./#tag:fun">fun</a>
+		<a href="lazyblog.html" style="view-transition-name:lazyblog-title" class="title">lazyblog</a>
+		<small style="view-transition-name:lazyblog-small">
+			Created: <time>2016-12-14</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:meta">meta</a>
 		</small>
-		<p>
-			<span class="intro">Or should I say "why-too-key" to raise more confusion?</span>
+		<p style="view-transition-name:lazyblog-intro">
+			<span class="intro">a static blog generator which tries to do as little as possible on the server side</span>
 			&mdash;
-			<a href="fixing-the-y2k-problem.html">read more</a>
+			<a href="lazyblog.html">read more</a>
 		</p>
 		<div> <!-- for scripts
-1999-12-32
-fun
+2016-12-14
+meta
 		--> </div>
 	</li>
-	<!-- end fixing-the-y2k-problem -->
-	<!-- begin ed-man-man-ed -->
-	<li>
-		<a href="ed-man-man-ed.html" class="title">Ed, man! !man ed</a>
-		<br>
-		<small>
-			Created: <time>1991-07-11</time> &mdash; modified: <time>2022-10-24</time> &mdash;
-			tags: <a href="./#tag:fun">fun</a>
-		</small>
-		<p>
-			<span class="intro"><tt>From: Patrick J. LoPresti<br>Subject: The True Path (long)</tt></span>
-			&mdash;
-			<a href="ed-man-man-ed.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-1991-07-11
-fun
-		--> </div>
-	</li>
-	<!-- end ed-man-man-ed -->
-	<!-- begin colors3 -->
-	<li>
-		<a href="colors3.html" class="title">Colors 3</a>
-		<br>
-		<small>
-			Created: <time>2022-10-22</time> &mdash; modified: <time>2022-10-22</time> &mdash;
-			tags: <a href="./#tag:css">css</a>
-		</small>
-		<p>
-			<span class="intro">A nicer version of CSS-only 2D background gradient</span>
-			&mdash;
-			<a href="colors3.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2022-10-22
-css
-		--> </div>
-	</li>
-	<!-- end colors3 -->
-	<!-- begin colors -->
-	<li>
-		<a href="colors.html" class="title">Colors</a>
-		<br>
-		<small>
-			Created: <time>2014-09-03</time> &mdash; modified: <time>2022-10-22</time> &mdash;
-			tags: <a href="./#tag:javascript">javascript</a>
-		</small>
-		<p>
-			<span class="intro">Let's add a colorful background to this blog, hm?</span>
-			&mdash;
-			<a href="colors.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-09-03
-javascript
-		--> </div>
-	</li>
-	<!-- end colors -->
-	<!-- begin colors2 -->
-	<li>
-		<a href="colors2.html" class="title">Colors 2</a>
-		<br>
-		<small>
-			Created: <time>2016-06-29</time> &mdash; modified: <time>2022-10-22</time> &mdash;
-			tags: <a href="./#tag:css">css</a>
-		</small>
-		<p>
-			<span class="intro">A CSS-only version of fancy 2D background gradient</span>
-			&mdash;
-			<a href="colors2.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2016-06-29
-css
-		--> </div>
-	</li>
-	<!-- end colors2 -->
-	<!-- begin github-flavored-markdown -->
-	<li>
-		<a href="github-flavored-markdown.html" class="title">GitHub Flavored Markdown</a>
-		<br>
-		<small>
-			Created: <time>2022-10-15</time> &mdash; modified: <time>2022-10-15</time> &mdash;
-			tags: <a href="./#tag:net">net</a>
-		</small>
-		<p>
-			<span class="intro">After some time of pondering, I switched to GitHub-Flavoured Markdown (GFM)</span>
-			&mdash;
-			<a href="github-flavored-markdown.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2022-10-15
-net
-		--> </div>
-	</li>
-	<!-- end github-flavored-markdown -->
-	<!-- begin microlightjs -->
-	<li>
-		<a href="microlightjs.html" class="title">microlight.js</a>
-		<br>
-		<small>
-			Created: <time>2016-06-16</time> &mdash; modified: <time>2022-10-13</time> &mdash;
-			tags: <a href="./#tag:javascript">javascript</a>
-		</small>
-		<p>
-			<span class="intro">a 2.2k library to hilight any code</span>
-			&mdash;
-			<a href="microlightjs.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2016-06-16
-javascript
-		--> </div>
-	</li>
-	<!-- end microlightjs -->
-	<!-- begin how-to-decrypt-jenkins-passwords -->
-	<li>
-		<a href="how-to-decrypt-jenkins-passwords.html" class="title">How to decrypt Jenkins passwords</a>
-		<br>
-		<small>
-			Created: <time>2022-10-09</time> &mdash; modified: <time>2022-10-11</time> &mdash;
-			tags: <a href="./#tag:jenkins">jenkins</a> <a href="./#tag:cfengine">cfengine</a>
-		</small>
-		<p>
-			<span class="intro">with the help of script console</span>
-			&mdash;
-			<a href="how-to-decrypt-jenkins-passwords.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2022-10-09
-jenkins cfengine
-		--> </div>
-	</li>
-	<!-- end how-to-decrypt-jenkins-passwords -->
-	<!-- begin busybox-only-pstree -->
-	<li>
-		<a href="busybox-only-pstree.html" class="title">Busybox-only pstree</a>
-		<br>
-		<small>
-			Created: <time>2020-01-31</time> &mdash; modified: <time>2022-10-03</time> &mdash;
-			tags: <a href="./#tag:bash">bash</a>
-		</small>
-		<p>
-			<span class="intro">For when you're on limited environment but want to see a process tree</span>
-			&mdash;
-			<a href="busybox-only-pstree.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2020-01-31
-bash
-		--> </div>
-	</li>
-	<!-- end busybox-only-pstree -->
-	<!-- begin cfengine-failed-to-establish-tls-connection-bootstrap-error -->
-	<li>
-		<a href="cfengine-failed-to-establish-tls-connection-bootstrap-error.html" class="title">CFEngine Failed to establish TLS connection bootstrap error</a>
-		<br>
-		<small>
-			Created: <time>2017-03-22</time> &mdash; modified: <time>2022-09-27</time> &mdash;
-			tags: <a href="./#tag:cfengine">cfengine</a>
-		</small>
-		<p>
-			<span class="intro">Maybe agent's IP is not among allowed ones?</span>
-			&mdash;
-			<a href="cfengine-failed-to-establish-tls-connection-bootstrap-error.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2017-03-22
-CFEngine
-		--> </div>
-	</li>
-	<!-- end cfengine-failed-to-establish-tls-connection-bootstrap-error -->
-	<!-- begin grace-hopper-grandma-cobol -->
-	<li>
-		<a href="grace-hopper-grandma-cobol.html" class="title">Grace Hopper - Grandma COBOL</a>
-		<br>
-		<small>
-			Created: <time>2015-09-09</time> &mdash; modified: <time>2022-08-19</time> &mdash;
-			tags: <a href="./#tag:history">history</a>
-		</small>
-		<p>
-			<span class="intro">Also known for "First actual case of bug being found" note</span>
-			&mdash;
-			<a href="grace-hopper-grandma-cobol.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2015-09-09
-History
-		--> </div>
-	</li>
-	<!-- end grace-hopper-grandma-cobol -->
-	<!-- begin minimizing-size-of-browser-profiles-backups -->
-	<li>
-		<a href="minimizing-size-of-browser-profiles-backups.html" class="title">Minimizing size of browser profiles backups</a>
-		<br>
-		<small>
-			Created: <time>2022-08-06</time> &mdash; modified: <time>2022-08-06</time> &mdash;
-			tags: <a href="./#tag:bash">bash</a> <a href="./#tag:chromium">chromium</a> <a href="./#tag:firefox">firefox</a> <a href="./#tag:windows">windows</a>
-		</small>
-		<p>
-			<span class="intro">how to minimize them about 10-fold</span>
-			&mdash;
-			<a href="minimizing-size-of-browser-profiles-backups.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2022-08-06
-bash chromium firefox windows
-		--> </div>
-	</li>
-	<!-- end minimizing-size-of-browser-profiles-backups -->
-	<!-- begin hottentotten -->
-	<li>
-		<a href="hottentotten.html" class="title">Hottentotten</a>
-		<br>
-		<small>
-			Created: <time>2011-10-04</time> &mdash; modified: <time>2022-07-30</time> &mdash;
-			tags: <a href="./#tag:fun">fun</a>
-		</small>
-		<p>
-			<span class="intro">A small language session</span>
-			&mdash;
-			<a href="hottentotten.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2011-10-04
-fun
-		--> </div>
-	</li>
-	<!-- end hottentotten -->
-	<!-- begin world-domination -->
-	<li>
-		<a href="world-domination.html" class="title">World domination</a>
-		<br>
-		<small>
-			Created: <time>2014-06-21</time> &mdash; modified: <time>2022-07-30</time> &mdash;
-			tags: <a href="./#tag:fun">fun</a> <a href="./#tag:games">games</a> <a href="./#tag:politics">politics</a>
-		</small>
-		<p>
-			<span class="intro">Experience after playing a flash game</span>
-			&mdash;
-			<a href="world-domination.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-06-21
-fun games politics
-		--> </div>
-	</li>
-	<!-- end world-domination -->
-	<!-- begin strange-games -->
-	<li>
-		<a href="strange-games.html" class="title">Strange games</a>
-		<br>
-		<small>
-			Created: <time>2014-09-20</time> &mdash; modified: <time>2022-07-30</time> &mdash;
-			tags: <a href="./#tag:games">games</a>
-		</small>
-		<p>
-			<span class="intro">A website with a provoking name features funny games</span>
-			&mdash;
-			<a href="strange-games.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-09-20
-games
-		--> </div>
-	</li>
-	<!-- end strange-games -->
-	<!-- begin search-friendly-calculator -->
-	<li>
-		<a href="search-friendly-calculator.html" class="title">Search-friendly calculator</a>
-		<br>
-		<small>
-			Created: <time>2021-12-05</time> &mdash; modified: <time>2022-06-26</time> &mdash;
-			tags: <a href="./#tag:fun">fun</a>
-		</small>
-		<p>
-			<span class="intro">a site with infinite number of pages</span>
-			&mdash;
-			<a href="search-friendly-calculator.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-12-05
-fun
-		--> </div>
-	</li>
-	<!-- end search-friendly-calculator -->
+	<!-- end lazyblog -->
 	<!-- begin mirrors -->
 	<li>
-		<a href="mirrors.html" class="title">mirrors</a>
-		<br>
-		<small>
-			Created: <time>2022-01-23</time> &mdash; modified: <time>2022-01-23</time> &mdash;
+		<a href="mirrors.html" style="view-transition-name:mirrors-title" class="title">mirrors</a>
+		<small style="view-transition-name:mirrors-small">
+			Created: <time>2022-01-23</time> &mdash; modified: <time>2024-12-23</time> &mdash;
 			tags: <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:mirrors-intro">
 			<span class="intro">Primary location of my blog is</span>
 			&mdash;
 			<a href="mirrors.html">read more</a>
@@ -1237,53 +186,266 @@ links
 		--> </div>
 	</li>
 	<!-- end mirrors -->
-	<!-- begin from-512kb.club-to-gtmetrix-api-library -->
+	<!-- begin free-microsoft-windows-ieedge-vms -->
 	<li>
-		<a href="from-512kb.club-to-gtmetrix-api-library.html" class="title">From 512kb.club to GTmetrix API library</a>
-		<br>
-		<small>
-			Created: <time>2021-07-16</time> &mdash; modified: <time>2022-01-23</time> &mdash;
-			tags: <a href="./#tag:life">life</a>
+		<a href="free-microsoft-windows-ieedge-vms.html" style="view-transition-name:free-microsoft-windows-ieedge-vms-title" class="title">Free Microsoft Windows IE/Edge VMs</a>
+		<small style="view-transition-name:free-microsoft-windows-ieedge-vms-small">
+			Created: <time>2023-01-12</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:links">links</a> <a href="./#tag:windows">windows</a>
 		</small>
-		<p>
-			<span class="intro">How reading one habr.com blog post caused a chain of events leading up to me writing a good documentation for a pet project</span>
+		<p style="view-transition-name:free-microsoft-windows-ieedge-vms-intro">
+			<span class="intro">If you missed them</span>
 			&mdash;
-			<a href="from-512kb.club-to-gtmetrix-api-library.html">read more</a>
+			<a href="free-microsoft-windows-ieedge-vms.html">read more</a>
 		</p>
 		<div> <!-- for scripts
-2021-07-16
-life
+2023-01-12
+links windows
 		--> </div>
 	</li>
-	<!-- end from-512kb.club-to-gtmetrix-api-library -->
-	<!-- begin whitelisting-emails-with-sendmail -->
+	<!-- end free-microsoft-windows-ieedge-vms -->
+	<!-- begin github-flavored-markdown -->
 	<li>
-		<a href="whitelisting-emails-with-sendmail.html" class="title">Whitelisting emails with sendmail</a>
-		<br>
-		<small>
-			Created: <time>2015-10-27</time> &mdash; modified: <time>2022-01-22</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a>
+		<a href="github-flavored-markdown.html" style="view-transition-name:github-flavored-markdown-title" class="title">GitHub Flavored Markdown</a>
+		<small style="view-transition-name:github-flavored-markdown-small">
+			Created: <time>2022-10-15</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:meta">meta</a>
 		</small>
-		<p>
-			<span class="intro">So they weren't rejected by dnsbl spam filter</span>
+		<p style="view-transition-name:github-flavored-markdown-intro">
+			<span class="intro">After some time of pondering, I switched to GitHub-Flavoured Markdown (GFM)</span>
 			&mdash;
-			<a href="whitelisting-emails-with-sendmail.html">read more</a>
+			<a href="github-flavored-markdown.html">read more</a>
 		</p>
 		<div> <!-- for scripts
-2015-10-27
-e-mail
+2022-10-15
+meta
 		--> </div>
 	</li>
-	<!-- end whitelisting-emails-with-sendmail -->
+	<!-- end github-flavored-markdown -->
+	<!-- begin blog-posts-in-grafana -->
+	<li>
+		<a href="blog-posts-in-grafana.html" style="view-transition-name:blog-posts-in-grafana-title" class="title">blog posts in grafana</a>
+		<small style="view-transition-name:blog-posts-in-grafana-small">
+			Created: <time>2024-11-08</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:meta">meta</a> <a href="./#tag:fun">fun</a> <a href="./#tag:grafana">grafana</a>
+		</small>
+		<p style="view-transition-name:blog-posts-in-grafana-intro">
+			<span class="intro">in case you missed RSS, you might enjoy another way of reading blog posts</span>
+			&mdash;
+			<a href="blog-posts-in-grafana.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-11-08
+meta fun grafana
+		--> </div>
+	</li>
+	<!-- end blog-posts-in-grafana -->
+	<!-- begin rss -->
+	<li>
+		<a href="rss.html" style="view-transition-name:rss-title" class="title">rss</a>
+		<small style="view-transition-name:rss-small">
+			Created: <time>2024-11-12</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:meta">meta</a> <a href="./#tag:links">links</a>
+		</small>
+		<p style="view-transition-name:rss-intro">
+			<span class="intro">If someone wants to be notified about new posts in my blog via RSS, they can use a simple RSS generator</span>
+			&mdash;
+			<a href="rss.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-11-12
+meta links
+		--> </div>
+	</li>
+	<!-- end rss -->
+	<!-- begin ed-man-man-ed -->
+	<li>
+		<a href="ed-man-man-ed.html" style="view-transition-name:ed-man-man-ed-title" class="title">Ed, man! !man ed</a>
+		<small style="view-transition-name:ed-man-man-ed-small">
+			Created: <time>1991-07-11</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+			tags: <a href="./#tag:fun">fun</a>
+		</small>
+		<p style="view-transition-name:ed-man-man-ed-intro">
+			<span class="intro"><tt>From: Patrick J. LoPresti<br/>Subject: The True Path (long)</tt></span>
+			&mdash;
+			<a href="ed-man-man-ed.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+1991-07-11
+fun
+		--> </div>
+	</li>
+	<!-- end ed-man-man-ed -->
+	<!-- begin fixing-the-y2k-problem -->
+	<li>
+		<a href="fixing-the-y2k-problem.html" style="view-transition-name:fixing-the-y2k-problem-title" class="title">Fixing the y2k problem</a>
+		<small style="view-transition-name:fixing-the-y2k-problem-small">
+			Created: <time>1999-12-31</time> &mdash; modified: <time>2024-12-21</time> &mdash;
+			tags: <a href="./#tag:fun">fun</a>
+		</small>
+		<p style="view-transition-name:fixing-the-y2k-problem-intro">
+			<span class="intro">Or should I say "why-too-key" to raise more confusion?</span>
+			&mdash;
+			<a href="fixing-the-y2k-problem.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+1999-12-31
+fun
+		--> </div>
+	</li>
+	<!-- end fixing-the-y2k-problem -->
+	<!-- begin macos-autologin-password -->
+	<li>
+		<a href="macos-autologin-password.html" style="view-transition-name:macos-autologin-password-title" class="title">MacOS autologin password</a>
+		<small style="view-transition-name:macos-autologin-password-small">
+			Created: <time>2024-11-22</time> &mdash; modified: <time>2024-12-16</time> &mdash;
+			tags: <a href="./#tag:mac">mac</a>
+		</small>
+		<p style="view-transition-name:macos-autologin-password-intro">
+			<span class="intro">If you need to set it programmatically</span>
+			&mdash;
+			<a href="macos-autologin-password.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-11-22
+mac
+		--> </div>
+	</li>
+	<!-- end macos-autologin-password -->
+	<!-- begin busybox-only-pstree -->
+	<li>
+		<a href="busybox-only-pstree.html" style="view-transition-name:busybox-only-pstree-title" class="title">Busybox-only pstree</a>
+		<small style="view-transition-name:busybox-only-pstree-small">
+			Created: <time>2020-01-31</time> &mdash; modified: <time>2024-12-10</time> &mdash;
+			tags: <a href="./#tag:bash">bash</a>
+		</small>
+		<p style="view-transition-name:busybox-only-pstree-intro">
+			<span class="intro">For when you're on limited environment but want to see a process tree</span>
+			&mdash;
+			<a href="busybox-only-pstree.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2020-01-31
+bash
+		--> </div>
+	</li>
+	<!-- end busybox-only-pstree -->
+	<!-- begin microlightjs -->
+	<li>
+		<a href="microlightjs.html" style="view-transition-name:microlightjs-title" class="title">microlight.js</a>
+		<small style="view-transition-name:microlightjs-small">
+			Created: <time>2016-06-16</time> &mdash; modified: <time>2024-11-23</time> &mdash;
+			tags: <a href="./#tag:javascript">javascript</a> <a href="./#tag:links">links</a>
+		</small>
+		<p style="view-transition-name:microlightjs-intro">
+			<span class="intro">a 2.2k library to hilight any code</span>
+			&mdash;
+			<a href="microlightjs.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2016-06-16
+javascript links
+		--> </div>
+	</li>
+	<!-- end microlightjs -->
+	<!-- begin spam-emails -->
+	<li>
+		<a href="spam-emails.html" style="view-transition-name:spam-emails-title" class="title">This is spam</a>
+		<small style="view-transition-name:spam-emails-small">
+			Created: <time>2014-05-13</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:logs">logs</a>
+		</small>
+		<p style="view-transition-name:spam-emails-intro">
+			<span class="intro">These are e-mail addresses that sent spam/scam/phishing emails to me.</span>
+			&mdash;
+			<a href="spam-emails.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2014-05-13
+logs
+		--> </div>
+	</li>
+	<!-- end spam-emails -->
+	<!-- begin login-attempts -->
+	<li>
+		<a href="login-attempts.html" style="view-transition-name:login-attempts-title" class="title">Login attempts</a>
+		<small style="view-transition-name:login-attempts-small">
+			Created: <time>2021-07-09</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:logs">logs</a>
+		</small>
+		<p style="view-transition-name:login-attempts-intro">
+			<span class="intro">These are logins and passwords of last 10k login attempts into my server.</span>
+			&mdash;
+			<a href="login-attempts.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-07-09
+logs
+		--> </div>
+	</li>
+	<!-- end login-attempts -->
+	<!-- begin relay-attempts -->
+	<li>
+		<a href="relay-attempts.html" style="view-transition-name:relay-attempts-title" class="title">Relay attempts</a>
+		<small style="view-transition-name:relay-attempts-small">
+			Created: <time>2021-10-01</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:logs">logs</a>
+		</small>
+		<p style="view-transition-name:relay-attempts-intro">
+			<span class="intro">These are spammers (or hackers) trying to send email <b>from</b> my server</span>
+			&mdash;
+			<a href="relay-attempts.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-10-01
+logs
+		--> </div>
+	</li>
+	<!-- end relay-attempts -->
+	<!-- begin wrong-users -->
+	<li>
+		<a href="wrong-users.html" style="view-transition-name:wrong-users-title" class="title">Wrong users</a>
+		<small style="view-transition-name:wrong-users-small">
+			Created: <time>2021-10-03</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:logs">logs</a>
+		</small>
+		<p style="view-transition-name:wrong-users-intro">
+			<span class="intro">Here you can find attempts to send messages to users who do not exist on this server</span>
+			&mdash;
+			<a href="wrong-users.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-10-03
+logs
+		--> </div>
+	</li>
+	<!-- end wrong-users -->
+	<!-- begin block-users-in-sendmail -->
+	<li>
+		<a href="block-users-in-sendmail.html" style="view-transition-name:block-users-in-sendmail-title" class="title">Block users in sendmail</a>
+		<small style="view-transition-name:block-users-in-sendmail-small">
+			Created: <time>2014-09-13</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:sendmail">sendmail</a>
+		</small>
+		<p style="view-transition-name:block-users-in-sendmail-intro">
+			<span class="intro">How to disable mail receiving by local users without deleting their accounts</span>
+			&mdash;
+			<a href="block-users-in-sendmail.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2014-09-13
+sendmail
+		--> </div>
+	</li>
+	<!-- end block-users-in-sendmail -->
 	<!-- begin sendmail-dkim -->
 	<li>
-		<a href="sendmail-dkim.html" class="title">Sendmail DKIM</a>
-		<br>
-		<small>
-			Created: <time>2014-07-06</time> &mdash; modified: <time>2022-01-22</time> &mdash;
+		<a href="sendmail-dkim.html" style="view-transition-name:sendmail-dkim-title" class="title">Sendmail DKIM</a>
+		<small style="view-transition-name:sendmail-dkim-small">
+			Created: <time>2014-07-06</time> &mdash; modified: <time>2024-11-12</time> &mdash;
 			tags: <a href="./#tag:e-mail">e-mail</a>
 		</small>
-		<p>
+		<p style="view-transition-name:sendmail-dkim-intro">
 			<span class="intro">Signing sendmail messages with DKIM using OpenDKIM is easier then you think!</span>
 			&mdash;
 			<a href="sendmail-dkim.html">read more</a>
@@ -1296,32 +458,930 @@ e-mail
 	<!-- end sendmail-dkim -->
 	<!-- begin smtp-authentication-in-sendmail -->
 	<li>
-		<a href="smtp-authentication-in-sendmail.html" class="title">SMTP authentication in sendmail</a>
-		<br>
-		<small>
-			Created: <time>2014-08-25</time> &mdash; modified: <time>2022-01-22</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a>
+		<a href="smtp-authentication-in-sendmail.html" style="view-transition-name:smtp-authentication-in-sendmail-title" class="title">SMTP authentication in sendmail</a>
+		<small style="view-transition-name:smtp-authentication-in-sendmail-small">
+			Created: <time>2014-08-25</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:sendmail">sendmail</a>
 		</small>
-		<p>
+		<p style="view-transition-name:smtp-authentication-in-sendmail-intro">
 			<span class="intro">By default sendmail is configured in such a way that any program running on localhost can send an email without password, and none from another computer can do that. But what if you want to change that?</span>
 			&mdash;
 			<a href="smtp-authentication-in-sendmail.html">read more</a>
 		</p>
 		<div> <!-- for scripts
 2014-08-25
-e-mail
+sendmail
 		--> </div>
 	</li>
 	<!-- end smtp-authentication-in-sendmail -->
+	<!-- begin whitelisting-emails-with-sendmail -->
+	<li>
+		<a href="whitelisting-emails-with-sendmail.html" style="view-transition-name:whitelisting-emails-with-sendmail-title" class="title">Whitelisting emails with sendmail</a>
+		<small style="view-transition-name:whitelisting-emails-with-sendmail-small">
+			Created: <time>2015-10-27</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:sendmail">sendmail</a>
+		</small>
+		<p style="view-transition-name:whitelisting-emails-with-sendmail-intro">
+			<span class="intro">So they weren't rejected by dnsbl spam filter</span>
+			&mdash;
+			<a href="whitelisting-emails-with-sendmail.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2015-10-27
+sendmail
+		--> </div>
+	</li>
+	<!-- end whitelisting-emails-with-sendmail -->
+	<!-- begin reasonable-spam-filter-in-postfix -->
+	<li>
+		<a href="reasonable-spam-filter-in-postfix.html" style="view-transition-name:reasonable-spam-filter-in-postfix-title" class="title">Reasonable spam filter in Postfix</a>
+		<small style="view-transition-name:reasonable-spam-filter-in-postfix-small">
+			Created: <time>2021-07-19</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:postfix">postfix</a>
+		</small>
+		<p style="view-transition-name:reasonable-spam-filter-in-postfix-intro">
+			<span class="intro">One of reasons why people switch from sendmail to postfix is ease of configuration.</span>
+			&mdash;
+			<a href="reasonable-spam-filter-in-postfix.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-07-19
+postfix
+		--> </div>
+	</li>
+	<!-- end reasonable-spam-filter-in-postfix -->
+	<!-- begin how-to-merge-subtitles -->
+	<li>
+		<a href="how-to-merge-subtitles.html" style="view-transition-name:how-to-merge-subtitles-title" class="title">How to merge subtitles</a>
+		<small style="view-transition-name:how-to-merge-subtitles-small">
+			Created: <time>2024-07-03</time> &mdash; modified: <time>2024-11-12</time> &mdash;
+			tags: <a href="./#tag:ffmpeg">ffmpeg</a> <a href="./#tag:links">links</a>
+		</small>
+		<p style="view-transition-name:how-to-merge-subtitles-intro">
+			<span class="intro">for example, to see them both in original and in your native language</span>
+			&mdash;
+			<a href="how-to-merge-subtitles.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-07-03
+ffmpeg links
+		--> </div>
+	</li>
+	<!-- end how-to-merge-subtitles -->
+	<!-- begin clear-terminal-scrollback-on-mac -->
+	<li>
+		<a href="clear-terminal-scrollback-on-mac.html" style="view-transition-name:clear-terminal-scrollback-on-mac-title" class="title">Clear terminal scrollback on mac</a>
+		<small style="view-transition-name:clear-terminal-scrollback-on-mac-small">
+			Created: <time>2024-11-11</time> &mdash; modified: <time>2024-11-11</time> &mdash;
+			tags: <a href="./#tag:mac">mac</a>
+		</small>
+		<p style="view-transition-name:clear-terminal-scrollback-on-mac-intro">
+			<span class="intro">TL;DR: <tt>printf 'e[3J'</tt></span>
+			&mdash;
+			<a href="clear-terminal-scrollback-on-mac.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-11-11
+mac
+		--> </div>
+	</li>
+	<!-- end clear-terminal-scrollback-on-mac -->
+	<!-- begin using-pkc-to-send-a-message -->
+	<li>
+		<a href="using-pkc-to-send-a-message.html" style="view-transition-name:using-pkc-to-send-a-message-title" class="title">using public key cryptography to send a message</a>
+		<small style="view-transition-name:using-pkc-to-send-a-message-small">
+			Created: <time>2024-10-29</time> &mdash; modified: <time>2024-11-08</time> &mdash;
+			tags: <a href="./#tag:security">security</a>
+		</small>
+		<p style="view-transition-name:using-pkc-to-send-a-message-intro">
+			<span class="intro">How to send a message to your friend over insecure lines and be sure that only they can read it</span>
+			&mdash;
+			<a href="using-pkc-to-send-a-message.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-10-29
+security
+		--> </div>
+	</li>
+	<!-- end using-pkc-to-send-a-message -->
+	<!-- begin decoding-certificate-inside-mac-provisioning-profile -->
+	<li>
+		<a href="decoding-certificate-inside-mac-provisioning-profile.html" style="view-transition-name:decoding-certificate-inside-mac-provisioning-profile-title" class="title">Decoding certificate inside Mac provisioning profile</a>
+		<small style="view-transition-name:decoding-certificate-inside-mac-provisioning-profile-small">
+			Created: <time>2024-10-18</time> &mdash; modified: <time>2024-10-21</time> &mdash;
+			tags: <a href="./#tag:mac">mac</a> <a href="./#tag:bash">bash</a>
+		</small>
+		<p style="view-transition-name:decoding-certificate-inside-mac-provisioning-profile-intro">
+			<span class="intro">Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile "XXX" doesn't include signing certificate "YYY"</span>
+			&mdash;
+			<a href="decoding-certificate-inside-mac-provisioning-profile.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-10-18
+Mac bash
+		--> </div>
+	</li>
+	<!-- end decoding-certificate-inside-mac-provisioning-profile -->
+	<!-- begin how-to-make-dark-theme-follow-system-theme-on-some-websites -->
+	<li>
+		<a href="how-to-make-dark-theme-follow-system-theme-on-some-websites.html" style="view-transition-name:how-to-make-dark-theme-follow-system-theme-on-some-websites-title" class="title">How to make dark theme follow system theme on some websites</a>
+		<small style="view-transition-name:how-to-make-dark-theme-follow-system-theme-on-some-websites-small">
+			Created: <time>2024-08-06</time> &mdash; modified: <time>2024-08-14</time> &mdash;
+			tags: <a href="./#tag:javascript">javascript</a>
+		</small>
+		<p style="view-transition-name:how-to-make-dark-theme-follow-system-theme-on-some-websites-intro">
+			<span class="intro">If you happen to often switch between "dark" and "light" color themes on your system, you might be lucky enough that your browser picks it up properly and conveys to web sites</span>
+			&mdash;
+			<a href="how-to-make-dark-theme-follow-system-theme-on-some-websites.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-08-06
+javascript
+		--> </div>
+	</li>
+	<!-- end how-to-make-dark-theme-follow-system-theme-on-some-websites -->
+	<!-- begin change-konsole-theme-from-commandline -->
+	<li>
+		<a href="change-konsole-theme-from-commandline.html" style="view-transition-name:change-konsole-theme-from-commandline-title" class="title">Change Konsole theme from command-line</a>
+		<small style="view-transition-name:change-konsole-theme-from-commandline-small">
+			Created: <time>2024-07-30</time> &mdash; modified: <time>2024-08-13</time> &mdash;
+			tags: <a href="./#tag:linux">linux</a>
+		</small>
+		<p style="view-transition-name:change-konsole-theme-from-commandline-intro">
+			<span class="intro">If you happen to often switch KDE desktop themes and work in konsole (KDE terminal emulator) a lot, you might want to switch konsole color schemes, too. Instead of messing with "Manage Profiles" dialog and changing profile for each open konsole tab every time, you might want to automate it a bit</span>
+			&mdash;
+			<a href="change-konsole-theme-from-commandline.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-07-30
+linux
+		--> </div>
+	</li>
+	<!-- end change-konsole-theme-from-commandline -->
+	<!-- begin git-split-commit -->
+	<li>
+		<a href="git-split-commit.html" style="view-transition-name:git-split-commit-title" class="title">git split commit</a>
+		<small style="view-transition-name:git-split-commit-small">
+			Created: <time>2024-06-25</time> &mdash; modified: <time>2024-06-26</time> &mdash;
+			tags: <a href="./#tag:git">git</a>
+		</small>
+		<p style="view-transition-name:git-split-commit-intro">
+			<span class="intro">TL;DR: <tt>git rebase -i</tt>, <tt>e</tt>dit, <tt>git reset HEAD~</tt> and create new commits</span>
+			&mdash;
+			<a href="git-split-commit.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-06-25
+git
+		--> </div>
+	</li>
+	<!-- end git-split-commit -->
+	<!-- begin space-9-collision-decection-on-grid -->
+	<li>
+		<a href="space-9-collision-decection-on-grid.html" style="view-transition-name:space-9-collision-decection-on-grid-title" class="title">Space 9: collision decection on grid</a>
+		<small style="view-transition-name:space-9-collision-decection-on-grid-small">
+			Created: <time>2017-11-21</time> &mdash; modified: <time>2024-01-21</time> &mdash;
+			tags: <a href="./#tag:space3d">space3d</a>
+		</small>
+		<p style="view-transition-name:space-9-collision-decection-on-grid-intro">
+			<span class="intro">Unlike sector-based one, this uses more complex logic, but simpler maps</span>
+			&mdash;
+			<a href="space-9-collision-decection-on-grid.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2017-11-21
+Space3D
+		--> </div>
+	</li>
+	<!-- end space-9-collision-decection-on-grid -->
+	<!-- begin space2d3-7-colors-and-interceptions -->
+	<li>
+		<a href="space2d3-7-colors-and-interceptions.html" style="view-transition-name:space2d3-7-colors-and-interceptions-title" class="title">space2d3 7: colors and interceptions</a>
+		<small style="view-transition-name:space2d3-7-colors-and-interceptions-small">
+			Created: <time>2024-01-21</time> &mdash; modified: <time>2024-01-21</time> &mdash;
+			tags: <a href="./#tag:space2d3">space2d3</a>
+		</small>
+		<p style="view-transition-name:space2d3-7-colors-and-interceptions-intro">
+			<span class="intro">Now you can intercept other ships! They can intercept you, and each others, too!</span>
+			&mdash;
+			<a href="space2d3-7-colors-and-interceptions.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-01-21
+space2d3
+		--> </div>
+	</li>
+	<!-- end space2d3-7-colors-and-interceptions -->
+	<!-- begin expand-star-in-bash-prompt -->
+	<li>
+		<a href="expand-star-in-bash-prompt.html" style="view-transition-name:expand-star-in-bash-prompt-title" class="title">expand * in bash prompt</a>
+		<small style="view-transition-name:expand-star-in-bash-prompt-small">
+			Created: <time>2024-01-19</time> &mdash; modified: <time>2024-01-19</time> &mdash;
+			tags: <a href="./#tag:bash">bash</a>
+		</small>
+		<p style="view-transition-name:expand-star-in-bash-prompt-intro">
+			<span class="intro"><b>TL;DR:</b> <code>ls &lt;Esc&gt;*</code></span>
+			&mdash;
+			<a href="expand-star-in-bash-prompt.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-01-19
+bash
+		--> </div>
+	</li>
+	<!-- end expand-star-in-bash-prompt -->
+	<!-- begin space2d3-6-autosave-and-missions -->
+	<li>
+		<a href="space2d3-6-autosave-and-missions.html" style="view-transition-name:space2d3-6-autosave-and-missions-title" class="title">space2d3 6: autosave and missions</a>
+		<small style="view-transition-name:space2d3-6-autosave-and-missions-small">
+			Created: <time>2024-01-06</time> &mdash; modified: <time>2024-01-07</time> &mdash;
+			tags: <a href="./#tag:space2d3">space2d3</a>
+		</small>
+		<p style="view-transition-name:space2d3-6-autosave-and-missions-intro">
+			<span class="intro">Now your game doesn't disappear as soon as you reload the page, and also you can complete missions!</span>
+			&mdash;
+			<a href="space2d3-6-autosave-and-missions.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-01-06
+space2d3
+		--> </div>
+	</li>
+	<!-- end space2d3-6-autosave-and-missions -->
+	<!-- begin space2d3-4-flying-from-planet-to-planet -->
+	<li>
+		<a href="space2d3-4-flying-from-planet-to-planet.html" style="view-transition-name:space2d3-4-flying-from-planet-to-planet-title" class="title">space2d3 4: Flying from planet to planet</a>
+		<small style="view-transition-name:space2d3-4-flying-from-planet-to-planet-small">
+			Created: <time>2024-01-01</time> &mdash; modified: <time>2024-01-07</time> &mdash;
+			tags: <a href="./#tag:space2d3">space2d3</a>
+		</small>
+		<p style="view-transition-name:space2d3-4-flying-from-planet-to-planet-intro">
+			<span class="intro">Now you can participate in "useless activity" together with outher ships</span>
+			&mdash;
+			<a href="space2d3-4-flying-from-planet-to-planet.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-01-01
+space2d3
+		--> </div>
+	</li>
+	<!-- end space2d3-4-flying-from-planet-to-planet -->
+	<!-- begin space2d3-5-trading-stuff -->
+	<li>
+		<a href="space2d3-5-trading-stuff.html" style="view-transition-name:space2d3-5-trading-stuff-title" class="title">space2d3 5: Trading stuff</a>
+		<small style="view-transition-name:space2d3-5-trading-stuff-small">
+			Created: <time>2024-01-04</time> &mdash; modified: <time>2024-01-04</time> &mdash;
+			tags: <a href="./#tag:space2d3">space2d3</a>
+		</small>
+		<p style="view-transition-name:space2d3-5-trading-stuff-intro">
+			<span class="intro">Ok, it's actually barter, but now you have a reason to travel.</span>
+			&mdash;
+			<a href="space2d3-5-trading-stuff.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2024-01-04
+space2d3
+		--> </div>
+	</li>
+	<!-- end space2d3-5-trading-stuff -->
+	<!-- begin space2d3-3-radar-planets-and-other-ships -->
+	<li>
+		<a href="space2d3-3-radar-planets-and-other-ships.html" style="view-transition-name:space2d3-3-radar-planets-and-other-ships-title" class="title">space2d3 3: radar, planets, and other ships</a>
+		<small style="view-transition-name:space2d3-3-radar-planets-and-other-ships-small">
+			Created: <time>2023-12-30</time> &mdash; modified: <time>2023-12-31</time> &mdash;
+			tags: <a href="./#tag:space2d3">space2d3</a>
+		</small>
+		<p style="view-transition-name:space2d3-3-radar-planets-and-other-ships-intro">
+			<span class="intro">Now your ship can have a "radar" component, where you can look at a star system</span>
+			&mdash;
+			<a href="space2d3-3-radar-planets-and-other-ships.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-12-30
+space2d3
+		--> </div>
+	</li>
+	<!-- end space2d3-3-radar-planets-and-other-ships -->
+	<!-- begin space2d3-2-walking-and-detaching -->
+	<li>
+		<a href="space2d3-2-walking-and-detaching.html" style="view-transition-name:space2d3-2-walking-and-detaching-title" class="title">space2d3 2: walking and (de)taching</a>
+		<small style="view-transition-name:space2d3-2-walking-and-detaching-small">
+			Created: <time>2023-12-26</time> &mdash; modified: <time>2023-12-26</time> &mdash;
+			tags: <a href="./#tag:space2d3">space2d3</a>
+		</small>
+		<p style="view-transition-name:space2d3-2-walking-and-detaching-intro">
+			<span class="intro">Now you can walk on your ship... And others, too</span>
+			&mdash;
+			<a href="space2d3-2-walking-and-detaching.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-12-26
+space2d3
+		--> </div>
+	</li>
+	<!-- end space2d3-2-walking-and-detaching -->
+	<!-- begin space2d3-1-a-bigger-game-about-flat-space -->
+	<li>
+		<a href="space2d3-1-a-bigger-game-about-flat-space.html" style="view-transition-name:space2d3-1-a-bigger-game-about-flat-space-title" class="title">space2d3 1: a bigger game about flat space</a>
+		<small style="view-transition-name:space2d3-1-a-bigger-game-about-flat-space-small">
+			Created: <time>2023-12-25</time> &mdash; modified: <time>2023-12-25</time> &mdash;
+			tags: <a href="./#tag:space2d3">space2d3</a>
+		</small>
+		<p style="view-transition-name:space2d3-1-a-bigger-game-about-flat-space-intro">
+			<span class="intro">Idea it to make a mix of space1d and space2d2 games (I'm not very good at naming things)</span>
+			&mdash;
+			<a href="space2d3-1-a-bigger-game-about-flat-space.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-12-25
+space2d3
+		--> </div>
+	</li>
+	<!-- end space2d3-1-a-bigger-game-about-flat-space -->
+	<!-- begin preserving-your-linux-laptop-battery-health -->
+	<li>
+		<a href="preserving-your-linux-laptop-battery-health.html" style="view-transition-name:preserving-your-linux-laptop-battery-health-title" class="title">Preserving your Linux laptop battery health</a>
+		<small style="view-transition-name:preserving-your-linux-laptop-battery-health-small">
+			Created: <time>2023-11-05</time> &mdash; modified: <time>2023-11-05</time> &mdash;
+			tags: <a href="./#tag:linux">linux</a>
+		</small>
+		<p style="view-transition-name:preserving-your-linux-laptop-battery-health-intro">
+			<span class="intro">by limiting its charge to 90%</span>
+			&mdash;
+			<a href="preserving-your-linux-laptop-battery-health.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-11-05
+Linux
+		--> </div>
+	</li>
+	<!-- end preserving-your-linux-laptop-battery-health -->
+	<!-- begin how-i-started-working-at-remarkable -->
+	<li>
+		<a href="how-i-started-working-at-remarkable.html" style="view-transition-name:how-i-started-working-at-remarkable-title" class="title">How I started working at reMarkable</a>
+		<small style="view-transition-name:how-i-started-working-at-remarkable-small">
+			Created: <time>2023-10-05</time> &mdash; modified: <time>2023-10-09</time> &mdash;
+			tags: <a href="./#tag:life">life</a> <a href="./#tag:remarkable">remarkable</a>
+		</small>
+		<p style="view-transition-name:how-i-started-working-at-remarkable-intro">
+			<span class="intro">Due to reorganisation at my previous place of work, several people were offered to leave, including me.</span>
+			&mdash;
+			<a href="how-i-started-working-at-remarkable.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-10-05
+life reMarkable
+		--> </div>
+	</li>
+	<!-- end how-i-started-working-at-remarkable -->
+	<!-- begin totp -->
+	<li>
+		<a href="totp.html" style="view-transition-name:totp-title" class="title">totp</a>
+		<small style="view-transition-name:totp-small">
+			Created: <time>2022-09-05</time> &mdash; modified: <time>2023-09-30</time> &mdash;
+			tags: <a href="./#tag:bash">bash</a>
+		</small>
+		<p style="view-transition-name:totp-intro">
+			<span class="intro">A small shell script to generate one-time passwords, in bash, using oathtool</span>
+			&mdash;
+			<a href="totp.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2022-09-05
+bash
+		--> </div>
+	</li>
+	<!-- end totp -->
+	<!-- begin tsv2vcf -->
+	<li>
+		<a href="tsv2vcf.html" style="view-transition-name:tsv2vcf-title" class="title">csv2vcf (or rather tsv2vcf)</a>
+		<small style="view-transition-name:tsv2vcf-small">
+			Created: <time>2022-06-20</time> &mdash; modified: <time>2023-09-27</time> &mdash;
+			tags: <a href="./#tag:bash">bash</a>
+		</small>
+		<p style="view-transition-name:tsv2vcf-intro">
+			<span class="intro">If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy</span>
+			&mdash;
+			<a href="tsv2vcf.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2022-06-20
+bash
+		--> </div>
+	</li>
+	<!-- end tsv2vcf -->
+	<!-- begin un-busting-grub-with-arch-chroot -->
+	<li>
+		<a href="un-busting-grub-with-arch-chroot.html" style="view-transition-name:un-busting-grub-with-arch-chroot-title" class="title">Un-busting GRUB with arch-chroot</a>
+		<small style="view-transition-name:un-busting-grub-with-arch-chroot-small">
+			Created: <time>2023-08-19</time> &mdash; modified: <time>2023-08-19</time> &mdash;
+			tags: <a href="./#tag:linux">linux</a>
+		</small>
+		<p style="view-transition-name:un-busting-grub-with-arch-chroot-intro">
+			<span class="intro">properly this time</span>
+			&mdash;
+			<a href="un-busting-grub-with-arch-chroot.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-08-19
+Linux
+		--> </div>
+	</li>
+	<!-- end un-busting-grub-with-arch-chroot -->
+	<!-- begin i-accidentally-the-runes -->
+	<li>
+		<a href="i-accidentally-the-runes.html" style="view-transition-name:i-accidentally-the-runes-title" class="title">How to add custom keyboard layout on Linux</a>
+		<small style="view-transition-name:i-accidentally-the-runes-small">
+			Created: <time>2023-05-12</time> &mdash; modified: <time>2023-05-13</time> &mdash;
+			tags: <a href="./#tag:linux">linux</a>
+		</small>
+		<p style="view-transition-name:i-accidentally-the-runes-intro">
+			<span class="intro">I accidentally ᚦᛖ᛫ᚱᚢᚾᛖᛋ</span>
+			&mdash;
+			<a href="i-accidentally-the-runes.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-05-12
+Linux
+		--> </div>
+	</li>
+	<!-- end i-accidentally-the-runes -->
+	<!-- begin windows-93 -->
+	<li>
+		<a href="windows-93.html" style="view-transition-name:windows-93-title" class="title">Windows 93</a>
+		<small style="view-transition-name:windows-93-small">
+			Created: <time>2014-10-28</time> &mdash; modified: <time>2023-04-10</time> &mdash;
+			tags: <a href="./#tag:fun">fun</a> <a href="./#tag:links">links</a> <a href="./#tag:windows">windows</a>
+		</small>
+		<p style="view-transition-name:windows-93-intro">
+			<span class="intro">HTML parody of an OS which was popular when we were young and Internet was new</span>
+			&mdash;
+			<a href="windows-93.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2014-10-28
+fun links windows
+		--> </div>
+	</li>
+	<!-- end windows-93 -->
+	<!-- begin space2d2-4-modes-animation-and-github -->
+	<li>
+		<a href="space2d2-4-modes-animation-and-github.html" style="view-transition-name:space2d2-4-modes-animation-and-github-title" class="title">space2d2 4: modes, animation, and github</a>
+		<small style="view-transition-name:space2d2-4-modes-animation-and-github-small">
+			Created: <time>2023-04-08</time> &mdash; modified: <time>2023-04-08</time> &mdash;
+			tags: <a href="./#tag:space2d2">space2d2</a>
+		</small>
+		<p style="view-transition-name:space2d2-4-modes-animation-and-github-intro">
+			<span class="intro">this game got its own (sub)domain!</span>
+			&mdash;
+			<a href="space2d2-4-modes-animation-and-github.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-04-08
+space2d2
+		--> </div>
+	</li>
+	<!-- end space2d2-4-modes-animation-and-github -->
+	<!-- begin webdav-fun -->
+	<li>
+		<a href="webdav-fun.html" style="view-transition-name:webdav-fun-title" class="title">Fun with webdav</a>
+		<small style="view-transition-name:webdav-fun-small">
+			Created: <time>2022-12-20</time> &mdash; modified: <time>2023-04-08</time> &mdash;
+			tags: <a href="./#tag:nginx">nginx</a>
+		</small>
+		<p style="view-transition-name:webdav-fun-intro">
+			<span class="intro">Playing with a fancy old technology</span>
+			&mdash;
+			<a href="webdav-fun.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2022-12-20
+nginx
+		--> </div>
+	</li>
+	<!-- end webdav-fun -->
+	<!-- begin space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy -->
+	<li>
+		<a href="space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy.html" style="view-transition-name:space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy-title" class="title">space 2d 2: first UI with a view on horribly unbalanced economy</a>
+		<small style="view-transition-name:space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy-small">
+			Created: <time>2021-05-03</time> &mdash; modified: <time>2023-03-20</time> &mdash;
+			tags: <a href="./#tag:space2d">space2d</a>
+		</small>
+		<p style="view-transition-name:space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy-intro">
+			<span class="intro">It's playable now… if you can call it that :-)</span>
+			&mdash;
+			<a href="space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-05-03
+space2d
+		--> </div>
+	</li>
+	<!-- end space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy -->
+	<!-- begin space2d2-3-the-finished-game -->
+	<li>
+		<a href="space2d2-3-the-finished-game.html" style="view-transition-name:space2d2-3-the-finished-game-title" class="title">space2d2 3: the finished game</a>
+		<small style="view-transition-name:space2d2-3-the-finished-game-small">
+			Created: <time>2023-03-19</time> &mdash; modified: <time>2023-03-20</time> &mdash;
+			tags: <a href="./#tag:space2d2">space2d2</a>
+		</small>
+		<p style="view-transition-name:space2d2-3-the-finished-game-intro">
+			<span class="intro">A space trading game without money</span>
+			&mdash;
+			<a href="space2d2-3-the-finished-game.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-03-19
+space2d2
+		--> </div>
+	</li>
+	<!-- end space2d2-3-the-finished-game -->
+	<!-- begin space2d2-2-portals -->
+	<li>
+		<a href="space2d2-2-portals.html" style="view-transition-name:space2d2-2-portals-title" class="title">space2d2 2: Portals</a>
+		<small style="view-transition-name:space2d2-2-portals-small">
+			Created: <time>2023-03-15</time> &mdash; modified: <time>2023-03-16</time> &mdash;
+			tags: <a href="./#tag:space2d2">space2d2</a>
+		</small>
+		<p style="view-transition-name:space2d2-2-portals-intro">
+			<span class="intro">One star is good, but more stars is better</span>
+			&mdash;
+			<a href="space2d2-2-portals.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-03-15
+space2d2
+		--> </div>
+	</li>
+	<!-- end space2d2-2-portals -->
+	<!-- begin space2d2-1-a-simple-game-about-flat-space -->
+	<li>
+		<a href="space2d2-1-a-simple-game-about-flat-space.html" style="view-transition-name:space2d2-1-a-simple-game-about-flat-space-title" class="title">space2d2 1: a simple game about flat space</a>
+		<small style="view-transition-name:space2d2-1-a-simple-game-about-flat-space-small">
+			Created: <time>2023-03-12</time> &mdash; modified: <time>2023-03-15</time> &mdash;
+			tags: <a href="./#tag:space2d2">space2d2</a>
+		</small>
+		<p style="view-transition-name:space2d2-1-a-simple-game-about-flat-space-intro">
+			<span class="intro">Making a properly balanced economy simulator is pretty hard, as it turns out. But can I make a simpler 2d game?</span>
+			&mdash;
+			<a href="space2d2-1-a-simple-game-about-flat-space.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-03-12
+space2d2
+		--> </div>
+	</li>
+	<!-- end space2d2-1-a-simple-game-about-flat-space -->
+	<!-- begin flickr-background-for-a-webpage -->
+	<li>
+		<a href="flickr-background-for-a-webpage.html" style="view-transition-name:flickr-background-for-a-webpage-title" class="title">Flickr background for a webpage</a>
+		<small style="view-transition-name:flickr-background-for-a-webpage-small">
+			Created: <time>2017-06-17</time> &mdash; modified: <time>2023-03-08</time> &mdash;
+			tags: <a href="./#tag:javascript">javascript</a>
+		</small>
+		<p style="view-transition-name:flickr-background-for-a-webpage-intro">
+			<span class="intro">Another attempt to add something nice to this blog</span>
+			&mdash;
+			<a href="flickr-background-for-a-webpage.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2017-06-17
+Javascript
+		--> </div>
+	</li>
+	<!-- end flickr-background-for-a-webpage -->
+	<!-- begin how-i-started-working-for-opera-software -->
+	<li>
+		<a href="how-i-started-working-for-opera-software.html" style="view-transition-name:how-i-started-working-for-opera-software-title" class="title">How I started working for Opera Software</a>
+		<small style="view-transition-name:how-i-started-working-for-opera-software-small">
+			Created: <time>2011-11-01</time> &mdash; modified: <time>2023-03-08</time> &mdash;
+			tags: <a href="./#tag:opera">opera</a> <a href="./#tag:life">life</a>
+		</small>
+		<p style="view-transition-name:how-i-started-working-for-opera-software-intro">
+			<span class="intro">My first experience in getting a job</span>
+			&mdash;
+			<a href="how-i-started-working-for-opera-software.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2011-11-01
+opera life
+		--> </div>
+	</li>
+	<!-- end how-i-started-working-for-opera-software -->
+	<!-- begin sorting-sent-email -->
+	<li>
+		<a href="sorting-sent-email.html" style="view-transition-name:sorting-sent-email-title" class="title">Sorting sent email</a>
+		<small style="view-transition-name:sorting-sent-email-small">
+			Created: <time>2014-11-01</time> &mdash; modified: <time>2023-03-08</time> &mdash;
+			tags: <a href="./#tag:e-mail">e-mail</a>
+		</small>
+		<p style="view-transition-name:sorting-sent-email-intro">
+			<span class="intro">How to automate it if you host your mail yourself</span>
+			&mdash;
+			<a href="sorting-sent-email.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2014-11-01
+e-mail
+		--> </div>
+	</li>
+	<!-- end sorting-sent-email -->
+	<!-- begin space-8-collision-detection -->
+	<li>
+		<a href="space-8-collision-detection.html" style="view-transition-name:space-8-collision-detection-title" class="title">Space 8: collision detection</a>
+		<small style="view-transition-name:space-8-collision-detection-small">
+			Created: <time>2017-11-06</time> &mdash; modified: <time>2023-03-08</time> &mdash;
+			tags: <a href="./#tag:space3d">space3d</a>
+		</small>
+		<p style="view-transition-name:space-8-collision-detection-intro">
+			<span class="intro">Now you can't go outside the ship</span>
+			&mdash;
+			<a href="space-8-collision-detection.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2017-11-06
+Space3D
+		--> </div>
+	</li>
+	<!-- end space-8-collision-detection -->
+	<!-- begin javascript-canvas-drag-and-zoom-library -->
+	<li>
+		<a href="javascript-canvas-drag-and-zoom-library.html" style="view-transition-name:javascript-canvas-drag-and-zoom-library-title" class="title">Javascript canvas drag-and-zoom library</a>
+		<small style="view-transition-name:javascript-canvas-drag-and-zoom-library-small">
+			Created: <time>2012-07-01</time> &mdash; modified: <time>2023-03-07</time> &mdash;
+			tags: <a href="./#tag:javascript">javascript</a>
+		</small>
+		<p style="view-transition-name:javascript-canvas-drag-and-zoom-library-intro">
+			<span class="intro">For those cases when you need to implement something GoogleMaps-like</span>
+			&mdash;
+			<a href="javascript-canvas-drag-and-zoom-library.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2012-07-01
+javascript
+		--> </div>
+	</li>
+	<!-- end javascript-canvas-drag-and-zoom-library -->
+	<!-- begin autossh-with-systemd -->
+	<li>
+		<a href="autossh-with-systemd.html" style="view-transition-name:autossh-with-systemd-title" class="title">AutoSSH with SystemD</a>
+		<small style="view-transition-name:autossh-with-systemd-small">
+			Created: <time>2022-12-28</time> &mdash; modified: <time>2023-01-05</time> &mdash;
+			tags: <a href="./#tag:linux">linux</a>
+		</small>
+		<p style="view-transition-name:autossh-with-systemd-intro">
+			<span class="intro">a simple unit file to keep a permanent SSH connection</span>
+			&mdash;
+			<a href="autossh-with-systemd.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2022-12-28
+Linux
+		--> </div>
+	</li>
+	<!-- end autossh-with-systemd -->
+	<!-- begin robots -->
+	<li>
+		<a href="robots.html" style="view-transition-name:robots-title" class="title">Robots only</a>
+		<small style="view-transition-name:robots-small">
+			Created: <time>2023-04-01</time> &mdash; modified: <time>2022-11-02</time> &mdash;
+			tags: <a href="./#tag:fun">fun</a>
+		</small>
+		<p style="view-transition-name:robots-intro">
+			<span class="intro">Access for robots only</span>
+			&mdash;
+			<a href="robots.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2023-04-01
+fun
+		--> </div>
+	</li>
+	<!-- end robots -->
+	<!-- begin read-stdin-or-a-file-passed-as-argument-in-bash -->
+	<li>
+		<a href="read-stdin-or-a-file-passed-as-argument-in-bash.html" style="view-transition-name:read-stdin-or-a-file-passed-as-argument-in-bash-title" class="title">Read stdin <b>OR</b> a file passed as argument in bash</a>
+		<small style="view-transition-name:read-stdin-or-a-file-passed-as-argument-in-bash-small">
+			Created: <time>2022-10-27</time> &mdash; modified: <time>2022-10-27</time> &mdash;
+			tags: <a href="./#tag:bash">bash</a>
+		</small>
+		<p style="view-transition-name:read-stdin-or-a-file-passed-as-argument-in-bash-intro">
+			<span class="intro"><b>TL;DR:</b> <code>cat "${1:-/dev/stdin}"</code></span>
+			&mdash;
+			<a href="read-stdin-or-a-file-passed-as-argument-in-bash.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2022-10-27
+bash
+		--> </div>
+	</li>
+	<!-- end read-stdin-or-a-file-passed-as-argument-in-bash -->
+	<!-- begin colors3 -->
+	<li>
+		<a href="colors3.html" style="view-transition-name:colors3-title" class="title">Colors 3</a>
+		<small style="view-transition-name:colors3-small">
+			Created: <time>2022-10-22</time> &mdash; modified: <time>2022-10-22</time> &mdash;
+			tags: <a href="./#tag:css">css</a>
+		</small>
+		<p style="view-transition-name:colors3-intro">
+			<span class="intro">A nicer version of CSS-only 2D background gradient</span>
+			&mdash;
+			<a href="colors3.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2022-10-22
+css
+		--> </div>
+	</li>
+	<!-- end colors3 -->
+	<!-- begin colors -->
+	<li>
+		<a href="colors.html" style="view-transition-name:colors-title" class="title">Colors</a>
+		<small style="view-transition-name:colors-small">
+			Created: <time>2014-09-03</time> &mdash; modified: <time>2022-10-22</time> &mdash;
+			tags: <a href="./#tag:javascript">javascript</a>
+		</small>
+		<p style="view-transition-name:colors-intro">
+			<span class="intro">Let's add a colorful background to this blog, hm?</span>
+			&mdash;
+			<a href="colors.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2014-09-03
+javascript
+		--> </div>
+	</li>
+	<!-- end colors -->
+	<!-- begin colors2 -->
+	<li>
+		<a href="colors2.html" style="view-transition-name:colors2-title" class="title">Colors 2</a>
+		<small style="view-transition-name:colors2-small">
+			Created: <time>2016-06-29</time> &mdash; modified: <time>2022-10-22</time> &mdash;
+			tags: <a href="./#tag:css">css</a>
+		</small>
+		<p style="view-transition-name:colors2-intro">
+			<span class="intro">A CSS-only version of fancy 2D background gradient</span>
+			&mdash;
+			<a href="colors2.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2016-06-29
+css
+		--> </div>
+	</li>
+	<!-- end colors2 -->
+	<!-- begin how-to-decrypt-jenkins-passwords -->
+	<li>
+		<a href="how-to-decrypt-jenkins-passwords.html" style="view-transition-name:how-to-decrypt-jenkins-passwords-title" class="title">How to decrypt Jenkins passwords</a>
+		<small style="view-transition-name:how-to-decrypt-jenkins-passwords-small">
+			Created: <time>2022-10-09</time> &mdash; modified: <time>2022-10-11</time> &mdash;
+			tags: <a href="./#tag:jenkins">jenkins</a> <a href="./#tag:cfengine">cfengine</a>
+		</small>
+		<p style="view-transition-name:how-to-decrypt-jenkins-passwords-intro">
+			<span class="intro">with the help of script console</span>
+			&mdash;
+			<a href="how-to-decrypt-jenkins-passwords.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2022-10-09
+jenkins cfengine
+		--> </div>
+	</li>
+	<!-- end how-to-decrypt-jenkins-passwords -->
+	<!-- begin cfengine-failed-to-establish-tls-connection-bootstrap-error -->
+	<li>
+		<a href="cfengine-failed-to-establish-tls-connection-bootstrap-error.html" style="view-transition-name:cfengine-failed-to-establish-tls-connection-bootstrap-error-title" class="title">CFEngine Failed to establish TLS connection bootstrap error</a>
+		<small style="view-transition-name:cfengine-failed-to-establish-tls-connection-bootstrap-error-small">
+			Created: <time>2017-03-22</time> &mdash; modified: <time>2022-09-27</time> &mdash;
+			tags: <a href="./#tag:cfengine">cfengine</a>
+		</small>
+		<p style="view-transition-name:cfengine-failed-to-establish-tls-connection-bootstrap-error-intro">
+			<span class="intro">Maybe agent's IP is not among allowed ones?</span>
+			&mdash;
+			<a href="cfengine-failed-to-establish-tls-connection-bootstrap-error.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2017-03-22
+CFEngine
+		--> </div>
+	</li>
+	<!-- end cfengine-failed-to-establish-tls-connection-bootstrap-error -->
+	<!-- begin grace-hopper-grandma-cobol -->
+	<li>
+		<a href="grace-hopper-grandma-cobol.html" style="view-transition-name:grace-hopper-grandma-cobol-title" class="title">Grace Hopper - Grandma COBOL</a>
+		<small style="view-transition-name:grace-hopper-grandma-cobol-small">
+			Created: <time>2015-09-09</time> &mdash; modified: <time>2022-08-19</time> &mdash;
+			tags: <a href="./#tag:history">history</a>
+		</small>
+		<p style="view-transition-name:grace-hopper-grandma-cobol-intro">
+			<span class="intro">Also known for "First actual case of bug being found" note</span>
+			&mdash;
+			<a href="grace-hopper-grandma-cobol.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2015-09-09
+History
+		--> </div>
+	</li>
+	<!-- end grace-hopper-grandma-cobol -->
+	<!-- begin minimizing-size-of-browser-profiles-backups -->
+	<li>
+		<a href="minimizing-size-of-browser-profiles-backups.html" style="view-transition-name:minimizing-size-of-browser-profiles-backups-title" class="title">Minimizing size of browser profiles backups</a>
+		<small style="view-transition-name:minimizing-size-of-browser-profiles-backups-small">
+			Created: <time>2022-08-06</time> &mdash; modified: <time>2022-08-06</time> &mdash;
+			tags: <a href="./#tag:bash">bash</a> <a href="./#tag:chromium">chromium</a> <a href="./#tag:firefox">firefox</a> <a href="./#tag:windows">windows</a>
+		</small>
+		<p style="view-transition-name:minimizing-size-of-browser-profiles-backups-intro">
+			<span class="intro">how to minimize them about 10-fold</span>
+			&mdash;
+			<a href="minimizing-size-of-browser-profiles-backups.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2022-08-06
+bash chromium firefox windows
+		--> </div>
+	</li>
+	<!-- end minimizing-size-of-browser-profiles-backups -->
+	<!-- begin hottentotten -->
+	<li>
+		<a href="hottentotten.html" style="view-transition-name:hottentotten-title" class="title">Hottentotten</a>
+		<small style="view-transition-name:hottentotten-small">
+			Created: <time>2011-10-04</time> &mdash; modified: <time>2022-07-30</time> &mdash;
+			tags: <a href="./#tag:fun">fun</a>
+		</small>
+		<p style="view-transition-name:hottentotten-intro">
+			<span class="intro">A small language session</span>
+			&mdash;
+			<a href="hottentotten.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2011-10-04
+fun
+		--> </div>
+	</li>
+	<!-- end hottentotten -->
+	<!-- begin world-domination -->
+	<li>
+		<a href="world-domination.html" style="view-transition-name:world-domination-title" class="title">World domination</a>
+		<small style="view-transition-name:world-domination-small">
+			Created: <time>2014-06-21</time> &mdash; modified: <time>2022-07-30</time> &mdash;
+			tags: <a href="./#tag:fun">fun</a> <a href="./#tag:games">games</a> <a href="./#tag:politics">politics</a>
+		</small>
+		<p style="view-transition-name:world-domination-intro">
+			<span class="intro">Experience after playing a flash game</span>
+			&mdash;
+			<a href="world-domination.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2014-06-21
+fun games politics
+		--> </div>
+	</li>
+	<!-- end world-domination -->
+	<!-- begin strange-games -->
+	<li>
+		<a href="strange-games.html" style="view-transition-name:strange-games-title" class="title">Strange games</a>
+		<small style="view-transition-name:strange-games-small">
+			Created: <time>2014-09-20</time> &mdash; modified: <time>2022-07-30</time> &mdash;
+			tags: <a href="./#tag:games">games</a>
+		</small>
+		<p style="view-transition-name:strange-games-intro">
+			<span class="intro">A website with a provoking name features funny games</span>
+			&mdash;
+			<a href="strange-games.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2014-09-20
+games
+		--> </div>
+	</li>
+	<!-- end strange-games -->
+	<!-- begin from-512kb.club-to-gtmetrix-api-library -->
+	<li>
+		<a href="from-512kb.club-to-gtmetrix-api-library.html" style="view-transition-name:from-512kb.club-to-gtmetrix-api-library-title" class="title">From 512kb.club to GTmetrix API library</a>
+		<small style="view-transition-name:from-512kb.club-to-gtmetrix-api-library-small">
+			Created: <time>2021-07-16</time> &mdash; modified: <time>2022-01-23</time> &mdash;
+			tags: <a href="./#tag:life">life</a>
+		</small>
+		<p style="view-transition-name:from-512kb.club-to-gtmetrix-api-library-intro">
+			<span class="intro">How reading one habr.com blog post caused a chain of events leading up to me writing a good documentation for a pet project</span>
+			&mdash;
+			<a href="from-512kb.club-to-gtmetrix-api-library.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-07-16
+life
+		--> </div>
+	</li>
+	<!-- end from-512kb.club-to-gtmetrix-api-library -->
 	<!-- begin browser-security-on-linux -->
 	<li>
-		<a href="browser-security-on-linux.html" class="title">Browser security on Linux</a>
-		<br>
-		<small>
+		<a href="browser-security-on-linux.html" style="view-transition-name:browser-security-on-linux-title" class="title">Browser security on Linux</a>
+		<small style="view-transition-name:browser-security-on-linux-small">
 			Created: <time>2017-05-10</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a> <a href="./#tag:security">security</a>
 		</small>
-		<p>
+		<p style="view-transition-name:browser-security-on-linux-intro">
 			<span class="intro">A good article that summarizes my own thoughts on hardening browser on Linux</span>
 			&mdash;
 			<a href="browser-security-on-linux.html">read more</a>
@@ -1334,13 +1394,12 @@ Linux security
 	<!-- end browser-security-on-linux -->
 	<!-- begin asciimation -->
 	<li>
-		<a href="asciimation.html" class="title">asciimation</a>
-		<br>
-		<small>
+		<a href="asciimation.html" style="view-transition-name:asciimation-title" class="title">asciimation</a>
+		<small style="view-transition-name:asciimation-small">
 			Created: <time>2014-10-28</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:fun">fun</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:asciimation-intro">
 			<span class="intro">Star Wars in ASCII art</span>
 			&mdash;
 			<a href="asciimation.html">read more</a>
@@ -1353,13 +1412,12 @@ fun links
 	<!-- end asciimation -->
 	<!-- begin space-1d-1-combat -->
 	<li>
-		<a href="space-1d-1-combat.html" class="title">space 1d 1: combat</a>
-		<br>
-		<small>
+		<a href="space-1d-1-combat.html" style="view-transition-name:space-1d-1-combat-title" class="title">space 1d 1: combat</a>
+		<small style="view-transition-name:space-1d-1-combat-small">
 			Created: <time>2018-04-02</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-1-combat-intro">
 			<span class="intro">Adding some action to the simple game prototype.</span>
 			&mdash;
 			<a href="space-1d-1-combat.html">read more</a>
@@ -1372,13 +1430,12 @@ space1d
 	<!-- end space-1d-1-combat -->
 	<!-- begin space-1d-7-ship-names-memory-and-feelings -->
 	<li>
-		<a href="space-1d-7-ship-names-memory-and-feelings.html" class="title">space 1d 7: Ship names, memory, and feelings</a>
-		<br>
-		<small>
+		<a href="space-1d-7-ship-names-memory-and-feelings.html" style="view-transition-name:space-1d-7-ship-names-memory-and-feelings-title" class="title">space 1d 7: Ship names, memory, and feelings</a>
+		<small style="view-transition-name:space-1d-7-ship-names-memory-and-feelings-small">
 			Created: <time>2021-02-21</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-7-ship-names-memory-and-feelings-intro">
 			<span class="intro">Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior</span>
 			&mdash;
 			<a href="space-1d-7-ship-names-memory-and-feelings.html">read more</a>
@@ -1391,13 +1448,12 @@ space1d
 	<!-- end space-1d-7-ship-names-memory-and-feelings -->
 	<!-- begin space-1d-5-costly-approach -->
 	<li>
-		<a href="space-1d-5-costly-approach.html" class="title">space 1d 5: Costly approach</a>
-		<br>
-		<small>
+		<a href="space-1d-5-costly-approach.html" style="view-transition-name:space-1d-5-costly-approach-title" class="title">space 1d 5: Costly approach</a>
+		<small style="view-transition-name:space-1d-5-costly-approach-small">
 			Created: <time>2020-05-21</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-5-costly-approach-intro">
 			<span class="intro">Changes in physics</span>
 			&mdash;
 			<a href="space-1d-5-costly-approach.html">read more</a>
@@ -1410,13 +1466,12 @@ space1d links
 	<!-- end space-1d-5-costly-approach -->
 	<!-- begin space-1d-4-trading-and-bluffing -->
 	<li>
-		<a href="space-1d-4-trading-and-bluffing.html" class="title">space 1d 4: Trading and bluffing</a>
-		<br>
-		<small>
+		<a href="space-1d-4-trading-and-bluffing.html" style="view-transition-name:space-1d-4-trading-and-bluffing-title" class="title">space 1d 4: Trading and bluffing</a>
+		<small style="view-transition-name:space-1d-4-trading-and-bluffing-small">
 			Created: <time>2020-05-17</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-4-trading-and-bluffing-intro">
 			<span class="intro">more choices</span>
 			&mdash;
 			<a href="space-1d-4-trading-and-bluffing.html">read more</a>
@@ -1429,13 +1484,12 @@ space1d
 	<!-- end space-1d-4-trading-and-bluffing -->
 	<!-- begin space-1d-3-making-ship-yours -->
 	<li>
-		<a href="space-1d-3-making-ship-yours.html" class="title">space 1d 3: Making ship yours</a>
-		<br>
-		<small>
+		<a href="space-1d-3-making-ship-yours.html" style="view-transition-name:space-1d-3-making-ship-yours-title" class="title">space 1d 3: Making ship yours</a>
+		<small style="view-transition-name:space-1d-3-making-ship-yours-small">
 			Created: <time>2020-05-16</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-3-making-ship-yours-intro">
 			<span class="intro">The game is playable now!</span>
 			&mdash;
 			<a href="space-1d-3-making-ship-yours.html">read more</a>
@@ -1448,13 +1502,12 @@ space1d
 	<!-- end space-1d-3-making-ship-yours -->
 	<!-- begin space-1d-2-more-ships -->
 	<li>
-		<a href="space-1d-2-more-ships.html" class="title">space 1d 2: more ships</a>
-		<br>
-		<small>
+		<a href="space-1d-2-more-ships.html" style="view-transition-name:space-1d-2-more-ships-title" class="title">space 1d 2: more ships</a>
+		<small style="view-transition-name:space-1d-2-more-ships-small">
 			Created: <time>2020-05-10</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-2-more-ships-intro">
 			<span class="intro">Moving forward with a simple game.</span>
 			&mdash;
 			<a href="space-1d-2-more-ships.html">read more</a>
@@ -1467,13 +1520,12 @@ space1d
 	<!-- end space-1d-2-more-ships -->
 	<!-- begin space-1d-6-stats -->
 	<li>
-		<a href="space-1d-6-stats.html" class="title">space 1d 6: Stats</a>
-		<br>
-		<small>
+		<a href="space-1d-6-stats.html" style="view-transition-name:space-1d-6-stats-title" class="title">space 1d 6: Stats</a>
+		<small style="view-transition-name:space-1d-6-stats-small">
 			Created: <time>2021-02-13</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-6-stats-intro">
 			<span class="intro">One step forward, one step back</span>
 			&mdash;
 			<a href="space-1d-6-stats.html">read more</a>
@@ -1486,13 +1538,12 @@ space1d
 	<!-- end space-1d-6-stats -->
 	<!-- begin space-1d-8-colors-stats-challenge-mode -->
 	<li>
-		<a href="space-1d-8-colors-stats-challenge-mode.html" class="title">space 1d 8: Colors, stats, challenge mode</a>
-		<br>
-		<small>
+		<a href="space-1d-8-colors-stats-challenge-mode.html" style="view-transition-name:space-1d-8-colors-stats-challenge-mode-title" class="title">space 1d 8: Colors, stats, challenge mode</a>
+		<small style="view-transition-name:space-1d-8-colors-stats-challenge-mode-small">
 			Created: <time>2021-03-06</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-8-colors-stats-challenge-mode-intro">
 			<span class="intro">Ships now have colors and like you from the first encounter if your ships color is close to theirs. But still, to change it you need to decrease your karma below -1.</span>
 			&mdash;
 			<a href="space-1d-8-colors-stats-challenge-mode.html">read more</a>
@@ -1505,13 +1556,12 @@ space1d
 	<!-- end space-1d-8-colors-stats-challenge-mode -->
 	<!-- begin why-isnt-psrexe-well-known -->
 	<li>
-		<a href="why-isnt-psrexe-well-known.html" class="title">Why isn’t PSR.exe well known?</a>
-		<br>
-		<small>
+		<a href="why-isnt-psrexe-well-known.html" style="view-transition-name:why-isnt-psrexe-well-known-title" class="title">Why isn’t PSR.exe well known?</a>
+		<small style="view-transition-name:why-isnt-psrexe-well-known-small">
 			Created: <time>2014-12-07</time> &mdash; modified: <time>2022-01-22</time> &mdash;
 			tags: <a href="./#tag:windows">windows</a>
 		</small>
-		<p>
+		<p style="view-transition-name:why-isnt-psrexe-well-known-intro">
 			<span class="intro">Short memo about a good program</span>
 			&mdash;
 			<a href="why-isnt-psrexe-well-known.html">read more</a>
@@ -1524,13 +1574,12 @@ windows
 	<!-- end why-isnt-psrexe-well-known -->
 	<!-- begin rsync-backups -->
 	<li>
-		<a href="rsync-backups.html" class="title">Rsync backups</a>
-		<br>
-		<small>
+		<a href="rsync-backups.html" style="view-transition-name:rsync-backups-title" class="title">Rsync backups</a>
+		<small style="view-transition-name:rsync-backups-small">
 			Created: <time>2016-04-03</time> &mdash; modified: <time>2022-01-21</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:rsync-backups-intro">
 			<span class="intro">How I organized backups of my files</span>
 			&mdash;
 			<a href="rsync-backups.html">read more</a>
@@ -1543,13 +1592,12 @@ bash
 	<!-- end rsync-backups -->
 	<!-- begin rlwrap -->
 	<li>
-		<a href="rlwrap.html" class="title">rlwrap</a>
-		<br>
-		<small>
+		<a href="rlwrap.html" style="view-transition-name:rlwrap-title" class="title">rlwrap</a>
+		<small style="view-transition-name:rlwrap-small">
 			Created: <time>2021-09-10</time> &mdash; modified: <time>2022-01-21</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:rlwrap-intro">
 			<span class="intro">Short memo about a good program</span>
 			&mdash;
 			<a href="rlwrap.html">read more</a>
@@ -1562,13 +1610,12 @@ Linux
 	<!-- end rlwrap -->
 	<!-- begin if-youre-trying-to-learn-vim -->
 	<li>
-		<a href="if-youre-trying-to-learn-vim.html" class="title">If you're trying to learn Vim...</a>
-		<br>
-		<small>
+		<a href="if-youre-trying-to-learn-vim.html" style="view-transition-name:if-youre-trying-to-learn-vim-title" class="title">If you're trying to learn Vim...</a>
+		<small style="view-transition-name:if-youre-trying-to-learn-vim-small">
 			Created: <time>2013-01-11</time> &mdash; modified: <time>2021-12-14</time> &mdash;
 			tags: <a href="./#tag:vim">vim</a>
 		</small>
-		<p>
+		<p style="view-transition-name:if-youre-trying-to-learn-vim-intro">
 			<span class="intro">...then you're doing it wrong.</span>
 			&mdash;
 			<a href="if-youre-trying-to-learn-vim.html">read more</a>
@@ -1581,13 +1628,12 @@ vim
 	<!-- end if-youre-trying-to-learn-vim -->
 	<!-- begin macro-to-excange-two-values-in-vim -->
 	<li>
-		<a href="macro-to-excange-two-values-in-vim.html" class="title">Macro to excange two values in Vim</a>
-		<br>
-		<small>
+		<a href="macro-to-excange-two-values-in-vim.html" style="view-transition-name:macro-to-excange-two-values-in-vim-title" class="title">Macro to excange two values in Vim</a>
+		<small style="view-transition-name:macro-to-excange-two-values-in-vim-small">
 			Created: <time>2013-01-09</time> &mdash; modified: <time>2021-12-14</time> &mdash;
 			tags: <a href="./#tag:vim">vim</a>
 		</small>
-		<p>
+		<p style="view-transition-name:macro-to-excange-two-values-in-vim-intro">
 			<span class="intro">You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?</span>
 			&mdash;
 			<a href="macro-to-excange-two-values-in-vim.html">read more</a>
@@ -1600,13 +1646,12 @@ vim
 	<!-- end macro-to-excange-two-values-in-vim -->
 	<!-- begin vim-prank -->
 	<li>
-		<a href="vim-prank.html" class="title">Vim prank</a>
-		<br>
-		<small>
+		<a href="vim-prank.html" style="view-transition-name:vim-prank-title" class="title">Vim prank</a>
+		<small style="view-transition-name:vim-prank-small">
 			Created: <time>2012-12-02</time> &mdash; modified: <time>2021-12-14</time> &mdash;
 			tags: <a href="./#tag:vim">vim</a> <a href="./#tag:fun">fun</a>
 		</small>
-		<p>
+		<p style="view-transition-name:vim-prank-intro">
 			<span class="intro">An idea for an evil prank on your Vim-loving friend.</span>
 			&mdash;
 			<a href="vim-prank.html">read more</a>
@@ -1617,15 +1662,32 @@ vim fun
 		--> </div>
 	</li>
 	<!-- end vim-prank -->
+	<!-- begin defrag-ssd-in-vm-on-hdd -->
+	<li>
+		<a href="defrag-ssd-in-vm-on-hdd.html" style="view-transition-name:defrag-ssd-in-vm-on-hdd-title" class="title">Defrag SSD in VM on HDD</a>
+		<small style="view-transition-name:defrag-ssd-in-vm-on-hdd-small">
+			Created: <time>2021-11-27</time> &mdash; modified: <time>2021-11-29</time> &mdash;
+			tags: <a href="./#tag:windows">windows</a>
+		</small>
+		<p style="view-transition-name:defrag-ssd-in-vm-on-hdd-intro">
+			<span class="intro">Even if OS sees a storage device as SSD and refuses to defrag it - you might know better</span>
+			&mdash;
+			<a href="defrag-ssd-in-vm-on-hdd.html">read more</a>
+		</p>
+		<div> <!-- for scripts
+2021-11-27
+windows
+		--> </div>
+	</li>
+	<!-- end defrag-ssd-in-vm-on-hdd -->
 	<!-- begin 13th-container -->
 	<li>
-		<a href="13th-container.html" class="title">13th container</a>
-		<br>
-		<small>
+		<a href="13th-container.html" style="view-transition-name:13th-container-title" class="title">13th container</a>
+		<small style="view-transition-name:13th-container-small">
 			Created: <time>2021-11-14</time> &mdash; modified: <time>2021-11-27</time> &mdash;
 			tags: <a href="./#tag:postfix">postfix</a>
 		</small>
-		<p>
+		<p style="view-transition-name:13th-container-intro">
 			<span class="intro">With <a href='https://github.com/Lex-2008/containers/tree/master/dehydrated.cont'>dehydrated</a> being 12th container to be added to my infra, this is 13th.</span>
 			&mdash;
 			<a href="13th-container.html">read more</a>
@@ -1638,13 +1700,12 @@ postfix
 	<!-- end 13th-container -->
 	<!-- begin send-only-dkim-milter -->
 	<li>
-		<a href="send-only-dkim-milter.html" class="title">Send-only DKIM milter</a>
-		<br>
-		<small>
+		<a href="send-only-dkim-milter.html" style="view-transition-name:send-only-dkim-milter-title" class="title">Send-only DKIM milter</a>
+		<small style="view-transition-name:send-only-dkim-milter-small">
 			Created: <time>2021-11-20</time> &mdash; modified: <time>2021-11-27</time> &mdash;
 			tags: <a href="./#tag:postfix">postfix</a>
 		</small>
-		<p>
+		<p style="view-transition-name:send-only-dkim-milter-intro">
 			<span class="intro">How to configure Postfix to skip milter for incoming messages</span>
 			&mdash;
 			<a href="send-only-dkim-milter.html">read more</a>
@@ -1657,13 +1718,12 @@ postfix
 	<!-- end send-only-dkim-milter -->
 	<!-- begin dkim-signature-online-test -->
 	<li>
-		<a href="dkim-signature-online-test.html" class="title">DKIM signature online test</a>
-		<br>
-		<small>
+		<a href="dkim-signature-online-test.html" style="view-transition-name:dkim-signature-online-test-title" class="title">DKIM signature online test</a>
+		<small style="view-transition-name:dkim-signature-online-test-small">
 			Created: <time>2021-10-16</time> &mdash; modified: <time>2021-11-16</time> &mdash;
 			tags: <a href="./#tag:net">net</a> <a href="./#tag:e-mail">e-mail</a>
 		</small>
-		<p>
+		<p style="view-transition-name:dkim-signature-online-test-intro">
 			<span class="intro">If you ever wanted to see how validity of DKIM signature will be affected by changing email headers and / or message body</span>
 			&mdash;
 			<a href="dkim-signature-online-test.html">read more</a>
@@ -1676,13 +1736,12 @@ net e-mail
 	<!-- end dkim-signature-online-test -->
 	<!-- begin dyndns-diy -->
 	<li>
-		<a href="dyndns-diy.html" class="title">DynDNS DIY</a>
-		<br>
-		<small>
+		<a href="dyndns-diy.html" style="view-transition-name:dyndns-diy-title" class="title">DynDNS DIY</a>
+		<small style="view-transition-name:dyndns-diy-small">
 			Created: <time>2021-10-10</time> &mdash; modified: <time>2021-10-24</time> &mdash;
 			tags: <a href="./#tag:net">net</a> <a href="./#tag:bind">bind</a>
 		</small>
-		<p>
+		<p style="view-transition-name:dyndns-diy-intro">
 			<span class="intro">Why use someone else's Dynamic DNS server, if you can <i>easily</i> run your own?</span>
 			&mdash;
 			<a href="dyndns-diy.html">read more</a>
@@ -1695,13 +1754,12 @@ net bind
 	<!-- end dyndns-diy -->
 	<!-- begin using-http-basic-auth-for-nginx-mail-auth-http-server -->
 	<li>
-		<a href="using-http-basic-auth-for-nginx-mail-auth-http-server.html" class="title">Using HTTP Basic auth for nginx mail auth http server</a>
-		<br>
-		<small>
+		<a href="using-http-basic-auth-for-nginx-mail-auth-http-server.html" style="view-transition-name:using-http-basic-auth-for-nginx-mail-auth-http-server-title" class="title">Using HTTP Basic auth for nginx mail auth http server</a>
+		<small style="view-transition-name:using-http-basic-auth-for-nginx-mail-auth-http-server-small">
 			Created: <time>2021-10-23</time> &mdash; modified: <time>2021-10-23</time> &mdash;
 			tags: <a href="./#tag:nginx">nginx</a> <a href="./#tag:net">net</a>
 		</small>
-		<p>
+		<p style="view-transition-name:using-http-basic-auth-for-nginx-mail-auth-http-server-intro">
 			<span class="intro">How hard can it be? Using only nginx itself!</span>
 			&mdash;
 			<a href="using-http-basic-auth-for-nginx-mail-auth-http-server.html">read more</a>
@@ -1714,13 +1772,12 @@ nginx net
 	<!-- end using-http-basic-auth-for-nginx-mail-auth-http-server -->
 	<!-- begin google-translate -->
 	<li>
-		<a href="google-translate.html" class="title">Google Translate</a>
-		<br>
-		<small>
+		<a href="google-translate.html" style="view-transition-name:google-translate-title" class="title">Google Translate</a>
+		<small style="view-transition-name:google-translate-small">
 			Created: <time>2013-09-03</time> &mdash; modified: <time>2021-10-08</time> &mdash;
 			tags: <a href="./#tag:norway">norway</a> <a href="./#tag:fun">fun</a>
 		</small>
-		<p>
+		<p style="view-transition-name:google-translate-intro">
 			<span class="intro">Sometimes it's wrong... completely... sometimes...</span>
 			&mdash;
 			<a href="google-translate.html">read more</a>
@@ -1733,13 +1790,12 @@ Norway fun
 	<!-- end google-translate -->
 	<!-- begin hacker-typer-on-tv -->
 	<li>
-		<a href="hacker-typer-on-tv.html" class="title">Hacker Typer on TV</a>
-		<br>
-		<small>
+		<a href="hacker-typer-on-tv.html" style="view-transition-name:hacker-typer-on-tv-title" class="title">Hacker Typer on TV</a>
+		<small style="view-transition-name:hacker-typer-on-tv-small">
 			Created: <time>2014-01-26</time> &mdash; modified: <time>2021-10-08</time> &mdash;
 			tags: <a href="./#tag:fun">fun</a>
 		</small>
-		<p>
+		<p style="view-transition-name:hacker-typer-on-tv-intro">
 			<span class="intro">A quick note about a funny site and a video featuring it.</span>
 			&mdash;
 			<a href="hacker-typer-on-tv.html">read more</a>
@@ -1752,13 +1808,12 @@ fun
 	<!-- end hacker-typer-on-tv -->
 	<!-- begin space-2d-1-a-game-which-plays-by-itself -->
 	<li>
-		<a href="space-2d-1-a-game-which-plays-by-itself.html" class="title">space 2d 1: a game which plays by itself</a>
-		<br>
-		<small>
+		<a href="space-2d-1-a-game-which-plays-by-itself.html" style="view-transition-name:space-2d-1-a-game-which-plays-by-itself-title" class="title">space 2d 1: a game which plays by itself</a>
+		<small style="view-transition-name:space-2d-1-a-game-which-plays-by-itself-small">
 			Created: <time>2021-04-11</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space2d">space2d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-2d-1-a-game-which-plays-by-itself-intro">
 			<span class="intro">a humble beginning</span>
 			&mdash;
 			<a href="space-2d-1-a-game-which-plays-by-itself.html">read more</a>
@@ -1771,13 +1826,12 @@ space2d
 	<!-- end space-2d-1-a-game-which-plays-by-itself -->
 	<!-- begin space-7-another-ship -->
 	<li>
-		<a href="space-7-another-ship.html" class="title">Space 7: another ship</a>
-		<br>
-		<small>
+		<a href="space-7-another-ship.html" style="view-transition-name:space-7-another-ship-title" class="title">Space 7: another ship</a>
+		<small style="view-transition-name:space-7-another-ship-small">
 			Created: <time>2017-10-02</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-7-another-ship-intro">
 			<span class="intro">Let's have something to look at!</span>
 			&mdash;
 			<a href="space-7-another-ship.html">read more</a>
@@ -1790,13 +1844,12 @@ Space3D
 	<!-- end space-7-another-ship -->
 	<!-- begin space-6-on-a-ship -->
 	<li>
-		<a href="space-6-on-a-ship.html" class="title">Space 6: on a ship</a>
-		<br>
-		<small>
+		<a href="space-6-on-a-ship.html" style="view-transition-name:space-6-on-a-ship-title" class="title">Space 6: on a ship</a>
+		<small style="view-transition-name:space-6-on-a-ship-small">
 			Created: <time>2017-10-01</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-6-on-a-ship-intro">
 			<span class="intro">FPV mode, so we can walk on the ship</span>
 			&mdash;
 			<a href="space-6-on-a-ship.html">read more</a>
@@ -1809,13 +1862,12 @@ Space3D
 	<!-- end space-6-on-a-ship -->
 	<!-- begin space-5-back-to-square-one -->
 	<li>
-		<a href="space-5-back-to-square-one.html" class="title">Space 5: back to square one</a>
-		<br>
-		<small>
+		<a href="space-5-back-to-square-one.html" style="view-transition-name:space-5-back-to-square-one-title" class="title">Space 5: back to square one</a>
+		<small style="view-transition-name:space-5-back-to-square-one-small">
 			Created: <time>2017-04-17</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-5-back-to-square-one-intro">
 			<span class="intro">Changing the engine</span>
 			&mdash;
 			<a href="space-5-back-to-square-one.html">read more</a>
@@ -1828,13 +1880,12 @@ Space3D
 	<!-- end space-5-back-to-square-one -->
 	<!-- begin space-4-a-ship -->
 	<li>
-		<a href="space-4-a-ship.html" class="title">Space 4: a ship</a>
-		<br>
-		<small>
+		<a href="space-4-a-ship.html" style="view-transition-name:space-4-a-ship-title" class="title">Space 4: a ship</a>
+		<small style="view-transition-name:space-4-a-ship-small">
 			Created: <time>2017-04-16</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-4-a-ship-intro">
 			<span class="intro">Let's build a real ship</span>
 			&mdash;
 			<a href="space-4-a-ship.html">read more</a>
@@ -1847,13 +1898,12 @@ Space3D
 	<!-- end space-4-a-ship -->
 	<!-- begin space-3-person-on-the-ship -->
 	<li>
-		<a href="space-3-person-on-the-ship.html" class="title">Space 3: person on the ship</a>
-		<br>
-		<small>
+		<a href="space-3-person-on-the-ship.html" style="view-transition-name:space-3-person-on-the-ship-title" class="title">Space 3: person on the ship</a>
+		<small style="view-transition-name:space-3-person-on-the-ship-small">
 			Created: <time>2017-04-15</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-3-person-on-the-ship-intro">
 			<span class="intro">Now we want to have a character (a pilot) to walk on the ship.</span>
 			&mdash;
 			<a href="space-3-person-on-the-ship.html">read more</a>
@@ -1866,13 +1916,12 @@ Space3D
 	<!-- end space-3-person-on-the-ship -->
 	<!-- begin space-2-camera-on-the-ship -->
 	<li>
-		<a href="space-2-camera-on-the-ship.html" class="title">Space 2: Camera on the ship</a>
-		<br>
-		<small>
+		<a href="space-2-camera-on-the-ship.html" style="view-transition-name:space-2-camera-on-the-ship-title" class="title">Space 2: Camera on the ship</a>
+		<small style="view-transition-name:space-2-camera-on-the-ship-small">
 			Created: <time>2017-04-14</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-2-camera-on-the-ship-intro">
 			<span class="intro">Let's put a camera onto the ship, to get some FPV experience</span>
 			&mdash;
 			<a href="space-2-camera-on-the-ship.html">read more</a>
@@ -1885,13 +1934,12 @@ Space3D
 	<!-- end space-2-camera-on-the-ship -->
 	<!-- begin space-1d-0-idea -->
 	<li>
-		<a href="space-1d-0-idea.html" class="title">space 1d 0: idea</a>
-		<br>
-		<small>
+		<a href="space-1d-0-idea.html" style="view-transition-name:space-1d-0-idea-title" class="title">space 1d 0: idea</a>
+		<small style="view-transition-name:space-1d-0-idea-small">
 			Created: <time>2018-04-01</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space1d">space1d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1d-0-idea-intro">
 			<span class="intro">Game about space which will be more fun to make than to play.</span>
 			&mdash;
 			<a href="space-1d-0-idea.html">read more</a>
@@ -1904,13 +1952,12 @@ space1d
 	<!-- end space-1d-0-idea -->
 	<!-- begin space-10-finished-game-about-combat -->
 	<li>
-		<a href="space-10-finished-game-about-combat.html" class="title">Space 10: Finished game about combat</a>
-		<br>
-		<small>
+		<a href="space-10-finished-game-about-combat.html" style="view-transition-name:space-10-finished-game-about-combat-title" class="title">Space 10: Finished game about combat</a>
+		<small style="view-transition-name:space-10-finished-game-about-combat-small">
 			Created: <time>2018-06-15</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-10-finished-game-about-combat-intro">
 			<span class="intro">My first (almost) finished game</span>
 			&mdash;
 			<a href="space-10-finished-game-about-combat.html">read more</a>
@@ -1923,13 +1970,12 @@ Space3D
 	<!-- end space-10-finished-game-about-combat -->
 	<!-- begin space-1-movement -->
 	<li>
-		<a href="space-1-movement.html" class="title">Space 1: Movement</a>
-		<br>
-		<small>
+		<a href="space-1-movement.html" style="view-transition-name:space-1-movement-title" class="title">Space 1: Movement</a>
+		<small style="view-transition-name:space-1-movement-small">
 			Created: <time>2017-04-13</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-1-movement-intro">
 			<span class="intro">First step is moving the ship</span>
 			&mdash;
 			<a href="space-1-movement.html">read more</a>
@@ -1942,13 +1988,12 @@ Space3D
 	<!-- end space-1-movement -->
 	<!-- begin space-0-idea -->
 	<li>
-		<a href="space-0-idea.html" class="title">Space 0: Idea</a>
-		<br>
-		<small>
+		<a href="space-0-idea.html" style="view-transition-name:space-0-idea-title" class="title">Space 0: Idea</a>
+		<small style="view-transition-name:space-0-idea-small">
 			Created: <time>2017-04-12</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:space3d">space3d</a>
 		</small>
-		<p>
+		<p style="view-transition-name:space-0-idea-intro">
 			<span class="intro">What I want to create and what to base on</span>
 			&mdash;
 			<a href="space-0-idea.html">read more</a>
@@ -1961,13 +2006,12 @@ Space3D
 	<!-- end space-0-idea -->
 	<!-- begin different-keyboard-layouts-for-different-keyboards -->
 	<li>
-		<a href="different-keyboard-layouts-for-different-keyboards.html" class="title">Different keyboard layouts for different keyboards</a>
-		<br>
-		<small>
+		<a href="different-keyboard-layouts-for-different-keyboards.html" style="view-transition-name:different-keyboard-layouts-for-different-keyboards-title" class="title">Different keyboard layouts for different keyboards</a>
+		<small style="view-transition-name:different-keyboard-layouts-for-different-keyboards-small">
 			Created: <time>2017-03-14</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:different-keyboard-layouts-for-different-keyboards-intro">
 			<span class="intro">On Linux, you can have different keyboard layouts for different physical keyboards. How? Easy!</span>
 			&mdash;
 			<a href="different-keyboard-layouts-for-different-keyboards.html">read more</a>
@@ -1980,13 +2024,12 @@ Linux
 	<!-- end different-keyboard-layouts-for-different-keyboards -->
 	<!-- begin catfs -->
 	<li>
-		<a href="catfs.html" class="title">catfs</a>
-		<br>
-		<small>
+		<a href="catfs.html" style="view-transition-name:catfs-title" class="title">catfs</a>
+		<small style="view-transition-name:catfs-small">
 			Created: <time>2016-09-25</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:catfs-intro">
 			<span class="intro">A FUSE module that shows a list of files as one big file.</span>
 			&mdash;
 			<a href="catfs.html">read more</a>
@@ -1999,13 +2042,12 @@ Linux
 	<!-- end catfs -->
 	<!-- begin how-to-combine-audio-and-video-with-ffmpeg -->
 	<li>
-		<a href="how-to-combine-audio-and-video-with-ffmpeg.html" class="title">How to combine audio and video with ffmpeg</a>
-		<br>
-		<small>
+		<a href="how-to-combine-audio-and-video-with-ffmpeg.html" style="view-transition-name:how-to-combine-audio-and-video-with-ffmpeg-title" class="title">How to combine audio and video with ffmpeg</a>
+		<small style="view-transition-name:how-to-combine-audio-and-video-with-ffmpeg-small">
 			Created: <time>2020-05-10</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-combine-audio-and-video-with-ffmpeg-intro">
 			<span class="intro">When you downloaded them separately</span>
 			&mdash;
 			<a href="how-to-combine-audio-and-video-with-ffmpeg.html">read more</a>
@@ -2018,13 +2060,12 @@ Linux
 	<!-- end how-to-combine-audio-and-video-with-ffmpeg -->
 	<!-- begin when-not-to-use-alpine -->
 	<li>
-		<a href="when-not-to-use-alpine.html" class="title">When not to use Alpine</a>
-		<br>
-		<small>
+		<a href="when-not-to-use-alpine.html" style="view-transition-name:when-not-to-use-alpine-title" class="title">When not to use Alpine</a>
+		<small style="view-transition-name:when-not-to-use-alpine-small">
 			Created: <time>2021-07-11</time> &mdash; modified: <time>2021-10-03</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a> <a href="./#tag:python">python</a>
 		</small>
-		<p>
+		<p style="view-transition-name:when-not-to-use-alpine-intro">
 			<span class="intro">When you use scripting languages and want to squeeze some performance.</span>
 			&mdash;
 			<a href="when-not-to-use-alpine.html">read more</a>
@@ -2037,13 +2078,12 @@ linux python
 	<!-- end when-not-to-use-alpine -->
 	<!-- begin bluetooth-pairing-keys-location -->
 	<li>
-		<a href="bluetooth-pairing-keys-location.html" class="title">Bluetooth Pairing Keys Location</a>
-		<br>
-		<small>
+		<a href="bluetooth-pairing-keys-location.html" style="view-transition-name:bluetooth-pairing-keys-location-title" class="title">Bluetooth Pairing Keys Location</a>
+		<small style="view-transition-name:bluetooth-pairing-keys-location-small">
 			Created: <time>2021-07-25</time> &mdash; modified: <time>2021-09-26</time> &mdash;
 			tags: <a href="./#tag:windows">windows</a> <a href="./#tag:linux">linux</a> <a href="./#tag:bluetooth">bluetooth</a>
 		</small>
-		<p>
+		<p style="view-transition-name:bluetooth-pairing-keys-location-intro">
 			<span class="intro">In case you need to switch between various OSes (be it Windows and Linux, or just various Linux distros).</span>
 			&mdash;
 			<a href="bluetooth-pairing-keys-location.html">read more</a>
@@ -2056,13 +2096,12 @@ windows linux bluetooth
 	<!-- end bluetooth-pairing-keys-location -->
 	<!-- begin passwords -->
 	<li>
-		<a href="passwords.html" class="title">Passwords</a>
-		<br>
-		<small>
+		<a href="passwords.html" style="view-transition-name:passwords-title" class="title">Passwords</a>
+		<small style="view-transition-name:passwords-small">
 			Created: <time>2014-06-20</time> &mdash; modified: <time>2021-08-06</time> &mdash;
 			tags: <a href="./#tag:security">security</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:passwords-intro">
 			<span class="intro">How to generate them, so you could store them in your head</span>
 			&mdash;
 			<a href="passwords.html">read more</a>
@@ -2073,34 +2112,14 @@ security links
 		--> </div>
 	</li>
 	<!-- end passwords -->
-	<!-- begin reasonable-spam-filter-in-postfix -->
-	<li>
-		<a href="reasonable-spam-filter-in-postfix.html" class="title">Reasonable spam filter in Postfix</a>
-		<br>
-		<small>
-			Created: <time>2021-07-19</time> &mdash; modified: <time>2021-07-31</time> &mdash;
-			tags: <a href="./#tag:linux">linux</a> <a href="./#tag:e-mail">e-mail</a>
-		</small>
-		<p>
-			<span class="intro">One of reasons why people switch from sendmail to postfix is ease of configuration.</span>
-			&mdash;
-			<a href="reasonable-spam-filter-in-postfix.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2021-07-19
-linux e-mail
-		--> </div>
-	</li>
-	<!-- end reasonable-spam-filter-in-postfix -->
 	<!-- begin using-hdparm-to-hide-smart-errors -->
 	<li>
-		<a href="using-hdparm-to-hide-smart-errors.html" class="title">Using hdparm to hide S.M.A.R.T. errors</a>
-		<br>
-		<small>
+		<a href="using-hdparm-to-hide-smart-errors.html" style="view-transition-name:using-hdparm-to-hide-smart-errors-title" class="title">Using hdparm to hide S.M.A.R.T. errors</a>
+		<small style="view-transition-name:using-hdparm-to-hide-smart-errors-small">
 			Created: <time>2020-08-21</time> &mdash; modified: <time>2021-05-03</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:using-hdparm-to-hide-smart-errors-intro">
 			<span class="intro">TL;DR: <code>sudo hdparm --repair-sector <i>SECTOR</i> <i>/dev/sdx</i></code></span>
 			&mdash;
 			<a href="using-hdparm-to-hide-smart-errors.html">read more</a>
@@ -2113,13 +2132,12 @@ linux
 	<!-- end using-hdparm-to-hide-smart-errors -->
 	<!-- begin why-unix-commands-are-short -->
 	<li>
-		<a href="why-unix-commands-are-short.html" class="title">Why UNIX commands are short</a>
-		<br>
-		<small>
+		<a href="why-unix-commands-are-short.html" style="view-transition-name:why-unix-commands-are-short-title" class="title">Why UNIX commands are short</a>
+		<small style="view-transition-name:why-unix-commands-are-short-small">
 			Created: <time>2017-08-23</time> &mdash; modified: <time>2021-02-27</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a> <a href="./#tag:history">history</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:why-unix-commands-are-short-intro">
 			<span class="intro">Because keyboards were hard</span>
 			&mdash;
 			<a href="why-unix-commands-are-short.html">read more</a>
@@ -2130,34 +2148,14 @@ Linux history links
 		--> </div>
 	</li>
 	<!-- end why-unix-commands-are-short -->
-	<!-- begin lazyblog -->
-	<li>
-		<a href="lazyblog.html" class="title">lazyblog</a>
-		<br>
-		<small>
-			Created: <time>2016-12-14</time> &mdash; modified: <time>2020-11-29</time> &mdash;
-			tags: <a href="./#tag:bash">bash</a> <a href="./#tag:javascript">javascript</a>
-		</small>
-		<p>
-			<span class="intro">a static blog generator which tries to do as little as possible on the server side</span>
-			&mdash;
-			<a href="lazyblog.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2016-12-14
-bash javascript
-		--> </div>
-	</li>
-	<!-- end lazyblog -->
 	<!-- begin o-rly-book-cover-generator -->
 	<li>
-		<a href="o-rly-book-cover-generator.html" class="title">O RLY Book Cover Generator</a>
-		<br>
-		<small>
+		<a href="o-rly-book-cover-generator.html" style="view-transition-name:o-rly-book-cover-generator-title" class="title">O RLY Book Cover Generator</a>
+		<small style="view-transition-name:o-rly-book-cover-generator-small">
 			Created: <time>2017-07-03</time> &mdash; modified: <time>2020-07-26</time> &mdash;
 			tags: <a href="./#tag:fun">fun</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:o-rly-book-cover-generator-intro">
 			<span class="intro">For all your slack needs</span>
 			&mdash;
 			<a href="o-rly-book-cover-generator.html">read more</a>
@@ -2170,13 +2168,12 @@ Fun Links
 	<!-- end o-rly-book-cover-generator -->
 	<!-- begin emoji-programming -->
 	<li>
-		<a href="emoji-programming.html" class="title">Emoji programming</a>
-		<br>
-		<small>
+		<a href="emoji-programming.html" style="view-transition-name:emoji-programming-title" class="title">Emoji programming</a>
+		<small style="view-transition-name:emoji-programming-small">
 			Created: <time>2017-11-18</time> &mdash; modified: <time>2020-07-26</time> &mdash;
 			tags: <a href="./#tag:fun">fun</a>
 		</small>
-		<p>
+		<p style="view-transition-name:emoji-programming-intro">
 			<span class="intro">How would it look</span>
 			&mdash;
 			<a href="emoji-programming.html">read more</a>
@@ -2189,13 +2186,12 @@ Fun
 	<!-- end emoji-programming -->
 	<!-- begin web-before-css -->
 	<li>
-		<a href="web-before-css.html" class="title">Web before CSS</a>
-		<br>
-		<small>
+		<a href="web-before-css.html" style="view-transition-name:web-before-css-title" class="title">Web before CSS</a>
+		<small style="view-transition-name:web-before-css-small">
 			Created: <time>2016-06-29</time> &mdash; modified: <time>2020-06-22</time> &mdash;
 			tags: <a href="./#tag:css">css</a> <a href="./#tag:history">history</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:web-before-css-intro">
 			<span class="intro">A brief dive into a history of early web</span>
 			&mdash;
 			<a href="web-before-css.html">read more</a>
@@ -2208,13 +2204,12 @@ css history links
 	<!-- end web-before-css -->
 	<!-- begin a-history-of-visa -->
 	<li>
-		<a href="a-history-of-visa.html" class="title">A history of VISA</a>
-		<br>
-		<small>
+		<a href="a-history-of-visa.html" style="view-transition-name:a-history-of-visa-title" class="title">A history of VISA</a>
+		<small style="view-transition-name:a-history-of-visa-small">
 			Created: <time>2019-05-29</time> &mdash; modified: <time>2020-06-22</time> &mdash;
 			tags: <a href="./#tag:history">history</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:a-history-of-visa-intro">
 			<span class="intro">An interesting article showing how credit cards appeared</span>
 			&mdash;
 			<a href="a-history-of-visa.html">read more</a>
@@ -2227,13 +2222,12 @@ history links
 	<!-- end a-history-of-visa -->
 	<!-- begin downloading-games-from-the-radio -->
 	<li>
-		<a href="downloading-games-from-the-radio.html" class="title">Downloading games from… The radio!</a>
-		<br>
-		<small>
+		<a href="downloading-games-from-the-radio.html" style="view-transition-name:downloading-games-from-the-radio-title" class="title">Downloading games from… The radio!</a>
+		<small style="view-transition-name:downloading-games-from-the-radio-small">
 			Created: <time>2020-03-08</time> &mdash; modified: <time>2020-06-22</time> &mdash;
 			tags: <a href="./#tag:history">history</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:downloading-games-from-the-radio-intro">
 			<span class="intro">Interesting article about how software was distributed in old times.</span>
 			&mdash;
 			<a href="downloading-games-from-the-radio.html">read more</a>
@@ -2246,13 +2240,12 @@ history links
 	<!-- end downloading-games-from-the-radio -->
 	<!-- begin why-sqlite-succeeded-as-a-database -->
 	<li>
-		<a href="why-sqlite-succeeded-as-a-database.html" class="title">Why SQLite succeeded as a database</a>
-		<br>
-		<small>
+		<a href="why-sqlite-succeeded-as-a-database.html" style="view-transition-name:why-sqlite-succeeded-as-a-database-title" class="title">Why SQLite succeeded as a database</a>
+		<small style="view-transition-name:why-sqlite-succeeded-as-a-database-small">
 			Created: <time>2016-04-30</time> &mdash; modified: <time>2020-06-22</time> &mdash;
 			tags: <a href="./#tag:history">history</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:why-sqlite-succeeded-as-a-database-intro">
 			<span class="intro">Interview (with a transcript) with its creator.</span>
 			&mdash;
 			<a href="why-sqlite-succeeded-as-a-database.html">read more</a>
@@ -2265,13 +2258,12 @@ history links
 	<!-- end why-sqlite-succeeded-as-a-database -->
 	<!-- begin turbo-pascal-speed -->
 	<li>
-		<a href="turbo-pascal-speed.html" class="title">Turbo Pascal speed</a>
-		<br>
-		<small>
+		<a href="turbo-pascal-speed.html" style="view-transition-name:turbo-pascal-speed-title" class="title">Turbo Pascal speed</a>
+		<small style="view-transition-name:turbo-pascal-speed-small">
 			Created: <time>2009-08-22</time> &mdash; modified: <time>2020-06-21</time> &mdash;
 			tags: <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:turbo-pascal-speed-intro">
 			<span class="intro">It was the first programming language I was learning</span>
 			&mdash;
 			<a href="turbo-pascal-speed.html">read more</a>
@@ -2284,13 +2276,12 @@ links
 	<!-- end turbo-pascal-speed -->
 	<!-- begin input-lag -->
 	<li>
-		<a href="input-lag.html" class="title">Input lag</a>
-		<br>
-		<small>
+		<a href="input-lag.html" style="view-transition-name:input-lag-title" class="title">Input lag</a>
+		<small style="view-transition-name:input-lag-small">
 			Created: <time>2017-12-24</time> &mdash; modified: <time>2020-06-21</time> &mdash;
 			tags: <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:input-lag-intro">
 			<span class="intro">Interesting article about speed of modern computers</span>
 			&mdash;
 			<a href="input-lag.html">read more</a>
@@ -2303,13 +2294,12 @@ links
 	<!-- end input-lag -->
 	<!-- begin designing-windows-95 -->
 	<li>
-		<a href="designing-windows-95.html" class="title">Designing Windows 95</a>
-		<br>
-		<small>
+		<a href="designing-windows-95.html" style="view-transition-name:designing-windows-95-title" class="title">Designing Windows 95</a>
+		<small style="view-transition-name:designing-windows-95-small">
 			Created: <time>2018-02-03</time> &mdash; modified: <time>2020-06-21</time> &mdash;
 			tags: <a href="./#tag:history">history</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:designing-windows-95-intro">
 			<span class="intro">An interesting article about designing of common UI elements which we now are taking for granted.</span>
 			&mdash;
 			<a href="designing-windows-95.html">read more</a>
@@ -2322,13 +2312,12 @@ History links
 	<!-- end designing-windows-95 -->
 	<!-- begin how-to-use-parameters-to-set-working-directory-in-org-mode-code-block -->
 	<li>
-		<a href="how-to-use-parameters-to-set-working-directory-in-org-mode-code-block.html" class="title">How to use parameters to set working directory in org mode code block</a>
-		<br>
-		<small>
+		<a href="how-to-use-parameters-to-set-working-directory-in-org-mode-code-block.html" style="view-transition-name:how-to-use-parameters-to-set-working-directory-in-org-mode-code-block-title" class="title">How to use parameters to set working directory in org mode code block</a>
+		<small style="view-transition-name:how-to-use-parameters-to-set-working-directory-in-org-mode-code-block-small">
 			Created: <time>2020-04-11</time> &mdash; modified: <time>2020-04-23</time> &mdash;
 			tags: <a href="./#tag:org">org</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-use-parameters-to-set-working-directory-in-org-mode-code-block-intro">
 			<span class="intro">For when you want working dorectory (:dir) be a parameter, just like variable (:var)</span>
 			&mdash;
 			<a href="how-to-use-parameters-to-set-working-directory-in-org-mode-code-block.html">read more</a>
@@ -2341,13 +2330,12 @@ org
 	<!-- end how-to-use-parameters-to-set-working-directory-in-org-mode-code-block -->
 	<!-- begin debugging-google-maps-in-opera -->
 	<li>
-		<a href="debugging-google-maps-in-opera.html" class="title">Debugging Google Maps in Opera</a>
-		<br>
-		<small>
+		<a href="debugging-google-maps-in-opera.html" style="view-transition-name:debugging-google-maps-in-opera-title" class="title">Debugging Google Maps in Opera</a>
+		<small style="view-transition-name:debugging-google-maps-in-opera-small">
 			Created: <time>2012-03-20</time> &mdash; modified: <time>2020-04-14</time> &mdash;
 			tags: <a href="./#tag:opera">opera</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:debugging-google-maps-in-opera-intro">
 			<span class="intro">How it was done. 10 days of obfurscated Javascript.</span>
 			&mdash;
 			<a href="debugging-google-maps-in-opera.html">read more</a>
@@ -2360,13 +2348,12 @@ Opera links
 	<!-- end debugging-google-maps-in-opera -->
 	<!-- begin avfs-dirs -->
 	<li>
-		<a href="avfs-dirs.html" class="title">Patch for avfs to show "magic" dirs</a>
-		<br>
-		<small>
+		<a href="avfs-dirs.html" style="view-transition-name:avfs-dirs-title" class="title">Patch for avfs to show "magic" dirs</a>
+		<small style="view-transition-name:avfs-dirs-small">
 			Created: <time>2020-03-21</time> &mdash; modified: <time>2020-03-22</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:avfs-dirs-intro">
 			<span class="intro">Suggestion to improve its usability</span>
 			&mdash;
 			<a href="avfs-dirs.html">read more</a>
@@ -2379,13 +2366,12 @@ linux
 	<!-- end avfs-dirs -->
 	<!-- begin fastest-way-to-find-duplicate-files -->
 	<li>
-		<a href="fastest-way-to-find-duplicate-files.html" class="title">Fastest way to find duplicate files</a>
-		<br>
-		<small>
+		<a href="fastest-way-to-find-duplicate-files.html" style="view-transition-name:fastest-way-to-find-duplicate-files-title" class="title">Fastest way to find duplicate files</a>
+		<small style="view-transition-name:fastest-way-to-find-duplicate-files-small">
 			Created: <time>2015-02-19</time> &mdash; modified: <time>2020-03-06</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:fastest-way-to-find-duplicate-files-intro">
 			<span class="intro">TL;DR: it's an app called "dupd"</span>
 			&mdash;
 			<a href="fastest-way-to-find-duplicate-files.html">read more</a>
@@ -2398,13 +2384,12 @@ linux links
 	<!-- end fastest-way-to-find-duplicate-files -->
 	<!-- begin using-true-instead-of-echo-to-debug-bash-scripts -->
 	<li>
-		<a href="using-true-instead-of-echo-to-debug-bash-scripts.html" class="title">Using true instead of echo to debug bash scripts</a>
-		<br>
-		<small>
+		<a href="using-true-instead-of-echo-to-debug-bash-scripts.html" style="view-transition-name:using-true-instead-of-echo-to-debug-bash-scripts-title" class="title">Using true instead of echo to debug bash scripts</a>
+		<small style="view-transition-name:using-true-instead-of-echo-to-debug-bash-scripts-small">
 			Created: <time>2019-01-09</time> &mdash; modified: <time>2020-03-01</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:using-true-instead-of-echo-to-debug-bash-scripts-intro">
 			<span class="intro"><b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output</span>
 			&mdash;
 			<a href="using-true-instead-of-echo-to-debug-bash-scripts.html">read more</a>
@@ -2415,34 +2400,32 @@ Bash
 		--> </div>
 	</li>
 	<!-- end using-true-instead-of-echo-to-debug-bash-scripts -->
-	<!-- begin set--e-inconsistency-inside-blocks -->
+	<!-- begin set-e-inconsistency-inside-blocks -->
 	<li>
-		<a href="set--e-inconsistency-inside-blocks.html" class="title">set -e inconsistency inside blocks</a>
-		<br>
-		<small>
+		<a href="set-e-inconsistency-inside-blocks.html" style="view-transition-name:set-e-inconsistency-inside-blocks-title" class="title">set -e inconsistency inside blocks</a>
+		<small style="view-transition-name:set-e-inconsistency-inside-blocks-small">
 			Created: <time>2019-02-15</time> &mdash; modified: <time>2020-03-01</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:set-e-inconsistency-inside-blocks-intro">
 			<span class="intro"><code>set -e</code> might work not as you expected inside (parentheses).</span>
 			&mdash;
-			<a href="set--e-inconsistency-inside-blocks.html">read more</a>
+			<a href="set-e-inconsistency-inside-blocks.html">read more</a>
 		</p>
 		<div> <!-- for scripts
 2019-02-15
 Bash
 		--> </div>
 	</li>
-	<!-- end set--e-inconsistency-inside-blocks -->
+	<!-- end set-e-inconsistency-inside-blocks -->
 	<!-- begin transferring-huge-sparse-files -->
 	<li>
-		<a href="transferring-huge-sparse-files.html" class="title">Transferring huge sparse files</a>
-		<br>
-		<small>
+		<a href="transferring-huge-sparse-files.html" style="view-transition-name:transferring-huge-sparse-files-title" class="title">Transferring huge sparse files</a>
+		<small style="view-transition-name:transferring-huge-sparse-files-small">
 			Created: <time>2020-01-24</time> &mdash; modified: <time>2020-03-01</time> &mdash;
 			tags: <a href="./#tag:linux">linux</a> <a href="./#tag:bash">bash</a> <a href="./#tag:python">python</a>
 		</small>
-		<p>
+		<p style="view-transition-name:transferring-huge-sparse-files-intro">
 			<span class="intro">How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another</span>
 			&mdash;
 			<a href="transferring-huge-sparse-files.html">read more</a>
@@ -2455,13 +2438,12 @@ Linux bash python
 	<!-- end transferring-huge-sparse-files -->
 	<!-- begin busybox-httpd-file-upload -->
 	<li>
-		<a href="busybox-httpd-file-upload.html" class="title">busybox httpd file upload</a>
-		<br>
-		<small>
+		<a href="busybox-httpd-file-upload.html" style="view-transition-name:busybox-httpd-file-upload-title" class="title">busybox httpd file upload</a>
+		<small style="view-transition-name:busybox-httpd-file-upload-small">
 			Created: <time>2020-01-06</time> &mdash; modified: <time>2020-02-03</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a> <a href="./#tag:net">net</a> <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:busybox-httpd-file-upload-intro">
 			<span class="intro">busybox has a nice http webserver module, even with cgi support - and you can use it to upload files, too</span>
 			&mdash;
 			<a href="busybox-httpd-file-upload.html">read more</a>
@@ -2474,13 +2456,12 @@ bash net linux
 	<!-- end busybox-httpd-file-upload -->
 	<!-- begin random-port-number -->
 	<li>
-		<a href="random-port-number.html" class="title">Random port number</a>
-		<br>
-		<small>
+		<a href="random-port-number.html" style="view-transition-name:random-port-number-title" class="title">Random port number</a>
+		<small style="view-transition-name:random-port-number-small">
 			Created: <time>2019-12-26</time> &mdash; modified: <time>2019-12-26</time> &mdash;
 			tags: <a href="./#tag:links">links</a> <a href="./#tag:net">net</a>
 		</small>
-		<p>
+		<p style="view-transition-name:random-port-number-intro">
 			<span class="intro">How to get a random port number for a small service</span>
 			&mdash;
 			<a href="random-port-number.html">read more</a>
@@ -2493,13 +2474,12 @@ Links net
 	<!-- end random-port-number -->
 	<!-- begin user-agent-string-history -->
 	<li>
-		<a href="user-agent-string-history.html" class="title">History of the browser user-agent string</a>
-		<br>
-		<small>
+		<a href="user-agent-string-history.html" style="view-transition-name:user-agent-string-history-title" class="title">History of the browser user-agent string</a>
+		<small style="view-transition-name:user-agent-string-history-small">
 			Created: <time>2008-09-03</time> &mdash; modified: <time>2019-09-28</time> &mdash;
 			tags: <a href="./#tag:history">history</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:user-agent-string-history-intro">
 			<span class="intro">Interesting dive into how Internet became the mess that it is now</span>
 			&mdash;
 			<a href="user-agent-string-history.html">read more</a>
@@ -2512,13 +2492,12 @@ History links
 	<!-- end user-agent-string-history -->
 	<!-- begin download-any-chromium-build -->
 	<li>
-		<a href="download-any-chromium-build.html" class="title">Download any Chromium build</a>
-		<br>
-		<small>
+		<a href="download-any-chromium-build.html" style="view-transition-name:download-any-chromium-build-title" class="title">Download any Chromium build</a>
+		<small style="view-transition-name:download-any-chromium-build-small">
 			Created: <time>2014-03-27</time> &mdash; modified: <time>2016-06-16</time> &mdash;
 			tags: <a href="./#tag:python">python</a> <a href="./#tag:chromium">chromium</a>
 		</small>
-		<p>
+		<p style="view-transition-name:download-any-chromium-build-intro">
 			<span class="intro">Is it hard to download any Chromium build?</span>
 			&mdash;
 			<a href="download-any-chromium-build.html">read more</a>
@@ -2531,13 +2510,12 @@ python chromium
 	<!-- end download-any-chromium-build -->
 	<!-- begin how-to-configure-access-rules-in-cfengine-via-json-only -->
 	<li>
-		<a href="how-to-configure-access-rules-in-cfengine-via-json-only.html" class="title">How to configure access rules in CFEngine via json only</a>
-		<br>
-		<small>
+		<a href="how-to-configure-access-rules-in-cfengine-via-json-only.html" style="view-transition-name:how-to-configure-access-rules-in-cfengine-via-json-only-title" class="title">How to configure access rules in CFEngine via json only</a>
+		<small style="view-transition-name:how-to-configure-access-rules-in-cfengine-via-json-only-small">
 			Created: <time>2018-07-19</time> &mdash; modified: <time>2018-08-03</time> &mdash;
 			tags: <a href="./#tag:cfengine">cfengine</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-configure-access-rules-in-cfengine-via-json-only-intro">
 			<span class="intro">A bit of policy magic to avoid writing policy</span>
 			&mdash;
 			<a href="how-to-configure-access-rules-in-cfengine-via-json-only.html">read more</a>
@@ -2550,13 +2528,12 @@ CFEngine links
 	<!-- end how-to-configure-access-rules-in-cfengine-via-json-only -->
 	<!-- begin how-to-limit-systemd-units-services-to-use-only-one-cpu-core -->
 	<li>
-		<a href="how-to-limit-systemd-units-services-to-use-only-one-cpu-core.html" class="title">How to limit SystemD units (services) to use only one CPU core</a>
-		<br>
-		<small>
+		<a href="how-to-limit-systemd-units-services-to-use-only-one-cpu-core.html" style="view-transition-name:how-to-limit-systemd-units-services-to-use-only-one-cpu-core-title" class="title">How to limit SystemD units (services) to use only one CPU core</a>
+		<small style="view-transition-name:how-to-limit-systemd-units-services-to-use-only-one-cpu-core-small">
 			Created: <time>2018-07-27</time> &mdash; modified: <time>2018-07-31</time> &mdash;
 			tags: <a href="./#tag:cfengine">cfengine</a> <a href="./#tag:linux">linux</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-limit-systemd-units-services-to-use-only-one-cpu-core-intro">
 			<span class="intro">TL;DR: make a cgroup and assign processes into them, in the systemd .service file</span>
 			&mdash;
 			<a href="how-to-limit-systemd-units-services-to-use-only-one-cpu-core.html">read more</a>
@@ -2569,13 +2546,12 @@ CFEngine Linux links
 	<!-- end how-to-limit-systemd-units-services-to-use-only-one-cpu-core -->
 	<!-- begin how-to-install-extensions-to-cfengines-postgresql -->
 	<li>
-		<a href="how-to-install-extensions-to-cfengines-postgresql.html" class="title">How to install extensions to CFEngine's PostgreSQL</a>
-		<br>
-		<small>
+		<a href="how-to-install-extensions-to-cfengines-postgresql.html" style="view-transition-name:how-to-install-extensions-to-cfengines-postgresql-title" class="title">How to install extensions to CFEngine's PostgreSQL</a>
+		<small style="view-transition-name:how-to-install-extensions-to-cfengines-postgresql-small">
 			Created: <time>2018-02-07</time> &mdash; modified: <time>2018-07-30</time> &mdash;
 			tags: <a href="./#tag:cfengine">cfengine</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-install-extensions-to-cfengines-postgresql-intro">
 			<span class="intro">TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.</span>
 			&mdash;
 			<a href="how-to-install-extensions-to-cfengines-postgresql.html">read more</a>
@@ -2588,13 +2564,12 @@ CFEngine
 	<!-- end how-to-install-extensions-to-cfengines-postgresql -->
 	<!-- begin how-to-download-folder-without-creating-archive -->
 	<li>
-		<a href="how-to-download-folder-without-creating-archive.html" class="title">How to download folder without creating archive</a>
-		<br>
-		<small>
+		<a href="how-to-download-folder-without-creating-archive.html" style="view-transition-name:how-to-download-folder-without-creating-archive-title" class="title">How to download folder without creating archive</a>
+		<small style="view-transition-name:how-to-download-folder-without-creating-archive-small">
 			Created: <time>2018-06-22</time> &mdash; modified: <time>2018-06-22</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-download-folder-without-creating-archive-intro">
 			<span class="intro">TL;DR: use tar and pipe to stdout!</span>
 			&mdash;
 			<a href="how-to-download-folder-without-creating-archive.html">read more</a>
@@ -2607,13 +2582,12 @@ bash
 	<!-- end how-to-download-folder-without-creating-archive -->
 	<!-- begin auto-backup-on-mount -->
 	<li>
-		<a href="auto-backup-on-mount.html" class="title">Auto backup on mount</a>
-		<br>
-		<small>
+		<a href="auto-backup-on-mount.html" style="view-transition-name:auto-backup-on-mount-title" class="title">Auto backup on mount</a>
+		<small style="view-transition-name:auto-backup-on-mount-small">
 			Created: <time>2018-01-22</time> &mdash; modified: <time>2018-02-03</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:auto-backup-on-mount-intro">
 			<span class="intro">Automatically backup files on media mount, using usbmount</span>
 			&mdash;
 			<a href="auto-backup-on-mount.html">read more</a>
@@ -2626,13 +2600,12 @@ bash
 	<!-- end auto-backup-on-mount -->
 	<!-- begin printer -->
 	<li>
-		<a href="printer.html" class="title">Printer</a>
-		<br>
-		<small>
+		<a href="printer.html" style="view-transition-name:printer-title" class="title">Printer</a>
+		<small style="view-transition-name:printer-small">
 			Created: <time>2017-09-18</time> &mdash; modified: <time>2017-09-27</time> &mdash;
 			tags: <a href="./#tag:life">life</a>
 		</small>
-		<p>
+		<p style="view-transition-name:printer-intro">
 			<span class="intro">We have one now</span>
 			&mdash;
 			<a href="printer.html">read more</a>
@@ -2645,13 +2618,12 @@ Life
 	<!-- end printer -->
 	<!-- begin hackers-keyboard-for-n-05e -->
 	<li>
-		<a href="hackers-keyboard-for-n-05e.html" class="title">Hacker's Keyboard for N-05e</a>
-		<br>
-		<small>
+		<a href="hackers-keyboard-for-n-05e.html" style="view-transition-name:hackers-keyboard-for-n-05e-title" class="title">Hacker's Keyboard for N-05e</a>
+		<small style="view-transition-name:hackers-keyboard-for-n-05e-small">
 			Created: <time>2017-05-20</time> &mdash; modified: <time>2017-07-31</time> &mdash;
 			tags: <a href="./#tag:android">android</a>
 		</small>
-		<p>
+		<p style="view-transition-name:hackers-keyboard-for-n-05e-intro">
 			<span class="intro">Compatibility patch</span>
 			&mdash;
 			<a href="hackers-keyboard-for-n-05e.html">read more</a>
@@ -2664,13 +2636,12 @@ Android
 	<!-- end hackers-keyboard-for-n-05e -->
 	<!-- begin bevacqua -->
 	<li>
-		<a href="bevacqua.html" class="title">bevacqua</a>
-		<br>
-		<small>
+		<a href="bevacqua.html" style="view-transition-name:bevacqua-title" class="title">bevacqua</a>
+		<small style="view-transition-name:bevacqua-small">
 			Created: <time>2017-06-29</time> &mdash; modified: <time>2017-07-03</time> &mdash;
 			tags: <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:bevacqua-intro">
 			<span class="intro">Github user with a bunch of interesting Javascript projects/repos</span>
 			&mdash;
 			<a href="bevacqua.html">read more</a>
@@ -2681,34 +2652,14 @@ links
 		--> </div>
 	</li>
 	<!-- end bevacqua -->
-	<!-- begin finnsender -->
-	<li>
-		<a href="finnsender.html" class="title">finnsender</a>
-		<br>
-		<small>
-			Created: <time>2017-05-03</time> &mdash; modified: <time>2017-07-03</time> &mdash;
-			tags: <a href="./#tag:norway">norway</a> <a href="./#tag:links">links</a>
-		</small>
-		<p>
-			<span class="intro">Map of all cell towers in Norway</span>
-			&mdash;
-			<a href="finnsender.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2017-05-03
-Norway links
-		--> </div>
-	</li>
-	<!-- end finnsender -->
 	<!-- begin the-mother-of-all-demos -->
 	<li>
-		<a href="the-mother-of-all-demos.html" class="title">The Mother of All Demos</a>
-		<br>
-		<small>
+		<a href="the-mother-of-all-demos.html" style="view-transition-name:the-mother-of-all-demos-title" class="title">The Mother of All Demos</a>
+		<small style="view-transition-name:the-mother-of-all-demos-small">
 			Created: <time>2013-07-02</time> &mdash; modified: <time>2017-06-14</time> &mdash;
 			tags: <a href="./#tag:history">history</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:the-mother-of-all-demos-intro">
 			<span class="intro">RIP Douglas Engelbart, the person who shaped the modern computing. Oh, and a computer mouse.</span>
 			&mdash;
 			<a href="the-mother-of-all-demos.html">read more</a>
@@ -2721,13 +2672,12 @@ History links
 	<!-- end the-mother-of-all-demos -->
 	<!-- begin how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios -->
 	<li>
-		<a href="how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios.html" class="title">How to call (dial a number) or send SMS from command line in Android or iPhone (iOS)</a>
-		<br>
-		<small>
+		<a href="how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios.html" style="view-transition-name:how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios-title" class="title">How to call (dial a number) or send SMS from command line in Android or iPhone (iOS)</a>
+		<small style="view-transition-name:how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios-small">
 			Created: <time>2014-11-29</time> &mdash; modified: <time>2017-06-14</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a> <a href="./#tag:android">android</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios-intro">
 			<span class="intro">Note that to get command line on iPhone, you need to jailbreak it first.</span>
 			&mdash;
 			<a href="how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios.html">read more</a>
@@ -2740,13 +2690,12 @@ bash android
 	<!-- end how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios -->
 	<!-- begin flickr-feed-generator-for-xscreensaver -->
 	<li>
-		<a href="flickr-feed-generator-for-xscreensaver.html" class="title">Flickr feed generator for xscreensaver</a>
-		<br>
-		<small>
+		<a href="flickr-feed-generator-for-xscreensaver.html" style="view-transition-name:flickr-feed-generator-for-xscreensaver-title" class="title">Flickr feed generator for xscreensaver</a>
+		<small style="view-transition-name:flickr-feed-generator-for-xscreensaver-small">
 			Created: <time>2016-11-01</time> &mdash; modified: <time>2017-06-14</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a> <a href="./#tag:net">net</a> <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:flickr-feed-generator-for-xscreensaver-intro">
 			<span class="intro">Helping you to get many big images from flickr to your xscreensaver</span>
 			&mdash;
 			<a href="flickr-feed-generator-for-xscreensaver.html">read more</a>
@@ -2759,13 +2708,12 @@ bash net linux
 	<!-- end flickr-feed-generator-for-xscreensaver -->
 	<!-- begin forward-smb-via-ssh-tunnel -->
 	<li>
-		<a href="forward-smb-via-ssh-tunnel.html" class="title">Forward SMB via SSH tunnel</a>
-		<br>
-		<small>
+		<a href="forward-smb-via-ssh-tunnel.html" style="view-transition-name:forward-smb-via-ssh-tunnel-title" class="title">Forward SMB via SSH tunnel</a>
+		<small style="view-transition-name:forward-smb-via-ssh-tunnel-small">
 			Created: <time>2017-04-30</time> &mdash; modified: <time>2017-05-09</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a> <a href="./#tag:windows">windows</a> <a href="./#tag:linux">linux</a>
 		</small>
-		<p>
+		<p style="view-transition-name:forward-smb-via-ssh-tunnel-intro">
 			<span class="intro">When SSH is your poor man's VPN</span>
 			&mdash;
 			<a href="forward-smb-via-ssh-tunnel.html">read more</a>
@@ -2778,13 +2726,12 @@ bash windows linux
 	<!-- end forward-smb-via-ssh-tunnel -->
 	<!-- begin rip-steve-jobs -->
 	<li>
-		<a href="rip-steve-jobs.html" class="title">RIP Steve Jobs</a>
-		<br>
-		<small>
+		<a href="rip-steve-jobs.html" style="view-transition-name:rip-steve-jobs-title" class="title">RIP Steve Jobs</a>
+		<small style="view-transition-name:rip-steve-jobs-small">
 			Created: <time>2011-10-05</time> &mdash; modified: <time>2017-04-30</time> &mdash;
 			tags: <a href="./#tag:history">history</a>
 		</small>
-		<p>
+		<p style="view-transition-name:rip-steve-jobs-intro">
 			<span class="intro">You brought technology closer to people</span>
 			&mdash;
 			<a href="rip-steve-jobs.html">read more</a>
@@ -2797,13 +2744,12 @@ History
 	<!-- end rip-steve-jobs -->
 	<!-- begin download-old-firefox-build -->
 	<li>
-		<a href="download-old-firefox-build.html" class="title">Download old Firefox build</a>
-		<br>
-		<small>
+		<a href="download-old-firefox-build.html" style="view-transition-name:download-old-firefox-build-title" class="title">Download old Firefox build</a>
+		<small style="view-transition-name:download-old-firefox-build-small">
 			Created: <time>2017-04-28</time> &mdash; modified: <time>2017-04-29</time> &mdash;
 			tags: <a href="./#tag:firefox">firefox</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:download-old-firefox-build-intro">
 			<span class="intro">deb packages for all versions starting with 3.5</span>
 			&mdash;
 			<a href="download-old-firefox-build.html">read more</a>
@@ -2816,13 +2762,12 @@ Firefox links
 	<!-- end download-old-firefox-build -->
 	<!-- begin katex -->
 	<li>
-		<a href="katex.html" class="title">KaTeX</a>
-		<br>
-		<small>
+		<a href="katex.html" style="view-transition-name:katex-title" class="title">KaTeX</a>
+		<small style="view-transition-name:katex-small">
 			Created: <time>2015-04-09</time> &mdash; modified: <time>2017-04-25</time> &mdash;
 			tags: <a href="./#tag:javascript">javascript</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:katex-intro">
 			<span class="intro">Good library for those willing to implement TeX formulas in their blogs</span>
 			&mdash;
 			<a href="katex.html">read more</a>
@@ -2833,34 +2778,14 @@ Javascript links
 		--> </div>
 	</li>
 	<!-- end katex -->
-	<!-- begin linux-file-hierarchy -->
-	<li>
-		<a href="linux-file-hierarchy.html" class="title">Linux file hierarchy</a>
-		<br>
-		<small>
-			Created: <time>2014-09-02</time> &mdash; modified: <time>2017-04-25</time> &mdash;
-			tags: <a href="./#tag:links">links</a>
-		</small>
-		<p>
-			<span class="intro">All these /bin /usr /local etc...</span>
-			&mdash;
-			<a href="linux-file-hierarchy.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-09-02
-links
-		--> </div>
-	</li>
-	<!-- end linux-file-hierarchy -->
 	<!-- begin this-is-norway -->
 	<li>
-		<a href="this-is-norway.html" class="title">This is Norway</a>
-		<br>
-		<small>
+		<a href="this-is-norway.html" style="view-transition-name:this-is-norway-title" class="title">This is Norway</a>
+		<small style="view-transition-name:this-is-norway-small">
 			Created: <time>2011-10-31</time> &mdash; modified: <time>2017-04-19</time> &mdash;
 			tags: <a href="./#tag:norway">norway</a> <a href="./#tag:fun">fun</a>
 		</small>
-		<p>
+		<p style="view-transition-name:this-is-norway-intro">
 			<span class="intro">A funny video about Norway and norwegians</span>
 			&mdash;
 			<a href="this-is-norway.html">read more</a>
@@ -2873,13 +2798,12 @@ Norway fun
 	<!-- end this-is-norway -->
 	<!-- begin everything-is-amazing-and-nobody-is-happy -->
 	<li>
-		<a href="everything-is-amazing-and-nobody-is-happy.html" class="title">Everything Is Amazing And Nobody Is Happy</a>
-		<br>
-		<small>
+		<a href="everything-is-amazing-and-nobody-is-happy.html" style="view-transition-name:everything-is-amazing-and-nobody-is-happy-title" class="title">Everything Is Amazing And Nobody Is Happy</a>
+		<small style="view-transition-name:everything-is-amazing-and-nobody-is-happy-small">
 			Created: <time>2015-10-04</time> &mdash; modified: <time>2017-04-19</time> &mdash;
 			tags: <a href="./#tag:fun">fun</a>
 		</small>
-		<p>
+		<p style="view-transition-name:everything-is-amazing-and-nobody-is-happy-intro">
 			<span class="intro">Good monologue about modern technology and our reaction on it</span>
 			&mdash;
 			<a href="everything-is-amazing-and-nobody-is-happy.html">read more</a>
@@ -2892,13 +2816,12 @@ fun
 	<!-- end everything-is-amazing-and-nobody-is-happy -->
 	<!-- begin rip-dennis-ritchie -->
 	<li>
-		<a href="rip-dennis-ritchie.html" class="title">RIP Dennis Ritchie</a>
-		<br>
-		<small>
+		<a href="rip-dennis-ritchie.html" style="view-transition-name:rip-dennis-ritchie-title" class="title">RIP Dennis Ritchie</a>
+		<small style="view-transition-name:rip-dennis-ritchie-small">
 			Created: <time>2011-10-12</time> &mdash; modified: <time>2017-04-19</time> &mdash;
 			tags: <a href="./#tag:history">history</a>
 		</small>
-		<p>
+		<p style="view-transition-name:rip-dennis-ritchie-intro">
 			<span class="intro">One of creators of C programming language passed away today</span>
 			&mdash;
 			<a href="rip-dennis-ritchie.html">read more</a>
@@ -2911,13 +2834,12 @@ History
 	<!-- end rip-dennis-ritchie -->
 	<!-- begin cfengine-master-policy-framework-where-to-put-files -->
 	<li>
-		<a href="cfengine-master-policy-framework-where-to-put-files.html" class="title">CFEngine Master Policy Framework where to put files</a>
-		<br>
-		<small>
+		<a href="cfengine-master-policy-framework-where-to-put-files.html" style="view-transition-name:cfengine-master-policy-framework-where-to-put-files-title" class="title">CFEngine Master Policy Framework where to put files</a>
+		<small style="view-transition-name:cfengine-master-policy-framework-where-to-put-files-small">
 			Created: <time>2017-02-09</time> &mdash; modified: <time>2017-03-08</time> &mdash;
 			tags: <a href="./#tag:cfengine">cfengine</a>
 		</small>
-		<p>
+		<p style="view-transition-name:cfengine-master-policy-framework-where-to-put-files-intro">
 			<span class="intro">That was a google query I struggled to find answer to</span>
 			&mdash;
 			<a href="cfengine-master-policy-framework-where-to-put-files.html">read more</a>
@@ -2930,13 +2852,12 @@ CFEngine
 	<!-- end cfengine-master-policy-framework-where-to-put-files -->
 	<!-- begin tcomment -->
 	<li>
-		<a href="tcomment.html" class="title">TComment</a>
-		<br>
-		<small>
+		<a href="tcomment.html" style="view-transition-name:tcomment-title" class="title">TComment</a>
+		<small style="view-transition-name:tcomment-small">
 			Created: <time>2017-02-10</time> &mdash; modified: <time>2017-02-10</time> &mdash;
 			tags: <a href="./#tag:vim">vim</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:tcomment-intro">
 			<span class="intro">vim plugin for easy commenting</span>
 			&mdash;
 			<a href="tcomment.html">read more</a>
@@ -2949,13 +2870,12 @@ vim links
 	<!-- end tcomment -->
 	<!-- begin how-i-started-working-at-cfengine -->
 	<li>
-		<a href="how-i-started-working-at-cfengine.html" class="title">How I started working at CFEngine</a>
-		<br>
-		<small>
+		<a href="how-i-started-working-at-cfengine.html" style="view-transition-name:how-i-started-working-at-cfengine-title" class="title">How I started working at CFEngine</a>
+		<small style="view-transition-name:how-i-started-working-at-cfengine-small">
 			Created: <time>2017-02-01</time> &mdash; modified: <time>2017-02-09</time> &mdash;
 			tags: <a href="./#tag:life">life</a> <a href="./#tag:cfengine">cfengine</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-i-started-working-at-cfengine-intro">
 			<span class="intro">Soon after change of owner in Opera, just another round of layoffs rolled through the company, this time affecting also me.</span>
 			&mdash;
 			<a href="how-i-started-working-at-cfengine.html">read more</a>
@@ -2968,13 +2888,12 @@ life CFEngine
 	<!-- end how-i-started-working-at-cfengine -->
 	<!-- begin security-dream -->
 	<li>
-		<a href="security-dream.html" class="title">Security dream</a>
-		<br>
-		<small>
+		<a href="security-dream.html" style="view-transition-name:security-dream-title" class="title">Security dream</a>
+		<small style="view-transition-name:security-dream-small">
 			Created: <time>2015-01-28</time> &mdash; modified: <time>2016-12-14</time> &mdash;
 			tags: <a href="./#tag:security">security</a> <a href="./#tag:life">life</a>
 		</small>
-		<p>
+		<p style="view-transition-name:security-dream-intro">
 			<span class="intro">I had a dream. A nightmare, actually.</span>
 			&mdash;
 			<a href="security-dream.html">read more</a>
@@ -2985,34 +2904,32 @@ security life
 		--> </div>
 	</li>
 	<!-- end security-dream -->
-	<!-- begin cloud-videos -->
+	<!-- begin burying-an-old-friend -->
 	<li>
-		<a href="cloud-videos.html" class="title">Cloud videos</a>
-		<br>
-		<small>
-			Created: <time>2015-06-22</time> &mdash; modified: <time>2016-12-14</time> &mdash;
+		<a href="burying-an-old-friend.html" style="view-transition-name:burying-an-old-friend-title" class="title">Burying an old friend</a>
+		<small style="view-transition-name:burying-an-old-friend-small">
+			Created: <time>2016-06-25</time> &mdash; modified: <time>2016-12-14</time> &mdash;
 			tags: <a href="./#tag:life">life</a>
 		</small>
-		<p>
-			<span class="intro"></span>
+		<p style="view-transition-name:burying-an-old-friend-intro">
+			<span class="intro">Today I've accompanied my old friend on his last journey.</span>
 			&mdash;
-			<a href="cloud-videos.html">read more</a>
+			<a href="burying-an-old-friend.html">read more</a>
 		</p>
 		<div> <!-- for scripts
-2015-06-22
+2016-06-25
 life
 		--> </div>
 	</li>
-	<!-- end cloud-videos -->
+	<!-- end burying-an-old-friend -->
 	<!-- begin check-for-running-opera-on-windows -->
 	<li>
-		<a href="check-for-running-opera-on-windows.html" class="title">Check for running Opera on Windows</a>
-		<br>
-		<small>
+		<a href="check-for-running-opera-on-windows.html" style="view-transition-name:check-for-running-opera-on-windows-title" class="title">Check for running Opera on Windows</a>
+		<small style="view-transition-name:check-for-running-opera-on-windows-small">
 			Created: <time>2013-09-23</time> &mdash; modified: <time>2013-09-23</time> &mdash;
 			tags: <a href="./#tag:opera">opera</a> <a href="./#tag:python">python</a> <a href="./#tag:windows">windows</a>
 		</small>
-		<p>
+		<p style="view-transition-name:check-for-running-opera-on-windows-intro">
 			<span class="intro">Currently (Opera 15-18), when you start Opera on Windows, it spawns itself again and terminates the process you started — so you can't easily wait until the Opera you've started quit. Or can you?</span>
 			&mdash;
 			<a href="check-for-running-opera-on-windows.html">read more</a>
@@ -3025,13 +2942,12 @@ opera python windows
 	<!-- end check-for-running-opera-on-windows -->
 	<!-- begin bash-progress-bar -->
 	<li>
-		<a href="bash-progress-bar.html" class="title">Progress bar in bash</a>
-		<br>
-		<small>
+		<a href="bash-progress-bar.html" style="view-transition-name:bash-progress-bar-title" class="title">Progress bar in bash</a>
+		<small style="view-transition-name:bash-progress-bar-small">
 			Created: <time>2016-04-07</time> &mdash; modified: <time>2016-12-12</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:bash-progress-bar-intro">
 			<span class="intro">one-line bash function to draw a nice progress bar</span>
 			&mdash;
 			<a href="bash-progress-bar.html">read more</a>
@@ -3044,13 +2960,12 @@ bash
 	<!-- end bash-progress-bar -->
 	<!-- begin dos-games-in-your-browser -->
 	<li>
-		<a href="dos-games-in-your-browser.html" class="title">DOS games in your browser</a>
-		<br>
-		<small>
+		<a href="dos-games-in-your-browser.html" style="view-transition-name:dos-games-in-your-browser-title" class="title">DOS games in your browser</a>
+		<small style="view-transition-name:dos-games-in-your-browser-small">
 			Created: <time>2015-01-03</time> &mdash; modified: <time>2016-12-11</time> &mdash;
 			tags: <a href="./#tag:games">games</a>
 		</small>
-		<p>
+		<p style="view-transition-name:dos-games-in-your-browser-intro">
 			<span class="intro">Classic which can never be forgotten is just few clicks away.</span>
 			&mdash;
 			<a href="dos-games-in-your-browser.html">read more</a>
@@ -3063,13 +2978,12 @@ games
 	<!-- end dos-games-in-your-browser -->
 	<!-- begin block-spam-from-subdomains -->
 	<li>
-		<a href="block-spam-from-subdomains.html" class="title">Block spam from subdomains</a>
-		<br>
-		<small>
+		<a href="block-spam-from-subdomains.html" style="view-transition-name:block-spam-from-subdomains-title" class="title">Block spam from subdomains</a>
+		<small style="view-transition-name:block-spam-from-subdomains-small">
 			Created: <time>2015-10-13</time> &mdash; modified: <time>2016-12-11</time> &mdash;
 			tags: <a href="./#tag:e-mail">e-mail</a>
 		</small>
-		<p>
+		<p style="view-transition-name:block-spam-from-subdomains-intro">
 			<span class="intro">If you have a domain and don't want to be blocked for sending spam.</span>
 			&mdash;
 			<a href="block-spam-from-subdomains.html">read more</a>
@@ -3082,13 +2996,12 @@ e-mail
 	<!-- end block-spam-from-subdomains -->
 	<!-- begin adjusting-time -->
 	<li>
-		<a href="adjusting-time.html" class="title">Adjusting time</a>
-		<br>
-		<small>
+		<a href="adjusting-time.html" style="view-transition-name:adjusting-time-title" class="title">Adjusting time</a>
+		<small style="view-transition-name:adjusting-time-small">
 			Created: <time>2015-10-25</time> &mdash; modified: <time>2016-12-11</time> &mdash;
 			tags: <a href="./#tag:politics">politics</a>
 		</small>
-		<p>
+		<p style="view-transition-name:adjusting-time-intro">
 			<span class="intro">What do I think about it and how I'd like it to be.</span>
 			&mdash;
 			<a href="adjusting-time.html">read more</a>
@@ -3101,13 +3014,12 @@ politics
 	<!-- end adjusting-time -->
 	<!-- begin ze-drem -->
 	<li>
-		<a href="ze-drem.html" class="title">Ze Drem</a>
-		<br>
-		<small>
+		<a href="ze-drem.html" style="view-transition-name:ze-drem-title" class="title">Ze Drem</a>
+		<small style="view-transition-name:ze-drem-small">
 			Created: <time>2009-09-26</time> &mdash; modified: <time>2009-09-26</time> &mdash;
 			tags: <a href="./#tag:fun">fun</a>
 		</small>
-		<p>
+		<p style="view-transition-name:ze-drem-intro">
 			<span class="intro">EuroEnglish - Ze drem vil finali kum tru!</span>
 			&mdash;
 			<a href="ze-drem.html">read more</a>
@@ -3120,13 +3032,12 @@ fun
 	<!-- end ze-drem -->
 	<!-- begin conditional-formatting-in-python -->
 	<li>
-		<a href="conditional-formatting-in-python.html" class="title">Conditional formatting in Python</a>
-		<br>
-		<small>
+		<a href="conditional-formatting-in-python.html" style="view-transition-name:conditional-formatting-in-python-title" class="title">Conditional formatting in Python</a>
+		<small style="view-transition-name:conditional-formatting-in-python-small">
 			Created: <time>2014-02-01</time> &mdash; modified: <time>2016-06-16</time> &mdash;
 			tags: <a href="./#tag:python">python</a>
 		</small>
-		<p>
+		<p style="view-transition-name:conditional-formatting-in-python-intro">
 			<span class="intro">Greately inspired by $if(...) conditions in Winamp Advanced Title Formatting, I wanted to add something like this to Python.</span>
 			&mdash;
 			<a href="conditional-formatting-in-python.html">read more</a>
@@ -3137,34 +3048,14 @@ python
 		--> </div>
 	</li>
 	<!-- end conditional-formatting-in-python -->
-	<!-- begin finding-tar-archive-size -->
-	<li>
-		<a href="finding-tar-archive-size.html" class="title">Finding tar archive size without actually making it</a>
-		<br>
-		<small>
-			Created: <time>2016-07-21</time> &mdash; modified: <time>2016-10-31</time> &mdash;
-			tags: <a href="./#tag:bash">bash</a>
-		</small>
-		<p>
-			<span class="intro">TL;DR: --totals --file=/dev/null | grep 'Total bytes written'</span>
-			&mdash;
-			<a href="finding-tar-archive-size.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2016-07-21
-bash
-		--> </div>
-	</li>
-	<!-- end finding-tar-archive-size -->
 	<!-- begin redirecting-custom-file-descriptor-to-subprocess -->
 	<li>
-		<a href="redirecting-custom-file-descriptor-to-subprocess.html" class="title">Redirecting custom file descriptor to subprocess</a>
-		<br>
-		<small>
+		<a href="redirecting-custom-file-descriptor-to-subprocess.html" style="view-transition-name:redirecting-custom-file-descriptor-to-subprocess-title" class="title">Redirecting custom file descriptor to subprocess</a>
+		<small style="view-transition-name:redirecting-custom-file-descriptor-to-subprocess-small">
 			Created: <time>2016-09-19</time> &mdash; modified: <time>2016-09-21</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:redirecting-custom-file-descriptor-to-subprocess-intro">
 			<span class="intro">TL;DR: 3> >(command)</span>
 			&mdash;
 			<a href="redirecting-custom-file-descriptor-to-subprocess.html">read more</a>
@@ -3177,13 +3068,12 @@ bash
 	<!-- end redirecting-custom-file-descriptor-to-subprocess -->
 	<!-- begin reducing-jpg-file-size -->
 	<li>
-		<a href="reducing-jpg-file-size.html" class="title">Reducing JPG File size</a>
-		<br>
-		<small>
+		<a href="reducing-jpg-file-size.html" style="view-transition-name:reducing-jpg-file-size-title" class="title">Reducing JPG File size</a>
+		<small style="view-transition-name:reducing-jpg-file-size-small">
 			Created: <time>2016-05-04</time> &mdash; modified: <time>2016-06-30</time> &mdash;
 			tags: <a href="./#tag:net">net</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:reducing-jpg-file-size-intro">
 			<span class="intro">An interesting article on how to save space and bandwidth</span>
 			&mdash;
 			<a href="reducing-jpg-file-size.html">read more</a>
@@ -3196,13 +3086,12 @@ net links
 	<!-- end reducing-jpg-file-size -->
 	<!-- begin sed-cheatsheet -->
 	<li>
-		<a href="sed-cheatsheet.html" class="title">sed cheatsheet</a>
-		<br>
-		<small>
+		<a href="sed-cheatsheet.html" style="view-transition-name:sed-cheatsheet-title" class="title">sed cheatsheet</a>
+		<small style="view-transition-name:sed-cheatsheet-small">
 			Created: <time>2015-10-30</time> &mdash; modified: <time>2015-11-02</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:sed-cheatsheet-intro">
 			<span class="intro">A helpful guide to a simple programming language I still don't comprehend</span>
 			&mdash;
 			<a href="sed-cheatsheet.html">read more</a>
@@ -3215,13 +3104,12 @@ bash
 	<!-- end sed-cheatsheet -->
 	<!-- begin minicodeeditor-jsfiddle-in-as-few-bytes-as-possible -->
 	<li>
-		<a href="minicodeeditor-jsfiddle-in-as-few-bytes-as-possible.html" class="title">MiniCodeEditor: jsFiddle in as few bytes as possible</a>
-		<br>
-		<small>
+		<a href="minicodeeditor-jsfiddle-in-as-few-bytes-as-possible.html" style="view-transition-name:minicodeeditor-jsfiddle-in-as-few-bytes-as-possible-title" class="title">MiniCodeEditor: jsFiddle in as few bytes as possible</a>
+		<small style="view-transition-name:minicodeeditor-jsfiddle-in-as-few-bytes-as-possible-small">
 			Created: <time>2014-01-22</time> &mdash; modified: <time>2014-01-22</time> &mdash;
 			tags: <a href="./#tag:javascript">javascript</a>
 		</small>
-		<p>
+		<p style="view-transition-name:minicodeeditor-jsfiddle-in-as-few-bytes-as-possible-intro">
 			<span class="intro">probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf</span>
 			&mdash;
 			<a href="minicodeeditor-jsfiddle-in-as-few-bytes-as-possible.html">read more</a>
@@ -3232,34 +3120,14 @@ javascript
 		--> </div>
 	</li>
 	<!-- end minicodeeditor-jsfiddle-in-as-few-bytes-as-possible -->
-	<!-- begin block-users-in-sendmail -->
-	<li>
-		<a href="block-users-in-sendmail.html" class="title">Block users in sendmail</a>
-		<br>
-		<small>
-			Created: <time>2014-09-13</time> &mdash; modified: <time>2016-06-24</time> &mdash;
-			tags: <a href="./#tag:e-mail">e-mail</a>
-		</small>
-		<p>
-			<span class="intro">How to disable mail receiving by local users without deleting their accounts</span>
-			&mdash;
-			<a href="block-users-in-sendmail.html">read more</a>
-		</p>
-		<div> <!-- for scripts
-2014-09-13
-e-mail
-		--> </div>
-	</li>
-	<!-- end block-users-in-sendmail -->
 	<!-- begin incremental-backups -->
 	<li>
-		<a href="incremental-backups.html" class="title">Incremental backups</a>
-		<br>
-		<small>
+		<a href="incremental-backups.html" style="view-transition-name:incremental-backups-title" class="title">Incremental backups</a>
+		<small style="view-transition-name:incremental-backups-small">
 			Created: <time>2014-06-17</time> &mdash; modified: <time>2016-09-26</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:incremental-backups-intro">
 			<span class="intro">How I organised backups of my machine</span>
 			&mdash;
 			<a href="incremental-backups.html">read more</a>
@@ -3272,13 +3140,12 @@ bash
 	<!-- end incremental-backups -->
 	<!-- begin fanlesstech -->
 	<li>
-		<a href="fanlesstech.html" class="title">FanlessTech</a>
-		<br>
-		<small>
+		<a href="fanlesstech.html" style="view-transition-name:fanlesstech-title" class="title">FanlessTech</a>
+		<small style="view-transition-name:fanlesstech-small">
 			Created: <time>2014-05-30</time> &mdash; modified: <time>2016-09-06</time> &mdash;
 			tags: <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:fanlesstech-intro">
 			<span class="intro">FanlessTech.com – a website about fanless computers</span>
 			&mdash;
 			<a href="fanlesstech.html">read more</a>
@@ -3291,13 +3158,12 @@ links
 	<!-- end fanlesstech -->
 	<!-- begin xp-games -->
 	<li>
-		<a href="xp-games.html" class="title">XP games</a>
-		<br>
-		<small>
+		<a href="xp-games.html" style="view-transition-name:xp-games-title" class="title">XP games</a>
+		<small style="view-transition-name:xp-games-small">
 			Created: <time>2014-08-18</time> &mdash; modified: <time>2016-09-06</time> &mdash;
 			tags: <a href="./#tag:links">links</a> <a href="./#tag:games">games</a> <a href="./#tag:windows">windows</a>
 		</small>
-		<p>
+		<p style="view-transition-name:xp-games-intro">
 			<span class="intro">A webpage with a list of free games for Windows</span>
 			&mdash;
 			<a href="xp-games.html">read more</a>
@@ -3310,13 +3176,12 @@ links games windows
 	<!-- end xp-games -->
 	<!-- begin how-to-win-at-monopoly-and-lose-all-your-friends -->
 	<li>
-		<a href="how-to-win-at-monopoly-and-lose-all-your-friends.html" class="title">How to Win at Monopoly and Lose All Your Friends</a>
-		<br>
-		<small>
+		<a href="how-to-win-at-monopoly-and-lose-all-your-friends.html" style="view-transition-name:how-to-win-at-monopoly-and-lose-all-your-friends-title" class="title">How to Win at Monopoly and Lose All Your Friends</a>
+		<small style="view-transition-name:how-to-win-at-monopoly-and-lose-all-your-friends-small">
 			Created: <time>2016-01-17</time> &mdash; modified: <time>2016-08-23</time> &mdash;
 			tags: <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-win-at-monopoly-and-lose-all-your-friends-intro">
 			<span class="intro">An interesting article at imgur.net</span>
 			&mdash;
 			<a href="how-to-win-at-monopoly-and-lose-all-your-friends.html">read more</a>
@@ -3329,13 +3194,12 @@ links
 	<!-- end how-to-win-at-monopoly-and-lose-all-your-friends -->
 	<!-- begin careceo -->
 	<li>
-		<a href="careceo.html" class="title">careceo</a>
-		<br>
-		<small>
+		<a href="careceo.html" style="view-transition-name:careceo-title" class="title">careceo</a>
+		<small style="view-transition-name:careceo-small">
 			Created: <time>2014-10-23</time> &mdash; modified: <time>2016-06-24</time> &mdash;
 			tags: <a href="./#tag:e-mail">e-mail</a>
 		</small>
-		<p>
+		<p style="view-transition-name:careceo-intro">
 			<span class="intro">These are the guys who are spamming me the most.</span>
 			&mdash;
 			<a href="careceo.html">read more</a>
@@ -3348,13 +3212,12 @@ e-mail
 	<!-- end careceo -->
 	<!-- begin bash-on-bash -->
 	<li>
-		<a href="bash-on-bash.html" class="title">Bash on Bash</a>
-		<br>
-		<small>
+		<a href="bash-on-bash.html" style="view-transition-name:bash-on-bash-title" class="title">Bash on Bash</a>
+		<small style="view-transition-name:bash-on-bash-small">
 			Created: <time>2014-03-22</time> &mdash; modified: <time>2016-06-16</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a>
 		</small>
-		<p>
+		<p style="view-transition-name:bash-on-bash-intro">
 			<span class="intro">Started using new programming language, I feel irritated and want to blog about it :)</span>
 			&mdash;
 			<a href="bash-on-bash.html">read more</a>
@@ -3367,13 +3230,12 @@ bash
 	<!-- end bash-on-bash -->
 	<!-- begin dovecot-default-email-order -->
 	<li>
-		<a href="dovecot-default-email-order.html" class="title">Dovecot default email order</a>
-		<br>
-		<small>
+		<a href="dovecot-default-email-order.html" style="view-transition-name:dovecot-default-email-order-title" class="title">Dovecot default email order</a>
+		<small style="view-transition-name:dovecot-default-email-order-small">
 			Created: <time>2014-08-27</time> &mdash; modified: <time>2016-06-16</time> &mdash;
 			tags: <a href="./#tag:e-mail">e-mail</a>
 		</small>
-		<p>
+		<p style="view-transition-name:dovecot-default-email-order-intro">
 			<span class="intro">How to change it, if it matters</span>
 			&mdash;
 			<a href="dovecot-default-email-order.html">read more</a>
@@ -3384,34 +3246,32 @@ e-mail
 		--> </div>
 	</li>
 	<!-- end dovecot-default-email-order -->
-	<!-- begin nationstates---make-a-country-of-your-dreams -->
+	<!-- begin nationstates-make-a-country-of-your-dreams -->
 	<li>
-		<a href="nationstates---make-a-country-of-your-dreams.html" class="title">NationStates - make a country of your dreams</a>
-		<br>
-		<small>
+		<a href="nationstates-make-a-country-of-your-dreams.html" style="view-transition-name:nationstates-make-a-country-of-your-dreams-title" class="title">NationStates - make a country of your dreams</a>
+		<small style="view-transition-name:nationstates-make-a-country-of-your-dreams-small">
 			Created: <time>2015-11-01</time> &mdash; modified: <time>2015-11-04</time> &mdash;
 			tags: <a href="./#tag:politics">politics</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:nationstates-make-a-country-of-your-dreams-intro">
 			<span class="intro">I'd like to add "...and live in it", but it's only a game, so it's more like "...and dream of it"</span>
 			&mdash;
-			<a href="nationstates---make-a-country-of-your-dreams.html">read more</a>
+			<a href="nationstates-make-a-country-of-your-dreams.html">read more</a>
 		</p>
 		<div> <!-- for scripts
 2015-11-01
 politics links
 		--> </div>
 	</li>
-	<!-- end nationstates---make-a-country-of-your-dreams -->
+	<!-- end nationstates-make-a-country-of-your-dreams -->
 	<!-- begin the-flat-earth-society -->
 	<li>
-		<a href="the-flat-earth-society.html" class="title">The Flat Earth Society</a>
-		<br>
-		<small>
+		<a href="the-flat-earth-society.html" style="view-transition-name:the-flat-earth-society-title" class="title">The Flat Earth Society</a>
+		<small style="view-transition-name:the-flat-earth-society-small">
 			Created: <time>2014-08-18</time> &mdash; modified: <time>2015-01-08</time> &mdash;
 			tags: <a href="./#tag:fun">fun</a> <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:the-flat-earth-society-intro">
 			<span class="intro">How much can you tease your brain?</span>
 			&mdash;
 			<a href="the-flat-earth-society.html">read more</a>
@@ -3424,13 +3284,12 @@ fun links
 	<!-- end the-flat-earth-society -->
 	<!-- begin how-to-delete-a-line-from-a-file -->
 	<li>
-		<a href="how-to-delete-a-line-from-a-file.html" class="title">How to delete a line from a file</a>
-		<br>
-		<small>
+		<a href="how-to-delete-a-line-from-a-file.html" style="view-transition-name:how-to-delete-a-line-from-a-file-title" class="title">How to delete a line from a file</a>
+		<small style="view-transition-name:how-to-delete-a-line-from-a-file-small">
 			Created: <time>2014-12-15</time> &mdash; modified: <time>2014-12-15</time> &mdash;
 			tags: <a href="./#tag:bash">bash</a> <a href="./#tag:vim">vim</a>
 		</small>
-		<p>
+		<p style="view-transition-name:how-to-delete-a-line-from-a-file-intro">
 			<span class="intro">If you know what line to delete...</span>
 			&mdash;
 			<a href="how-to-delete-a-line-from-a-file.html">read more</a>
@@ -3443,13 +3302,12 @@ bash vim
 	<!-- end how-to-delete-a-line-from-a-file -->
 	<!-- begin gapminder -->
 	<li>
-		<a href="gapminder.html" class="title">Gapminder</a>
-		<br>
-		<small>
+		<a href="gapminder.html" style="view-transition-name:gapminder-title" class="title">Gapminder</a>
+		<small style="view-transition-name:gapminder-small">
 			Created: <time>2013-11-27</time> &mdash; modified: <time>2014-10-26</time> &mdash;
 			tags: <a href="./#tag:links">links</a>
 		</small>
-		<p>
+		<p style="view-transition-name:gapminder-intro">
 			<span class="intro">Explore data about all countries in the world since 1800</span>
 			&mdash;
 			<a href="gapminder.html">read more</a>
@@ -3462,13 +3320,12 @@ links
 	<!-- end gapminder -->
 	<!-- begin markdown -->
 	<li>
-		<a href="markdown.html" class="title">Markdown</a>
-		<br>
-		<small>
+		<a href="markdown.html" style="view-transition-name:markdown-title" class="title">Markdown</a>
+		<small style="view-transition-name:markdown-small">
 			Created: <time>2014-04-01</time> &mdash; modified: <time>2014-06-26</time> &mdash;
 			tags: <a href="./#tag:net">net</a>
 		</small>
-		<p>
+		<p style="view-transition-name:markdown-intro">
 			<span class="intro">Bashblog uses Markdown, so it's better to save this page for myself</span>
 			&mdash;
 			<a href="markdown.html">read more</a>
@@ -3481,13 +3338,12 @@ net
 	<!-- end markdown -->
 	<!-- begin paste-and-replace-in-vim -->
 	<li>
-		<a href="paste-and-replace-in-vim.html" class="title">Paste and replace in Vim</a>
-		<br>
-		<small>
+		<a href="paste-and-replace-in-vim.html" style="view-transition-name:paste-and-replace-in-vim-title" class="title">Paste and replace in Vim</a>
+		<small style="view-transition-name:paste-and-replace-in-vim-small">
 			Created: <time>2013-01-16</time> &mdash; modified: <time>2013-01-16</time> &mdash;
 			tags: <a href="./#tag:vim">vim</a>
 		</small>
-		<p>
+		<p style="view-transition-name:paste-and-replace-in-vim-intro">
 			<span class="intro">How to copy-paste text from one place to another, replacing what's already there</span>
 			&mdash;
 			<a href="paste-and-replace-in-vim.html">read more</a>
