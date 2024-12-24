@@ -1,8 +1,9 @@
 title=lazyblog
-PROCESSOR=Markdown.pl
 intro=a static blog generator which tries to do as little as possible on the server side
-tags=bash javascript
+tags=meta
 created=2016-12-14
+uuid=bce70b8a-6257-42b0-97ca-4e8c90489a78
+PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 
 
 Few years ago I switched my website to [bashblog][bb] and was very happy.

@@ -1,11 +1,11 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>lazyblog</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="a static blog generator which tries to do as little as possible on the server side">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/lazyblog.html">
+<title>lazyblog</title>
+<meta name="description" content="a static blog generator which tries to do as little as possible on the server side">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -18,70 +18,78 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">lazyblog</h1>
-	<small>
-		Created: <time>2016-12-14</time> &mdash; modified: <time>2020-11-29</time> &mdash;
-		tags: <a href="./#tag:bash">bash</a> <a href="./#tag:javascript">javascript</a>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:macos-autologin-password-title">lazyblog</span></h1>
+	<small style="display:block; view-transition-name:lazyblog-small">
+		Created: <time>2016-12-14</time> &mdash; modified: <time>2024-12-23</time> &mdash;
+		tags: <a href="./#tag:meta">meta</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">a static blog generator which tries to do as little as possible on the server side</p>
+	<p class="intro" style="view-transition-name:lazyblog-intro">a static blog generator which tries to do as little as possible on the server side</p>
 <p>Few years ago I switched my website to <a href="https://github.com/cfenollosa/bashblog">bashblog</a> and was very happy.
 But with time, as number of posts was growing,
 bashblog began being slower and slower,
-especially in "edit" mode.
+especially in &quot;edit&quot; mode.
 Reason, as I think, was 'all_posts' page, which was regenerated every time anew,
 and many tag pages (many tags on each page times many pages on each tag equals long rebuilding time),
 and every single time script had to open each post page to read title (and maybe some text) from it.
 Not very good.</p>
-
 <p>So I decided to try a different architecture:</p>
-
 <ul>
-<li><p>instead of regenerating the index page anew, script patches it -
-this would require having some expected markup in the index page</p></li>
-<li><p>instead of having separate pages for each tag, javascript is used to filter shown posts -
-this change will be completely incompatible with bashblog, which aims to use no javascript at all</p></li>
-<li><p>since we're talking javascript - it would be nice to have everything on one 'index' page, instead of having separate 'index', 'all_posts', 'all_tags', and 'tag_*' pages, requiring a lot of clicks to navigate</p></li>
-<li><p>search would also be a nice addition</p></li>
-<li><p>and ability to change template a bit more freely than in bashblog</p></li>
+<li>
+<p>instead of regenerating the index page anew, script patches it -
+this would require having some expected markup in the index page</p>
+</li>
+<li>
+<p>instead of having separate pages for each tag, javascript is used to filter shown posts -
+this change will be completely incompatible with bashblog, which aims to use no javascript at all</p>
+</li>
+<li>
+<p>since we're talking javascript - it would be nice to have everything on one 'index' page, instead of having separate 'index', 'all_posts', 'all_tags', and 'tag_*' pages, requiring a lot of clicks to navigate</p>
+</li>
+<li>
+<p>search would also be a nice addition</p>
+</li>
+<li>
+<p>and ability to change template a bit more freely than in bashblog</p>
+</li>
 </ul>
-
 <p>That's how lazyblog was born.</p>
-
 <ul>
-<li><p>index page has special <code>&lt;!-- begin ... --&gt;</code> ... <code>&lt;!-- end ... --&gt;</code>
+<li>
+<p>index page has special <code>&lt;!-- begin ... --&gt;</code> ... <code>&lt;!-- end ... --&gt;</code>
 comments surrounding each post,
-which let <code>sed</code> easily find and delete needed part.</p></li>
-<li><p>at the top of index page there is a <code>&lt;!-- content starts here --&gt;</code>
-comment which lets <code>sed</code> easily find a place to put new post content to.</p></li>
-<li><p>sorting is done by javascript on the client side,
-so it's nothing for bash script to care.</p></li>
+which let <code>sed</code> easily find and delete needed part.</p>
+</li>
+<li>
+<p>at the top of index page there is a <code>&lt;!-- content starts here --&gt;</code>
+comment which lets <code>sed</code> easily find a place to put new post content to.</p>
+</li>
+<li>
+<p>sorting is done by javascript on the client side,
+so it's nothing for bash script to care.</p>
+</li>
 </ul>
-
 <p>Result? bash script speed is pretty impressive - it processes each file in almost no time
 (the longest part is actually markdown processor).
 Client-side performance also tries to be as fast as possible,
 especially during page load
 (expensive DOM operations and rendering of below-the-fold content is delayed).</p>
-
 <p>Actually, the hardest-to-optimize part was extracting data (post titles and tags)
 from the actual webpage - turns out, the fastest way was just to create
 many special <code>&lt;div&gt;</code> tags and extract data from them.
 Other ways (including using regular expressions) are left in <a href="https://github.com/Lex-2008/lazyblog/blob/master/script.js.bak">script.js.bak</a>
 in repository.</p>
-
 <p>There is also a <code>bb-import.sh</code> script which imports posts from a bashblog installation,
 assigning proper dates, tags, title, and sometimes intro text
 (although manual correction sometimes is needed).</p>
-
 <p>Github link: <a href="https://github.com/Lex-2008/lazyblog">https://github.com/Lex-2008/lazyblog</a></p>
 </main>
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
