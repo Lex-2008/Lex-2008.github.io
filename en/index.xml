@@ -1,0 +1,2116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?lazyblog-url /lazyblog?>
+<?xml-stylesheet href="/lazyblog/atom2html.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Notes</title>
+	<subtitle>Notes about different stuff</subtitle>
+	<updated>2024-12-24T12:34:15+00:00</updated>
+	<id>http://alexey.shpakovsky.ru/en</id>
+	<link rel="self" href="http://alexey.shpakovsky.ru/en/"/>
+	<link rel="related" href="http://alexey.shpakovsky.ru/ru/" title="Russian blog"/>
+	<link rel="related" href="http://alexey.shpakovsky.ru/photos/en.html" title="Photo Archive"/>
+	<link rel="related" href="https://github.com/Lex-2008/" title="GitHub"/>
+	<author>
+		<name>Alexey Shpakovsky</name>
+		<uri>http://alexey.shpakovsky.ru/</uri>
+	</author>
+	<rights>CC BY (Creative Commons Attribution 4.0 International) https://creativecommons.org/licenses/by/4.0/</rights>
+	<generator uri="https://github.com/lex-2008/lazyblog">lazyblog</generator>
+	<!-- put contents below -->
+	<entry> <!-- begin my-blog-is-also-rss-feed -->
+		<title>My blog is also its own RSS feed</title>
+		<link href="http://alexey.shpakovsky.ru/en/my-blog-is-also-rss-feed.html"/>
+		<id>urn:uuid:09e5aa11-35dd-4a9b-9af3-36282848b0e4</id>
+		<updated>2024-12-25T04:34:15+00:00</updated>
+		<published>2024-12-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<img src="//alexey.shpakovsky.ru/en/my-blog-is-also-rss-feed.png" style="float:right; margin-left:1ex"/>On the main page of this blog (which lists all posts), right-click an empty place and select "View Page Source (Ctrl+U)". What do you see? An RSS feed! (or, rather, it's technically an Atom feed, but who actually cares) But how? And... Why?!..
+		</div></content>
+		<category term="meta"/>
+	</entry> <!-- end my-blog-is-also-rss-feed -->
+	<entry> <!-- begin busybox-only-pstree -->
+		<title>Busybox-only pstree</title>
+		<link href="http://alexey.shpakovsky.ru/en/busybox-only-pstree.html"/>
+		<id>urn:uuid:7d668355-2282-4933-88d3-5c38e71c0cd7</id>
+		<updated>2024-12-24T23:19:52+00:00</updated>
+		<published>2020-01-31T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			For when you're on limited environment but want to see a process tree
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end busybox-only-pstree -->
+	<entry> <!-- begin textarea -->
+		<title>textarea</title>
+		<link href="http://alexey.shpakovsky.ru/en/textarea.html"/>
+		<id>urn:uuid:3ed270f2-d531-42a6-9a8b-aae655b2e9e9</id>
+		<updated>2024-12-23T19:59:19+00:00</updated>
+		<published>2024-08-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you need a quick place to write down your thoughts and you find yourself in front of a web browser, then instead of launching <tt>notepad.exe</tt> you might want to type <tt style="word-break:break-all">data:text/html,&lt;textarea&gt;</tt> in the address bar
+		</div></content>
+		<category term="html"/>
+	</entry> <!-- end textarea -->
+	<entry> <!-- begin dulles-plan-and-communist-rules-for-revolution -->
+		<title>"Dulles' Plan" and "Communist Rules for Revolution"</title>
+		<link href="http://alexey.shpakovsky.ru/en/dulles-plan-and-communist-rules-for-revolution.html"/>
+		<id>urn:uuid:5597531d-ba99-4a3b-bea4-0cfd7eb45dd5</id>
+		<updated>2024-12-23T17:00:53+00:00</updated>
+		<published>2022-07-26T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Mirror conspiracy theories
+		</div></content>
+		<category term="fun"/>
+		<category term="politics"/>
+	</entry> <!-- end dulles-plan-and-communist-rules-for-revolution -->
+	<entry> <!-- begin random -->
+		<title>random</title>
+		<link href="http://alexey.shpakovsky.ru/en/random.html"/>
+		<id>urn:uuid:e49e2a6f-1c12-4be1-9505-2652b42149b8</id>
+		<updated>2024-12-23T16:59:34+00:00</updated>
+		<published>2023-03-08T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Click this link to visit a random note
+		</div></content>
+		<category term="meta"/>
+	</entry> <!-- end random -->
+	<entry> <!-- begin linux-file-hierarchy -->
+		<title>Linux file hierarchy</title>
+		<link href="http://alexey.shpakovsky.ru/en/linux-file-hierarchy.html"/>
+		<id>urn:uuid:34a02f13-9632-468d-bcce-ce49fc23408d</id>
+		<updated>2024-12-23T14:39:03+00:00</updated>
+		<published>2014-09-02T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			All these <tt>/bin</tt>, <tt>/usr</tt>, <tt>/local</tt>, etc...
+		</div></content>
+		<category term="linux"/>
+		<category term="links"/>
+	</entry> <!-- end linux-file-hierarchy -->
+	<entry> <!-- begin cloud-videos -->
+		<title>Cloud videos</title>
+		<link href="http://alexey.shpakovsky.ru/en/cloud-videos.html"/>
+		<id>urn:uuid:59f1d19f-b896-4840-9c0a-e983a674ba73</id>
+		<updated>2024-12-23T14:35:52+00:00</updated>
+		<published>2015-06-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Let's see how recently released video "speed-up" and smoothing program Microsoft Hyperlapse can deal with my record of flying in clouds
+		</div></content>
+		<category term="life"/>
+	</entry> <!-- end cloud-videos -->
+	<entry> <!-- begin finding-tar-archive-size -->
+		<title>Finding tar archive size without actually making it</title>
+		<link href="http://alexey.shpakovsky.ru/en/finding-tar-archive-size.html"/>
+		<id>urn:uuid:6e58203c-7861-4b05-8267-9507195492ec</id>
+		<updated>2024-12-23T14:31:37+00:00</updated>
+		<published>2016-07-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<b>TL;DR:</b> <code>--totals --file=/dev/null | grep 'Total bytes written'</code>
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end finding-tar-archive-size -->
+	<entry> <!-- begin lazyblog -->
+		<title>lazyblog</title>
+		<link href="http://alexey.shpakovsky.ru/en/lazyblog.html"/>
+		<id>urn:uuid:bce70b8a-6257-42b0-97ca-4e8c90489a78</id>
+		<updated>2024-12-23T14:25:18+00:00</updated>
+		<published>2016-12-14T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			a static blog generator which tries to do as little as possible on the server side
+		</div></content>
+		<category term="meta"/>
+	</entry> <!-- end lazyblog -->
+	<entry> <!-- begin mirrors -->
+		<title>mirrors</title>
+		<link href="http://alexey.shpakovsky.ru/en/mirrors.html"/>
+		<id>urn:uuid:89f17d0b-6767-4d9b-be5b-5499a38e19e2</id>
+		<updated>2024-12-23T14:03:54+00:00</updated>
+		<published>2022-01-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Primary location of my blog is
+		</div></content>
+		<category term="links"/>
+	</entry> <!-- end mirrors -->
+	<entry> <!-- begin free-microsoft-windows-ieedge-vms -->
+		<title>Free Microsoft Windows IE/Edge VMs</title>
+		<link href="http://alexey.shpakovsky.ru/en/free-microsoft-windows-ieedge-vms.html"/>
+		<id>urn:uuid:22269ce7-2e09-43ea-9ce5-2e3a5db8c39e</id>
+		<updated>2024-12-23T14:02:13+00:00</updated>
+		<published>2023-01-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you missed them
+		</div></content>
+		<category term="links"/>
+		<category term="windows"/>
+	</entry> <!-- end free-microsoft-windows-ieedge-vms -->
+	<entry> <!-- begin github-flavored-markdown -->
+		<title>GitHub Flavored Markdown</title>
+		<link href="http://alexey.shpakovsky.ru/en/github-flavored-markdown.html"/>
+		<id>urn:uuid:a76ed1e3-dcc1-48f0-876e-013a662884c3</id>
+		<updated>2024-12-23T14:02:04+00:00</updated>
+		<published>2022-10-15T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			After some time of pondering, I switched to GitHub-Flavoured Markdown (GFM)
+		</div></content>
+		<category term="meta"/>
+	</entry> <!-- end github-flavored-markdown -->
+	<entry> <!-- begin blog-posts-in-grafana -->
+		<title>blog posts in grafana</title>
+		<link href="http://alexey.shpakovsky.ru/en/blog-posts-in-grafana.html"/>
+		<id>urn:uuid:361cc49a-0ec0-413c-8385-dcdedef8cfd7</id>
+		<updated>2024-12-23T13:50:12+00:00</updated>
+		<published>2024-11-08T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			in case you missed RSS, you might enjoy another way of reading blog posts
+		</div></content>
+		<category term="meta"/>
+		<category term="fun"/>
+		<category term="grafana"/>
+	</entry> <!-- end blog-posts-in-grafana -->
+	<entry> <!-- begin rss -->
+		<title>rss</title>
+		<link href="http://alexey.shpakovsky.ru/en/rss.html"/>
+		<id>urn:uuid:1797324a-639b-4897-a19c-849b264fe1be</id>
+		<updated>2024-12-23T13:49:41+00:00</updated>
+		<published>2024-11-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If someone wants to be notified about new posts in my blog via RSS, they can use a simple RSS generator
+		</div></content>
+		<category term="meta"/>
+		<category term="links"/>
+	</entry> <!-- end rss -->
+	<entry> <!-- begin ed-man-man-ed -->
+		<title>Ed, man! !man ed</title>
+		<link href="http://alexey.shpakovsky.ru/en/ed-man-man-ed.html"/>
+		<id>urn:uuid:4a1b7e76-0aec-4dae-8003-803200769203</id>
+		<updated>2024-12-23T12:52:00+00:00</updated>
+		<published>1991-07-11T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<tt>From: Patrick J. LoPresti<br/>Subject: The True Path (long)</tt>
+		</div></content>
+		<category term="fun"/>
+	</entry> <!-- end ed-man-man-ed -->
+	<entry> <!-- begin fixing-the-y2k-problem -->
+		<title>Fixing the y2k problem</title>
+		<link href="http://alexey.shpakovsky.ru/en/fixing-the-y2k-problem.html"/>
+		<id>urn:uuid:135e0af4-9cc5-42c0-b1c4-b44768056a0b</id>
+		<updated>2024-12-21T20:20:26+00:00</updated>
+		<published>1999-12-31T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Or should I say "why-too-key" to raise more confusion?
+		</div></content>
+		<category term="fun"/>
+	</entry> <!-- end fixing-the-y2k-problem -->
+	<entry> <!-- begin macos-autologin-password -->
+		<title>MacOS autologin password</title>
+		<link href="http://alexey.shpakovsky.ru/en/macos-autologin-password.html"/>
+		<id>urn:uuid:2abd4d55-34e6-4c65-a062-cfa99f6317f9</id>
+		<updated>2024-12-16T16:24:33+00:00</updated>
+		<published>2024-11-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you need to set it programmatically
+		</div></content>
+		<category term="mac"/>
+	</entry> <!-- end macos-autologin-password -->
+	<entry> <!-- begin microlightjs -->
+		<title>microlight.js</title>
+		<link href="http://alexey.shpakovsky.ru/en/microlightjs.html"/>
+		<id>urn:uuid:bd26dd4f-ece1-40b2-be1a-309a8521265b</id>
+		<updated>2024-11-23T10:57:03+00:00</updated>
+		<published>2016-06-16T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			a 2.2k library to hilight any code
+		</div></content>
+		<category term="javascript"/>
+		<category term="links"/>
+	</entry> <!-- end microlightjs -->
+	<entry> <!-- begin spam-emails -->
+		<title>This is spam</title>
+		<link href="http://alexey.shpakovsky.ru/en/spam-emails.html"/>
+		<id>urn:uuid:12f2ca81-78cd-4cda-854c-b1917bc242a2</id>
+		<updated>2024-11-12T16:16:49+00:00</updated>
+		<published>2014-05-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			These are e-mail addresses that sent spam/scam/phishing emails to me.
+		</div></content>
+		<category term="logs"/>
+	</entry> <!-- end spam-emails -->
+	<entry> <!-- begin login-attempts -->
+		<title>Login attempts</title>
+		<link href="http://alexey.shpakovsky.ru/en/login-attempts.html"/>
+		<id>urn:uuid:1823b261-579e-4acd-a4e6-044d43f0fa16</id>
+		<updated>2024-11-12T16:08:55+00:00</updated>
+		<published>2021-07-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			These are logins and passwords of last 10k login attempts into my server.
+		</div></content>
+		<category term="logs"/>
+	</entry> <!-- end login-attempts -->
+	<entry> <!-- begin relay-attempts -->
+		<title>Relay attempts</title>
+		<link href="http://alexey.shpakovsky.ru/en/relay-attempts.html"/>
+		<id>urn:uuid:613a8612-21f3-4e56-a5b6-ad63787395c4</id>
+		<updated>2024-11-12T16:07:39+00:00</updated>
+		<published>2021-10-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			These are spammers (or hackers) trying to send email <b>from</b> my server
+		</div></content>
+		<category term="logs"/>
+	</entry> <!-- end relay-attempts -->
+	<entry> <!-- begin wrong-users -->
+		<title>Wrong users</title>
+		<link href="http://alexey.shpakovsky.ru/en/wrong-users.html"/>
+		<id>urn:uuid:cf0e6d85-6449-45ac-9b27-90630a38a5e7</id>
+		<updated>2024-11-12T16:05:46+00:00</updated>
+		<published>2021-10-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Here you can find attempts to send messages to users who do not exist on this server
+		</div></content>
+		<category term="logs"/>
+	</entry> <!-- end wrong-users -->
+	<entry> <!-- begin block-users-in-sendmail -->
+		<title>Block users in sendmail</title>
+		<link href="http://alexey.shpakovsky.ru/en/block-users-in-sendmail.html"/>
+		<id>urn:uuid:88abc25b-e421-41f2-bf85-5fa8febeca5d</id>
+		<updated>2024-11-12T16:02:28+00:00</updated>
+		<published>2014-09-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to disable mail receiving by local users without deleting their accounts
+		</div></content>
+		<category term="sendmail"/>
+	</entry> <!-- end block-users-in-sendmail -->
+	<entry> <!-- begin sendmail-dkim -->
+		<title>Sendmail DKIM</title>
+		<link href="http://alexey.shpakovsky.ru/en/sendmail-dkim.html"/>
+		<id>urn:uuid:82074da2-c3f0-4173-90c2-fd7bc8503ea9</id>
+		<updated>2024-11-12T16:00:55+00:00</updated>
+		<published>2014-07-06T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Signing sendmail messages with DKIM using OpenDKIM is easier then you think!
+		</div></content>
+		<category term="e-mail"/>
+	</entry> <!-- end sendmail-dkim -->
+	<entry> <!-- begin smtp-authentication-in-sendmail -->
+		<title>SMTP authentication in sendmail</title>
+		<link href="http://alexey.shpakovsky.ru/en/smtp-authentication-in-sendmail.html"/>
+		<id>urn:uuid:d6f01305-fb57-4892-87d0-908190c94344</id>
+		<updated>2024-11-12T16:00:04+00:00</updated>
+		<published>2014-08-25T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			By default sendmail is configured in such a way that any program running on localhost can send an email without password, and none from another computer can do that. But what if you want to change that?
+		</div></content>
+		<category term="sendmail"/>
+	</entry> <!-- end smtp-authentication-in-sendmail -->
+	<entry> <!-- begin whitelisting-emails-with-sendmail -->
+		<title>Whitelisting emails with sendmail</title>
+		<link href="http://alexey.shpakovsky.ru/en/whitelisting-emails-with-sendmail.html"/>
+		<id>urn:uuid:6643e867-e3ed-4d03-87da-7be4155bb3b7</id>
+		<updated>2024-11-12T15:53:52+00:00</updated>
+		<published>2015-10-27T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			So they weren't rejected by dnsbl spam filter
+		</div></content>
+		<category term="sendmail"/>
+	</entry> <!-- end whitelisting-emails-with-sendmail -->
+	<entry> <!-- begin reasonable-spam-filter-in-postfix -->
+		<title>Reasonable spam filter in Postfix</title>
+		<link href="http://alexey.shpakovsky.ru/en/reasonable-spam-filter-in-postfix.html"/>
+		<id>urn:uuid:23427c49-1c67-4fbd-86a3-a5941398e0db</id>
+		<updated>2024-11-12T15:51:31+00:00</updated>
+		<published>2021-07-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			One of reasons why people switch from sendmail to postfix is ease of configuration.
+		</div></content>
+		<category term="postfix"/>
+	</entry> <!-- end reasonable-spam-filter-in-postfix -->
+	<entry> <!-- begin how-to-merge-subtitles -->
+		<title>How to merge subtitles</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-merge-subtitles.html"/>
+		<id>urn:uuid:6d95cb59-101d-46e5-88a3-3e29c81ad01b</id>
+		<updated>2024-11-12T15:47:29+00:00</updated>
+		<published>2024-07-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			for example, to see them both in original and in your native language
+		</div></content>
+		<category term="ffmpeg"/>
+		<category term="links"/>
+	</entry> <!-- end how-to-merge-subtitles -->
+	<entry> <!-- begin clear-terminal-scrollback-on-mac -->
+		<title>Clear terminal scrollback on mac</title>
+		<link href="http://alexey.shpakovsky.ru/en/clear-terminal-scrollback-on-mac.html"/>
+		<id>urn:uuid:121e3534-ec71-40fd-94fb-207eef6a06b5</id>
+		<updated>2024-11-11T14:47:56+00:00</updated>
+		<published>2024-11-11T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			TL;DR: <tt>printf 'e[3J'</tt>
+		</div></content>
+		<category term="mac"/>
+	</entry> <!-- end clear-terminal-scrollback-on-mac -->
+	<entry> <!-- begin using-pkc-to-send-a-message -->
+		<title>using public key cryptography to send a message</title>
+		<link href="http://alexey.shpakovsky.ru/en/using-pkc-to-send-a-message.html"/>
+		<id>urn:uuid:8d85d001-5b01-4179-8b8c-f3d84b524547</id>
+		<updated>2024-11-08T09:54:19+00:00</updated>
+		<published>2024-10-29T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to send a message to your friend over insecure lines and be sure that only they can read it
+		</div></content>
+		<category term="security"/>
+	</entry> <!-- end using-pkc-to-send-a-message -->
+	<entry> <!-- begin decoding-certificate-inside-mac-provisioning-profile -->
+		<title>Decoding certificate inside Mac provisioning profile</title>
+		<link href="http://alexey.shpakovsky.ru/en/decoding-certificate-inside-mac-provisioning-profile.html"/>
+		<id>urn:uuid:7dcaad6e-3ab2-4bb2-9d94-0136b91fc780</id>
+		<updated>2024-10-21T12:17:13+00:00</updated>
+		<published>2024-10-18T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile "XXX" doesn't include signing certificate "YYY"
+		</div></content>
+		<category term="mac"/>
+		<category term="bash"/>
+	</entry> <!-- end decoding-certificate-inside-mac-provisioning-profile -->
+	<entry> <!-- begin how-to-make-dark-theme-follow-system-theme-on-some-websites -->
+		<title>How to make dark theme follow system theme on some websites</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-make-dark-theme-follow-system-theme-on-some-websites.html"/>
+		<id>urn:uuid:badeaf26-18cb-4ad1-a678-25a870c21296</id>
+		<updated>2024-08-14T08:43:02+00:00</updated>
+		<published>2024-08-06T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you happen to often switch between "dark" and "light" color themes on your system, you might be lucky enough that your browser picks it up properly and conveys to web sites
+		</div></content>
+		<category term="javascript"/>
+	</entry> <!-- end how-to-make-dark-theme-follow-system-theme-on-some-websites -->
+	<entry> <!-- begin change-konsole-theme-from-commandline -->
+		<title>Change Konsole theme from command-line</title>
+		<link href="http://alexey.shpakovsky.ru/en/change-konsole-theme-from-commandline.html"/>
+		<id>urn:uuid:1cd3908c-fd05-4b61-bbfd-7bc6c0fdc581</id>
+		<updated>2024-08-13T14:50:48+00:00</updated>
+		<published>2024-07-30T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you happen to often switch KDE desktop themes and work in konsole (KDE terminal emulator) a lot, you might want to switch konsole color schemes, too. Instead of messing with "Manage Profiles" dialog and changing profile for each open konsole tab every time, you might want to automate it a bit
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end change-konsole-theme-from-commandline -->
+	<entry> <!-- begin git-split-commit -->
+		<title>git split commit</title>
+		<link href="http://alexey.shpakovsky.ru/en/git-split-commit.html"/>
+		<id>urn:uuid:50cb3253-32bd-4e5c-bb19-33ea03581278</id>
+		<updated>2024-06-26T12:53:20+00:00</updated>
+		<published>2024-06-25T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			TL;DR: <tt>git rebase -i</tt>, <tt>e</tt>dit, <tt>git reset HEAD~</tt> and create new commits
+		</div></content>
+		<category term="git"/>
+	</entry> <!-- end git-split-commit -->
+	<entry> <!-- begin space-9-collision-decection-on-grid -->
+		<title>Space 9: collision decection on grid</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-9-collision-decection-on-grid.html"/>
+		<id>urn:uuid:c04cce4a-6da6-4f61-b850-e16ce8eca0ff</id>
+		<updated>2024-01-21T20:39:51+00:00</updated>
+		<published>2017-11-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Unlike sector-based one, this uses more complex logic, but simpler maps
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-9-collision-decection-on-grid -->
+	<entry> <!-- begin space2d3-7-colors-and-interceptions -->
+		<title>space2d3 7: colors and interceptions</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d3-7-colors-and-interceptions.html"/>
+		<id>urn:uuid:36a1f8c7-8630-4cc2-bb4e-bfe9636b6da3</id>
+		<updated>2024-01-21T18:44:44+00:00</updated>
+		<published>2024-01-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Now you can intercept other ships! They can intercept you, and each others, too!
+		</div></content>
+		<category term="space2d3"/>
+	</entry> <!-- end space2d3-7-colors-and-interceptions -->
+	<entry> <!-- begin expand-star-in-bash-prompt -->
+		<title>expand * in bash prompt</title>
+		<link href="http://alexey.shpakovsky.ru/en/expand-star-in-bash-prompt.html"/>
+		<id>urn:uuid:c6543fb4-9079-45c3-a12e-e357e566b354</id>
+		<updated>2024-01-19T12:09:25+00:00</updated>
+		<published>2024-01-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<b>TL;DR:</b> <code>ls &lt;Esc&gt;*</code>
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end expand-star-in-bash-prompt -->
+	<entry> <!-- begin space2d3-6-autosave-and-missions -->
+		<title>space2d3 6: autosave and missions</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d3-6-autosave-and-missions.html"/>
+		<id>urn:uuid:793998ac-044a-4bc9-be70-c4e5be8940ab</id>
+		<updated>2024-01-07T08:08:19+00:00</updated>
+		<published>2024-01-06T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Now your game doesn't disappear as soon as you reload the page, and also you can complete missions!
+		</div></content>
+		<category term="space2d3"/>
+	</entry> <!-- end space2d3-6-autosave-and-missions -->
+	<entry> <!-- begin space2d3-4-flying-from-planet-to-planet -->
+		<title>space2d3 4: Flying from planet to planet</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d3-4-flying-from-planet-to-planet.html"/>
+		<id>urn:uuid:f7a00100-1e03-4063-a6d1-d0f4074b5f29</id>
+		<updated>2024-01-07T08:05:29+00:00</updated>
+		<published>2024-01-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Now you can participate in "useless activity" together with outher ships
+		</div></content>
+		<category term="space2d3"/>
+	</entry> <!-- end space2d3-4-flying-from-planet-to-planet -->
+	<entry> <!-- begin space2d3-5-trading-stuff -->
+		<title>space2d3 5: Trading stuff</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d3-5-trading-stuff.html"/>
+		<id>urn:uuid:fcb689de-a6b9-40cf-8cf1-a4c9d2a04dc8</id>
+		<updated>2024-01-04T17:44:03+00:00</updated>
+		<published>2024-01-04T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Ok, it's actually barter, but now you have a reason to travel.
+		</div></content>
+		<category term="space2d3"/>
+	</entry> <!-- end space2d3-5-trading-stuff -->
+	<entry> <!-- begin space2d3-3-radar-planets-and-other-ships -->
+		<title>space2d3 3: radar, planets, and other ships</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d3-3-radar-planets-and-other-ships.html"/>
+		<id>urn:uuid:7df2d6a1-1f4a-46bd-bac6-b19b3f98e1c5</id>
+		<updated>2023-12-31T12:27:44+00:00</updated>
+		<published>2023-12-30T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Now your ship can have a "radar" component, where you can look at a star system
+		</div></content>
+		<category term="space2d3"/>
+	</entry> <!-- end space2d3-3-radar-planets-and-other-ships -->
+	<entry> <!-- begin space2d3-2-walking-and-detaching -->
+		<title>space2d3 2: walking and (de)taching</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d3-2-walking-and-detaching.html"/>
+		<id>urn:uuid:6dbe6db0-f111-4d04-8292-ff81e19d91b2</id>
+		<updated>2023-12-26T13:27:37+00:00</updated>
+		<published>2023-12-26T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Now you can walk on your ship... And others, too
+		</div></content>
+		<category term="space2d3"/>
+	</entry> <!-- end space2d3-2-walking-and-detaching -->
+	<entry> <!-- begin space2d3-1-a-bigger-game-about-flat-space -->
+		<title>space2d3 1: a bigger game about flat space</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d3-1-a-bigger-game-about-flat-space.html"/>
+		<id>urn:uuid:0abbfc21-5579-48fc-b8cd-c10aadab5fe1</id>
+		<updated>2023-12-25T13:06:37+00:00</updated>
+		<published>2023-12-25T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Idea it to make a mix of space1d and space2d2 games (I'm not very good at naming things)
+		</div></content>
+		<category term="space2d3"/>
+	</entry> <!-- end space2d3-1-a-bigger-game-about-flat-space -->
+	<entry> <!-- begin preserving-your-linux-laptop-battery-health -->
+		<title>Preserving your Linux laptop battery health</title>
+		<link href="http://alexey.shpakovsky.ru/en/preserving-your-linux-laptop-battery-health.html"/>
+		<id>urn:uuid:83979026-c380-4b0d-8298-b7f723d27e8a</id>
+		<updated>2023-11-05T21:15:56+00:00</updated>
+		<published>2023-11-05T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			by limiting its charge to 90%
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end preserving-your-linux-laptop-battery-health -->
+	<entry> <!-- begin how-i-started-working-at-remarkable -->
+		<title>How I started working at reMarkable</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-i-started-working-at-remarkable.html"/>
+		<id>urn:uuid:50a92267-3d4c-4149-9ecd-eb48677b13dd</id>
+		<updated>2023-10-09T12:04:11+00:00</updated>
+		<published>2023-10-05T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Due to reorganisation at my previous place of work, several people were offered to leave, including me.
+		</div></content>
+		<category term="life"/>
+		<category term="remarkable"/>
+	</entry> <!-- end how-i-started-working-at-remarkable -->
+	<entry> <!-- begin totp -->
+		<title>totp</title>
+		<link href="http://alexey.shpakovsky.ru/en/totp.html"/>
+		<id>urn:uuid:cac6ee37-e458-490d-870b-0e4aa88ee923</id>
+		<updated>2023-09-30T14:40:02+00:00</updated>
+		<published>2022-09-05T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A small shell script to generate one-time passwords, in bash, using oathtool
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end totp -->
+	<entry> <!-- begin tsv2vcf -->
+		<title>csv2vcf (or rather tsv2vcf)</title>
+		<link href="http://alexey.shpakovsky.ru/en/tsv2vcf.html"/>
+		<id>urn:uuid:38e1aa7f-3752-4919-bb0a-d22c0388e843</id>
+		<updated>2023-09-27T09:21:07+00:00</updated>
+		<published>2022-06-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end tsv2vcf -->
+	<entry> <!-- begin un-busting-grub-with-arch-chroot -->
+		<title>Un-busting GRUB with arch-chroot</title>
+		<link href="http://alexey.shpakovsky.ru/en/un-busting-grub-with-arch-chroot.html"/>
+		<id>urn:uuid:ce500a8c-dbad-4aac-90a1-91bf310b7db6</id>
+		<updated>2023-08-19T18:39:43+00:00</updated>
+		<published>2023-08-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			properly this time
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end un-busting-grub-with-arch-chroot -->
+	<entry> <!-- begin i-accidentally-the-runes -->
+		<title>How to add custom keyboard layout on Linux</title>
+		<link href="http://alexey.shpakovsky.ru/en/i-accidentally-the-runes.html"/>
+		<id>urn:uuid:3437c515-a7ec-4314-b14a-d0324e3065dd</id>
+		<updated>2023-05-13T15:16:46+00:00</updated>
+		<published>2023-05-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			I accidentally ᚦᛖ᛫ᚱᚢᚾᛖᛋ
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end i-accidentally-the-runes -->
+	<entry> <!-- begin windows-93 -->
+		<title>Windows 93</title>
+		<link href="http://alexey.shpakovsky.ru/en/windows-93.html"/>
+		<id>urn:uuid:05a60a6f-b26f-44ac-981d-551a682d9b85</id>
+		<updated>2023-04-10T09:03:04+00:00</updated>
+		<published>2014-10-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			HTML parody of an OS which was popular when we were young and Internet was new
+		</div></content>
+		<category term="fun"/>
+		<category term="links"/>
+		<category term="windows"/>
+	</entry> <!-- end windows-93 -->
+	<entry> <!-- begin space2d2-4-modes-animation-and-github -->
+		<title>space2d2 4: modes, animation, and github</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d2-4-modes-animation-and-github.html"/>
+		<id>urn:uuid:7424e9ab-14c5-4628-8801-ede72ded2423</id>
+		<updated>2023-04-08T18:58:29+00:00</updated>
+		<published>2023-04-08T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			this game got its own (sub)domain!
+		</div></content>
+		<category term="space2d2"/>
+	</entry> <!-- end space2d2-4-modes-animation-and-github -->
+	<entry> <!-- begin webdav-fun -->
+		<title>Fun with webdav</title>
+		<link href="http://alexey.shpakovsky.ru/en/webdav-fun.html"/>
+		<id>urn:uuid:9730dd49-f28a-4066-813f-8b35ecebb0ac</id>
+		<updated>2023-04-08T15:13:32+00:00</updated>
+		<published>2022-12-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Playing with a fancy old technology
+		</div></content>
+		<category term="nginx"/>
+	</entry> <!-- end webdav-fun -->
+	<entry> <!-- begin space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy -->
+		<title>space 2d 2: first UI with a view on horribly unbalanced economy</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy.html"/>
+		<id>urn:uuid:af05e58a-8bbb-456e-a0e0-70b3b950af20</id>
+		<updated>2023-03-20T19:37:10+00:00</updated>
+		<published>2021-05-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			It's playable now… if you can call it that :-)
+		</div></content>
+		<category term="space2d"/>
+	</entry> <!-- end space-2d-2-first-ui-with-a-view-on-horribly-unbalanced-economy -->
+	<entry> <!-- begin space2d2-3-the-finished-game -->
+		<title>space2d2 3: the finished game</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d2-3-the-finished-game.html"/>
+		<id>urn:uuid:e7a5ebff-9cbf-403f-93b5-dc7d6d8a8e3f</id>
+		<updated>2023-03-20T10:39:06+00:00</updated>
+		<published>2023-03-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A space trading game without money
+		</div></content>
+		<category term="space2d2"/>
+	</entry> <!-- end space2d2-3-the-finished-game -->
+	<entry> <!-- begin space2d2-2-portals -->
+		<title>space2d2 2: Portals</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d2-2-portals.html"/>
+		<id>urn:uuid:0cc83d05-7aa3-4dac-80ff-138a77ce1fc3</id>
+		<updated>2023-03-16T11:39:27+00:00</updated>
+		<published>2023-03-15T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			One star is good, but more stars is better
+		</div></content>
+		<category term="space2d2"/>
+	</entry> <!-- end space2d2-2-portals -->
+	<entry> <!-- begin space2d2-1-a-simple-game-about-flat-space -->
+		<title>space2d2 1: a simple game about flat space</title>
+		<link href="http://alexey.shpakovsky.ru/en/space2d2-1-a-simple-game-about-flat-space.html"/>
+		<id>urn:uuid:47691116-696c-4bd5-b256-be1df8d4dc53</id>
+		<updated>2023-03-15T12:06:41+00:00</updated>
+		<published>2023-03-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Making a properly balanced economy simulator is pretty hard, as it turns out. But can I make a simpler 2d game?
+		</div></content>
+		<category term="space2d2"/>
+	</entry> <!-- end space2d2-1-a-simple-game-about-flat-space -->
+	<entry> <!-- begin flickr-background-for-a-webpage -->
+		<title>Flickr background for a webpage</title>
+		<link href="http://alexey.shpakovsky.ru/en/flickr-background-for-a-webpage.html"/>
+		<id>urn:uuid:02b7f9ac-1977-482f-98d9-67f8fc75b21b</id>
+		<updated>2023-03-08T13:46:46+00:00</updated>
+		<published>2017-06-17T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Another attempt to add something nice to this blog
+		</div></content>
+		<category term="javascript"/>
+	</entry> <!-- end flickr-background-for-a-webpage -->
+	<entry> <!-- begin how-i-started-working-for-opera-software -->
+		<title>How I started working for Opera Software</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-i-started-working-for-opera-software.html"/>
+		<id>urn:uuid:dc71793d-7666-45a4-b821-8b41f73324d6</id>
+		<updated>2023-03-08T10:24:15+00:00</updated>
+		<published>2011-11-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			My first experience in getting a job
+		</div></content>
+		<category term="opera"/>
+		<category term="life"/>
+	</entry> <!-- end how-i-started-working-for-opera-software -->
+	<entry> <!-- begin sorting-sent-email -->
+		<title>Sorting sent email</title>
+		<link href="http://alexey.shpakovsky.ru/en/sorting-sent-email.html"/>
+		<id>urn:uuid:35848f6d-1f3f-4b70-b23d-dffdd857c94a</id>
+		<updated>2023-03-08T10:04:37+00:00</updated>
+		<published>2014-11-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to automate it if you host your mail yourself
+		</div></content>
+		<category term="e-mail"/>
+	</entry> <!-- end sorting-sent-email -->
+	<entry> <!-- begin space-8-collision-detection -->
+		<title>Space 8: collision detection</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-8-collision-detection.html"/>
+		<id>urn:uuid:59cb3f13-d9fd-4459-b08c-e56124a3e95c</id>
+		<updated>2023-03-08T09:59:48+00:00</updated>
+		<published>2017-11-06T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Now you can't go outside the ship
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-8-collision-detection -->
+	<entry> <!-- begin javascript-canvas-drag-and-zoom-library -->
+		<title>Javascript canvas drag-and-zoom library</title>
+		<link href="http://alexey.shpakovsky.ru/en/javascript-canvas-drag-and-zoom-library.html"/>
+		<id>urn:uuid:4a707274-caaa-4bad-a0ff-56af0af7b40d</id>
+		<updated>2023-03-07T11:17:43+00:00</updated>
+		<published>2012-07-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			For those cases when you need to implement something GoogleMaps-like
+		</div></content>
+		<category term="javascript"/>
+	</entry> <!-- end javascript-canvas-drag-and-zoom-library -->
+	<entry> <!-- begin autossh-with-systemd -->
+		<title>AutoSSH with SystemD</title>
+		<link href="http://alexey.shpakovsky.ru/en/autossh-with-systemd.html"/>
+		<id>urn:uuid:71203306-cf84-4116-8232-4382019cb586</id>
+		<updated>2023-01-04T23:35:14+00:00</updated>
+		<published>2022-12-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			a simple unit file to keep a permanent SSH connection
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end autossh-with-systemd -->
+	<entry> <!-- begin robots -->
+		<title>Robots only</title>
+		<link href="http://alexey.shpakovsky.ru/en/robots.html"/>
+		<id>urn:uuid:690e6f87-7b51-4963-a3cd-14464b9b0cbe</id>
+		<updated>2022-11-02T01:03:03+00:00</updated>
+		<published>2023-04-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Access for robots only
+		</div></content>
+		<category term="fun"/>
+	</entry> <!-- end robots -->
+	<entry> <!-- begin read-stdin-or-a-file-passed-as-argument-in-bash -->
+		<title>Read stdin OR a file passed as argument in bash</title>
+		<link href="http://alexey.shpakovsky.ru/en/read-stdin-or-a-file-passed-as-argument-in-bash.html"/>
+		<id>urn:uuid:153fce0d-8473-4374-91e8-0abd9d04ef56</id>
+		<updated>2022-10-27T17:35:46+00:00</updated>
+		<published>2022-10-27T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<b>TL;DR:</b> <code>cat "${1:-/dev/stdin}"</code>
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end read-stdin-or-a-file-passed-as-argument-in-bash -->
+	<entry> <!-- begin colors3 -->
+		<title>Colors 3</title>
+		<link href="http://alexey.shpakovsky.ru/en/colors3.html"/>
+		<id>urn:uuid:cfda133a-8f58-4cd5-8aa6-7069d742f3ac</id>
+		<updated>2022-10-22T10:31:07+00:00</updated>
+		<published>2022-10-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A nicer version of CSS-only 2D background gradient
+		</div></content>
+		<category term="css"/>
+	</entry> <!-- end colors3 -->
+	<entry> <!-- begin colors -->
+		<title>Colors</title>
+		<link href="http://alexey.shpakovsky.ru/en/colors.html"/>
+		<id>urn:uuid:81fd6323-74ed-4f83-a6af-1a7935dad091</id>
+		<updated>2022-10-22T10:27:05+00:00</updated>
+		<published>2014-09-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Let's add a colorful background to this blog, hm?
+		</div></content>
+		<category term="javascript"/>
+	</entry> <!-- end colors -->
+	<entry> <!-- begin colors2 -->
+		<title>Colors 2</title>
+		<link href="http://alexey.shpakovsky.ru/en/colors2.html"/>
+		<id>urn:uuid:5293e7e5-192e-40c5-9540-5ae04eed299a</id>
+		<updated>2022-10-22T09:02:16+00:00</updated>
+		<published>2016-06-29T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A CSS-only version of fancy 2D background gradient
+		</div></content>
+		<category term="css"/>
+	</entry> <!-- end colors2 -->
+	<entry> <!-- begin how-to-decrypt-jenkins-passwords -->
+		<title>How to decrypt Jenkins passwords</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-decrypt-jenkins-passwords.html"/>
+		<id>urn:uuid:829a3b0e-f81b-4b6d-aa49-ad41e780e6e9</id>
+		<updated>2022-10-11T19:29:24+00:00</updated>
+		<published>2022-10-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			with the help of script console
+		</div></content>
+		<category term="jenkins"/>
+		<category term="cfengine"/>
+	</entry> <!-- end how-to-decrypt-jenkins-passwords -->
+	<entry> <!-- begin cfengine-failed-to-establish-tls-connection-bootstrap-error -->
+		<title>CFEngine Failed to establish TLS connection bootstrap error</title>
+		<link href="http://alexey.shpakovsky.ru/en/cfengine-failed-to-establish-tls-connection-bootstrap-error.html"/>
+		<id>urn:uuid:38dcad80-9c68-4040-b266-ecf9f439e4df</id>
+		<updated>2022-09-27T13:36:35+00:00</updated>
+		<published>2017-03-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Maybe agent's IP is not among allowed ones?
+		</div></content>
+		<category term="cfengine"/>
+	</entry> <!-- end cfengine-failed-to-establish-tls-connection-bootstrap-error -->
+	<entry> <!-- begin grace-hopper-grandma-cobol -->
+		<title>Grace Hopper - Grandma COBOL</title>
+		<link href="http://alexey.shpakovsky.ru/en/grace-hopper-grandma-cobol.html"/>
+		<id>urn:uuid:c1aaff41-1191-412d-82ab-4c696432194a</id>
+		<updated>2022-08-19T12:16:28+00:00</updated>
+		<published>2015-09-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Also known for "First actual case of bug being found" note
+		</div></content>
+		<category term="history"/>
+	</entry> <!-- end grace-hopper-grandma-cobol -->
+	<entry> <!-- begin minimizing-size-of-browser-profiles-backups -->
+		<title>Minimizing size of browser profiles backups</title>
+		<link href="http://alexey.shpakovsky.ru/en/minimizing-size-of-browser-profiles-backups.html"/>
+		<id>urn:uuid:723bb394-7142-4518-9ec3-5add18295b2e</id>
+		<updated>2022-08-06T20:31:54+00:00</updated>
+		<published>2022-08-06T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			how to minimize them about 10-fold
+		</div></content>
+		<category term="bash"/>
+		<category term="chromium"/>
+		<category term="firefox"/>
+		<category term="windows"/>
+	</entry> <!-- end minimizing-size-of-browser-profiles-backups -->
+	<entry> <!-- begin hottentotten -->
+		<title>Hottentotten</title>
+		<link href="http://alexey.shpakovsky.ru/en/hottentotten.html"/>
+		<id>urn:uuid:d585e333-5e11-47fe-abc5-05ab1be9c74d</id>
+		<updated>2022-07-30T21:10:29+00:00</updated>
+		<published>2011-10-04T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A small language session
+		</div></content>
+		<category term="fun"/>
+	</entry> <!-- end hottentotten -->
+	<entry> <!-- begin world-domination -->
+		<title>World domination</title>
+		<link href="http://alexey.shpakovsky.ru/en/world-domination.html"/>
+		<id>urn:uuid:9252ce09-06e4-426e-be3e-ee0ea53065d1</id>
+		<updated>2022-07-30T20:41:43+00:00</updated>
+		<published>2014-06-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Experience after playing a flash game
+		</div></content>
+		<category term="fun"/>
+		<category term="games"/>
+		<category term="politics"/>
+	</entry> <!-- end world-domination -->
+	<entry> <!-- begin strange-games -->
+		<title>Strange games</title>
+		<link href="http://alexey.shpakovsky.ru/en/strange-games.html"/>
+		<id>urn:uuid:6f1887f9-daf4-42a5-82f9-bbbe3064c09c</id>
+		<updated>2022-07-30T20:41:15+00:00</updated>
+		<published>2014-09-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A website with a provoking name features funny games
+		</div></content>
+		<category term="games"/>
+	</entry> <!-- end strange-games -->
+	<entry> <!-- begin from-512kb.club-to-gtmetrix-api-library -->
+		<title>From 512kb.club to GTmetrix API library</title>
+		<link href="http://alexey.shpakovsky.ru/en/from-512kb.club-to-gtmetrix-api-library.html"/>
+		<id>urn:uuid:1bcca6d0-9169-46c6-b5c8-923df8ddb89a</id>
+		<updated>2022-01-23T11:17:16+00:00</updated>
+		<published>2021-07-16T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How reading one habr.com blog post caused a chain of events leading up to me writing a good documentation for a pet project
+		</div></content>
+		<category term="life"/>
+	</entry> <!-- end from-512kb.club-to-gtmetrix-api-library -->
+	<entry> <!-- begin browser-security-on-linux -->
+		<title>Browser security on Linux</title>
+		<link href="http://alexey.shpakovsky.ru/en/browser-security-on-linux.html"/>
+		<id>urn:uuid:c0ec9233-816f-4131-81d4-865d57934cc4</id>
+		<updated>2022-01-22T20:43:54+00:00</updated>
+		<published>2017-05-10T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A good article that summarizes my own thoughts on hardening browser on Linux
+		</div></content>
+		<category term="linux"/>
+		<category term="security"/>
+	</entry> <!-- end browser-security-on-linux -->
+	<entry> <!-- begin asciimation -->
+		<title>asciimation</title>
+		<link href="http://alexey.shpakovsky.ru/en/asciimation.html"/>
+		<id>urn:uuid:aec759f4-7165-4b34-87c1-fa569d8de960</id>
+		<updated>2022-01-22T17:36:56+00:00</updated>
+		<published>2014-10-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Star Wars in ASCII art
+		</div></content>
+		<category term="fun"/>
+		<category term="links"/>
+	</entry> <!-- end asciimation -->
+	<entry> <!-- begin space-1d-1-combat -->
+		<title>space 1d 1: combat</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-1-combat.html"/>
+		<id>urn:uuid:ac844426-4cbf-4205-9ab2-6418c2f58814</id>
+		<updated>2022-01-22T16:50:16+00:00</updated>
+		<published>2018-04-02T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Adding some action to the simple game prototype.
+		</div></content>
+		<category term="space1d"/>
+	</entry> <!-- end space-1d-1-combat -->
+	<entry> <!-- begin space-1d-7-ship-names-memory-and-feelings -->
+		<title>space 1d 7: Ship names, memory, and feelings</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-7-ship-names-memory-and-feelings.html"/>
+		<id>urn:uuid:48de3f16-525d-45d8-9934-7d2c3b1ab2c6</id>
+		<updated>2022-01-22T16:48:56+00:00</updated>
+		<published>2021-02-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Ships are now vindictive and base their decisions (attack or trade) based on previous player behavior
+		</div></content>
+		<category term="space1d"/>
+	</entry> <!-- end space-1d-7-ship-names-memory-and-feelings -->
+	<entry> <!-- begin space-1d-5-costly-approach -->
+		<title>space 1d 5: Costly approach</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-5-costly-approach.html"/>
+		<id>urn:uuid:f5409d31-6e2d-4fdd-98a2-bf22d45a3920</id>
+		<updated>2022-01-22T16:46:46+00:00</updated>
+		<published>2020-05-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Changes in physics
+		</div></content>
+		<category term="space1d"/>
+		<category term="links"/>
+	</entry> <!-- end space-1d-5-costly-approach -->
+	<entry> <!-- begin space-1d-4-trading-and-bluffing -->
+		<title>space 1d 4: Trading and bluffing</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-4-trading-and-bluffing.html"/>
+		<id>urn:uuid:cf0f09b9-77fb-492c-aed7-4faf7a47dbb6</id>
+		<updated>2022-01-22T16:46:35+00:00</updated>
+		<published>2020-05-17T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			more choices
+		</div></content>
+		<category term="space1d"/>
+	</entry> <!-- end space-1d-4-trading-and-bluffing -->
+	<entry> <!-- begin space-1d-3-making-ship-yours -->
+		<title>space 1d 3: Making ship yours</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-3-making-ship-yours.html"/>
+		<id>urn:uuid:9109f990-c419-4a29-ac32-07865e76d98b</id>
+		<updated>2022-01-22T16:46:26+00:00</updated>
+		<published>2020-05-16T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			The game is playable now!
+		</div></content>
+		<category term="space1d"/>
+	</entry> <!-- end space-1d-3-making-ship-yours -->
+	<entry> <!-- begin space-1d-2-more-ships -->
+		<title>space 1d 2: more ships</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-2-more-ships.html"/>
+		<id>urn:uuid:799d5388-45e1-49ba-b413-b49efd89500b</id>
+		<updated>2022-01-22T16:46:18+00:00</updated>
+		<published>2020-05-10T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Moving forward with a simple game.
+		</div></content>
+		<category term="space1d"/>
+	</entry> <!-- end space-1d-2-more-ships -->
+	<entry> <!-- begin space-1d-6-stats -->
+		<title>space 1d 6: Stats</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-6-stats.html"/>
+		<id>urn:uuid:cbe08365-42be-412b-9ec0-cb9865b7cd20</id>
+		<updated>2022-01-22T16:40:54+00:00</updated>
+		<published>2021-02-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			One step forward, one step back
+		</div></content>
+		<category term="space1d"/>
+	</entry> <!-- end space-1d-6-stats -->
+	<entry> <!-- begin space-1d-8-colors-stats-challenge-mode -->
+		<title>space 1d 8: Colors, stats, challenge mode</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-8-colors-stats-challenge-mode.html"/>
+		<id>urn:uuid:8e6ae690-d383-4497-9c67-a7d1088104b8</id>
+		<updated>2022-01-22T16:36:10+00:00</updated>
+		<published>2021-03-06T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Ships now have colors and like you from the first encounter if your ships color is close to theirs. But still, to change it you need to decrease your karma below -1.
+		</div></content>
+		<category term="space1d"/>
+	</entry> <!-- end space-1d-8-colors-stats-challenge-mode -->
+	<entry> <!-- begin why-isnt-psrexe-well-known -->
+		<title>Why isn’t PSR.exe well known?</title>
+		<link href="http://alexey.shpakovsky.ru/en/why-isnt-psrexe-well-known.html"/>
+		<id>urn:uuid:b481fc60-48b9-4333-a50a-cda7266fc1ed</id>
+		<updated>2022-01-22T16:29:33+00:00</updated>
+		<published>2014-12-07T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Short memo about a good program
+		</div></content>
+		<category term="windows"/>
+	</entry> <!-- end why-isnt-psrexe-well-known -->
+	<entry> <!-- begin rsync-backups -->
+		<title>Rsync backups</title>
+		<link href="http://alexey.shpakovsky.ru/en/rsync-backups.html"/>
+		<id>urn:uuid:f1f043c3-3ca0-465a-8dd4-21c14ab4c497</id>
+		<updated>2022-01-21T14:32:10+00:00</updated>
+		<published>2016-04-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How I organized backups of my files
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end rsync-backups -->
+	<entry> <!-- begin rlwrap -->
+		<title>rlwrap</title>
+		<link href="http://alexey.shpakovsky.ru/en/rlwrap.html"/>
+		<id>urn:uuid:eb3f199e-e84d-4594-bf81-4728dc63598d</id>
+		<updated>2022-01-21T11:10:48+00:00</updated>
+		<published>2021-09-10T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Short memo about a good program
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end rlwrap -->
+	<entry> <!-- begin if-youre-trying-to-learn-vim -->
+		<title>If you're trying to learn Vim...</title>
+		<link href="http://alexey.shpakovsky.ru/en/if-youre-trying-to-learn-vim.html"/>
+		<id>urn:uuid:ff9d5982-022e-4dbd-a12b-34459428d897</id>
+		<updated>2021-12-14T11:54:23+00:00</updated>
+		<published>2013-01-11T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			...then you're doing it wrong.
+		</div></content>
+		<category term="vim"/>
+	</entry> <!-- end if-youre-trying-to-learn-vim -->
+	<entry> <!-- begin macro-to-excange-two-values-in-vim -->
+		<title>Macro to excange two values in Vim</title>
+		<link href="http://alexey.shpakovsky.ru/en/macro-to-excange-two-values-in-vim.html"/>
+		<id>urn:uuid:e50e69ae-2895-48ca-98d1-85542320cc0e</id>
+		<updated>2021-12-14T11:52:24+00:00</updated>
+		<published>2013-01-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			You probably know <tt>ddp</tt> command in Vim to exchange two lines. But what if you want to exchange only parts of these lines?
+		</div></content>
+		<category term="vim"/>
+	</entry> <!-- end macro-to-excange-two-values-in-vim -->
+	<entry> <!-- begin vim-prank -->
+		<title>Vim prank</title>
+		<link href="http://alexey.shpakovsky.ru/en/vim-prank.html"/>
+		<id>urn:uuid:30c25128-48bd-4d40-a368-742367b2da77</id>
+		<updated>2021-12-14T11:50:55+00:00</updated>
+		<published>2012-12-02T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			An idea for an evil prank on your Vim-loving friend.
+		</div></content>
+		<category term="vim"/>
+		<category term="fun"/>
+	</entry> <!-- end vim-prank -->
+	<entry> <!-- begin defrag-ssd-in-vm-on-hdd -->
+		<title>Defrag SSD in VM on HDD</title>
+		<link href="http://alexey.shpakovsky.ru/en/defrag-ssd-in-vm-on-hdd.html"/>
+		<id>urn:uuid:08e5aa18-e909-4b10-af3f-51427fcb9fa8</id>
+		<updated>2021-11-29T15:03:31+00:00</updated>
+		<published>2021-11-27T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Even if OS sees a storage device as SSD and refuses to defrag it - you might know better
+		</div></content>
+		<category term="windows"/>
+	</entry> <!-- end defrag-ssd-in-vm-on-hdd -->
+	<entry> <!-- begin 13th-container -->
+		<title>13th container</title>
+		<link href="http://alexey.shpakovsky.ru/en/13th-container.html"/>
+		<id>urn:uuid:5f2f50e9-7bd3-4c61-8f77-e14ecd6c7e63</id>
+		<updated>2021-11-27T16:20:55+00:00</updated>
+		<published>2021-11-14T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			With <a href='https://github.com/Lex-2008/containers/tree/master/dehydrated.cont'>dehydrated</a> being 12th container to be added to my infra, this is 13th.
+		</div></content>
+		<category term="postfix"/>
+	</entry> <!-- end 13th-container -->
+	<entry> <!-- begin send-only-dkim-milter -->
+		<title>Send-only DKIM milter</title>
+		<link href="http://alexey.shpakovsky.ru/en/send-only-dkim-milter.html"/>
+		<id>urn:uuid:a414a268-2507-424f-96ed-26c372fc6eb2</id>
+		<updated>2021-11-27T16:04:55+00:00</updated>
+		<published>2021-11-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to configure Postfix to skip milter for incoming messages
+		</div></content>
+		<category term="postfix"/>
+	</entry> <!-- end send-only-dkim-milter -->
+	<entry> <!-- begin dkim-signature-online-test -->
+		<title>DKIM signature online test</title>
+		<link href="http://alexey.shpakovsky.ru/en/dkim-signature-online-test.html"/>
+		<id>urn:uuid:d0463526-7180-47cb-a81c-d972faa8036e</id>
+		<updated>2021-11-16T17:35:06+00:00</updated>
+		<published>2021-10-16T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you ever wanted to see how validity of DKIM signature will be affected by changing email headers and / or message body
+		</div></content>
+		<category term="net"/>
+		<category term="e-mail"/>
+	</entry> <!-- end dkim-signature-online-test -->
+	<entry> <!-- begin dyndns-diy -->
+		<title>DynDNS DIY</title>
+		<link href="http://alexey.shpakovsky.ru/en/dyndns-diy.html"/>
+		<id>urn:uuid:fdb36681-ed39-4014-9d3b-4bf94214ae2a</id>
+		<updated>2021-10-24T08:47:05+00:00</updated>
+		<published>2021-10-10T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Why use someone else's Dynamic DNS server, if you can <i>easily</i> run your own?
+		</div></content>
+		<category term="net"/>
+		<category term="bind"/>
+	</entry> <!-- end dyndns-diy -->
+	<entry> <!-- begin using-http-basic-auth-for-nginx-mail-auth-http-server -->
+		<title>Using HTTP Basic auth for nginx mail auth http server</title>
+		<link href="http://alexey.shpakovsky.ru/en/using-http-basic-auth-for-nginx-mail-auth-http-server.html"/>
+		<id>urn:uuid:a051acc1-0857-4347-a23a-49ea7adf1afb</id>
+		<updated>2021-10-23T21:21:40+00:00</updated>
+		<published>2021-10-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How hard can it be? Using only nginx itself!
+		</div></content>
+		<category term="nginx"/>
+		<category term="net"/>
+	</entry> <!-- end using-http-basic-auth-for-nginx-mail-auth-http-server -->
+	<entry> <!-- begin google-translate -->
+		<title>Google Translate</title>
+		<link href="http://alexey.shpakovsky.ru/en/google-translate.html"/>
+		<id>urn:uuid:462bf256-d36f-49d0-b533-014c8a0b1bef</id>
+		<updated>2021-10-07T22:00:00+00:00</updated>
+		<published>2013-09-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Sometimes it's wrong... completely... sometimes...
+		</div></content>
+		<category term="norway"/>
+		<category term="fun"/>
+	</entry> <!-- end google-translate -->
+	<entry> <!-- begin hacker-typer-on-tv -->
+		<title>Hacker Typer on TV</title>
+		<link href="http://alexey.shpakovsky.ru/en/hacker-typer-on-tv.html"/>
+		<id>urn:uuid:c2057275-d545-44c8-9f40-822438dd2884</id>
+		<updated>2021-10-07T22:00:00+00:00</updated>
+		<published>2014-01-26T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A quick note about a funny site and a video featuring it.
+		</div></content>
+		<category term="fun"/>
+	</entry> <!-- end hacker-typer-on-tv -->
+	<entry> <!-- begin space-2d-1-a-game-which-plays-by-itself -->
+		<title>space 2d 1: a game which plays by itself</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-2d-1-a-game-which-plays-by-itself.html"/>
+		<id>urn:uuid:4663d5a3-bf45-44ee-80c6-e2f65feab76b</id>
+		<updated>2021-10-03T10:38:01+00:00</updated>
+		<published>2021-04-11T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			a humble beginning
+		</div></content>
+		<category term="space2d"/>
+	</entry> <!-- end space-2d-1-a-game-which-plays-by-itself -->
+	<entry> <!-- begin space-7-another-ship -->
+		<title>Space 7: another ship</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-7-another-ship.html"/>
+		<id>urn:uuid:ed4698bd-fbd9-433f-87f9-f764f506b20f</id>
+		<updated>2021-10-03T10:36:27+00:00</updated>
+		<published>2017-10-02T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Let's have something to look at!
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-7-another-ship -->
+	<entry> <!-- begin space-6-on-a-ship -->
+		<title>Space 6: on a ship</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-6-on-a-ship.html"/>
+		<id>urn:uuid:49035403-146f-4954-af4e-74ff102e29b4</id>
+		<updated>2021-10-03T10:36:24+00:00</updated>
+		<published>2017-10-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			FPV mode, so we can walk on the ship
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-6-on-a-ship -->
+	<entry> <!-- begin space-5-back-to-square-one -->
+		<title>Space 5: back to square one</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-5-back-to-square-one.html"/>
+		<id>urn:uuid:9afddbcd-4638-4603-9123-81f700a3753f</id>
+		<updated>2021-10-03T10:36:21+00:00</updated>
+		<published>2017-04-17T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Changing the engine
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-5-back-to-square-one -->
+	<entry> <!-- begin space-4-a-ship -->
+		<title>Space 4: a ship</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-4-a-ship.html"/>
+		<id>urn:uuid:192a38b8-f088-402f-aaa9-315e7ba4450e</id>
+		<updated>2021-10-03T10:36:17+00:00</updated>
+		<published>2017-04-16T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Let's build a real ship
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-4-a-ship -->
+	<entry> <!-- begin space-3-person-on-the-ship -->
+		<title>Space 3: person on the ship</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-3-person-on-the-ship.html"/>
+		<id>urn:uuid:2a9a59ec-3f61-4cf6-834e-5ee13aa9f9c6</id>
+		<updated>2021-10-03T10:36:13+00:00</updated>
+		<published>2017-04-15T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Now we want to have a character (a pilot) to walk on the ship.
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-3-person-on-the-ship -->
+	<entry> <!-- begin space-2-camera-on-the-ship -->
+		<title>Space 2: Camera on the ship</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-2-camera-on-the-ship.html"/>
+		<id>urn:uuid:2db5716a-ce78-4464-a58b-18d180ae7fdf</id>
+		<updated>2021-10-03T10:35:45+00:00</updated>
+		<published>2017-04-14T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Let's put a camera onto the ship, to get some FPV experience
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-2-camera-on-the-ship -->
+	<entry> <!-- begin space-1d-0-idea -->
+		<title>space 1d 0: idea</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1d-0-idea.html"/>
+		<id>urn:uuid:73df977a-d405-4dee-a3e6-e9ca35fc0e0b</id>
+		<updated>2021-10-03T10:35:08+00:00</updated>
+		<published>2018-04-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Game about space which will be more fun to make than to play.
+		</div></content>
+		<category term="space1d"/>
+	</entry> <!-- end space-1d-0-idea -->
+	<entry> <!-- begin space-10-finished-game-about-combat -->
+		<title>Space 10: Finished game about combat</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-10-finished-game-about-combat.html"/>
+		<id>urn:uuid:ed12c109-c583-417f-a450-cd5396ae5422</id>
+		<updated>2021-10-03T10:34:31+00:00</updated>
+		<published>2018-06-15T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			My first (almost) finished game
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-10-finished-game-about-combat -->
+	<entry> <!-- begin space-1-movement -->
+		<title>Space 1: Movement</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-1-movement.html"/>
+		<id>urn:uuid:a690cbb7-2ab7-491a-8f69-fa7346cd1517</id>
+		<updated>2021-10-03T10:34:09+00:00</updated>
+		<published>2017-04-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			First step is moving the ship
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-1-movement -->
+	<entry> <!-- begin space-0-idea -->
+		<title>Space 0: Idea</title>
+		<link href="http://alexey.shpakovsky.ru/en/space-0-idea.html"/>
+		<id>urn:uuid:1b788d1c-a4c9-421d-9cd8-d80a4328bf4b</id>
+		<updated>2021-10-03T10:33:56+00:00</updated>
+		<published>2017-04-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			What I want to create and what to base on
+		</div></content>
+		<category term="space3d"/>
+	</entry> <!-- end space-0-idea -->
+	<entry> <!-- begin different-keyboard-layouts-for-different-keyboards -->
+		<title>Different keyboard layouts for different keyboards</title>
+		<link href="http://alexey.shpakovsky.ru/en/different-keyboard-layouts-for-different-keyboards.html"/>
+		<id>urn:uuid:87ff8201-a28d-45fc-a894-6ca22e2259c9</id>
+		<updated>2021-10-03T10:19:20+00:00</updated>
+		<published>2017-03-14T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			On Linux, you can have different keyboard layouts for different physical keyboards. How? Easy!
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end different-keyboard-layouts-for-different-keyboards -->
+	<entry> <!-- begin catfs -->
+		<title>catfs</title>
+		<link href="http://alexey.shpakovsky.ru/en/catfs.html"/>
+		<id>urn:uuid:2a4004a5-664d-4b51-bb8e-6ee73ade1735</id>
+		<updated>2021-10-03T10:06:52+00:00</updated>
+		<published>2016-09-25T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A FUSE module that shows a list of files as one big file.
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end catfs -->
+	<entry> <!-- begin how-to-combine-audio-and-video-with-ffmpeg -->
+		<title>How to combine audio and video with ffmpeg</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-combine-audio-and-video-with-ffmpeg.html"/>
+		<id>urn:uuid:b2d00bfa-a426-45d5-8562-6ab296a8dbf3</id>
+		<updated>2021-10-03T10:06:19+00:00</updated>
+		<published>2020-05-10T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			When you downloaded them separately
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end how-to-combine-audio-and-video-with-ffmpeg -->
+	<entry> <!-- begin when-not-to-use-alpine -->
+		<title>When not to use Alpine</title>
+		<link href="http://alexey.shpakovsky.ru/en/when-not-to-use-alpine.html"/>
+		<id>urn:uuid:14833a5a-cdde-4a08-8245-ac86cef2b03e</id>
+		<updated>2021-10-02T22:00:00+00:00</updated>
+		<published>2021-07-11T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			When you use scripting languages and want to squeeze some performance.
+		</div></content>
+		<category term="linux"/>
+		<category term="python"/>
+	</entry> <!-- end when-not-to-use-alpine -->
+	<entry> <!-- begin bluetooth-pairing-keys-location -->
+		<title>Bluetooth Pairing Keys Location</title>
+		<link href="http://alexey.shpakovsky.ru/en/bluetooth-pairing-keys-location.html"/>
+		<id>urn:uuid:dcf6a137-997e-48ad-8536-a830716423e1</id>
+		<updated>2021-09-26T15:06:44+00:00</updated>
+		<published>2021-07-25T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			In case you need to switch between various OSes (be it Windows and Linux, or just various Linux distros).
+		</div></content>
+		<category term="windows"/>
+		<category term="linux"/>
+		<category term="bluetooth"/>
+	</entry> <!-- end bluetooth-pairing-keys-location -->
+	<entry> <!-- begin passwords -->
+		<title>Passwords</title>
+		<link href="http://alexey.shpakovsky.ru/en/passwords.html"/>
+		<id>urn:uuid:1715cfaa-3d9b-4a82-ab64-302bb951d640</id>
+		<updated>2021-08-05T22:00:00+00:00</updated>
+		<published>2014-06-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to generate them, so you could store them in your head
+		</div></content>
+		<category term="security"/>
+		<category term="links"/>
+	</entry> <!-- end passwords -->
+	<entry> <!-- begin using-hdparm-to-hide-smart-errors -->
+		<title>Using hdparm to hide S.M.A.R.T. errors</title>
+		<link href="http://alexey.shpakovsky.ru/en/using-hdparm-to-hide-smart-errors.html"/>
+		<id>urn:uuid:6b04d5f7-d557-4ce9-921a-8940e6a3809a</id>
+		<updated>2021-05-02T22:04:49+00:00</updated>
+		<published>2020-08-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			TL;DR: <code>sudo hdparm --repair-sector <i>SECTOR</i> <i>/dev/sdx</i></code>
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end using-hdparm-to-hide-smart-errors -->
+	<entry> <!-- begin why-unix-commands-are-short -->
+		<title>Why UNIX commands are short</title>
+		<link href="http://alexey.shpakovsky.ru/en/why-unix-commands-are-short.html"/>
+		<id>urn:uuid:69fe8f9e-4d87-4d9d-816c-82a0df3326d1</id>
+		<updated>2021-02-27T17:56:19+00:00</updated>
+		<published>2017-08-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Because keyboards were hard
+		</div></content>
+		<category term="linux"/>
+		<category term="history"/>
+		<category term="links"/>
+	</entry> <!-- end why-unix-commands-are-short -->
+	<entry> <!-- begin o-rly-book-cover-generator -->
+		<title>O RLY Book Cover Generator</title>
+		<link href="http://alexey.shpakovsky.ru/en/o-rly-book-cover-generator.html"/>
+		<id>urn:uuid:8599d2da-5cf5-4808-990c-2182be2761b6</id>
+		<updated>2020-07-26T20:05:12+00:00</updated>
+		<published>2017-07-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			For all your slack needs
+		</div></content>
+		<category term="fun"/>
+		<category term="links"/>
+	</entry> <!-- end o-rly-book-cover-generator -->
+	<entry> <!-- begin emoji-programming -->
+		<title>Emoji programming</title>
+		<link href="http://alexey.shpakovsky.ru/en/emoji-programming.html"/>
+		<id>urn:uuid:2e40c33a-8639-46fb-9369-4401c163d354</id>
+		<updated>2020-07-25T22:00:00+00:00</updated>
+		<published>2017-11-18T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How would it look
+		</div></content>
+		<category term="fun"/>
+	</entry> <!-- end emoji-programming -->
+	<entry> <!-- begin web-before-css -->
+		<title>Web before CSS</title>
+		<link href="http://alexey.shpakovsky.ru/en/web-before-css.html"/>
+		<id>urn:uuid:1857ece5-b494-4d51-a7de-088bbe590ae1</id>
+		<updated>2020-06-22T11:12:52+00:00</updated>
+		<published>2016-06-29T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A brief dive into a history of early web
+		</div></content>
+		<category term="css"/>
+		<category term="history"/>
+		<category term="links"/>
+	</entry> <!-- end web-before-css -->
+	<entry> <!-- begin a-history-of-visa -->
+		<title>A history of VISA</title>
+		<link href="http://alexey.shpakovsky.ru/en/a-history-of-visa.html"/>
+		<id>urn:uuid:a5a6878e-e55b-4365-a1c1-2bc5b21276c5</id>
+		<updated>2020-06-22T10:44:19+00:00</updated>
+		<published>2019-05-29T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			An interesting article showing how credit cards appeared
+		</div></content>
+		<category term="history"/>
+		<category term="links"/>
+	</entry> <!-- end a-history-of-visa -->
+	<entry> <!-- begin downloading-games-from-the-radio -->
+		<title>Downloading games from… The radio!</title>
+		<link href="http://alexey.shpakovsky.ru/en/downloading-games-from-the-radio.html"/>
+		<id>urn:uuid:6438f6bd-afab-4195-83d8-db93f63ea76d</id>
+		<updated>2020-06-22T10:41:44+00:00</updated>
+		<published>2020-03-08T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Interesting article about how software was distributed in old times.
+		</div></content>
+		<category term="history"/>
+		<category term="links"/>
+	</entry> <!-- end downloading-games-from-the-radio -->
+	<entry> <!-- begin why-sqlite-succeeded-as-a-database -->
+		<title>Why SQLite succeeded as a database</title>
+		<link href="http://alexey.shpakovsky.ru/en/why-sqlite-succeeded-as-a-database.html"/>
+		<id>urn:uuid:60c3e3c7-70f7-4fea-a3b7-3a72a3998676</id>
+		<updated>2020-06-22T10:41:08+00:00</updated>
+		<published>2016-04-30T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Interview (with a transcript) with its creator.
+		</div></content>
+		<category term="history"/>
+		<category term="links"/>
+	</entry> <!-- end why-sqlite-succeeded-as-a-database -->
+	<entry> <!-- begin turbo-pascal-speed -->
+		<title>Turbo Pascal speed</title>
+		<link href="http://alexey.shpakovsky.ru/en/turbo-pascal-speed.html"/>
+		<id>urn:uuid:2a6dc711-30e5-4b48-a80a-a8098e14b11e</id>
+		<updated>2020-06-21T21:31:04+00:00</updated>
+		<published>2009-08-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			It was the first programming language I was learning
+		</div></content>
+		<category term="links"/>
+	</entry> <!-- end turbo-pascal-speed -->
+	<entry> <!-- begin input-lag -->
+		<title>Input lag</title>
+		<link href="http://alexey.shpakovsky.ru/en/input-lag.html"/>
+		<id>urn:uuid:f91d02ce-20d9-44e5-892d-90769e5ffa16</id>
+		<updated>2020-06-21T20:15:52+00:00</updated>
+		<published>2017-12-24T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Interesting article about speed of modern computers
+		</div></content>
+		<category term="links"/>
+	</entry> <!-- end input-lag -->
+	<entry> <!-- begin designing-windows-95 -->
+		<title>Designing Windows 95</title>
+		<link href="http://alexey.shpakovsky.ru/en/designing-windows-95.html"/>
+		<id>urn:uuid:808834ae-0c16-4692-83bb-d81c38b717a5</id>
+		<updated>2020-06-21T19:43:47+00:00</updated>
+		<published>2018-02-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			An interesting article about designing of common UI elements which we now are taking for granted.
+		</div></content>
+		<category term="history"/>
+		<category term="links"/>
+	</entry> <!-- end designing-windows-95 -->
+	<entry> <!-- begin how-to-use-parameters-to-set-working-directory-in-org-mode-code-block -->
+		<title>How to use parameters to set working directory in org mode code block</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-use-parameters-to-set-working-directory-in-org-mode-code-block.html"/>
+		<id>urn:uuid:f14b34c8-5e1a-4375-a676-0efadd3fac03</id>
+		<updated>2020-04-23T07:26:21+00:00</updated>
+		<published>2020-04-11T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			For when you want working dorectory (:dir) be a parameter, just like variable (:var)
+		</div></content>
+		<category term="org"/>
+	</entry> <!-- end how-to-use-parameters-to-set-working-directory-in-org-mode-code-block -->
+	<entry> <!-- begin debugging-google-maps-in-opera -->
+		<title>Debugging Google Maps in Opera</title>
+		<link href="http://alexey.shpakovsky.ru/en/debugging-google-maps-in-opera.html"/>
+		<id>urn:uuid:157e4b54-87fa-45a8-a397-49155da0acb0</id>
+		<updated>2020-04-13T22:13:52+00:00</updated>
+		<published>2012-03-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How it was done. 10 days of obfurscated Javascript.
+		</div></content>
+		<category term="opera"/>
+		<category term="links"/>
+	</entry> <!-- end debugging-google-maps-in-opera -->
+	<entry> <!-- begin avfs-dirs -->
+		<title>Patch for avfs to show "magic" dirs</title>
+		<link href="http://alexey.shpakovsky.ru/en/avfs-dirs.html"/>
+		<id>urn:uuid:15d34095-355b-432b-844f-ca5206b715be</id>
+		<updated>2020-03-22T14:00:39+00:00</updated>
+		<published>2020-03-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Suggestion to improve its usability
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end avfs-dirs -->
+	<entry> <!-- begin fastest-way-to-find-duplicate-files -->
+		<title>Fastest way to find duplicate files</title>
+		<link href="http://alexey.shpakovsky.ru/en/fastest-way-to-find-duplicate-files.html"/>
+		<id>urn:uuid:84e31431-b7dc-4135-8672-3fbf36704b62</id>
+		<updated>2020-03-06T22:44:57+00:00</updated>
+		<published>2015-02-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			TL;DR: it's an app called "dupd"
+		</div></content>
+		<category term="linux"/>
+		<category term="links"/>
+	</entry> <!-- end fastest-way-to-find-duplicate-files -->
+	<entry> <!-- begin using-true-instead-of-echo-to-debug-bash-scripts -->
+		<title>Using true instead of echo to debug bash scripts</title>
+		<link href="http://alexey.shpakovsky.ru/en/using-true-instead-of-echo-to-debug-bash-scripts.html"/>
+		<id>urn:uuid:00df3d65-d20e-4683-a7ef-9c0d1aeb93aa</id>
+		<updated>2020-03-01T15:54:24+00:00</updated>
+		<published>2019-01-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<b>TL;DR:</b> When running scripts with <code>bash -x</code>, use <code>true …</code> instead of <code>echo …</code>, to avoid duplicate output
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end using-true-instead-of-echo-to-debug-bash-scripts -->
+	<entry> <!-- begin set-e-inconsistency-inside-blocks -->
+		<title>set -e inconsistency inside blocks</title>
+		<link href="http://alexey.shpakovsky.ru/en/set-e-inconsistency-inside-blocks.html"/>
+		<id>urn:uuid:40e64834-ecf3-4206-95a8-0ed18b7d7c95</id>
+		<updated>2020-03-01T15:53:44+00:00</updated>
+		<published>2019-02-15T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<code>set -e</code> might work not as you expected inside (parentheses).
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end set-e-inconsistency-inside-blocks -->
+	<entry> <!-- begin transferring-huge-sparse-files -->
+		<title>Transferring huge sparse files</title>
+		<link href="http://alexey.shpakovsky.ru/en/transferring-huge-sparse-files.html"/>
+		<id>urn:uuid:094ba2c3-8ced-4d34-b053-10c2bb78698b</id>
+		<updated>2020-03-01T15:52:12+00:00</updated>
+		<published>2020-01-24T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to transfer a terabyte sparse file (of which only a hundred megabytes is used) from one machine to another
+		</div></content>
+		<category term="linux"/>
+		<category term="bash"/>
+		<category term="python"/>
+	</entry> <!-- end transferring-huge-sparse-files -->
+	<entry> <!-- begin busybox-httpd-file-upload -->
+		<title>busybox httpd file upload</title>
+		<link href="http://alexey.shpakovsky.ru/en/busybox-httpd-file-upload.html"/>
+		<id>urn:uuid:39e53a30-3009-44e3-967d-b2b45d17e588</id>
+		<updated>2020-02-03T15:16:59+00:00</updated>
+		<published>2020-01-06T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			busybox has a nice http webserver module, even with cgi support - and you can use it to upload files, too
+		</div></content>
+		<category term="bash"/>
+		<category term="net"/>
+		<category term="linux"/>
+	</entry> <!-- end busybox-httpd-file-upload -->
+	<entry> <!-- begin random-port-number -->
+		<title>Random port number</title>
+		<link href="http://alexey.shpakovsky.ru/en/random-port-number.html"/>
+		<id>urn:uuid:2a857116-e099-49eb-80f8-e8c64a142649</id>
+		<updated>2019-12-26T13:45:31+00:00</updated>
+		<published>2019-12-26T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to get a random port number for a small service
+		</div></content>
+		<category term="links"/>
+		<category term="net"/>
+	</entry> <!-- end random-port-number -->
+	<entry> <!-- begin user-agent-string-history -->
+		<title>History of the browser user-agent string</title>
+		<link href="http://alexey.shpakovsky.ru/en/user-agent-string-history.html"/>
+		<id>urn:uuid:0c2e6ed0-5237-44b8-b504-c6b8c024437c</id>
+		<updated>2019-09-28T12:57:51+00:00</updated>
+		<published>2008-09-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Interesting dive into how Internet became the mess that it is now
+		</div></content>
+		<category term="history"/>
+		<category term="links"/>
+	</entry> <!-- end user-agent-string-history -->
+	<entry> <!-- begin download-any-chromium-build -->
+		<title>Download any Chromium build</title>
+		<link href="http://alexey.shpakovsky.ru/en/download-any-chromium-build.html"/>
+		<id>urn:uuid:a71120be-d9fd-4d18-b8df-0d8d0f2e680e</id>
+		<updated>2018-08-03T07:36:11+00:00</updated>
+		<published>2014-03-27T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Is it hard to download any Chromium build?
+		</div></content>
+		<category term="python"/>
+		<category term="chromium"/>
+	</entry> <!-- end download-any-chromium-build -->
+	<entry> <!-- begin how-to-configure-access-rules-in-cfengine-via-json-only -->
+		<title>How to configure access rules in CFEngine via json only</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-configure-access-rules-in-cfengine-via-json-only.html"/>
+		<id>urn:uuid:194ba6c6-1a40-4d3e-b45c-77f232a05bed</id>
+		<updated>2018-08-03T07:24:46+00:00</updated>
+		<published>2018-07-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A bit of policy magic to avoid writing policy
+		</div></content>
+		<category term="cfengine"/>
+		<category term="links"/>
+	</entry> <!-- end how-to-configure-access-rules-in-cfengine-via-json-only -->
+	<entry> <!-- begin how-to-limit-systemd-units-services-to-use-only-one-cpu-core -->
+		<title>How to limit SystemD units (services) to use only one CPU core</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-limit-systemd-units-services-to-use-only-one-cpu-core.html"/>
+		<id>urn:uuid:3f9d47e1-a3a7-425f-804c-14c04b56565b</id>
+		<updated>2018-07-31T08:59:34+00:00</updated>
+		<published>2018-07-27T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			TL;DR: make a cgroup and assign processes into them, in the systemd .service file
+		</div></content>
+		<category term="cfengine"/>
+		<category term="linux"/>
+		<category term="links"/>
+	</entry> <!-- end how-to-limit-systemd-units-services-to-use-only-one-cpu-core -->
+	<entry> <!-- begin how-to-install-extensions-to-cfengines-postgresql -->
+		<title>How to install extensions to CFEngine's PostgreSQL</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-install-extensions-to-cfengines-postgresql.html"/>
+		<id>urn:uuid:26465938-e2d6-45e4-a445-345fcf8d7af1</id>
+		<updated>2018-07-30T17:49:08+00:00</updated>
+		<published>2018-02-07T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.
+		</div></content>
+		<category term="cfengine"/>
+	</entry> <!-- end how-to-install-extensions-to-cfengines-postgresql -->
+	<entry> <!-- begin how-to-download-folder-without-creating-archive -->
+		<title>How to download folder without creating archive</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-download-folder-without-creating-archive.html"/>
+		<id>urn:uuid:bc1aacdc-120f-4ffb-b87a-cf0ecb5d7a20</id>
+		<updated>2018-06-22T13:09:43+00:00</updated>
+		<published>2018-06-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			TL;DR: use tar and pipe to stdout!
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end how-to-download-folder-without-creating-archive -->
+	<entry> <!-- begin auto-backup-on-mount -->
+		<title>Auto backup on mount</title>
+		<link href="http://alexey.shpakovsky.ru/en/auto-backup-on-mount.html"/>
+		<id>urn:uuid:a73064f6-478d-4418-9d9b-c53006d5174e</id>
+		<updated>2018-02-03T10:29:41+00:00</updated>
+		<published>2018-01-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Automatically backup files on media mount, using usbmount
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end auto-backup-on-mount -->
+	<entry> <!-- begin printer -->
+		<title>Printer</title>
+		<link href="http://alexey.shpakovsky.ru/en/printer.html"/>
+		<id>urn:uuid:7eec03ce-e3a7-4032-aa07-b75dfb2f2d07</id>
+		<updated>2017-09-27T13:43:30+00:00</updated>
+		<published>2017-09-18T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			We have one now
+		</div></content>
+		<category term="life"/>
+	</entry> <!-- end printer -->
+	<entry> <!-- begin hackers-keyboard-for-n-05e -->
+		<title>Hacker's Keyboard for N-05e</title>
+		<link href="http://alexey.shpakovsky.ru/en/hackers-keyboard-for-n-05e.html"/>
+		<id>urn:uuid:0db372d7-92db-4815-8d6a-1f5620b59992</id>
+		<updated>2017-07-31T15:43:36+00:00</updated>
+		<published>2017-05-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Compatibility patch
+		</div></content>
+		<category term="android"/>
+	</entry> <!-- end hackers-keyboard-for-n-05e -->
+	<entry> <!-- begin bevacqua -->
+		<title>bevacqua</title>
+		<link href="http://alexey.shpakovsky.ru/en/bevacqua.html"/>
+		<id>urn:uuid:e6768e02-4c82-4bc4-a904-1b2718c8e322</id>
+		<updated>2017-07-03T10:00:38+00:00</updated>
+		<published>2017-06-29T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Github user with a bunch of interesting Javascript projects/repos
+		</div></content>
+		<category term="links"/>
+	</entry> <!-- end bevacqua -->
+	<entry> <!-- begin the-mother-of-all-demos -->
+		<title>The Mother of All Demos</title>
+		<link href="http://alexey.shpakovsky.ru/en/the-mother-of-all-demos.html"/>
+		<id>urn:uuid:3aa84fd9-7ff9-45a9-9776-01e4e37c88b3</id>
+		<updated>2017-06-14T17:06:40+00:00</updated>
+		<published>2013-07-02T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			RIP Douglas Engelbart, the person who shaped the modern computing. Oh, and a computer mouse.
+		</div></content>
+		<category term="history"/>
+		<category term="links"/>
+	</entry> <!-- end the-mother-of-all-demos -->
+	<entry> <!-- begin how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios -->
+		<title>How to call (dial a number) or send SMS from command line in Android or iPhone (iOS)</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios.html"/>
+		<id>urn:uuid:6d4bef47-631a-425f-b2cf-e302a3b471fd</id>
+		<updated>2017-06-14T11:38:14+00:00</updated>
+		<published>2014-11-29T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Note that to get command line on iPhone, you need to jailbreak it first.
+		</div></content>
+		<category term="bash"/>
+		<category term="android"/>
+	</entry> <!-- end how-to-call-dial-a-number-or-send-sms-from-command-line-in-android-or-iphone-ios -->
+	<entry> <!-- begin flickr-feed-generator-for-xscreensaver -->
+		<title>Flickr feed generator for xscreensaver</title>
+		<link href="http://alexey.shpakovsky.ru/en/flickr-feed-generator-for-xscreensaver.html"/>
+		<id>urn:uuid:80395f90-a13e-416c-993c-c6edabbb0341</id>
+		<updated>2017-06-14T11:37:28+00:00</updated>
+		<published>2016-11-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Helping you to get many big images from flickr to your xscreensaver
+		</div></content>
+		<category term="bash"/>
+		<category term="net"/>
+		<category term="linux"/>
+	</entry> <!-- end flickr-feed-generator-for-xscreensaver -->
+	<entry> <!-- begin forward-smb-via-ssh-tunnel -->
+		<title>Forward SMB via SSH tunnel</title>
+		<link href="http://alexey.shpakovsky.ru/en/forward-smb-via-ssh-tunnel.html"/>
+		<id>urn:uuid:6a223167-b3bb-4794-937e-33033b01b99f</id>
+		<updated>2017-05-08T22:00:00+00:00</updated>
+		<published>2017-04-30T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			When SSH is your poor man's VPN
+		</div></content>
+		<category term="bash"/>
+		<category term="windows"/>
+		<category term="linux"/>
+	</entry> <!-- end forward-smb-via-ssh-tunnel -->
+	<entry> <!-- begin rip-steve-jobs -->
+		<title>RIP Steve Jobs</title>
+		<link href="http://alexey.shpakovsky.ru/en/rip-steve-jobs.html"/>
+		<id>urn:uuid:50c504c7-2da8-4351-9e34-20df5809ba69</id>
+		<updated>2017-04-30T12:01:36+00:00</updated>
+		<published>2011-10-05T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			You brought technology closer to people
+		</div></content>
+		<category term="history"/>
+	</entry> <!-- end rip-steve-jobs -->
+	<entry> <!-- begin download-old-firefox-build -->
+		<title>Download old Firefox build</title>
+		<link href="http://alexey.shpakovsky.ru/en/download-old-firefox-build.html"/>
+		<id>urn:uuid:087cfa72-25bb-4543-8ba7-91fabafbd1e0</id>
+		<updated>2017-04-29T10:53:01+00:00</updated>
+		<published>2017-04-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			deb packages for all versions starting with 3.5
+		</div></content>
+		<category term="firefox"/>
+		<category term="links"/>
+	</entry> <!-- end download-old-firefox-build -->
+	<entry> <!-- begin katex -->
+		<title>KaTeX</title>
+		<link href="http://alexey.shpakovsky.ru/en/katex.html"/>
+		<id>urn:uuid:80bef6e5-d659-4eb7-86cb-a4cf2572ff1a</id>
+		<updated>2017-04-24T22:23:38+00:00</updated>
+		<published>2015-04-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Good library for those willing to implement TeX formulas in their blogs
+		</div></content>
+		<category term="javascript"/>
+		<category term="links"/>
+	</entry> <!-- end katex -->
+	<entry> <!-- begin this-is-norway -->
+		<title>This is Norway</title>
+		<link href="http://alexey.shpakovsky.ru/en/this-is-norway.html"/>
+		<id>urn:uuid:a2ebbbe4-69e4-4dc9-831d-634eaef050f7</id>
+		<updated>2017-04-19T21:38:22+00:00</updated>
+		<published>2011-10-31T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A funny video about Norway and norwegians
+		</div></content>
+		<category term="norway"/>
+		<category term="fun"/>
+	</entry> <!-- end this-is-norway -->
+	<entry> <!-- begin everything-is-amazing-and-nobody-is-happy -->
+		<title>Everything Is Amazing And Nobody Is Happy</title>
+		<link href="http://alexey.shpakovsky.ru/en/everything-is-amazing-and-nobody-is-happy.html"/>
+		<id>urn:uuid:7802e499-6945-49d2-a0ee-4c8b326d15ba</id>
+		<updated>2017-04-19T15:18:20+00:00</updated>
+		<published>2015-10-04T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Good monologue about modern technology and our reaction on it
+		</div></content>
+		<category term="fun"/>
+	</entry> <!-- end everything-is-amazing-and-nobody-is-happy -->
+	<entry> <!-- begin rip-dennis-ritchie -->
+		<title>RIP Dennis Ritchie</title>
+		<link href="http://alexey.shpakovsky.ru/en/rip-dennis-ritchie.html"/>
+		<id>urn:uuid:04e73e76-124c-4a6e-a3de-031ff5af1ac9</id>
+		<updated>2017-04-19T15:12:02+00:00</updated>
+		<published>2011-10-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			One of creators of C programming language passed away today
+		</div></content>
+		<category term="history"/>
+	</entry> <!-- end rip-dennis-ritchie -->
+	<entry> <!-- begin cfengine-master-policy-framework-where-to-put-files -->
+		<title>CFEngine Master Policy Framework where to put files</title>
+		<link href="http://alexey.shpakovsky.ru/en/cfengine-master-policy-framework-where-to-put-files.html"/>
+		<id>urn:uuid:78036abc-a7f2-4066-b6bc-82d83551ced5</id>
+		<updated>2017-03-08T13:29:44+00:00</updated>
+		<published>2017-02-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			That was a google query I struggled to find answer to
+		</div></content>
+		<category term="cfengine"/>
+	</entry> <!-- end cfengine-master-policy-framework-where-to-put-files -->
+	<entry> <!-- begin tcomment -->
+		<title>TComment</title>
+		<link href="http://alexey.shpakovsky.ru/en/tcomment.html"/>
+		<id>urn:uuid:f6c9cd2e-9575-45b8-8b43-a3cd17974879</id>
+		<updated>2017-02-10T18:01:16+00:00</updated>
+		<published>2017-02-10T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			vim plugin for easy commenting
+		</div></content>
+		<category term="vim"/>
+		<category term="links"/>
+	</entry> <!-- end tcomment -->
+	<entry> <!-- begin how-i-started-working-at-cfengine -->
+		<title>How I started working at CFEngine</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-i-started-working-at-cfengine.html"/>
+		<id>urn:uuid:16b61c38-269a-46b2-b8f8-cb52766a4e3b</id>
+		<updated>2017-02-09T07:10:00+00:00</updated>
+		<published>2017-02-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Soon after change of owner in Opera, just another round of layoffs rolled through the company, this time affecting also me.
+		</div></content>
+		<category term="life"/>
+		<category term="cfengine"/>
+	</entry> <!-- end how-i-started-working-at-cfengine -->
+	<entry> <!-- begin security-dream -->
+		<title>Security dream</title>
+		<link href="http://alexey.shpakovsky.ru/en/security-dream.html"/>
+		<id>urn:uuid:edc1692a-0579-479c-b58f-7f1c1d04f66e</id>
+		<updated>2016-12-14T11:43:28+00:00</updated>
+		<published>2015-01-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			I had a dream. A nightmare, actually.
+		</div></content>
+		<category term="security"/>
+		<category term="life"/>
+	</entry> <!-- end security-dream -->
+	<entry> <!-- begin burying-an-old-friend -->
+		<title>Burying an old friend</title>
+		<link href="http://alexey.shpakovsky.ru/en/burying-an-old-friend.html"/>
+		<id>urn:uuid:cc80b5b5-147d-4c0a-90d9-15d6aa0addad</id>
+		<updated>2016-12-14T11:42:45+00:00</updated>
+		<published>2016-06-25T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Today I've accompanied my old friend on his last journey.
+		</div></content>
+		<category term="life"/>
+	</entry> <!-- end burying-an-old-friend -->
+	<entry> <!-- begin check-for-running-opera-on-windows -->
+		<title>Check for running Opera on Windows</title>
+		<link href="http://alexey.shpakovsky.ru/en/check-for-running-opera-on-windows.html"/>
+		<id>urn:uuid:193d9b21-8396-4260-a107-0106b0e6ec35</id>
+		<updated>2016-12-12T09:40:01+00:00</updated>
+		<published>2013-09-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Currently (Opera 15-18), when you start Opera on Windows, it spawns itself again and terminates the process you started — so you can't easily wait until the Opera you've started quit. Or can you?
+		</div></content>
+		<category term="opera"/>
+		<category term="python"/>
+		<category term="windows"/>
+	</entry> <!-- end check-for-running-opera-on-windows -->
+	<entry> <!-- begin bash-progress-bar -->
+		<title>Progress bar in bash</title>
+		<link href="http://alexey.shpakovsky.ru/en/bash-progress-bar.html"/>
+		<id>urn:uuid:434235ad-4cb0-45b1-95b9-197744330d3c</id>
+		<updated>2016-12-12T08:55:25+00:00</updated>
+		<published>2016-04-07T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			one-line bash function to draw a nice progress bar
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end bash-progress-bar -->
+	<entry> <!-- begin dos-games-in-your-browser -->
+		<title>DOS games in your browser</title>
+		<link href="http://alexey.shpakovsky.ru/en/dos-games-in-your-browser.html"/>
+		<id>urn:uuid:62d30b81-63c1-4784-ba8b-6455e5f78add</id>
+		<updated>2016-12-11T17:29:30+00:00</updated>
+		<published>2015-01-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Classic which can never be forgotten is just few clicks away.
+		</div></content>
+		<category term="games"/>
+	</entry> <!-- end dos-games-in-your-browser -->
+	<entry> <!-- begin block-spam-from-subdomains -->
+		<title>Block spam from subdomains</title>
+		<link href="http://alexey.shpakovsky.ru/en/block-spam-from-subdomains.html"/>
+		<id>urn:uuid:85ea0821-d178-4def-860d-4183b6cc2dd1</id>
+		<updated>2016-12-11T17:28:25+00:00</updated>
+		<published>2015-10-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you have a domain and don't want to be blocked for sending spam.
+		</div></content>
+		<category term="e-mail"/>
+	</entry> <!-- end block-spam-from-subdomains -->
+	<entry> <!-- begin adjusting-time -->
+		<title>Adjusting time</title>
+		<link href="http://alexey.shpakovsky.ru/en/adjusting-time.html"/>
+		<id>urn:uuid:a0b1470e-543e-4536-bfce-be5bdbd814f2</id>
+		<updated>2016-12-11T17:25:59+00:00</updated>
+		<published>2015-10-25T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			What do I think about it and how I'd like it to be.
+		</div></content>
+		<category term="politics"/>
+	</entry> <!-- end adjusting-time -->
+	<entry> <!-- begin ze-drem -->
+		<title>Ze Drem</title>
+		<link href="http://alexey.shpakovsky.ru/en/ze-drem.html"/>
+		<id>urn:uuid:e9373e81-3a9a-4b91-b0ba-05c96e3e72c7</id>
+		<updated>2016-12-11T17:17:53+00:00</updated>
+		<published>2009-09-26T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			EuroEnglish - Ze drem vil finali kum tru!
+		</div></content>
+		<category term="fun"/>
+	</entry> <!-- end ze-drem -->
+	<entry> <!-- begin conditional-formatting-in-python -->
+		<title>Conditional formatting in Python</title>
+		<link href="http://alexey.shpakovsky.ru/en/conditional-formatting-in-python.html"/>
+		<id>urn:uuid:3099ed35-85f1-4586-b567-ee72b4a4b5db</id>
+		<updated>2016-12-11T17:15:50+00:00</updated>
+		<published>2014-02-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Greately inspired by $if(...) conditions in Winamp Advanced Title Formatting, I wanted to add something like this to Python.
+		</div></content>
+		<category term="python"/>
+	</entry> <!-- end conditional-formatting-in-python -->
+	<entry> <!-- begin redirecting-custom-file-descriptor-to-subprocess -->
+		<title>Redirecting custom file descriptor to subprocess</title>
+		<link href="http://alexey.shpakovsky.ru/en/redirecting-custom-file-descriptor-to-subprocess.html"/>
+		<id>urn:uuid:d2f53879-374a-44ab-bcf4-bbae8894ffbb</id>
+		<updated>2016-12-11T17:13:44+00:00</updated>
+		<published>2016-09-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			TL;DR: 3> >(command)
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end redirecting-custom-file-descriptor-to-subprocess -->
+	<entry> <!-- begin reducing-jpg-file-size -->
+		<title>Reducing JPG File size</title>
+		<link href="http://alexey.shpakovsky.ru/en/reducing-jpg-file-size.html"/>
+		<id>urn:uuid:9e5c709f-851a-4104-9de9-9bde5c3afc9e</id>
+		<updated>2016-12-11T17:11:00+00:00</updated>
+		<published>2016-05-04T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			An interesting article on how to save space and bandwidth
+		</div></content>
+		<category term="net"/>
+		<category term="links"/>
+	</entry> <!-- end reducing-jpg-file-size -->
+	<entry> <!-- begin sed-cheatsheet -->
+		<title>sed cheatsheet</title>
+		<link href="http://alexey.shpakovsky.ru/en/sed-cheatsheet.html"/>
+		<id>urn:uuid:aa180e7a-a0d2-47eb-9174-a518f7f6829e</id>
+		<updated>2016-12-11T17:10:08+00:00</updated>
+		<published>2015-10-30T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A helpful guide to a simple programming language I still don't comprehend
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end sed-cheatsheet -->
+	<entry> <!-- begin minicodeeditor-jsfiddle-in-as-few-bytes-as-possible -->
+		<title>MiniCodeEditor: jsFiddle in as few bytes as possible</title>
+		<link href="http://alexey.shpakovsky.ru/en/minicodeeditor-jsfiddle-in-as-few-bytes-as-possible.html"/>
+		<id>urn:uuid:352ff356-c140-48f9-80f9-644a426fc09e</id>
+		<updated>2016-12-11T17:09:52+00:00</updated>
+		<published>2014-01-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			probably you've already heard about MiniCodeEditor — jsFiddle implementation in 161+ bytes. Below is my addition to that jsgolf
+		</div></content>
+		<category term="javascript"/>
+	</entry> <!-- end minicodeeditor-jsfiddle-in-as-few-bytes-as-possible -->
+	<entry> <!-- begin incremental-backups -->
+		<title>Incremental backups</title>
+		<link href="http://alexey.shpakovsky.ru/en/incremental-backups.html"/>
+		<id>urn:uuid:b035e95b-9908-4ccb-a0b4-380d01e31e91</id>
+		<updated>2016-09-26T14:36:49+00:00</updated>
+		<published>2014-06-17T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How I organised backups of my machine
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end incremental-backups -->
+	<entry> <!-- begin fanlesstech -->
+		<title>FanlessTech</title>
+		<link href="http://alexey.shpakovsky.ru/en/fanlesstech.html"/>
+		<id>urn:uuid:ccbb5bdd-37fe-4c97-95bc-3feeceedcf41</id>
+		<updated>2016-09-06T14:32:07+00:00</updated>
+		<published>2014-05-30T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			FanlessTech.com – a website about fanless computers
+		</div></content>
+		<category term="links"/>
+	</entry> <!-- end fanlesstech -->
+	<entry> <!-- begin xp-games -->
+		<title>XP games</title>
+		<link href="http://alexey.shpakovsky.ru/en/xp-games.html"/>
+		<id>urn:uuid:01788c87-f3ae-4bd3-a1f7-03d5c3dd6b8f</id>
+		<updated>2016-09-06T14:21:38+00:00</updated>
+		<published>2014-08-18T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A webpage with a list of free games for Windows
+		</div></content>
+		<category term="links"/>
+		<category term="games"/>
+		<category term="windows"/>
+	</entry> <!-- end xp-games -->
+	<entry> <!-- begin how-to-win-at-monopoly-and-lose-all-your-friends -->
+		<title>How to Win at Monopoly and Lose All Your Friends</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-win-at-monopoly-and-lose-all-your-friends.html"/>
+		<id>urn:uuid:d8e3be32-e583-4770-bb01-55f9af9eb84b</id>
+		<updated>2016-08-23T14:27:43+00:00</updated>
+		<published>2016-01-17T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			An interesting article at imgur.net
+		</div></content>
+		<category term="links"/>
+	</entry> <!-- end how-to-win-at-monopoly-and-lose-all-your-friends -->
+	<entry> <!-- begin careceo -->
+		<title>careceo</title>
+		<link href="http://alexey.shpakovsky.ru/en/careceo.html"/>
+		<id>urn:uuid:44b33b92-f11c-4884-8f6f-f70aadeff11b</id>
+		<updated>2016-06-24T16:36:16+00:00</updated>
+		<published>2014-10-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			These are the guys who are spamming me the most.
+		</div></content>
+		<category term="e-mail"/>
+	</entry> <!-- end careceo -->
+	<entry> <!-- begin bash-on-bash -->
+		<title>Bash on Bash</title>
+		<link href="http://alexey.shpakovsky.ru/en/bash-on-bash.html"/>
+		<id>urn:uuid:81f722c7-ae8c-44ab-9f58-e03ea681984f</id>
+		<updated>2016-06-16T07:59:55+00:00</updated>
+		<published>2014-03-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Started using new programming language, I feel irritated and want to blog about it :)
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end bash-on-bash -->
+	<entry> <!-- begin dovecot-default-email-order -->
+		<title>Dovecot default email order</title>
+		<link href="http://alexey.shpakovsky.ru/en/dovecot-default-email-order.html"/>
+		<id>urn:uuid:bdf5f2d1-8302-43a3-a101-ce8fd635d22b</id>
+		<updated>2016-06-16T07:49:28+00:00</updated>
+		<published>2014-08-27T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to change it, if it matters
+		</div></content>
+		<category term="e-mail"/>
+	</entry> <!-- end dovecot-default-email-order -->
+	<entry> <!-- begin nationstates-make-a-country-of-your-dreams -->
+		<title>NationStates - make a country of your dreams</title>
+		<link href="http://alexey.shpakovsky.ru/en/nationstates-make-a-country-of-your-dreams.html"/>
+		<id>urn:uuid:86bc46a5-1940-4bf8-a21f-053830680631</id>
+		<updated>2015-11-04T00:45:47+00:00</updated>
+		<published>2015-11-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			I'd like to add "...and live in it", but it's only a game, so it's more like "...and dream of it"
+		</div></content>
+		<category term="politics"/>
+		<category term="links"/>
+	</entry> <!-- end nationstates-make-a-country-of-your-dreams -->
+	<entry> <!-- begin the-flat-earth-society -->
+		<title>The Flat Earth Society</title>
+		<link href="http://alexey.shpakovsky.ru/en/the-flat-earth-society.html"/>
+		<id>urn:uuid:3e9fcf3d-51d6-459e-9f9d-c9845613dcd6</id>
+		<updated>2015-01-08T11:59:33+00:00</updated>
+		<published>2014-08-18T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How much can you tease your brain?
+		</div></content>
+		<category term="fun"/>
+		<category term="links"/>
+	</entry> <!-- end the-flat-earth-society -->
+	<entry> <!-- begin how-to-delete-a-line-from-a-file -->
+		<title>How to delete a line from a file</title>
+		<link href="http://alexey.shpakovsky.ru/en/how-to-delete-a-line-from-a-file.html"/>
+		<id>urn:uuid:c04cacbc-74d4-478b-a131-b5a3da871aa6</id>
+		<updated>2014-12-15T18:14:20+00:00</updated>
+		<published>2014-12-15T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you know what line to delete...
+		</div></content>
+		<category term="bash"/>
+		<category term="vim"/>
+	</entry> <!-- end how-to-delete-a-line-from-a-file -->
+	<entry> <!-- begin gapminder -->
+		<title>Gapminder</title>
+		<link href="http://alexey.shpakovsky.ru/en/gapminder.html"/>
+		<id>urn:uuid:beb95c2d-b130-400c-bc57-6e08a7912fe5</id>
+		<updated>2014-10-26T00:47:16+00:00</updated>
+		<published>2013-11-27T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Explore data about all countries in the world since 1800
+		</div></content>
+		<category term="links"/>
+	</entry> <!-- end gapminder -->
+	<entry> <!-- begin paste-and-replace-in-vim -->
+		<title>Paste and replace in Vim</title>
+		<link href="http://alexey.shpakovsky.ru/en/paste-and-replace-in-vim.html"/>
+		<id>urn:uuid:178b034f-6f64-43a0-9284-9f194835ed7d</id>
+		<updated>2013-01-16T11:28:00+00:00</updated>
+		<published>2013-01-16T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to copy-paste text from one place to another, replacing what's already there
+		</div></content>
+		<category term="vim"/>
+	</entry> <!-- end paste-and-replace-in-vim -->
+</feed>

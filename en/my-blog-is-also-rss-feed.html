@@ -1,0 +1,162 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="http://alexey.shpakovsky.ru/en/my-blog-is-also-rss-feed.html">
+<title>My blog is also its own RSS feed</title>
+<meta name="description" content="On the main page of this blog (which lists all posts), right-click an empty place and select View Page Source (Ctrl+U). What do you see? An RSS feed! (or, rather, it's technically an Atom feed, but who actually cares) But how? And... Why?!..">
+<style>
+html {color-scheme: light dark}
+@view-transition { navigation: auto; }
+body {
+	margin: auto;
+	max-width: 80ex;
+	text-align: justify;
+	hyphens: auto;
+	padding: 1ex; /* for 📱 users*/
+}
+header a, footer a, small a {color: inherit !important} /* linktext */
+blockquote {border-left:solid 3px gray;margin-left:1em;padding-left:1em}
+.footnotes {border-top: 1px solid #8888;font-size:smaller} 
+</style>
+</head><body>
+<header>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:macos-autologin-password-title">My blog is also its own RSS feed</span></h1>
+	<small style="display:block; view-transition-name:my-blog-is-also-rss-feed-small">
+		Created: <time>2024-12-23</time> &mdash; modified: <time>2024-12-25</time> &mdash;
+		tags: <a href="./#tag:meta">meta</a>
+	</small>
+	<hr>
+</header>
+<main>
+	<p class="intro" style="view-transition-name:my-blog-is-also-rss-feed-intro"><img src="//alexey.shpakovsky.ru/en/my-blog-is-also-rss-feed.png" style="float:right; margin-left:1ex"/>On the main page of this blog (which lists all posts), right-click an empty place and select "View Page Source (Ctrl+U)". What do you see? An RSS feed! (or, rather, it's technically an Atom feed, but who actually cares) But how? And... Why?!..</p>
+<p>Apparently, it's possible to style RSS feed to look nicer than a raw XML when opened in a browser.
+To do so, you need to use a thing called XSLT - eXtensible Stylesheet Language Transformation.
+Basically, it's an XML document which explains how to transform one document (usually XML) into another one - for example, HTML.</p>
+<p>W3schools has a simple <a href="https://www.w3schools.com/xml/xsl_transformation.asp">example</a> of transforming an XML (in that example, some CD disc database) to an HTML.
+Another simple example is <a href="https://github.com/genmon/aboutfeeds/blob/main/tools/pretty-feed-v3.xsl">this</a> XSLT stylesheet for RSS 2.0 from author of aboutfeeds.com,
+which I saw used on more than one website.</p>
+<p>But wait a second: RSS feed is a list of posts, with short summaries and links to original pages,
+but main page of my blog is <em>also</em> a list of posts with short summaries and links to original pages...
+So can't beautified RSS feed serve as main page of my blog, too?</p>
+<blockquote>
+<p><strong>NOTE that</strong> here I use term &quot;RSS&quot; in two ways:</p>
+<ul>
+<li>When I say &quot;RSS feed&quot;, I'm talking about a general idea of website posting updates in a standardized, computer-readable format, <em>no matter what</em> exact format.</li>
+<li>When I say &quot;RSS 2.0&quot;, I'm talking about the <a href="https://www.rssboard.org/rss-specification">specific format</a> in which these updates are posted.</li>
+</ul>
+<p>Probably that's because I remember when RSS <a href="https://press.opera.com/2004/05/12/the-most-innovative-browser-opera-7-50-released-everything-you-need-online/">first appeared</a> in my browser,
+and since then the term got <a href="https://en.wikipedia.org/wiki/Generic_trademark">genericized</a> in my mind
+and started meaning not the specific technology but a general idea.</p>
+</blockquote>
+<p>And after looking through <a href="https://darekkay.com/assets/xsl/rss-style.xsl">some</a> of more <a href="https://chrismorgan.info/atom.xsl" title="search for `00:00:00` in this one, for some XSLT fun">complex</a> examples
+and <a href="https://news.ycombinator.com/item?id=26167248#26169162">Hacker News comments</a>,
+I decided to go with Atom feed format instead of RSS 2.0,
+primarily for two reasons:</p>
+<ul>
+<li>it has a nicer format of dates, which is close to what I already use,</li>
+<li>it has a place for extra feed links, where I can put my &quot;you may also like my&quot; links,</li>
+</ul>
+<p>and also because of the above comment mentioning that Atom is better specified
+and has a place to put (X)HTML into it, while RSS 2.0 is relying on feed reader's interpretation.
+So I loaded up <a href="https://datatracker.ietf.org/doc/html/rfc4287">Atom spec</a> in one tab,
+Mozilla's <a href="https://developer.mozilla.org/en-US/docs/Web/XSLT">XSLT reference</a> in another, and started hacking.</p>
+<p>I thought it will take me two hours.
+But it actually took me not two, but three.
+And not hours, but days!<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup>  😅</p>
+<p>Also worth noting that XSLT has some features that make some Javascript parts of lazyblog redundant.
+Like, you probably would expect XSLT to have <a href="https://developer.mozilla.org/en-US/docs/Web/XSLT/Element/for-each"><code>&lt;xsl:for-each&gt;</code></a> tag
+to walk through all child elements of some element.
+But it also has <a href="https://developer.mozilla.org/en-US/docs/Web/XSLT/Element/sort"><code>&lt;xsl:sort&gt;</code></a> tag (w3schools has a nice <a href="https://www.w3schools.com/xml/xsl_sort.asp">example</a> for it),
+which makes Javascript-powered sorting redundant.
+Together with <a href="https://developer.mozilla.org/en-US/docs/Web/XSLT/Element/if"><code>&lt;xsl:if&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/XSLT/Element/choose"><code>&lt;xsl:choose&gt;</code></a>,
+and with a bunch of <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions">functions for string manupulation</a>,
+this can replace filtering and maybe even search...
+If only browsers had a feature to pass query parameters to XSLT templates!
+Then I could probably use XSLT for everything and stop using javascript entirely.
+But oh well, looks like browser support for XSLT is indeed limited to being &quot;static&quot;
+and simply processing server responses,
+while dynamic parts require Javascript or server-side scripting...
+But where's fun in that?</p>
+<p>And here's the result - visually it's totally indistinguishable from the <a href="my-blog-is-also-rss-feed.htm">previous version</a><sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup>!
+Apart from the &quot;Last update&quot; timestamp in top-right corner...
+That's because Atom feed spec <strong>requires</strong> feed to include an &quot;updated&quot; timestamp
+(presumably for readers to stop processsing a feed if it didn't change),
+so I had to add the feature of updating the last built timestamp to lazyblog...
+But then, why not show it in HTML, too?
+It adds a bit of anxiety, though:
+now I know that I can't do some change quietly,
+hoping that none will notice it -
+this timestamp will tell everyone that <em>something</em> changed there recently...
+And for those who check my blog regularly
+(let's pretend there are people like this):
+they will also see it as &quot;<em>something</em> changed since your last visit&quot;,
+but might not see what exactly, and left wondering what they missed...
+The only people who <em>might</em> benefit from it are those who
+use actual RSS feed reader programs, because these programs might highlight the modified entries to them.</p>
+<p>The only thing that I don't like is that in <a href="https://github.com/Lex-2008/lazyblog/blob/0f6bda9092222b121cf09efe99fccfba5bf78677/.index-template.html">previous version</a>,
+index template page was a 70-lines file, almost completely &quot;plain HTML&quot;, with just some <code>$template_placeholders</code>,
+while in new version this HTML is smeared among 300 lines of XML...
+But oh well, what can we do?
+XSLT also supports <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/document"><code>document()</code></a> function to load and parse an external document,
+which I already use to support different languages,
+so maybe I could use <strong>that</strong> to load one more file -an XHTML template,
+and then XSLT &quot;program&quot; will simply fill placeholders inside it?..
+Too bad there are no built-in template manipulation functions in XSLT.
+Even Linux command line <a href="https://man7.org/linux/man-pages/man1/envsubst.1.html">has it</a>!
+Although since 2003, according to Copyright note in the above page,
+while XSLT 1.0 (the latest version supported by web browsers),
+according to <a href="https://www.w3.org/TR/xslt-10/">this page</a>,
+was finalized in 1999,
+so someone might argue that XSLT <em>predates</em> <code>envvsubst</code>, and my argument is wrong,
+but come on! XSLT is <em>itself</em> a templating language!</p>
+<p>Would I recommend anyone to do the same?
+Not sure :-)
+I would advice you to read through <a href="https://news.ycombinator.com/item?id=36401854#36403649">this comment</a> first
+(note the comment is from 2023,
+and author of that comment also created a XSL stylesheet which I linked before -
+it is both bigger and more advanced than mine,
+so his opinion on this subject should be worth listening even more than mine),
+and then I can confirm that in 2024 I've seen it all, too:
+Firefox tab freezing if Dev Tools are open,
+Chrome being more &quot;picky&quot; (or, rather, strict) about XSLT errors and printing them to terminal<sup class="footnote-ref"><a href="#fn3" id="fnref3">3</a></sup>,
+but also Chrome inserting two <code>&lt;br&gt;</code> elements when asked for one and
+having serious performance issues once, until restarted<sup class="footnote-ref"><a href="#fn4" id="fnref4">4</a></sup>.</p>
+<p>And yes, debugging indeed feels like back in early 2000s:
+<code>printf</code> debugging, whole page being blank in case of a single mistake <em>somewhere</em>...
+So quite often I ended up deleting chunks of XSLT stylesheet
+using binary search to find where the error was.</p>
+<p>Also, turns out, I'm not <a href="https://curiosity-driven.org/">the first one</a> to have RSS feed as the main page!</p>
+<section class="footnotes">
+<ol>
+<li id="fn1">
+<p>and then more than a whole day to write this blog post <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2">
+<p>previous version preserved here just for reference, won't be updated in a future. <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn3">
+<p>Actually, because of this, I found it easier to test using Chrome during development,
+because &quot;what works in Chrome will likely work in Firefox, too&quot;
+(but not always the other way around), but also
+because unlike Firefox, Chrome printed these errors <em>at least somewhere</em>!
+Although I must admit I didn't try starting Firefox from terminal. <a href="#fnref3" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn4">
+<p>Chrome performance issues might be related to the fact that
+just before that I changed screen scaling back from 125% to 100%
+in display settings, while running under Wayland.
+Firefox picked up the change instantly, while Chrome was still at 125% scale until restart,
+so something is definitely different between them. <a href="#fnref4" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</main>
+<footer style="text-align: center">
+	<hr>
+	<p>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
+		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
+		<a href="./">show all posts</a> &mdash;
+		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
+	</p>
+</footer>
+</body></html>

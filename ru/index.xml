@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?lazyblog-url /lazyblog?>
+<?xml-stylesheet href="/lazyblog/atom2html.xsl" type="text/xml"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ru">
+	<title>Заметки</title>
+	<subtitle>Записи о разном</subtitle>
+	<updated>2024-12-23T19:20:03+00:00</updated>
+	<id>http://alexey.shpakovsky.ru/ru</id>
+	<link rel="self" href="http://alexey.shpakovsky.ru/ru/"/>
+	<link rel="related" href="http://alexey.shpakovsky.ru/en/" title="мой англоязычный блог"/>
+	<link rel="related" href="http://alexey.shpakovsky.ru/photos/ru.html" title="фото-архив"/>
+	<link rel="related" href="https://github.com/Lex-2008/" title="GitHub"/>
+	<author>
+		<name>Алексей Шпаковский</name>
+		<uri>http://alexey.shpakovsky.ru/</uri>
+	</author>
+	<rights>CC BY (Creative Commons С указанием авторства 4.0 Международная) https://creativecommons.org/licenses/by/4.0/</rights>
+	<generator uri="https://github.com/lex-2008/lazyblog">Lazyblog</generator>
+	<!-- put contents below -->
+	<entry> <!-- begin office-20072013-vygladit-kak-office-2003xp -->
+		<title>Office 2007/2013 выглядит как Office 2003/XP</title>
+		<link href="http://alexey.shpakovsky.ru/ru/office-20072013-vygladit-kak-office-2003xp.html"/>
+		<id>urn:uuid:1a1191d6-3851-4286-9ec6-33e862a74c13</id>
+		<updated>2024-12-23T19:20:03+00:00</updated>
+		<published>2009-09-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Добавление "классической" панели инструментов (Office 2003/XP) в Office 2007
+		</div></content>
+		<category term="office"/>
+	</entry> <!-- end office-20072013-vygladit-kak-office-2003xp -->
+	<entry> <!-- begin пирожки-20-минут-с-яйцом-и-капустой -->
+		<title>Пирожки «20 минут» с яйцом и капустой</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43f%438%440%43e%436%43a%438-20-%43c%438%43d%443%442-%441-%44f%439%446%43e%43c-%438-%43a%430%43f%443%441%442%43e%439.html"/>
+		<id>urn:uuid:ef0acd95-0836-4519-ab47-fd95fd7492ee</id>
+		<updated>2024-12-05T14:41:18+00:00</updated>
+		<published>2015-07-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Вкусные даже когда остынут
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end пирожки-20-минут-с-яйцом-и-капустой -->
+	<entry> <!-- begin как-исправить-перспективу-в-фотошопе -->
+		<title>Как исправить перспективу в фотошопе</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43a%430%43a-%438%441%43f%440%430%432%438%442%44c-%43f%435%440%441%43f%435%43a%442%438%432%443-%432-%444%43e%442%43e%448%43e%43f%435.html"/>
+		<id>urn:uuid:02a921db-a723-466f-80b9-fe22be621aa5</id>
+		<updated>2024-08-13T08:22:10+00:00</updated>
+		<published>2012-09-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Оказывается просто!
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end как-исправить-перспективу-в-фотошопе -->
+	<entry> <!-- begin план-даллеса-и-коммунистические-правила-революции -->
+		<title>"План Даллеса" и "Коммунистические правила революции"</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43f%43b%430%43d-%434%430%43b%43b%435%441%430-%438-%43a%43e%43c%43c%443%43d%438%441%442%438%447%435%441%43a%438%435-%43f%440%430%432%438%43b%430-%440%435%432%43e%43b%44e%446%438%438.html"/>
+		<id>urn:uuid:b1c09797-2638-4f6b-9164-6dfe47123e16</id>
+		<updated>2023-04-10T09:06:07+00:00</updated>
+		<published>2022-07-26T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Зеркальные теории заговора
+		</div></content>
+		<category term="журналюги"/>
+	</entry> <!-- end план-даллеса-и-коммунистические-правила-революции -->
+	<entry> <!-- begin windows-93 -->
+		<title>Windows 93</title>
+		<link href="http://alexey.shpakovsky.ru/ru/windows-93.html"/>
+		<id>urn:uuid:8b1d16e2-b078-4624-afa1-48c96419e2b7</id>
+		<updated>2023-04-10T09:02:48+00:00</updated>
+		<published>2014-10-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			HTML-пародия на операционную систему, которая была популярна когда мы были молоды и Интернет был в новинку
+		</div></content>
+		<category term="юмор"/>
+		<category term="ссылки"/>
+	</entry> <!-- end windows-93 -->
+	<entry> <!-- begin летающий-автомобиль -->
+		<title>Летающий автомобиль</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43b%435%442%430%44e%449%438%439-%430%432%442%43e%43c%43e%431%438%43b%44c.html"/>
+		<id>urn:uuid:56fa39a8-cd28-45bf-b92d-922df80eb230</id>
+		<updated>2023-04-10T08:59:51+00:00</updated>
+		<published>2014-10-29T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Что я думаю о подобных гибридах
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end летающий-автомобиль -->
+	<entry> <!-- begin о-чем-писать-в-блоге -->
+		<title>О чем писать в блоге</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43e-%447%435%43c-%43f%438%441%430%442%44c-%432-%431%43b%43e%433%435.html"/>
+		<id>urn:uuid:6d83708d-6f44-4d41-bc9e-1fae27a08b67</id>
+		<updated>2023-03-08T09:33:15+00:00</updated>
+		<published>2015-04-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Полезные ссылки, как развивать блог, будучи полезным
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end о-чем-писать-в-блоге -->
+	<entry> <!-- begin кабелеукладчик -->
+		<title>Кабелеукладчик</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43a%430%431%435%43b%435%443%43a%43b%430%434%447%438%43a.html"/>
+		<id>urn:uuid:3cc21294-30b4-4f7f-afda-0a7af077ac1c</id>
+		<updated>2022-11-06T00:17:35+00:00</updated>
+		<published>2009-06-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Рассказ о пользе собак модели "Такса"
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end кабелеукладчик -->
+	<entry> <!-- begin robots -->
+		<title>Только роботы</title>
+		<link href="http://alexey.shpakovsky.ru/ru/robots.html"/>
+		<id>urn:uuid:607923de-dfa6-4b8e-ba97-58b44394fd8a</id>
+		<updated>2022-11-02T01:02:34+00:00</updated>
+		<published>2023-04-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Доступ только для роботов
+		</div></content>
+		<category term="юмор"/>
+		<category term="тест"/>
+	</entry> <!-- end robots -->
+	<entry> <!-- begin все-видео-анчи-барановой -->
+		<title>Все видео Анчи Барановой</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%432%441%435-%432%438%434%435%43e-%430%43d%447%438-%431%430%440%430%43d%43e%432%43e%439.html"/>
+		<id>urn:uuid:6a56c927-db54-429c-a0cc-4e10ca04b5af</id>
+		<updated>2022-10-23T12:03:47+00:00</updated>
+		<published>2022-10-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			С описаниями и таймкодами, если есть в описании.
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end все-видео-анчи-барановой -->
+	<entry> <!-- begin чья-правда-правее -->
+		<title>Чья правда правее?</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%447%44c%44f-%43f%440%430%432%434%430-%43f%440%430%432%435%435.html"/>
+		<id>urn:uuid:f644d98d-9be3-476b-9ddf-23751b86f69f</id>
+		<updated>2022-07-30T21:59:55+00:00</updated>
+		<published>2014-07-30T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Меня всегда интересовал вопрос: что будет, если в двух (разных) газетах появится одна и та же статья, но с диаметрально перевернутыми мнениями?
+		</div></content>
+		<category term="журналюги"/>
+	</entry> <!-- end чья-правда-правее -->
+	<entry> <!-- begin хотентоты -->
+		<title>Хотентоты</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%445%43e%442%435%43d%442%43e%442%44b.html"/>
+		<id>urn:uuid:417fe2df-b450-4e89-9cbf-848ecf52e750</id>
+		<updated>2022-07-30T21:13:20+00:00</updated>
+		<published>2011-10-04T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Hемецкий язык - относительно легкий...
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end хотентоты -->
+	<entry> <!-- begin интересная-теория-по-фильму-назад-в-будущее -->
+		<title>Интересная теория по фильму "Назад в Будущее"</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%438%43d%442%435%440%435%441%43d%430%44f-%442%435%43e%440%438%44f-%43f%43e-%444%438%43b%44c%43c%443-%43d%430%437%430%434-%432-%431%443%434%443%449%435%435.html"/>
+		<id>urn:uuid:c04f9f74-c825-4509-aed4-da80a845a8dd</id>
+		<updated>2022-03-17T10:26:02+00:00</updated>
+		<published>2017-09-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			"А в действительности всё было совсем не так, как на самом деле"
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end интересная-теория-по-фильму-назад-в-будущее -->
+	<entry> <!-- begin дефрагментация-ssd -->
+		<title>Дефрагментация SSD</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%434%435%444%440%430%433%43c%435%43d%442%430%446%438%44f-ssd.html"/>
+		<id>urn:uuid:40f6c90c-5cad-4aea-879d-7c38ed279c88</id>
+		<updated>2021-11-29T18:35:53+00:00</updated>
+		<published>2021-11-27T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как дефрагментировать диск, если система считает его SSD
+		</div></content>
+		<category term="программы"/>
+	</entry> <!-- end дефрагментация-ssd -->
+	<entry> <!-- begin лицензионный-достоевский -->
+		<title>Лицензионный Достоевский</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43b%438%446%435%43d%437%438%43e%43d%43d%44b%439-%434%43e%441%442%43e%435%432%441%43a%438%439.html"/>
+		<id>urn:uuid:b9257bd3-a383-407b-a36e-db29bd17a4a9</id>
+		<updated>2021-10-03T10:29:06+00:00</updated>
+		<published>2003-01-18T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			или конец эры бумажных книг.
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end лицензионный-достоевский -->
+	<entry> <!-- begin everything -->
+		<title>Everything</title>
+		<link href="http://alexey.shpakovsky.ru/ru/everything.html"/>
+		<id>urn:uuid:ff2fff5f-74e7-430b-9292-8f9e6320d586</id>
+		<updated>2021-07-15T16:50:39+00:00</updated>
+		<published>2009-11-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Моментальный поиск по диску
+		</div></content>
+		<category term="программы"/>
+	</entry> <!-- end everything -->
+	<entry> <!-- begin unlocker -->
+		<title>Unlocker</title>
+		<link href="http://alexey.shpakovsky.ru/ru/unlocker.html"/>
+		<id>urn:uuid:af87b8a0-bcd6-480e-b507-8e44a2f8f4f9</id>
+		<updated>2021-07-15T16:47:02+00:00</updated>
+		<published>2009-10-24T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Разблоктровать доступ к файлам
+		</div></content>
+		<category term="программы"/>
+	</entry> <!-- end unlocker -->
+	<entry> <!-- begin powerpro -->
+		<title>PowerPro</title>
+		<link href="http://alexey.shpakovsky.ru/ru/powerpro.html"/>
+		<id>urn:uuid:514a224d-cff9-4f91-b502-32635b08973e</id>
+		<updated>2021-07-15T16:44:38+00:00</updated>
+		<published>2009-09-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<p>многофункциональная утилита для Windows</p>
+		</div></content>
+		<category term="программы"/>
+	</entry> <!-- end powerpro -->
+	<entry> <!-- begin office-2003xp-otkryvaet-fajly-office-20072013 -->
+		<title>Office 2003/XP открывает файлы Office 2007/2013</title>
+		<link href="http://alexey.shpakovsky.ru/ru/office-2003xp-otkryvaet-fajly-office-20072013.html"/>
+		<id>urn:uuid:cf8eafac-eed8-43ea-83a4-d51167fbcdd2</id>
+		<updated>2021-07-15T16:36:36+00:00</updated>
+		<published>2009-09-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как открыть файлы новых форматов Office 2007 (*.docx, *.xlsx, *.pptx) в старом Office 2003/XP
+		</div></content>
+		<category term="office"/>
+	</entry> <!-- end office-2003xp-otkryvaet-fajly-office-20072013 -->
+	<entry> <!-- begin хакер-в-столовой -->
+		<title>Хакер и солонка</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%445%430%43a%435%440-%432-%441%442%43e%43b%43e%432%43e%439.html"/>
+		<id>urn:uuid:c0bf9721-96f4-4de8-a785-92cc61de55b8</id>
+		<updated>2021-06-26T21:16:22+00:00</updated>
+		<published>2006-05-29T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Хакеры против директора столовой, или безопасность против UX
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end хакер-в-столовой -->
+	<entry> <!-- begin если-бы-программисты-строили-дома -->
+		<title>Если бы программисты строили дома</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%435%441%43b%438-%431%44b-%43f%440%43e%433%440%430%43c%43c%438%441%442%44b-%441%442%440%43e%438%43b%438-%434%43e%43c%430.html"/>
+		<id>urn:uuid:1780e5f3-ff07-4de3-9069-fd499820f1d1</id>
+		<updated>2021-06-05T19:43:20+00:00</updated>
+		<published>2001-08-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Поможет понять не-айтишникам, почему глючат компы
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end если-бы-программисты-строили-дома -->
+	<entry> <!-- begin свобода-ххi-го-века -->
+		<title>СВОБОДА ххI-го ВЕКА</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%441%432%43e%431%43e%434%430-%445%445i-%433%43e-%432%435%43a%430.html"/>
+		<id>urn:uuid:c355a4f0-0138-401c-98f2-8dc30d728113</id>
+		<updated>2021-06-05T19:17:32+00:00</updated>
+		<published>2014-05-28T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			— Пиццерия GOOGLе, добрый день, слушаю вас!
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end свобода-ххi-го-века -->
+	<entry> <!-- begin ромео-и-джульетта-в-эпоху-коронавируса -->
+		<title>Ромео и Джульетта в эпоху коронавируса</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%440%43e%43c%435%43e-%438-%434%436%443%43b%44c%435%442%442%430-%432-%44d%43f%43e%445%443-%43a%43e%440%43e%43d%430%432%438%440%443%441%430.html"/>
+		<id>urn:uuid:1f188519-600f-447a-a387-c50b906c6d7b</id>
+		<updated>2021-06-05T18:19:23+00:00</updated>
+		<published>2020-03-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Шёл 12 год пандемии. Уже выросло первое поколение детей, никогда не видевших мир до карантина. Джульетта была как раз таким ребёнком - ровесницей пандемии. Ромео был её лишь немного старше, но любил рассказывать истории о докоронавирусных временах - когда по небу летали железные птицы, именуемые самолетами, а городские жители могли сесть в автомобиль или поезд и отправиться отдыхать на море. Джульетта с восторгом слушала эти рассказы, ведь она никогда не была на море.
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end ромео-и-джульетта-в-эпоху-коронавируса -->
+	<entry> <!-- begin иван-тропов -->
+		<title>Иван Тропов</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%438%432%430%43d-%442%440%43e%43f%43e%432.html"/>
+		<id>urn:uuid:10ecd23b-b9cd-47ba-ae9b-39efecbd3863</id>
+		<updated>2020-06-22T11:46:03+00:00</updated>
+		<published>2010-10-08T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Автор понравившихся мне книг "Цензор" и "Опаленная колыбель"
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end иван-тропов -->
+	<entry> <!-- begin ai -->
+		<title>Статьи про AI</title>
+		<link href="http://alexey.shpakovsky.ru/ru/ai.html"/>
+		<id>urn:uuid:e1ad3e2d-81b0-4a27-8120-76d22421c4ac</id>
+		<updated>2020-06-19T20:59:49+00:00</updated>
+		<published>2020-06-18T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как он (не) работает
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end ai -->
+	<entry> <!-- begin сказка-на-ночь -->
+		<title>Сказка на ночь</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%441%43a%430%437%43a%430-%43d%430-%43d%43e%447%44c.html"/>
+		<id>urn:uuid:5e5e4665-3999-45c7-a46c-4d5526ef3817</id>
+		<updated>2018-06-16T21:20:29+00:00</updated>
+		<published>2017-04-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Про калушат и бутявку
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end сказка-на-ночь -->
+	<entry> <!-- begin русская-рулетка-2-закрытые-планеты -->
+		<title>Русская Рулетка 2: Закрытые Планеты</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%440%443%441%441%43a%430%44f-%440%443%43b%435%442%43a%430-2-%437%430%43a%440%44b%442%44b%435-%43f%43b%430%43d%435%442%44b.html"/>
+		<id>urn:uuid:f3bb5368-625d-4a54-b7aa-8871fa6dfc27</id>
+		<updated>2017-06-18T19:39:55+00:00</updated>
+		<published>2015-04-09T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			"я стар и слаб, ты молод, силен и уверен в себе" - такими словами начинается эта игра.
+		</div></content>
+		<category term="игры"/>
+		<category term="ссылки"/>
+	</entry> <!-- end русская-рулетка-2-закрытые-планеты -->
+	<entry> <!-- begin бекапы -->
+		<title>Бекапы</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%431%435%43a%430%43f%44b.html"/>
+		<id>urn:uuid:bf607c07-4788-49cf-87c5-428097d53823</id>
+		<updated>2017-04-24T22:48:29+00:00</updated>
+		<published>2015-01-30T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как заранее обезопасить себя от непридвиденных ситуаций
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end бекапы -->
+	<entry> <!-- begin Ориентация_по_времени -->
+		<title>Ориентация по времени</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%41e%440%438%435%43d%442%430%446%438%44f_%43f%43e_%432%440%435%43c%435%43d%438.html"/>
+		<id>urn:uuid:67edaf17-eb9f-454b-8ed7-f5d858373f10</id>
+		<updated>2016-12-13T15:30:47+00:00</updated>
+		<published>2014-05-25T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как ориентироваться по солнцу без часов
+		</div></content>
+
+	</entry> <!-- end Ориентация_по_времени -->
+	<entry> <!-- begin citaty -->
+		<title>Цитаты</title>
+		<link href="http://alexey.shpakovsky.ru/ru/citaty.html"/>
+		<id>urn:uuid:b277c7eb-1eb3-4cd1-b0d3-01a7585f8c5c</id>
+		<updated>2016-12-13T07:15:58+00:00</updated>
+		<published>2010-04-07T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end citaty -->
+	<entry> <!-- begin что-изобрели-в-норвегии -->
+		<title>Что изобрели в Норвегии</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%447%442%43e-%438%437%43e%431%440%435%43b%438-%432-%43d%43e%440%432%435%433%438%438.html"/>
+		<id>urn:uuid:10ade6e0-781f-43a1-b1dc-6b247753e4a2</id>
+		<updated>2016-12-13T07:15:05+00:00</updated>
+		<published>2012-10-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			В Норвегии изобрели ООП. Ещё в 60х годах прошлого века. Во всём мире тогда царствовал ФОРТРАН.
+		</div></content>
+		<category term="норвегия"/>
+	</entry> <!-- end что-изобрели-в-норвегии -->
+	<entry> <!-- begin будни-норвежской-полиции -->
+		<title>Будни норвежской полиции</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%431%443%434%43d%438-%43d%43e%440%432%435%436%441%43a%43e%439-%43f%43e%43b%438%446%438%438.html"/>
+		<id>urn:uuid:2da3cc4f-5f51-4f1d-951c-4eddc5774651</id>
+		<updated>2016-12-13T07:08:53+00:00</updated>
+		<published>2014-06-08T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Сюжеты норвежского телешоу Nattpatruljen, описывающего работу ночной смены в полиции.
+		</div></content>
+		<category term="юмор"/>
+		<category term="норвегия"/>
+	</entry> <!-- end будни-норвежской-полиции -->
+	<entry> <!-- begin calendar-в-linux-и-русские-даты -->
+		<title>calendar в Linux и русские даты</title>
+		<link href="http://alexey.shpakovsky.ru/ru/calendar-%432-linux-%438-%440%443%441%441%43a%438%435-%434%430%442%44b.html"/>
+		<id>urn:uuid:e3936eca-a17b-4c44-ad32-d027baca9877</id>
+		<updated>2016-12-13T07:08:37+00:00</updated>
+		<published>2015-01-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Заметка об еще одной интересной, но забытой программе
+		</div></content>
+		<category term="linux"/>
+	</entry> <!-- end calendar-в-linux-и-русские-даты -->
+	<entry> <!-- begin кулич-пасхальный-простой -->
+		<title>Кулич пасхальный простой</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43a%443%43b%438%447-%43f%430%441%445%430%43b%44c%43d%44b%439-%43f%440%43e%441%442%43e%439.html"/>
+		<id>urn:uuid:38072853-6261-4d45-8a5e-8feb45cd6abc</id>
+		<updated>2016-12-13T07:06:59+00:00</updated>
+		<published>2015-04-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end кулич-пасхальный-простой -->
+	<entry> <!-- begin жесткие-диски -->
+		<title>Жесткие диски</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%436%435%441%442%43a%438%435-%434%438%441%43a%438.html"/>
+		<id>urn:uuid:4316f915-a20c-404f-841d-2eccdaf68562</id>
+		<updated>2016-12-13T07:06:36+00:00</updated>
+		<published>2015-04-14T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Подбор интересных сравнений, чтобы понять, какое это чудо техники
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end жесткие-диски -->
+	<entry> <!-- begin пироги-по-скандинавски-с-лососем-на-дрожжевом-тесте -->
+		<title>Пироги по-скандинавски с лососем на дрожжевом тесте</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43f%438%440%43e%433%438-%43f%43e-%441%43a%430%43d%434%438%43d%430%432%441%43a%438-%441-%43b%43e%441%43e%441%435%43c-%43d%430-%434%440%43e%436%436%435%432%43e%43c-%442%435%441%442%435.html"/>
+		<id>urn:uuid:3261a059-d309-4e7c-9afc-a82d9f59d840</id>
+		<updated>2016-12-13T07:04:59+00:00</updated>
+		<published>2015-05-24T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end пироги-по-скандинавски-с-лососем-на-дрожжевом-тесте -->
+	<entry> <!-- begin сладкое-постное-печенье -->
+		<title>Сладкое постное печенье</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%441%43b%430%434%43a%43e%435-%43f%43e%441%442%43d%43e%435-%43f%435%447%435%43d%44c%435.html"/>
+		<id>urn:uuid:434a886a-dc07-4b2e-9b1b-a54b9478c73a</id>
+		<updated>2016-12-13T07:03:59+00:00</updated>
+		<published>2015-07-05T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end сладкое-постное-печенье -->
+	<entry> <!-- begin оладьи-с-малиной -->
+		<title>Оладьи с малиной</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43e%43b%430%434%44c%438-%441-%43c%430%43b%438%43d%43e%439.html"/>
+		<id>urn:uuid:7d46fa5e-6c62-4623-850d-f661ff6ac447</id>
+		<updated>2016-12-13T07:03:02+00:00</updated>
+		<published>2015-07-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end оладьи-с-малиной -->
+	<entry> <!-- begin тест-войнаровского -->
+		<title>Тест Войнаровского</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%442%435%441%442-%432%43e%439%43d%430%440%43e%432%441%43a%43e%433%43e.html"/>
+		<id>urn:uuid:58827440-c45b-4536-b1ae-3496f4a274ea</id>
+		<updated>2016-12-13T07:02:07+00:00</updated>
+		<published>2015-11-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Называется тестом на логическое мышление, хотя у меня возникла сложность с пониманием точного значения использованных слов русского языка.
+		</div></content>
+		<category term="тест"/>
+	</entry> <!-- end тест-войнаровского -->
+	<entry> <!-- begin billettkontroll -->
+		<title>Billettkontroll</title>
+		<link href="http://alexey.shpakovsky.ru/ru/billettkontroll.html"/>
+		<id>urn:uuid:6029621e-963f-4412-87d1-4c70557bc208</id>
+		<updated>2016-12-12T19:32:40+00:00</updated>
+		<published>2016-02-19T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Сегодня у меня проверили билет на автобус.
+		</div></content>
+		<category term="норвегия"/>
+	</entry> <!-- end billettkontroll -->
+	<entry> <!-- begin brownies -->
+		<title>Brownies</title>
+		<link href="http://alexey.shpakovsky.ru/ru/brownies.html"/>
+		<id>urn:uuid:be28d659-9679-44b8-8e70-18d91329d0e7</id>
+		<updated>2016-09-09T12:39:52+00:00</updated>
+		<published>2015-06-07T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end brownies -->
+	<entry> <!-- begin облачное-видео -->
+		<title>Облачное видео</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43e%431%43b%430%447%43d%43e%435-%432%438%434%435%43e.html"/>
+		<id>urn:uuid:40b7aaae-bcf8-4c86-9890-922c0c0999ac</id>
+		<updated>2016-09-09T12:19:19+00:00</updated>
+		<published>2015-06-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="видео"/>
+	</entry> <!-- end облачное-видео -->
+	<entry> <!-- begin концерт -->
+		<title>Концерт</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43a%43e%43d%446%435%440%442.html"/>
+		<id>urn:uuid:ef28fac5-5afb-4d0f-8b0a-7cf9290a8188</id>
+		<updated>2016-09-09T11:55:28+00:00</updated>
+		<published>2016-04-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Сегодня нас пригласили на концерт и попросили поснимать.
+		</div></content>
+		<category term="видео"/>
+		<category term="норвегия"/>
+	</entry> <!-- end концерт -->
+	<entry> <!-- begin чушь -->
+		<title>Чушь</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%447%443%448%44c.html"/>
+		<id>urn:uuid:56e609c1-bce1-4ace-83d0-98498c41a410</id>
+		<updated>2016-09-06T15:35:50+00:00</updated>
+		<published>2014-09-17T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Что будет, если дать волю моему законотворческому воображению.
+		</div></content>
+		<category term="журналюги"/>
+	</entry> <!-- end чушь -->
+	<entry> <!-- begin perezagruzka -->
+		<title>Перезагрузка</title>
+		<link href="http://alexey.shpakovsky.ru/ru/perezagruzka.html"/>
+		<id>urn:uuid:9c3df012-7c42-4127-96ae-67dd0e259e16</id>
+		<updated>2016-09-06T15:35:19+00:00</updated>
+		<published>2014-04-01T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как показывал счетчик на старом сайте (не сохранился), последнее обновление на нём было 4 года назад. Пришло время что-то менять!
+		</div></content>
+
+	</entry> <!-- end perezagruzka -->
+	<entry> <!-- begin remontkapro -->
+		<title>remontka.pro</title>
+		<link href="http://alexey.shpakovsky.ru/ru/remontkapro.html"/>
+		<id>urn:uuid:2bd1c960-c87f-4526-bb50-a09472685ffc</id>
+		<updated>2016-09-06T15:31:00+00:00</updated>
+		<published>2014-08-18T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Хороший сайт с полезными советами.
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end remontkapro -->
+	<entry> <!-- begin постная-коврижка -->
+		<title>Постная коврижка</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43f%43e%441%442%43d%430%44f-%43a%43e%432%440%438%436%43a%430.html"/>
+		<id>urn:uuid:20cc9f2a-365c-45bb-8fad-73099ae5c7a6</id>
+		<updated>2016-02-24T10:01:30+00:00</updated>
+		<published>2015-03-10T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Готовлю себе раз в две недели. Реже не получается - настроение портится, если долго ее не ем.
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end постная-коврижка -->
+	<entry> <!-- begin статистика -->
+		<title>Статистика</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%441%442%430%442%438%441%442%438%43a%430.html"/>
+		<id>urn:uuid:cf6f69da-a52b-451a-8769-9d1c30244631</id>
+		<updated>2016-02-23T12:17:50+00:00</updated>
+		<published>2012-12-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как отличить череду случайных совпадений от закономерности?
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end статистика -->
+	<entry> <!-- begin квантовая-механика -->
+		<title>Квантовая механика</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43a%432%430%43d%442%43e%432%430%44f-%43c%435%445%430%43d%438%43a%430.html"/>
+		<id>urn:uuid:e170aace-1a07-440d-9d30-af335870916c</id>
+		<updated>2016-02-23T12:17:40+00:00</updated>
+		<published>2014-06-08T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Все на так просто, как хочется думать.
+		</div></content>
+		<category term="ссылки"/>
+	</entry> <!-- end квантовая-механика -->
+	<entry> <!-- begin dynamic_port_forwarding_в_putty -->
+		<title>Dynamic port forwarding в PuTTY</title>
+		<link href="http://alexey.shpakovsky.ru/ru/dynamic_port_forwarding_%432_putty.html"/>
+		<id>urn:uuid:0e4f3756-ff15-4eb7-9b22-ab0f9055ce04</id>
+		<updated>2015-11-03T18:36:22+00:00</updated>
+		<published>2014-05-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как запустить SOCKS5 прокси с помощью PuTTY
+		</div></content>
+		<category term="ссылки"/>
+		<category term="linux"/>
+	</entry> <!-- end dynamic_port_forwarding_в_putty -->
+	<entry> <!-- begin incremental-backup-с-помощью-tar -->
+		<title>Incremental backup с помощью TAR</title>
+		<link href="http://alexey.shpakovsky.ru/ru/incremental-backup-%441-%43f%43e%43c%43e%449%44c%44e-tar.html"/>
+		<id>urn:uuid:9201f126-7249-4e96-b4f4-b4fc47b9a20f</id>
+		<updated>2015-10-03T12:44:46+00:00</updated>
+		<published>2014-02-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как настроить автоматическую архивацию так, чтобы она занимала минимум времени
+		</div></content>
+		<category term="ссылки"/>
+		<category term="linux"/>
+	</entry> <!-- end incremental-backup-с-помощью-tar -->
+	<entry> <!-- begin пирожки-с-мясом-и-рисом -->
+		<title>Пирожки с мясом и рисом</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43f%438%440%43e%436%43a%438-%441-%43c%44f%441%43e%43c-%438-%440%438%441%43e%43c.html"/>
+		<id>urn:uuid:a4c394ab-a47c-43b9-9527-47cfe5932280</id>
+		<updated>2015-09-27T17:01:26+00:00</updated>
+		<published>2015-05-17T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			рис – это традиционная русская кухня
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end пирожки-с-мясом-и-рисом -->
+	<entry> <!-- begin шарлотка-с-яблоками-классическая -->
+		<title>Шарлотка с яблоками классическая</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%448%430%440%43b%43e%442%43a%430-%441-%44f%431%43b%43e%43a%430%43c%438-%43a%43b%430%441%441%438%447%435%441%43a%430%44f.html"/>
+		<id>urn:uuid:af3d581c-282a-4e05-9b8b-df337bf873b9</id>
+		<updated>2015-09-05T19:38:32+00:00</updated>
+		<published>2015-08-16T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Слишком сладкая, если яблоки сладкие (гольден)
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end шарлотка-с-яблоками-классическая -->
+	<entry> <!-- begin пирожки-с-яблоком -->
+		<title>Пирожки с яблоком</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43f%438%440%43e%436%43a%438-%441-%44f%431%43b%43e%43a%43e%43c.html"/>
+		<id>urn:uuid:cd414667-2d5f-431f-a693-d95719f72086</id>
+		<updated>2015-05-17T18:02:44+00:00</updated>
+		<published>2015-04-26T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end пирожки-с-яблоком -->
+	<entry> <!-- begin печка -->
+		<title>Печка</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%43f%435%447%43a%430.html"/>
+		<id>urn:uuid:77204fc6-354e-4a0f-9158-3615191540f7</id>
+		<updated>2015-03-06T23:00:00+00:00</updated>
+		<published>2015-03-07T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			С чего начались все мои кулинарные приключения
+		</div></content>
+		<category term="рецепты"/>
+	</entry> <!-- end печка -->
+	<entry> <!-- begin omerta -->
+		<title>omerta</title>
+		<link href="http://alexey.shpakovsky.ru/ru/omerta.html"/>
+		<id>urn:uuid:c9b6f968-b26c-4831-941e-57e59e2e9900</id>
+		<updated>2014-11-03T19:57:46+00:00</updated>
+		<published>2014-10-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как иностранцы коверкают русские слова
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end omerta -->
+	<entry> <!-- begin сокращение-с-потерей -->
+		<title>Сокращение с потерей</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%441%43e%43a%440%430%449%435%43d%438%435-%441-%43f%43e%442%435%440%435%439.html"/>
+		<id>urn:uuid:172d7d7c-b125-4fea-a885-0ef80f567aaf</id>
+		<updated>2014-07-30T16:37:06+00:00</updated>
+		<published>2012-09-02T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Почему Медведев сказал «Лучше синяя морда, чем красный диплом»?
+		</div></content>
+		<category term="журналюги"/>
+	</entry> <!-- end сокращение-с-потерей -->
+	<entry> <!-- begin трудности-перевода -->
+		<title>Трудности перевода</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%442%440%443%434%43d%43e%441%442%438-%43f%435%440%435%432%43e%434%430.html"/>
+		<id>urn:uuid:7883c178-836a-4467-a5e5-6f1a6f7e92e9</id>
+		<updated>2014-07-30T16:36:51+00:00</updated>
+		<published>2013-06-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Как об одной и той же новости можно рассказать с двух совершенно противоположных сторон
+		</div></content>
+		<category term="журналюги"/>
+	</entry> <!-- end трудности-перевода -->
+	<entry> <!-- begin двссыл -->
+		<title>ДВССЫЛ</title>
+		<link href="http://alexey.shpakovsky.ru/ru/%434%432%441%441%44b%43b.html"/>
+		<id>urn:uuid:bc985b54-5177-456f-9e34-685e54033ae5</id>
+		<updated>2014-06-27T14:53:02+00:00</updated>
+		<published>2010-12-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Заметка о полезной функции в Excel
+		</div></content>
+		<category term="office"/>
+	</entry> <!-- end двссыл -->
+	<entry> <!-- begin 2010-kak-a-provel-pervoe-aprela-i-treh-prepodavatelej -->
+		<title>2010 - Как я провел первое апреля и трех преподавателей</title>
+		<link href="http://alexey.shpakovsky.ru/ru/2010-kak-a-provel-pervoe-aprela-i-treh-prepodavatelej.html"/>
+		<id>urn:uuid:5eabeb0c-5b06-433f-b7f6-3d6c5d6d8fbf</id>
+		<updated>2014-03-23T09:22:05+00:00</updated>
+		<published>2010-04-02T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Рассказ об удачной первоапрельской шутке
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end 2010-kak-a-provel-pervoe-aprela-i-treh-prepodavatelej -->
+	<entry> <!-- begin citaty-s-basa -->
+		<title>Цитаты с баша</title>
+		<link href="http://alexey.shpakovsky.ru/ru/citaty-s-basa.html"/>
+		<id>urn:uuid:d01b8922-bc62-46a8-af99-f4fb12e001f4</id>
+		<updated>2010-04-04T00:09:00+00:00</updated>
+		<published>2010-04-04T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end citaty-s-basa -->
+	<entry> <!-- begin 2009-repino -->
+		<title>2009 - Репино</title>
+		<link href="http://alexey.shpakovsky.ru/ru/2009-repino.html"/>
+		<id>urn:uuid:5fd16c67-da85-4a38-81c1-7f2d0a323bba</id>
+		<updated>2009-11-23T02:25:00+00:00</updated>
+		<published>2009-11-23T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Рассказ про конференцию в Репино
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end 2009-repino -->
+	<entry> <!-- begin scanner -->
+		<title>Scanner</title>
+		<link href="http://alexey.shpakovsky.ru/ru/scanner.html"/>
+		<id>urn:uuid:76f2b004-a45a-42b0-b8c0-e3162b34f1be</id>
+		<updated>2009-10-24T17:06:00+00:00</updated>
+		<published>2009-10-24T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<p>Как узнать, куда делось место на диске</p>
+		</div></content>
+		<category term="программы"/>
+	</entry> <!-- end scanner -->
+	<entry> <!-- begin dia -->
+		<title>Dia</title>
+		<link href="http://alexey.shpakovsky.ru/ru/dia.html"/>
+		<id>urn:uuid:7dc7708c-3b64-417a-a494-40e34096aeb3</id>
+		<updated>2009-10-07T21:03:00+00:00</updated>
+		<published>2009-10-07T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<p>Dia - бесплатный аналог Microsoft Visio - программа для рисования диаграмм</p>
+		</div></content>
+		<category term="программы"/>
+	</entry> <!-- end dia -->
+	<entry> <!-- begin pfmap -->
+		<title>pfmap</title>
+		<link href="http://alexey.shpakovsky.ru/ru/pfmap.html"/>
+		<id>urn:uuid:720bf1e5-d95e-4cff-9285-eaf70906f22f</id>
+		<updated>2009-09-22T00:11:00+00:00</updated>
+		<published>2009-09-22T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			<p>Заходить в ISO-файлы и ZIP-архивы как в папки</p>
+		</div></content>
+		<category term="программы"/>
+	</entry> <!-- end pfmap -->
+	<entry> <!-- begin 2008-bakalavrskaa-zasita -->
+		<title>2008 - Бакалаврская защита</title>
+		<link href="http://alexey.shpakovsky.ru/ru/2008-bakalavrskaa-zasita.html"/>
+		<id>urn:uuid:f657d47b-e697-44e8-a450-1ec46a2ebf4a</id>
+		<updated>2009-09-02T22:36:00+00:00</updated>
+		<published>2009-09-03T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Рассказ о том, как я защищал бакалаврский диплом
+		</div></content>
+		<category term="юмор"/>
+	</entry> <!-- end 2008-bakalavrskaa-zasita -->
+</feed>
