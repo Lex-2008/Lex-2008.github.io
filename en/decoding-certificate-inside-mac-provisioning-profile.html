@@ -5,6 +5,7 @@
 <meta name="description" content="Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile XXX doesn't include signing certificate YYY">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Decoding certificate inside Mac provisioning profile</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-7dcaad6e-3ab2-4bb2-9d94-0136b91fc780">Decoding certificate inside Mac provisioning profile</span></h1>
+	<small style="display:block; view-transition-name:small-7dcaad6e-3ab2-4bb2-9d94-0136b91fc780">
 		Created: <time>2024-10-18</time> &mdash; modified: <time>2024-10-21</time> &mdash;
 		tags: <a href="./#tag:mac">mac</a> <a href="./#tag:bash">bash</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile "XXX" doesn't include signing certificate "YYY"</p>
+	<p class="intro" style="view-transition-name:intro-7dcaad6e-3ab2-4bb2-9d94-0136b91fc780">Small script to help you debug this crypting xcodebuild error: exportArchive: Provisioning profile "XXX" doesn't include signing certificate "YYY"</p>
 <pre><code>test -z &quot;$1&quot; &amp;&amp; echo &quot;no filename?&quot; &amp;&amp; exit 1
 
 name=&quot;${1%.*}&quot;
@@ -47,10 +48,10 @@ This is the certificate name that is actually included in the provisioning profi
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

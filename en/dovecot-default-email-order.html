@@ -1,11 +1,11 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>Dovecot default email order</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="How to change it, if it matters">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/dovecot-default-email-order.html">
+<title>Dovecot default email order</title>
+<meta name="description" content="How to change it, if it matters">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -18,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Dovecot default email order</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-bdf5f2d1-8302-43a3-a101-ce8fd635d22b">Dovecot default email order</span></h1>
+	<small style="display:block; view-transition-name:small-bdf5f2d1-8302-43a3-a101-ce8fd635d22b">
 		Created: <time>2014-08-27</time> &mdash; modified: <time>2016-06-16</time> &mdash;
 		tags: <a href="./#tag:e-mail">e-mail</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">How to change it, if it matters</p>
+	<p class="intro" style="view-transition-name:intro-bdf5f2d1-8302-43a3-a101-ce8fd635d22b">How to change it, if it matters</p>
 <p>For some programs it might matter, in which order <code>LIST</code> IMAP command shows emails by default.
 For example, it might be the reason behind <a href="https://code.google.com/p/k9mail/issues/detail?id=726" title="wrong date-order in imap-folders after copying">Issue 726</a> for K-9 Mail.
 Or, at lest, it was for me.</p>
@@ -56,10 +56,10 @@ sudo service dovecot start    # start dovecot server
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

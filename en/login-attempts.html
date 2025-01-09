@@ -5,6 +5,7 @@
 <meta name="description" content="These are logins and passwords of last 10k login attempts into my server.">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Login attempts</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-1823b261-579e-4acd-a4e6-044d43f0fa16">Login attempts</span></h1>
+	<small style="display:block; view-transition-name:small-1823b261-579e-4acd-a4e6-044d43f0fa16">
 		Created: <time>2021-07-09</time> &mdash; modified: <time>2024-11-12</time> &mdash;
 		tags: <a href="./#tag:logs">logs</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">These are logins and passwords of last 10k login attempts into my server.</p>
+	<p class="intro" style="view-transition-name:intro-1823b261-579e-4acd-a4e6-044d43f0fa16">These are logins and passwords of last 10k login attempts into my server.</p>
 <p>All of them failed, because there is no imap/pop/smtp login option on this server at all.</p>
 <p id="stat"></p>
 <div>
@@ -65,10 +66,10 @@ document.body.onload=function(){
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

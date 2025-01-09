@@ -1,11 +1,11 @@
-<!doctype html><html lang="ru"><head>
-<meta charset="utf-8">
-<title>Перезагрузка</title>
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Как показывал счетчик на старом сайте (не сохранился), последнее обновление на нём было 4 года назад. Пришло время что-то менять!">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/ru/perezagruzka.html">
+<title>Перезагрузка</title>
+<meta name="description" content="Как показывал счетчик на старом сайте (не сохранился), последнее обновление на нём было 4 года назад. Пришло время что-то менять!">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -18,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid lightgray">Перезагрузка</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-9c3df012-7c42-4127-96ae-67dd0e259e16">Перезагрузка</span></h1>
+	<small style="display:block; view-transition-name:small-9c3df012-7c42-4127-96ae-67dd0e259e16">
 		Создано: <time>2014-04-01</time> &mdash; изменено: <time>2016-09-06</time> &mdash;
 		теги: 
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">Как показывал счетчик на старом сайте (не сохранился), последнее обновление на нём было 4 года назад. Пришло время что-то менять!</p>
+	<p class="intro" style="view-transition-name:intro-9c3df012-7c42-4127-96ae-67dd0e259e16">Как показывал счетчик на старом сайте (не сохранился), последнее обновление на нём было 4 года назад. Пришло время что-то менять!</p>
 <p>Я заметил, что количество посетителей (человек в сутки) значительно превышает количество изменений (раз в месяц ... раз в несколько лет). Поэтому не логично держать хоть какую-то CMS, создающую страницу на каждый запрос (ок, с моей посещаемостью это требовало меньше 1% от всех ресурсов "мини" хостинга, но не суть, избыточная оптимизация - наше всё!) - гораздо оптимальнее использовать генератор статических сайтов, создающий все страницы при каждом их изменении (раз в месяц), и далее использовать легкий веб-сервер, бездумно отдающий их (несколько раз в день).</p>
 
 <p>В качестве генератора был выбран <a href="https://github.com/cfenollosa/bashblog/">bashblog</a>, т.к. bash, в отличие от более продвинутых языков, доступен практически на всех системах, а много ли надо, чтобы к списку страниц приделать оглавление? Для хранения фотоальбомов bashblog был дополнен похожим скриптом <a href="https://github.com/Lex-2008/bashalbum">bashalbum</a>.</p>
@@ -42,10 +42,10 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons С указанием авторства 4.0 Международная'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Алексей Шпаковский</a> &mdash;
 		<a href="./">показать все записи</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">показать e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

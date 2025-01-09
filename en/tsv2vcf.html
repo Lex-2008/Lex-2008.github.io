@@ -5,6 +5,7 @@
 <meta name="description" content="If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">csv2vcf (or rather tsv2vcf)</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-38e1aa7f-3752-4919-bb0a-d22c0388e843">csv2vcf (or rather tsv2vcf)</span></h1>
+	<small style="display:block; view-transition-name:small-38e1aa7f-3752-4919-bb0a-d22c0388e843">
 		Created: <time>2022-06-20</time> &mdash; modified: <time>2023-09-27</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy</p>
+	<p class="intro" style="view-transition-name:intro-38e1aa7f-3752-4919-bb0a-d22c0388e843">If you're (un)lucky and your employer stores all employees' contact data in a spreadsheet (instead of vcards or not giving you easy access to it at all), you can easily convert it to VCF (VCard Format file) and upload to your private WebDAV server! How? Pretty easy</p>
 <p>First, export spreadsheet to a <em>tab-separated file</em> (TSV)<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup>.</p>
 <p>Second, decide what fields you are interested in.
 To make <code>sed</code> script easier, consider limiting yourself to only 9 fields in source table
@@ -89,10 +90,10 @@ $ sudo sh script.sh
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

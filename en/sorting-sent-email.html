@@ -5,6 +5,7 @@
 <meta name="description" content="How to automate it if you host your mail yourself">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Sorting sent email</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-35848f6d-1f3f-4b70-b23d-dffdd857c94a">Sorting sent email</span></h1>
+	<small style="display:block; view-transition-name:small-35848f6d-1f3f-4b70-b23d-dffdd857c94a">
 		Created: <time>2014-11-01</time> &mdash; modified: <time>2023-03-08</time> &mdash;
 		tags: <a href="./#tag:e-mail">e-mail</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">How to automate it if you host your mail yourself</p>
+	<p class="intro" style="view-transition-name:intro-35848f6d-1f3f-4b70-b23d-dffdd857c94a">How to automate it if you host your mail yourself</p>
 <p><strong>Update</strong>:
 In 2021, I switched to using <a href="https://github.com/Lex-2008/containers/blob/master/dovecot.cont/data/conf/dovecot.conf#L35">sieve</a> scripts to sort incoming and outgoing emails.</p>
 <p>There are numerous ways of sorting incoming mail into folders (personally I use procmail),
@@ -61,10 +62,10 @@ done;
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

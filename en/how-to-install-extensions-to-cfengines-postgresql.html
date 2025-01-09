@@ -1,11 +1,11 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8">
-<title>How to install extensions to CFEngine's PostgreSQL</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.">
 <link rel="canonical" href="http://alexey.shpakovsky.ru/en/how-to-install-extensions-to-cfengines-postgresql.html">
+<title>How to install extensions to CFEngine's PostgreSQL</title>
+<meta name="description" content="TL;DR: copy libs to /var/cfengine/lib/postgresql/ and extensions - to /var/cfengine/share/postgresql/extension.">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -18,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">How to install extensions to CFEngine's PostgreSQL</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-26465938-e2d6-45e4-a445-345fcf8d7af1">How to install extensions to CFEngine's PostgreSQL</span></h1>
+	<small style="display:block; view-transition-name:small-26465938-e2d6-45e4-a445-345fcf8d7af1">
 		Created: <time>2018-02-07</time> &mdash; modified: <time>2018-07-30</time> &mdash;
 		tags: <a href="./#tag:cfengine">cfengine</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.</p>
+	<p class="intro" style="view-transition-name:intro-26465938-e2d6-45e4-a445-345fcf8d7af1">TL;DR: copy libs to <code>/var/cfengine/lib/postgresql/</code> and extensions - to <code style='word-break:break-all'>/var/cfengine/share/postgresql/extension</code>.</p>
 <h2>Environment</h2>
 
 <p>This is the environment I was working with:</p>
@@ -148,10 +148,10 @@ su cfpostgres -c "/var/cfengine/bin/psql cfmp -f plpython_dns-functions.sql"
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

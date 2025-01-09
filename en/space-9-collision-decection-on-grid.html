@@ -5,6 +5,7 @@
 <meta name="description" content="Unlike sector-based one, this uses more complex logic, but simpler maps">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ img {display:block; margin:auto; max-width:100%} img {width: 50%; background: wh
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Space 9: collision decection on grid</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-c04cce4a-6da6-4f61-b850-e16ce8eca0ff">Space 9: collision decection on grid</span></h1>
+	<small style="display:block; view-transition-name:small-c04cce4a-6da6-4f61-b850-e16ce8eca0ff">
 		Created: <time>2017-11-21</time> &mdash; modified: <time>2024-01-21</time> &mdash;
 		tags: <a href="./#tag:space3d">space3d</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">Unlike sector-based one, this uses more complex logic, but simpler maps</p>
+	<p class="intro" style="view-transition-name:intro-c04cce4a-6da6-4f61-b850-e16ce8eca0ff">Unlike sector-based one, this uses more complex logic, but simpler maps</p>
 <p>Given that walls can be placed only on sides of a square grid, let's have a look at sample collision situation:</p>
 <p><img src="space-9-collision-decection-on-grid/2.svg" alt="Circle ramming a line segment" /></p>
 <p>To make calculations simpler, let's mark areas where center of character is allowed to be located.
@@ -170,10 +171,10 @@ so you can chose them randomly :)</p>
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

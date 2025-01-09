@@ -5,6 +5,7 @@
 <meta name="description" content="Here you can find attempts to send messages to users who do not exist on this server">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Wrong users</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-cf0e6d85-6449-45ac-9b27-90630a38a5e7">Wrong users</span></h1>
+	<small style="display:block; view-transition-name:small-cf0e6d85-6449-45ac-9b27-90630a38a5e7">
 		Created: <time>2021-10-03</time> &mdash; modified: <time>2024-11-12</time> &mdash;
 		tags: <a href="./#tag:logs">logs</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">Here you can find attempts to send messages to users who do not exist on this server</p>
+	<p class="intro" style="view-transition-name:intro-cf0e6d85-6449-45ac-9b27-90630a38a5e7">Here you can find attempts to send messages to users who do not exist on this server</p>
 <p>Hostname of this host is hidden from the logs in order to avoid spam.</p>
 <p id="stat"></p>
 <div>
@@ -69,10 +70,10 @@ document.body.onload=function(){
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>

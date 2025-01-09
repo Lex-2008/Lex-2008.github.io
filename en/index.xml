@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?lazyblog-url /lazyblog?>
 <?xml-stylesheet href="/lazyblog/atom2html.xsl" type="text/xsl"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:lb="https://github.com/Lex-2008/lazyblog" xml:lang="en">
 	<title>Notes</title>
 	<subtitle>Notes about different stuff</subtitle>
-	<updated>2024-12-24T12:34:15+00:00</updated>
+	<updated>2025-01-09T18:15:04+00:00</updated>
 	<id>http://alexey.shpakovsky.ru/en</id>
 	<link rel="self" href="http://alexey.shpakovsky.ru/en/"/>
 	<link rel="related" href="http://alexey.shpakovsky.ru/ru/" title="Russian blog"/>
@@ -16,6 +16,7 @@
 	</author>
 	<rights>CC BY (Creative Commons Attribution 4.0 International) https://creativecommons.org/licenses/by/4.0/</rights>
 	<generator uri="https://github.com/lex-2008/lazyblog">lazyblog</generator>
+	<div id='tracker-code' xmlns='http://www.w3.org/1999/xhtml'><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script></div>
 	<!-- put contents below -->
 	<entry> <!-- begin my-blog-is-also-rss-feed -->
 		<title>My blog is also its own RSS feed</title>

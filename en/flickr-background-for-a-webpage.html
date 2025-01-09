@@ -5,6 +5,7 @@
 <meta name="description" content="Another attempt to add something nice to this blog">
 <style>
 html {color-scheme: light dark}
+@view-transition { navigation: auto; }
 body {
 	margin: auto;
 	max-width: 80ex;
@@ -17,15 +18,15 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 </style>
 </head><body>
 <header>
-	<h1 style="border-bottom: 1px solid #8888">Flickr background for a webpage</h1>
-	<small>
+	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-02b7f9ac-1977-482f-98d9-67f8fc75b21b">Flickr background for a webpage</span></h1>
+	<small style="display:block; view-transition-name:small-02b7f9ac-1977-482f-98d9-67f8fc75b21b">
 		Created: <time>2017-06-17</time> &mdash; modified: <time>2023-03-08</time> &mdash;
 		tags: <a href="./#tag:javascript">javascript</a>
 	</small>
 	<hr>
 </header>
 <main>
-	<p class="intro">Another attempt to add something nice to this blog</p>
+	<p class="intro" style="view-transition-name:intro-02b7f9ac-1977-482f-98d9-67f8fc75b21b">Another attempt to add something nice to this blog</p>
 <p>Having <a href="flickr-feed-generator-for-xscreensaver.html">nice background</a> on a lock screen,
 why not add a similar to the website?</p>
 <p>It's easy to achive just by using this code:</p>
@@ -52,10 +53,10 @@ if(xmlhttp.status == 200) {
 <footer style="text-align: center">
 	<hr>
 	<p>
-		<a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution">CC BY</a>
+		<a href='https://creativecommons.org/licenses/by/4.0/' title='Creative Commons Attribution 4.0 International'>CC BY</a>
 		<a href="http://alexey.shpakovsky.ru/">Alexey Shpakovsky</a> &mdash;
 		<a href="./">show all posts</a> &mdash;
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
-</footer>
+</footer><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script>
 </body></html>
