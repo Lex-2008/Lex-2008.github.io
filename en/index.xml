@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?lazyblog-url /lazyblog?>
 <?xml-stylesheet href="/lazyblog/atom2html.xsl" type="text/xsl"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:lb="https://github.com/Lex-2008/lazyblog" xml:lang="en">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>Notes</title>
 	<subtitle>Notes about different stuff</subtitle>
-	<updated>2025-01-09T18:15:04+00:00</updated>
+	<updated>2025-03-04T09:33:25+00:00</updated>
 	<id>http://alexey.shpakovsky.ru/en</id>
 	<link rel="self" href="http://alexey.shpakovsky.ru/en/"/>
 	<link rel="related" href="http://alexey.shpakovsky.ru/ru/" title="Russian blog"/>
@@ -16,8 +16,42 @@
 	</author>
 	<rights>CC BY (Creative Commons Attribution 4.0 International) https://creativecommons.org/licenses/by/4.0/</rights>
 	<generator uri="https://github.com/lex-2008/lazyblog">lazyblog</generator>
-	<div id='tracker-code' xmlns='http://www.w3.org/1999/xhtml'><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script></div>
 	<!-- put contents below -->
+	<entry> <!-- begin free-microsoft-windows-ieedge-vms -->
+		<title>Free Microsoft Windows IE/Edge VMs</title>
+		<link href="http://alexey.shpakovsky.ru/en/free-microsoft-windows-ieedge-vms.html"/>
+		<id>urn:uuid:22269ce7-2e09-43ea-9ce5-2e3a5db8c39e</id>
+		<updated>2025-03-04T09:33:25+00:00</updated>
+		<published>2023-01-12T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			If you missed them
+		</div></content>
+		<category term="links"/>
+		<category term="windows"/>
+	</entry> <!-- end free-microsoft-windows-ieedge-vms -->
+	<entry> <!-- begin spam-emails -->
+		<title>This is spam</title>
+		<link href="http://alexey.shpakovsky.ru/en/spam-emails.html"/>
+		<id>urn:uuid:12f2ca81-78cd-4cda-854c-b1917bc242a2</id>
+		<updated>2025-01-30T18:15:55+00:00</updated>
+		<published>2014-05-13T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			These are e-mail addresses that sent spam/scam/phishing emails to me.
+		</div></content>
+		<category term="logs"/>
+	</entry> <!-- end spam-emails -->
+	<entry> <!-- begin passwords -->
+		<title>Passwords</title>
+		<link href="http://alexey.shpakovsky.ru/en/passwords.html"/>
+		<id>urn:uuid:1715cfaa-3d9b-4a82-ab64-302bb951d640</id>
+		<updated>2025-01-20T15:20:07+00:00</updated>
+		<published>2014-06-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			How to generate them, so you could store them in your head
+		</div></content>
+		<category term="security"/>
+		<category term="links"/>
+	</entry> <!-- end passwords -->
 	<entry> <!-- begin my-blog-is-also-rss-feed -->
 		<title>My blog is also its own RSS feed</title>
 		<link href="http://alexey.shpakovsky.ru/en/my-blog-is-also-rss-feed.html"/>
@@ -130,18 +164,6 @@
 		</div></content>
 		<category term="links"/>
 	</entry> <!-- end mirrors -->
-	<entry> <!-- begin free-microsoft-windows-ieedge-vms -->
-		<title>Free Microsoft Windows IE/Edge VMs</title>
-		<link href="http://alexey.shpakovsky.ru/en/free-microsoft-windows-ieedge-vms.html"/>
-		<id>urn:uuid:22269ce7-2e09-43ea-9ce5-2e3a5db8c39e</id>
-		<updated>2024-12-23T14:02:13+00:00</updated>
-		<published>2023-01-12T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			If you missed them
-		</div></content>
-		<category term="links"/>
-		<category term="windows"/>
-	</entry> <!-- end free-microsoft-windows-ieedge-vms -->
 	<entry> <!-- begin github-flavored-markdown -->
 		<title>GitHub Flavored Markdown</title>
 		<link href="http://alexey.shpakovsky.ru/en/github-flavored-markdown.html"/>
@@ -223,17 +245,6 @@
 		<category term="javascript"/>
 		<category term="links"/>
 	</entry> <!-- end microlightjs -->
-	<entry> <!-- begin spam-emails -->
-		<title>This is spam</title>
-		<link href="http://alexey.shpakovsky.ru/en/spam-emails.html"/>
-		<id>urn:uuid:12f2ca81-78cd-4cda-854c-b1917bc242a2</id>
-		<updated>2024-11-12T16:16:49+00:00</updated>
-		<published>2014-05-13T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			These are e-mail addresses that sent spam/scam/phishing emails to me.
-		</div></content>
-		<category term="logs"/>
-	</entry> <!-- end spam-emails -->
 	<entry> <!-- begin login-attempts -->
 		<title>Login attempts</title>
 		<link href="http://alexey.shpakovsky.ru/en/login-attempts.html"/>
@@ -1313,18 +1324,6 @@
 		<category term="linux"/>
 		<category term="bluetooth"/>
 	</entry> <!-- end bluetooth-pairing-keys-location -->
-	<entry> <!-- begin passwords -->
-		<title>Passwords</title>
-		<link href="http://alexey.shpakovsky.ru/en/passwords.html"/>
-		<id>urn:uuid:1715cfaa-3d9b-4a82-ab64-302bb951d640</id>
-		<updated>2021-08-05T22:00:00+00:00</updated>
-		<published>2014-06-20T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			How to generate them, so you could store them in your head
-		</div></content>
-		<category term="security"/>
-		<category term="links"/>
-	</entry> <!-- end passwords -->
 	<entry> <!-- begin using-hdparm-to-hide-smart-errors -->
 		<title>Using hdparm to hide S.M.A.R.T. errors</title>
 		<link href="http://alexey.shpakovsky.ru/en/using-hdparm-to-hide-smart-errors.html"/>

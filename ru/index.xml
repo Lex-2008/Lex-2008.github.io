@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?lazyblog-url /lazyblog?>
 <?xml-stylesheet href="/lazyblog/atom2html.xsl" type="text/xsl"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:lb="https://github.com/Lex-2008/lazyblog" xml:lang="ru">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ru">
 	<title>Заметки</title>
 	<subtitle>Записи о разном</subtitle>
-	<updated>2025-01-09T20:14:11+00:00</updated>
+	<updated>2025-01-09T18:14:11+00:00</updated>
 	<id>http://alexey.shpakovsky.ru/ru</id>
 	<link rel="self" href="http://alexey.shpakovsky.ru/ru/"/>
 	<link rel="related" href="http://alexey.shpakovsky.ru/en/" title="мой англоязычный блог"/>
@@ -16,7 +16,6 @@
 	</author>
 	<rights>CC BY (Creative Commons С указанием авторства 4.0 Международная) https://creativecommons.org/licenses/by/4.0/</rights>
 	<generator uri="https://github.com/lex-2008/lazyblog">lazyblog</generator>
-	<div id='tracker-code' xmlns='http://www.w3.org/1999/xhtml'><script async='' data-info-to='/info/' data-hello-to='/hello/' src='/lazyblog/page.js'></script></div>
 	<!-- put contents below -->
 	<entry> <!-- begin office-20072013-vygladit-kak-office-2003xp -->
 		<title>Office 2007/2013 выглядит как Office 2003/XP</title>
