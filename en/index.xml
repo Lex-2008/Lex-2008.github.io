@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>Notes</title>
 	<subtitle>Notes about different stuff</subtitle>
-	<updated>2025-03-04T09:33:25+00:00</updated>
+	<updated>2025-03-19T13:45:02+00:00</updated>
 	<id>http://alexey.shpakovsky.ru/en</id>
 	<link rel="self" href="http://alexey.shpakovsky.ru/en/"/>
 	<link rel="related" href="http://alexey.shpakovsky.ru/ru/" title="Russian blog"/>
@@ -16,6 +16,7 @@
 	</author>
 	<rights>CC BY (Creative Commons Attribution 4.0 International) https://creativecommons.org/licenses/by/4.0/</rights>
 	<generator uri="https://github.com/lex-2008/lazyblog">lazyblog</generator>
+	
 	<!-- put contents below -->
 	<entry> <!-- begin free-microsoft-windows-ieedge-vms -->
 		<title>Free Microsoft Windows IE/Edge VMs</title>
