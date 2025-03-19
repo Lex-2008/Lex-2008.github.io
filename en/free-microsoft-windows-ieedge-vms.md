@@ -30,3 +30,5 @@ You might also want to enable bidirectional clipboard and drag-and-drop, and inc
 
 <https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/>
 
+**Update**: it looks like these machines are not available anymore since October 2024, at least in **March 2025**.
+Oh well, back to archive.org!
