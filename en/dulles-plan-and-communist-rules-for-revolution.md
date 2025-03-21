@@ -4,8 +4,10 @@ tags=fun politics
 created=2022-07-26
 styles=archive
 style=body{max-width:120ex}.col{width:50%}
-PROCESSOR=Markdown.pl
+PROCESSOR=geo.sh Markdown.pl
 uuid=5597531d-ba99-4a3b-bea4-0cfd7eb45dd5
+
+@@@ default
 
 I think they deserve being side-by-side:
 
@@ -56,19 +58,11 @@ Looking for similarities is left as exercise to the reader.
 
 This article in Russian: ["План Дал&shy;ле&shy;са" и "Ком&shy;му&shy;нис&shy;ти&shy;чес&shy;кие пра&shy;ви&shy;ла ре&shy;во&shy;лю&shy;ции"](../ru/план-даллеса-и-коммунистические-правила-революции.html)
 
-<div style="display:none" id="ban">
+@@@ RU unknown
+
 <h1>Forbidden</h1>
 <p>This page contains text, which is declared to be extremist in Russian Federation:
 	number 3932 in Federal List of Extremist Materials,
 	decision of the Asbest City Court of the Sverdlovsk Region of 04/07/2015.
 </p>
-<script>
-function a(q){
-    if(q.country=='RU'){
-        document.querySelector('main').innerHTML=document.querySelector('#ban').innerHTML;
-    }
-}
-</script>
-<script src="http://ipinfo.io/?callback=a"></script>
-</div>
 

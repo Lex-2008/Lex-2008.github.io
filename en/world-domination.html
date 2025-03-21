@@ -20,58 +20,19 @@ img {display:block; margin:auto; max-width:100%}
 <header>
 	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-9252ce09-06e4-426e-be3e-ee0ea53065d1">World domination</span></h1>
 	<small style="display:block; view-transition-name:small-9252ce09-06e4-426e-be3e-ee0ea53065d1">
-		Created: <time>2014-06-21</time> &mdash; modified: <time>2022-07-30</time> &mdash;
+		Created: <time>2014-06-21</time> &mdash; modified: <time>2025-03-21</time> &mdash;
 		tags: <a href="./#tag:fun">fun</a> <a href="./#tag:games">games</a> <a href="./#tag:politics">politics</a>
 	</small>
 	<hr>
 </header>
 <main>
 	<p class="intro" style="view-transition-name:intro-9252ce09-06e4-426e-be3e-ee0ea53065d1">Experience after playing a flash game</p>
-<p>So I was playing <a href="http://www.flashgame.com/play/World--Domination/">this game</a> recently (URL says it all).
-Here's a screenshot:</p>
-
-<p><img src="world-domination.png" alt="Screenshot of the game" title="" /></p>
-
-<p>I had 4 opponents
-(listed left to right, top to bottom on the screen in top right corner):</p>
-
-<ul>
-<li><strong>Vlodimar Pitun</strong></li>
-<li><strong>Col. Kodoffi</strong></li>
-<li><strong>Osumo Ben Lada</strong></li>
-<li><strong>G. W. Bash</strong></li>
-</ul>
-
-<p>Let's leave it for the game creators to decide why names of some characters in their game resemble names of real people.
-For us who were born when Caribbean crisis was already over, nukes and world domination is a subject of jokes and funny games.</p>
-
-<p>And that's how the game rolled:</p>
-
-<ol>
-<li>Since the very beginning of the game, <strong>Kodoffi</strong> and <strong>Ben Lada</strong> were shooting rockets at each other,
-and we with <strong>mr. Pitun</strong> <em>nuked away</em> <strong>G. W. Bash</strong>.</li>
-<li>After that, <strong>Kodoffi</strong> became the weakest guy left alive, and in 3-vs-1 battle he <em>didn't stand a chance</em>.</li>
-<li>But all his military efforts were concentrated on his original enemy,
-so <strong>Ben Lada</strong> became our next target (for us with <strong>mr. Pitun</strong>).</li>
-<li>When <strong>Ben Lada's</strong> <em>fate</em> was <em>becoming obvious</em>, I sent few nukes in the direction of my <em>too strong</em> ally - just to ensure that he'd be <em>weaker then me</em> when we would be left one-on-one.</li>
-<li>And after that I got into a long <em>propaganda war</em> with <strong>mr. Pitun</strong>,
-because nukes are <em>pretty useless</em> in one-to-one combat.</li>
-</ol>
-
-<p>Total time spent: 2 hours.</p>
-
-<div id="ban" style="display:none">
-    <h1>Запрещено</h1>
-    <p>Содержимое этой страницы запрещено в Вашей стране</p>
-<script>
-function a(q){
-    if(q.country=='RU'){
-        document.querySelector('main').innerHTML=document.querySelector('#ban').innerHTML;
-    }
-}
-</script>
-<script src="http://ipinfo.io/?callback=a"></script>
-</div>
+	<script>
+		const req = new XMLHttpRequest();
+		req.open("GET", "../geo/9252ce09-06e4-426e-be3e-ee0ea53065d1.html?"+Date.now(),false);
+		req.send();
+		document.querySelector('main').innerHTML=req.responseText;
+	</script>
 </main>
 <footer style="text-align: center">
 	<hr>

@@ -1,10 +1,11 @@
 title=Strange games
 uuid=6f1887f9-daf4-42a5-82f9-bbbe3064c09c
-PROCESSOR=Markdown.pl
+PROCESSOR=geo.sh cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=A website with a provoking name features funny games
 tags=games
 created=2014-09-20
 
+@@@ def
 
 Link: [stabyourself.net][].
 Due to provocative name this site should be blocked in Russia.
@@ -37,16 +38,14 @@ Other
 
 [stabyourself.net]: http://stabyourself.net/mari0/
 
+@ RU unk
 
-<div id="ban" style="display:none">
-	<h1>Запрещено</h1>
-	<p>Содержимое этой страницы запрещено в Вашей стране</p>
-<script>
-function a(q){
-	if(q.country=='RU'){
-		document.querySelector('main').innerHTML=document.querySelector('#ban').innerHTML;
-	}
-}
-</script>
-<script src="http://ipinfo.io/?callback=a"></script>
-</div>
+Forbidden
+=========
+
+This page contains a link to a website which should be forbidden in Russia.
+
+@ unk
+
+We were unable to identify your country, hence blocked your access this time.
+You are welcome.

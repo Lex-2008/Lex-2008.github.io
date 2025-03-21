@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>Notes</title>
 	<subtitle>Notes about different stuff</subtitle>
-	<updated>2025-03-19T13:45:02+00:00</updated>
+	<updated>2025-03-21T15:49:05+00:00</updated>
 	<id>http://alexey.shpakovsky.ru/en</id>
 	<link rel="self" href="http://alexey.shpakovsky.ru/en/"/>
 	<link rel="related" href="http://alexey.shpakovsky.ru/ru/" title="Russian blog"/>
@@ -18,6 +18,42 @@
 	<generator uri="https://github.com/lex-2008/lazyblog">lazyblog</generator>
 	
 	<!-- put contents below -->
+	<entry> <!-- begin world-domination -->
+		<title>World domination</title>
+		<link href="http://alexey.shpakovsky.ru/en/world-domination.html"/>
+		<id>urn:uuid:9252ce09-06e4-426e-be3e-ee0ea53065d1</id>
+		<updated>2025-03-21T15:49:05+00:00</updated>
+		<published>2014-06-21T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Experience after playing a flash game
+		</div></content>
+		<category term="fun"/>
+		<category term="games"/>
+		<category term="politics"/>
+	</entry> <!-- end world-domination -->
+	<entry> <!-- begin strange-games -->
+		<title>Strange games</title>
+		<link href="http://alexey.shpakovsky.ru/en/strange-games.html"/>
+		<id>urn:uuid:6f1887f9-daf4-42a5-82f9-bbbe3064c09c</id>
+		<updated>2025-03-21T15:47:53+00:00</updated>
+		<published>2014-09-20T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			A website with a provoking name features funny games
+		</div></content>
+		<category term="games"/>
+	</entry> <!-- end strange-games -->
+	<entry> <!-- begin dulles-plan-and-communist-rules-for-revolution -->
+		<title>"Dulles' Plan" and "Communist Rules for Revolution"</title>
+		<link href="http://alexey.shpakovsky.ru/en/dulles-plan-and-communist-rules-for-revolution.html"/>
+		<id>urn:uuid:5597531d-ba99-4a3b-bea4-0cfd7eb45dd5</id>
+		<updated>2025-03-21T15:19:09+00:00</updated>
+		<published>2022-07-26T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			Mirror conspiracy theories
+		</div></content>
+		<category term="fun"/>
+		<category term="politics"/>
+	</entry> <!-- end dulles-plan-and-communist-rules-for-revolution -->
 	<entry> <!-- begin free-microsoft-windows-ieedge-vms -->
 		<title>Free Microsoft Windows IE/Edge VMs</title>
 		<link href="http://alexey.shpakovsky.ru/en/free-microsoft-windows-ieedge-vms.html"/>
@@ -86,18 +122,6 @@
 		</div></content>
 		<category term="html"/>
 	</entry> <!-- end textarea -->
-	<entry> <!-- begin dulles-plan-and-communist-rules-for-revolution -->
-		<title>"Dulles' Plan" and "Communist Rules for Revolution"</title>
-		<link href="http://alexey.shpakovsky.ru/en/dulles-plan-and-communist-rules-for-revolution.html"/>
-		<id>urn:uuid:5597531d-ba99-4a3b-bea4-0cfd7eb45dd5</id>
-		<updated>2024-12-23T17:00:53+00:00</updated>
-		<published>2022-07-26T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			Mirror conspiracy theories
-		</div></content>
-		<category term="fun"/>
-		<category term="politics"/>
-	</entry> <!-- end dulles-plan-and-communist-rules-for-revolution -->
 	<entry> <!-- begin random -->
 		<title>random</title>
 		<link href="http://alexey.shpakovsky.ru/en/random.html"/>
@@ -839,30 +863,6 @@
 		</div></content>
 		<category term="fun"/>
 	</entry> <!-- end hottentotten -->
-	<entry> <!-- begin world-domination -->
-		<title>World domination</title>
-		<link href="http://alexey.shpakovsky.ru/en/world-domination.html"/>
-		<id>urn:uuid:9252ce09-06e4-426e-be3e-ee0ea53065d1</id>
-		<updated>2022-07-30T20:41:43+00:00</updated>
-		<published>2014-06-21T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			Experience after playing a flash game
-		</div></content>
-		<category term="fun"/>
-		<category term="games"/>
-		<category term="politics"/>
-	</entry> <!-- end world-domination -->
-	<entry> <!-- begin strange-games -->
-		<title>Strange games</title>
-		<link href="http://alexey.shpakovsky.ru/en/strange-games.html"/>
-		<id>urn:uuid:6f1887f9-daf4-42a5-82f9-bbbe3064c09c</id>
-		<updated>2022-07-30T20:41:15+00:00</updated>
-		<published>2014-09-20T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			A website with a provoking name features funny games
-		</div></content>
-		<category term="games"/>
-	</entry> <!-- end strange-games -->
 	<entry> <!-- begin from-512kb.club-to-gtmetrix-api-library -->
 		<title>From 512kb.club to GTmetrix API library</title>
 		<link href="http://alexey.shpakovsky.ru/en/from-512kb.club-to-gtmetrix-api-library.html"/>

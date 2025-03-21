@@ -1,20 +1,21 @@
 title=World domination
 uuid=9252ce09-06e4-426e-be3e-ee0ea53065d1
-PROCESSOR=Markdown.pl
+PROCESSOR=geo.sh cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 intro=Experience after playing a flash game
 tags=fun games politics
 styles=img
 created=2014-06-21
 
-
-So I was playing [this game][] recently (URL says it all).
-Here's a screenshot:
+@ def
+So I was playing this game recently:
 
 ![Screenshot of the game](world-domination.png)
 
-[this game]: http://www.flashgame.com/play/World--Domination/
+Old website is gone, but it looks like [here on newgrounds][ng] they have a new(er) version of it.
 
-I had 4 opponents
+[ng]: https://www.newgrounds.com/portal/view/105942
+
+Back than I couldn't select opponents and had 4 of them:
 (listed left to right, top to bottom on the screen in top right corner):
 
 * **Vlodimar Pitun**
@@ -38,15 +39,15 @@ And that's how the game rolled:
 
 Total time spent: 2 hours.
 
-<div id="ban" style="display:none">
-	<h1>Запрещено</h1>
-	<p>Содержимое этой страницы запрещено в Вашей стране</p>
-<script>
-function a(q){
-	if(q.country=='RU'){
-		document.querySelector('main').innerHTML=document.querySelector('#ban').innerHTML;
-	}
-}
-</script>
-<script src="http://ipinfo.io/?callback=a"></script>
-</div>
+@ RU US unk
+
+Forbidden
+=========
+
+This page contains political humour that might offend someone.
+Hence, it is blocked in Russia and USA.
+
+@ unk
+
+We were unable to identify your country, hence blocked your access this time.
+You are welcome.
