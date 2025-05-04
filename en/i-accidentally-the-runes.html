@@ -14,13 +14,14 @@ body {
 	padding: 1ex; /* for 📱 users*/
 }
 header a, footer a, small a {color: inherit !important} /* linktext */
-.footnotes {border-top: 1px solid #8888;font-size:smaller} 
+.footnotes {border-top: 1px solid #8888;font-size:smaller}
+img {display:block; margin:auto; max-width:100%} 
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-3437c515-a7ec-4314-b14a-d0324e3065dd">How to add custom keyboard layout on Linux</span></h1>
 	<small style="display:block; view-transition-name:small-3437c515-a7ec-4314-b14a-d0324e3065dd">
-		Created: <time>2023-05-12</time> &mdash; modified: <time>2023-05-13</time> &mdash;
+		Created: <time>2023-05-12</time> &mdash; modified: <time>2025-05-02</time> &mdash;
 		tags: <a href="./#tag:linux">linux</a>
 	</small>
 	<hr>
@@ -107,6 +108,15 @@ so they're the ones I'm using.</p>
 which you might or might not like better,
 and an <a href="https://valhyr.com/pages/rune-translator">online translator</a>,
 which translates (most of) these runes back to latin (English) text.</p>
+<hr />
+<p><strong>Update:</strong> Worth keeeping these two illustrations around:</p>
+<p>Original map, drawn by J.R.R. Tolkien himself:
+<img src="i-accidentally-the-runes-Thrors_map.jpg" alt="Thrors map" />
+from <a href="https://tolkiengateway.net/wiki/File:J.R.R._Tolkien_-_Thror%27s_map.jpg">Tolkien Gateway</a></p>
+<p>And its Russian translation:
+<img src="i-accidentally-the-runes-karta-Trora.jpg" alt="karta Trora" />
+from <a href="https://pikabu.ru/story/karta_trora_9840645">pikabu</a>.
+Note how they translated the runes!! 🤯</p>
 <section class="footnotes">
 <ol>
 <li id="fn1">
@@ -130,5 +140,5 @@ your actually keyboard layout must also include this line:
 		<a id="email" href="javascript:(l=document.getElementById('email')).href='mailto:'+(l.innerHTML=location.hostname.replace('.','@'));void 0">show e-mail</a>
 	</p>
 </footer>
- 
+<script>(new WebSocket((location.protocol[4]=="s"?"wss":"ws")+"://ws.shpakovsky.ru/modified.sh?"+location.host+location.pathname)).onmessage=(event)=>{if(event.data.indexOf("MODIFY")>-1) location.reload();};</script> 
 </body></html>

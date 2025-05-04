@@ -3,7 +3,8 @@ uuid=3437c515-a7ec-4314-b14a-d0324e3065dd
 intro=I accidentally ᚦᛖ᛫ᚱᚢᚾᛖᛋ
 tags=Linux
 style=
-styles=footnotes
+styles=footnotes img
+scripts=live
 created=2023-05-12
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
 
@@ -115,3 +116,16 @@ which translates (most of) these runes back to latin (English) text.
 
 [futhorc]: https://github.com/osakared/futhorc-keyboard-linux
 [trans]: https://valhyr.com/pages/rune-translator
+
+----
+
+**Update:** Worth keeeping these two illustrations around:
+
+Original map, drawn by J.R.R. Tolkien himself:
+![Thrors map](i-accidentally-the-runes-Thrors_map.jpg)
+from [Tolkien Gateway](https://tolkiengateway.net/wiki/File:J.R.R._Tolkien_-_Thror%27s_map.jpg)
+
+And its Russian translation:
+![karta Trora](i-accidentally-the-runes-karta-Trora.jpg)
+from [pikabu](https://pikabu.ru/story/karta_trora_9840645).
+Note how they translated the runes!! 🤯
