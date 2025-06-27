@@ -189,17 +189,6 @@
 		</div></content>
 		<category term="meta"/>
 	</entry> <!-- end lazyblog -->
-	<entry> <!-- begin mirrors -->
-		<title>mirrors</title>
-		<link href="http://alexey.shpakovsky.ru/en/mirrors.html"/>
-		<id>urn:uuid:89f17d0b-6767-4d9b-be5b-5499a38e19e2</id>
-		<updated>2024-12-23T14:03:54+00:00</updated>
-		<published>2022-01-23T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			Primary location of my blog is
-		</div></content>
-		<category term="links"/>
-	</entry> <!-- end mirrors -->
 	<entry> <!-- begin github-flavored-markdown -->
 		<title>GitHub Flavored Markdown</title>
 		<link href="http://alexey.shpakovsky.ru/en/github-flavored-markdown.html"/>
