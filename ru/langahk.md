@@ -2,7 +2,7 @@ title=удобное переключение языков
 intro=Shift - русский, Ctrl - норвежский, Windows - английский
 tags=autohotkey
 style=
-styles=img blockquote pre
+styles=img blockquote pre archive footnotes
 scripts=
 created=2025-03-31
 PROCESSOR=cmark-gfm --unsafe -e footnotes -e table -e strikethrough -e tasklist --strikethrough-double-tilde
@@ -148,3 +148,26 @@ uuid=3fdfb558-8b0b-4d7b-b7d9-aa7e553fcf3c
     2. Щелкнуть правой кнопкой мыши по пустому месту, выбрать "Paste" (Вставить)
 
     Можно на всякий случай перезагрузить комп, чтобы проверить, что действительно работает после перезагрузки.
+
+Альтернативы
+------------
+
+* На Хабре представлен [скрипт][a1][(архивная копия)][a1a], работающий без настройки Windows.
+Правда, его самого надо настраивать.
+
+* На Гитхабе лежит простое [приложение][a2][^1],
+позволяющее переключать языки по нажатию произвольной клавиши вместо комбинации Ctrl+Shift.
+
+* Ещё есть [reg-файл][a3], настраивающий переключение языков по Ctrl+цифра.
+Его, естественно, надо править "для себя", если опции, удобные его автору, Вам не подоходят.
+
+* В приложении [Punto Switcher][a4] также есть настройки горячих клавиш,
+правда какие - непонятно.
+
+[a1]: https://habr.com/ru/articles/783606/
+[a1a]: https://archive.is/0ZUi4
+[a2]: https://github.com/valodzka/lswitch
+[a3]: https://gist.github.com/eugrus/52dc90e6cb5da8de278f1afbc93969fa
+[a4]: https://yandex.ru/soft/punto/win/
+
+[^1]: см. файл "lswitch.exe" в папке "Release"

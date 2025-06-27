@@ -16,13 +16,15 @@ body {
 header a, footer a, small a {color: inherit !important} /* linktext */
 img {display:block; margin:auto; max-width:100%}
 blockquote {border-left:solid 3px gray;margin-left:1em;padding:0.1px 1em 0.1px 1em;background: rgba(128,128,128,0.5)}
-pre {border:solid 1px gray;background: rgba(128,128,128,0.5)} 
+pre {border:solid 1px gray;background: rgba(128,128,128,0.5)}
+a[href^="http://archive."],a[href^="https://archive."],a[href^="https://web.archive.org"] {font-size:x-small; vertical-align:sub}
+.footnotes {border-top: 1px solid #8888;font-size:smaller} 
 </style>
 </head><body>
 <header>
 	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-3fdfb558-8b0b-4d7b-b7d9-aa7e553fcf3c">удобное переключение языков</span></h1>
 	<small style="display:block; view-transition-name:small-3fdfb558-8b0b-4d7b-b7d9-aa7e553fcf3c">
-		Создано: <time>2025-03-31</time> &mdash; изменено: <time>2025-04-07</time> &mdash;
+		Создано: <time>2025-03-31</time> &mdash; изменено: <time>2025-05-25</time> &mdash;
 		теги: <a href="./#tag:autohotkey">autohotkey</a>
 	</small>
 	<hr>
@@ -242,6 +244,32 @@ LWin up::Send ^+3
 <p>Можно на всякий случай перезагрузить комп, чтобы проверить, что действительно работает после перезагрузки.</p>
 </li>
 </ol>
+<h2>Альтернативы</h2>
+<ul>
+<li>
+<p>На Хабре представлен <a href="https://habr.com/ru/articles/783606/">скрипт</a><a href="https://archive.is/0ZUi4">(архивная копия)</a>, работающий без настройки Windows.
+Правда, его самого надо настраивать.</p>
+</li>
+<li>
+<p>На Гитхабе лежит простое <a href="https://github.com/valodzka/lswitch">приложение</a><sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup>,
+позволяющее переключать языки по нажатию произвольной клавиши вместо комбинации Ctrl+Shift.</p>
+</li>
+<li>
+<p>Ещё есть <a href="https://gist.github.com/eugrus/52dc90e6cb5da8de278f1afbc93969fa">reg-файл</a>, настраивающий переключение языков по Ctrl+цифра.
+Его, естественно, надо править &quot;для себя&quot;, если опции, удобные его автору, Вам не подоходят.</p>
+</li>
+<li>
+<p>В приложении <a href="https://yandex.ru/soft/punto/win/">Punto Switcher</a> также есть настройки горячих клавиш,
+правда какие - непонятно.</p>
+</li>
+</ul>
+<section class="footnotes">
+<ol>
+<li id="fn1">
+<p>см. файл &quot;lswitch.exe&quot; в папке &quot;Release&quot; <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
 </main>
 <footer style="text-align: center">
 	<hr>
