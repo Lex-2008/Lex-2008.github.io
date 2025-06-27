@@ -20,7 +20,7 @@ header a, footer a, small a {color: inherit !important} /* linktext */
 <header>
 	<h1 style="border-bottom: 1px solid #8888"><span style="view-transition-name:title-7d668355-2282-4933-88d3-5c38e71c0cd7">Busybox-only pstree</span></h1>
 	<small style="display:block; view-transition-name:small-7d668355-2282-4933-88d3-5c38e71c0cd7">
-		Created: <time>2020-01-31</time> &mdash; modified: <time>2024-12-25</time> &mdash;
+		Created: <time>2020-01-31</time> &mdash; modified: <time>2025-05-19</time> &mdash;
 		tags: <a href="./#tag:bash">bash</a>
 	</small>
 	<hr>
@@ -47,10 +47,6 @@ grep 'PPid:' /proc/*/status | sed -r 's_/proc/([^/]*)/[^0-9]*([0-9]*)_\2 \1_' &g
 # ps -e -o pid,ppid,stime,args &gt;ps.ps
 # awk '{ print $2 &quot; &quot; $1 }' ps.ps &gt;ppids.ps
 
-# own pid - we don't show own children because they're guaranteed
-# to change between above two calls
-self=$$
-
 # function to show one process with all children, recursively
 # args:
 # * pid of process to show
@@ -58,11 +54,9 @@ self=$$
 showproc()
 {
 	# print current process
-	echo &quot;$2$(grep &quot;^ *$1 &quot; ps.ps || echo &quot;$1 ???&quot;)&quot;
-	# don't print own children
-	test $1 == $self &amp;&amp; return
+	sed &quot;/^ *$1 /!d;s/^/$2/&quot; ps.ps
 	# print children, adding two spaces to indent
-	for subpid in `grep &quot;^ *$1 &quot; ppids.ps | awk '{print $2}'`; do
+	for subpid in `sed &quot;/^$1 /!d;s/.* //&quot; ppids.ps`; do
 		showproc $subpid &quot;  $2&quot;
 	done
 }

@@ -26,10 +26,6 @@ Just use this script:
 	# ps -e -o pid,ppid,stime,args >ps.ps
 	# awk '{ print $2 " " $1 }' ps.ps >ppids.ps
 
-	# own pid - we don't show own children because they're guaranteed
-	# to change between above two calls
-	self=$$
-
 	# function to show one process with all children, recursively
 	# args:
 	# * pid of process to show
@@ -37,11 +33,9 @@ Just use this script:
 	showproc()
 	{
 		# print current process
-		echo "$2$(grep "^ *$1 " ps.ps || echo "$1 ???")"
-		# don't print own children
-		test $1 == $self && return
+		sed "/^ *$1 /!d;s/^/$2/" ps.ps
 		# print children, adding two spaces to indent
-		for subpid in `grep "^ *$1 " ppids.ps | awk '{print $2}'`; do
+		for subpid in `sed "/^$1 /!d;s/.* //" ppids.ps`; do
 			showproc $subpid "  $2"
 		done
 	}
