@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>Notes</title>
 	<subtitle>Notes about different stuff</subtitle>
-	<updated>2025-05-02T16:46:23+00:00</updated>
+	<updated>2025-05-19T09:53:40+00:00</updated>
 	<id>http://alexey.shpakovsky.ru/en</id>
 	<link rel="self" href="http://alexey.shpakovsky.ru/en/"/>
 	<link rel="related" href="http://alexey.shpakovsky.ru/ru/" title="Russian blog"/>
@@ -18,6 +18,17 @@
 	<generator uri="https://github.com/lex-2008/lazyblog">lazyblog</generator>
 	
 	<!-- put contents below -->
+	<entry> <!-- begin busybox-only-pstree -->
+		<title>Busybox-only pstree</title>
+		<link href="http://alexey.shpakovsky.ru/en/busybox-only-pstree.html"/>
+		<id>urn:uuid:7d668355-2282-4933-88d3-5c38e71c0cd7</id>
+		<updated>2025-05-19T09:53:40+00:00</updated>
+		<published>2020-01-31T00:00:00+00:00</published>
+		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+			For when you're on limited environment but want to see a process tree
+		</div></content>
+		<category term="bash"/>
+	</entry> <!-- end busybox-only-pstree -->
 	<entry> <!-- begin i-accidentally-the-runes -->
 		<title>How to add custom keyboard layout on Linux</title>
 		<link href="http://alexey.shpakovsky.ru/en/i-accidentally-the-runes.html"/>
@@ -111,17 +122,6 @@
 		</div></content>
 		<category term="meta"/>
 	</entry> <!-- end my-blog-is-also-rss-feed -->
-	<entry> <!-- begin busybox-only-pstree -->
-		<title>Busybox-only pstree</title>
-		<link href="http://alexey.shpakovsky.ru/en/busybox-only-pstree.html"/>
-		<id>urn:uuid:7d668355-2282-4933-88d3-5c38e71c0cd7</id>
-		<updated>2024-12-24T23:19:52+00:00</updated>
-		<published>2020-01-31T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			For when you're on limited environment but want to see a process tree
-		</div></content>
-		<category term="bash"/>
-	</entry> <!-- end busybox-only-pstree -->
 	<entry> <!-- begin textarea -->
 		<title>textarea</title>
 		<link href="http://alexey.shpakovsky.ru/en/textarea.html"/>
@@ -224,18 +224,6 @@
 		<category term="fun"/>
 		<category term="grafana"/>
 	</entry> <!-- end blog-posts-in-grafana -->
-	<entry> <!-- begin rss -->
-		<title>rss</title>
-		<link href="http://alexey.shpakovsky.ru/en/rss.html"/>
-		<id>urn:uuid:1797324a-639b-4897-a19c-849b264fe1be</id>
-		<updated>2024-12-23T13:49:41+00:00</updated>
-		<published>2024-11-12T00:00:00+00:00</published>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
-			If someone wants to be notified about new posts in my blog via RSS, they can use a simple RSS generator
-		</div></content>
-		<category term="meta"/>
-		<category term="links"/>
-	</entry> <!-- end rss -->
 	<entry> <!-- begin ed-man-man-ed -->
 		<title>Ed, man! !man ed</title>
 		<link href="http://alexey.shpakovsky.ru/en/ed-man-man-ed.html"/>
